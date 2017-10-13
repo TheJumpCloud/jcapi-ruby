@@ -1,0 +1,335 @@
+# SwaggerClient::TagsApi
+
+All URIs are relative to *https://console.jumpcloud.com/api*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**tags_delete**](TagsApi.md#tags_delete) | **DELETE** /tags/{name} | Delete a Tag
+[**tags_get**](TagsApi.md#tags_get) | **GET** /Tags/{name} | List a Tag
+[**tags_list**](TagsApi.md#tags_list) | **GET** /tags | List All Tags
+[**tags_post**](TagsApi.md#tags_post) | **POST** /tags | Create a Tag
+[**tags_put**](TagsApi.md#tags_put) | **PUT** /Tag/{name} | Update a Tag
+
+
+# **tags_delete**
+> Tag tags_delete(name, content_type, accept)
+
+Delete a Tag
+
+Delete a Tag.
+
+### Example
+```ruby
+# load the gem
+require 'swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = SwaggerClient::TagsApi.new
+
+name = "name_example" # String | 
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+
+begin
+  #Delete a Tag
+  result = api_instance.tags_delete(name, content_type, accept)
+  p result
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling TagsApi->tags_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**|  | 
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+
+### Return type
+
+[**Tag**](Tag.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json; charset=utf-8
+
+
+
+# **tags_get**
+> Tag tags_get(name, content_type, accept, opts)
+
+List a Tag
+
+Returns a specific tag.
+
+### Example
+```ruby
+# load the gem
+require 'swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = SwaggerClient::TagsApi.new
+
+name = "name_example" # String | 
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  fields: "", # String | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
+  limit: 10, # Integer | The number of records to return at once.
+  skip: 0, # Integer | The offset into the records to return.
+  sort: "" # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+}
+
+begin
+  #List a Tag
+  result = api_instance.tags_get(name, content_type, accept, opts)
+  p result
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling TagsApi->tags_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**|  | 
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **fields** | **String**| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to ]
+ **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **sort** | **String**| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+
+### Return type
+
+[**Tag**](Tag.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json; charset=utf-8
+
+
+
+# **tags_list**
+> Tagslist tags_list(content_type, accept, opts)
+
+List All Tags
+
+Returns all Tags.
+
+### Example
+```ruby
+# load the gem
+require 'swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = SwaggerClient::TagsApi.new
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  fields: "", # String | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
+  limit: 10, # Integer | The number of records to return at once.
+  skip: 0, # Integer | The offset into the records to return.
+  sort: "" # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+}
+
+begin
+  #List All Tags
+  result = api_instance.tags_list(content_type, accept, opts)
+  p result
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling TagsApi->tags_list: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **fields** | **String**| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to ]
+ **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **sort** | **String**| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+
+### Return type
+
+[**Tagslist**](Tagslist.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json; charset=utf-8
+
+
+
+# **tags_post**
+> Tag tags_post(content_type, accept, opts)
+
+Create a Tag
+
+Create a tag.
+
+### Example
+```ruby
+# load the gem
+require 'swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = SwaggerClient::TagsApi.new
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  body: SwaggerClient::Tagpost.new # Tagpost | 
+}
+
+begin
+  #Create a Tag
+  result = api_instance.tags_post(content_type, accept, opts)
+  p result
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling TagsApi->tags_post: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **body** | [**Tagpost**](Tagpost.md)|  | [optional] 
+
+### Return type
+
+[**Tag**](Tag.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json; charset=utf-8
+
+
+
+# **tags_put**
+> Tag tags_put(name, content_type, accept, opts)
+
+Update a Tag
+
+Update a specific tag.
+
+### Example
+```ruby
+# load the gem
+require 'swagger_client'
+# setup authorization
+SwaggerClient.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = SwaggerClient::TagsApi.new
+
+name = "name_example" # String | 
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  body: SwaggerClient::Tagput.new # Tagput | 
+}
+
+begin
+  #Update a Tag
+  result = api_instance.tags_put(name, content_type, accept, opts)
+  p result
+rescue SwaggerClient::ApiError => e
+  puts "Exception when calling TagsApi->tags_put: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**|  | 
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **body** | [**Tagput**](Tagput.md)|  | [optional] 
+
+### Return type
+
+[**Tag**](Tag.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json; charset=utf-8
+
+
+

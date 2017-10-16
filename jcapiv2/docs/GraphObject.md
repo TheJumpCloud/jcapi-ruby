@@ -1,4 +1,4 @@
-# SwaggerClient::GraphObject
+# JCAPIv2::GraphObject
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# SwaggerClient::Tagput
+# JCAPIv1::Tagput
 
 ## Properties
 Name | Type | Description | Notes

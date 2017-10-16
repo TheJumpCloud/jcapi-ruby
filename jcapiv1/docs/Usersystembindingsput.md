@@ -1,4 +1,4 @@
-# SwaggerClient::Usersystembindingsput
+# JCAPIv1::Usersystembindingsput
 
 ## Properties
 Name | Type | Description | Notes

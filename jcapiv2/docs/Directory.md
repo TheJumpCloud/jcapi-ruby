@@ -1,4 +1,4 @@
-# SwaggerClient::Directory
+# JCAPIv2::Directory
 
 ## Properties
 Name | Type | Description | Notes

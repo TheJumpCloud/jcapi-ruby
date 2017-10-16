@@ -1,4 +1,4 @@
-# SwaggerClient::ApplicationConfigConstantAttributes
+# JCAPIv1::ApplicationConfigConstantAttributes
 
 ## Properties
 Name | Type | Description | Notes

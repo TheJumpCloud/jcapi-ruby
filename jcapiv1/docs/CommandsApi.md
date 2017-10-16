@@ -1,4 +1,4 @@
-# SwaggerClient::CommandsApi
+# JCAPIv1::CommandsApi
 
 All URIs are relative to *https://console.jumpcloud.com/api*
 
@@ -21,16 +21,16 @@ Delete a specific command.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv1'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv1.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::CommandsApi.new
+api_instance = JCAPIv1::CommandsApi.new
 
 id = "id_example" # String | 
 
@@ -42,7 +42,7 @@ accept = "application/json" # String |
 begin
   #Delete a Command
   api_instance.commands_delete(id, content_type, accept)
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv1::ApiError => e
   puts "Exception when calling CommandsApi->commands_delete: #{e}"
 end
 ```
@@ -80,16 +80,16 @@ Return a single command using the command ID.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv1'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv1.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::CommandsApi.new
+api_instance = JCAPIv1::CommandsApi.new
 
 id = "id_example" # String | 
 
@@ -108,7 +108,7 @@ begin
   #List an individual Command
   result = api_instance.commands_get(id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv1::ApiError => e
   puts "Exception when calling CommandsApi->commands_get: #{e}"
 end
 ```
@@ -150,16 +150,16 @@ Return all commands.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv1'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv1.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::CommandsApi.new
+api_instance = JCAPIv1::CommandsApi.new
 
 content_type = "application/json" # String | 
 
@@ -176,7 +176,7 @@ begin
   #List All Commands
   result = api_instance.commands_list(content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv1::ApiError => e
   puts "Exception when calling CommandsApi->commands_list: #{e}"
 end
 ```
@@ -217,30 +217,30 @@ Create a new command.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv1'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv1.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::CommandsApi.new
+api_instance = JCAPIv1::CommandsApi.new
 
 content_type = "application/json" # String | 
 
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::Command.new # Command | 
+  body: JCAPIv1::Command.new # Command | 
 }
 
 begin
   #Create A Command
   result = api_instance.commands_post(content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv1::ApiError => e
   puts "Exception when calling CommandsApi->commands_post: #{e}"
 end
 ```
@@ -278,16 +278,16 @@ Updates a command record from the command ID and returns the modified command re
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv1'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv1.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::CommandsApi.new
+api_instance = JCAPIv1::CommandsApi.new
 
 id = "id_example" # String | 
 
@@ -296,14 +296,14 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::Command.new # Command | 
+  body: JCAPIv1::Command.new # Command | 
 }
 
 begin
   #Update a Command
   result = api_instance.commands_put(id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv1::ApiError => e
   puts "Exception when calling CommandsApi->commands_put: #{e}"
 end
 ```

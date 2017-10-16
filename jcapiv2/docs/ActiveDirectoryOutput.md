@@ -1,4 +1,4 @@
-# SwaggerClient::ActiveDirectoryOutput
+# JCAPIv2::ActiveDirectoryOutput
 
 ## Properties
 Name | Type | Description | Notes

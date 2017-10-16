@@ -1,4 +1,4 @@
-# SwaggerClient::CommandresultResponse
+# JCAPIv1::CommandresultResponse
 
 ## Properties
 Name | Type | Description | Notes

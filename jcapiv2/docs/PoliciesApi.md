@@ -1,4 +1,4 @@
-# SwaggerClient::PoliciesApi
+# JCAPIv2::PoliciesApi
 
 All URIs are relative to *https://console.jumpcloud.com/api/v2*
 
@@ -30,16 +30,16 @@ This endpoint returns the _direct_ associations of a Policy.  A direct associati
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::PoliciesApi.new
+api_instance = JCAPIv2::PoliciesApi.new
 
 policy_id = "policy_id_example" # String | ObjectID of the Policy.
 
@@ -58,7 +58,7 @@ begin
   #List the associations of a Policy
   result = api_instance.graph_policy_associations_list(policy_id, targets, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling PoliciesApi->graph_policy_associations_list: #{e}"
 end
 ```
@@ -99,16 +99,16 @@ This endpoint allows you to manage the _direct_ associations of a Policy.  A dir
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::PoliciesApi.new
+api_instance = JCAPIv2::PoliciesApi.new
 
 policy_id = "policy_id_example" # String | ObjectID of the Policy.
 
@@ -117,13 +117,13 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::GraphManagementReq.new # GraphManagementReq | 
+  body: JCAPIv2::GraphManagementReq.new # GraphManagementReq | 
 }
 
 begin
   #Manage the associations of a Policy
   api_instance.graph_policy_associations_post(policy_id, content_type, accept, opts)
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling PoliciesApi->graph_policy_associations_post: #{e}"
 end
 ```
@@ -162,16 +162,16 @@ This endpoint will return Systems associated with a Policy. Each element will co
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::PoliciesApi.new
+api_instance = JCAPIv2::PoliciesApi.new
 
 policy_id = "policy_id_example" # String | ObjectID of the Command.
 
@@ -188,7 +188,7 @@ begin
   #List the Systems associated with a Policy
   result = api_instance.graph_policy_traverse_system(policy_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling PoliciesApi->graph_policy_traverse_system: #{e}"
 end
 ```
@@ -228,16 +228,16 @@ This endpoint will return System Groups associated with a Policy. Each element w
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::PoliciesApi.new
+api_instance = JCAPIv2::PoliciesApi.new
 
 policy_id = "policy_id_example" # String | ObjectID of the Command.
 
@@ -254,7 +254,7 @@ begin
   #List the System Groups associated with a Policy
   result = api_instance.graph_policy_traverse_system_group(policy_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling PoliciesApi->graph_policy_traverse_system_group: #{e}"
 end
 ```
@@ -294,16 +294,16 @@ This endpoint allows you to delete a policy.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::PoliciesApi.new
+api_instance = JCAPIv2::PoliciesApi.new
 
 id = "id_example" # String | ObjectID of the Policy object.
 
@@ -315,7 +315,7 @@ accept = "application/json" # String |
 begin
   #Deletes a Policy
   api_instance.policies_delete(id, content_type, accept)
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling PoliciesApi->policies_delete: #{e}"
 end
 ```
@@ -353,16 +353,16 @@ This endpoint returns a specific policy.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::PoliciesApi.new
+api_instance = JCAPIv2::PoliciesApi.new
 
 id = "id_example" # String | ObjectID of the Policy object.
 
@@ -375,7 +375,7 @@ begin
   #Gets a specific Policy.
   result = api_instance.policies_get(id, content_type, accept)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling PoliciesApi->policies_get: #{e}"
 end
 ```
@@ -413,16 +413,16 @@ This endpoint returns all policies.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::PoliciesApi.new
+api_instance = JCAPIv2::PoliciesApi.new
 
 content_type = "application/json" # String | 
 
@@ -440,7 +440,7 @@ begin
   #Lists all the Policies
   result = api_instance.policies_list(content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling PoliciesApi->policies_list: #{e}"
 end
 ```
@@ -482,30 +482,30 @@ This endpoint allows you to create a policy.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::PoliciesApi.new
+api_instance = JCAPIv2::PoliciesApi.new
 
 content_type = "application/json" # String | 
 
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::PolicyRequest.new # PolicyRequest | 
+  body: JCAPIv2::PolicyRequest.new # PolicyRequest | 
 }
 
 begin
   #Create a new Policy
   result = api_instance.policies_post(content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling PoliciesApi->policies_post: #{e}"
 end
 ```
@@ -543,28 +543,28 @@ This endpoint allows you to update a policy.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::PoliciesApi.new
+api_instance = JCAPIv2::PoliciesApi.new
 
 id = "id_example" # String | ObjectID of the Policy object.
 
 opts = { 
-  body: SwaggerClient::PolicyRequest.new # PolicyRequest | 
+  body: JCAPIv2::PolicyRequest.new # PolicyRequest | 
 }
 
 begin
   #Update an existing Policy
   result = api_instance.policies_put(id, , opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling PoliciesApi->policies_put: #{e}"
 end
 ```
@@ -599,16 +599,16 @@ Get a specific Policy Result.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::PoliciesApi.new
+api_instance = JCAPIv2::PoliciesApi.new
 
 id = "id_example" # String | ObjectID of the Policy Result.
 
@@ -621,7 +621,7 @@ begin
   #Get a specific Policy Result.
   result = api_instance.policyresults_get(id, content_type, accept)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling PoliciesApi->policyresults_get: #{e}"
 end
 ```
@@ -657,16 +657,16 @@ Lists all the policy results of a given policy.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::PoliciesApi.new
+api_instance = JCAPIv2::PoliciesApi.new
 
 policy_id = "policy_id_example" # String | 
 
@@ -687,7 +687,7 @@ begin
   #Lists all the policy results of a given policy.
   result = api_instance.policyresults_list(policy_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling PoliciesApi->policyresults_list: #{e}"
 end
 ```
@@ -729,16 +729,16 @@ Lists all the policy results for an organization.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::PoliciesApi.new
+api_instance = JCAPIv2::PoliciesApi.new
 
 content_type = "application/json" # String | 
 
@@ -757,7 +757,7 @@ begin
   #Lists all the policy results for an organization.
   result = api_instance.policyresults_list_0(content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling PoliciesApi->policyresults_list_0: #{e}"
 end
 ```
@@ -800,16 +800,16 @@ This endpoint returns a specific policy template.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::PoliciesApi.new
+api_instance = JCAPIv2::PoliciesApi.new
 
 id = "id_example" # String | ObjectID of the Policy Template.
 
@@ -822,7 +822,7 @@ begin
   #Get a specific Policy Template
   result = api_instance.policytemplates_get(id, content_type, accept)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling PoliciesApi->policytemplates_get: #{e}"
 end
 ```
@@ -860,16 +860,16 @@ This endpoint returns all policy templates.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::PoliciesApi.new
+api_instance = JCAPIv2::PoliciesApi.new
 
 content_type = "application/json" # String | 
 
@@ -887,7 +887,7 @@ begin
   #Lists all of the Policy Templates
   result = api_instance.policytemplates_list(content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling PoliciesApi->policytemplates_list: #{e}"
 end
 ```

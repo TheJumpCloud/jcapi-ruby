@@ -1,4 +1,4 @@
-# SwaggerClient::UserGroupDataAttributesPosixGroups
+# JCAPIv2::UserGroupDataAttributesPosixGroups
 
 ## Properties
 Name | Type | Description | Notes

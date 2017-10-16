@@ -1,4 +1,4 @@
-# SwaggerClient::Systemuserslist
+# JCAPIv1::Systemuserslist
 
 ## Properties
 Name | Type | Description | Notes

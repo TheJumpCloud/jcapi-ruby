@@ -1,4 +1,4 @@
-# SwaggerClient::Tagpost
+# JCAPIv1::Tagpost
 
 ## Properties
 Name | Type | Description | Notes

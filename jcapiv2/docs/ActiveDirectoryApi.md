@@ -1,4 +1,4 @@
-# SwaggerClient::ActiveDirectoryApi
+# JCAPIv2::ActiveDirectoryApi
 
 All URIs are relative to *https://console.jumpcloud.com/api/v2*
 
@@ -23,16 +23,16 @@ This endpoint allows you to delete an Active Directory.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::ActiveDirectoryApi.new
+api_instance = JCAPIv2::ActiveDirectoryApi.new
 
 id = "id_example" # String | ObjectID of this Active Directory instance.
 
@@ -44,7 +44,7 @@ accept = "application/json" # String |
 begin
   #Delete an Active Directory
   api_instance.activedirectories_delete(id, content_type, accept)
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling ActiveDirectoryApi->activedirectories_delete: #{e}"
 end
 ```
@@ -82,16 +82,16 @@ This endpoint returns a specific Active Directory.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::ActiveDirectoryApi.new
+api_instance = JCAPIv2::ActiveDirectoryApi.new
 
 id = "id_example" # String | ObjectID of this Active Directory instance.
 
@@ -104,7 +104,7 @@ begin
   #Get an Active Directory
   result = api_instance.activedirectories_get(id, content_type, accept)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling ActiveDirectoryApi->activedirectories_get: #{e}"
 end
 ```
@@ -140,16 +140,16 @@ List Active Directories
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::ActiveDirectoryApi.new
+api_instance = JCAPIv2::ActiveDirectoryApi.new
 
 content_type = "application/json" # String | 
 
@@ -167,7 +167,7 @@ begin
   #List Active Directories
   result = api_instance.activedirectories_list(content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling ActiveDirectoryApi->activedirectories_list: #{e}"
 end
 ```
@@ -209,30 +209,30 @@ This endpoint allows you to create a new Active Directory.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::ActiveDirectoryApi.new
+api_instance = JCAPIv2::ActiveDirectoryApi.new
 
 content_type = "application/json" # String | 
 
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::ActiveDirectoryInput.new # ActiveDirectoryInput | 
+  body: JCAPIv2::ActiveDirectoryInput.new # ActiveDirectoryInput | 
 }
 
 begin
   #Create a new Active Directory
   result = api_instance.activedirectories_post(content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling ActiveDirectoryApi->activedirectories_post: #{e}"
 end
 ```
@@ -270,16 +270,16 @@ This endpoint returns the direct associations of this Active Directory instance.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::ActiveDirectoryApi.new
+api_instance = JCAPIv2::ActiveDirectoryApi.new
 
 activedirectory_id = "activedirectory_id_example" # String | 
 
@@ -298,7 +298,7 @@ begin
   #List the associations of an Active Directory instance
   result = api_instance.graph_active_directory_associations_list(activedirectory_id, targets, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling ActiveDirectoryApi->graph_active_directory_associations_list: #{e}"
 end
 ```
@@ -339,16 +339,16 @@ This endpoint allows you to manage the _direct_ associations of an Active Direct
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::ActiveDirectoryApi.new
+api_instance = JCAPIv2::ActiveDirectoryApi.new
 
 activedirectory_id = "activedirectory_id_example" # String | 
 
@@ -357,13 +357,13 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::GraphManagementReq.new # GraphManagementReq | 
+  body: JCAPIv2::GraphManagementReq.new # GraphManagementReq | 
 }
 
 begin
   #Manage the associations of an Active Directory instance
   api_instance.graph_active_directory_associations_post(activedirectory_id, content_type, accept, opts)
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling ActiveDirectoryApi->graph_active_directory_associations_post: #{e}"
 end
 ```
@@ -402,16 +402,16 @@ This endpoint will return User Groups associated with an Active Directory instan
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::ActiveDirectoryApi.new
+api_instance = JCAPIv2::ActiveDirectoryApi.new
 
 activedirectory_id = "activedirectory_id_example" # String | ObjectID of the Active Directory instance.
 
@@ -428,7 +428,7 @@ begin
   #List the User Groups associated with an Active Directory instance
   result = api_instance.graph_active_directory_traverse_user_group(activedirectory_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling ActiveDirectoryApi->graph_active_directory_traverse_user_group: #{e}"
 end
 ```

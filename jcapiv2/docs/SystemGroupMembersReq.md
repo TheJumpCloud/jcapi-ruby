@@ -1,4 +1,4 @@
-# SwaggerClient::SystemGroupMembersReq
+# JCAPIv2::SystemGroupMembersReq
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# SwaggerClient::Search
+# JCAPIv1::Search
 
 ## Properties
 Name | Type | Description | Notes

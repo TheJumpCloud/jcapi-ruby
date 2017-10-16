@@ -1,4 +1,4 @@
-# SwaggerClient::SystemGroupsApi
+# JCAPIv2::SystemGroupsApi
 
 All URIs are relative to *https://console.jumpcloud.com/api/v2*
 
@@ -31,16 +31,16 @@ This endpoint returns the _direct_ associations of a System Group.  A direct ass
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemGroupsApi.new
+api_instance = JCAPIv2::SystemGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the System Group.
 
@@ -59,7 +59,7 @@ begin
   #List the associations of a System Group
   result = api_instance.graph_system_group_associations_list(group_id, targets, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SystemGroupsApi->graph_system_group_associations_list: #{e}"
 end
 ```
@@ -100,16 +100,16 @@ This endpoint allows you to manage the _direct_ associations of a System Group. 
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemGroupsApi.new
+api_instance = JCAPIv2::SystemGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the System Group.
 
@@ -118,13 +118,13 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::SystemGroupGraphManagementReq.new # SystemGroupGraphManagementReq | 
+  body: JCAPIv2::SystemGroupGraphManagementReq.new # SystemGroupGraphManagementReq | 
 }
 
 begin
   #Manage the associations of a System Group
   api_instance.graph_system_group_associations_post(group_id, content_type, accept, opts)
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SystemGroupsApi->graph_system_group_associations_post: #{e}"
 end
 ```
@@ -163,16 +163,16 @@ This endpoint returns all System Groups a System Group is a member of.  This end
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemGroupsApi.new
+api_instance = JCAPIv2::SystemGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the System Group.
 
@@ -189,7 +189,7 @@ begin
   #List the System Group's parents
   result = api_instance.graph_system_group_member_of(group_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SystemGroupsApi->graph_system_group_member_of: #{e}"
 end
 ```
@@ -229,16 +229,16 @@ This endpoint returns the system members of a System Group.  #### Sample Request
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemGroupsApi.new
+api_instance = JCAPIv2::SystemGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the System Group.
 
@@ -255,7 +255,7 @@ begin
   #List the members of a System Group
   result = api_instance.graph_system_group_members_list(group_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SystemGroupsApi->graph_system_group_members_list: #{e}"
 end
 ```
@@ -295,16 +295,16 @@ This endpoint allows you to manage the system members of a System Group.  #### S
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemGroupsApi.new
+api_instance = JCAPIv2::SystemGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the System Group.
 
@@ -313,13 +313,13 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::SystemGroupMembersReq.new # SystemGroupMembersReq | 
+  body: JCAPIv2::SystemGroupMembersReq.new # SystemGroupMembersReq | 
 }
 
 begin
   #Manage the members of a System Group
   api_instance.graph_system_group_members_post(group_id, content_type, accept, opts)
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SystemGroupsApi->graph_system_group_members_post: #{e}"
 end
 ```
@@ -358,16 +358,16 @@ This endpoint returns all Systems that are a member of this System Group.  #### 
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemGroupsApi.new
+api_instance = JCAPIv2::SystemGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the System Group.
 
@@ -384,7 +384,7 @@ begin
   #List the System Group's membership
   result = api_instance.graph_system_group_membership(group_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SystemGroupsApi->graph_system_group_membership: #{e}"
 end
 ```
@@ -424,16 +424,16 @@ This endpoint will return Policies associated with a System Group. Each element 
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemGroupsApi.new
+api_instance = JCAPIv2::SystemGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the System Group.
 
@@ -450,7 +450,7 @@ begin
   #List the Policies associated with a System Group
   result = api_instance.graph_system_group_traverse_policy(group_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SystemGroupsApi->graph_system_group_traverse_policy: #{e}"
 end
 ```
@@ -490,16 +490,16 @@ This endpoint will return Users associated with a System Group. Each element wil
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemGroupsApi.new
+api_instance = JCAPIv2::SystemGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the System Group.
 
@@ -516,7 +516,7 @@ begin
   #List the Users associated with a System Group
   result = api_instance.graph_system_group_traverse_user(group_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SystemGroupsApi->graph_system_group_traverse_user: #{e}"
 end
 ```
@@ -556,16 +556,16 @@ This endpoint will return User Groups associated with a System Group. Each eleme
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemGroupsApi.new
+api_instance = JCAPIv2::SystemGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the System Group.
 
@@ -582,7 +582,7 @@ begin
   #List the User Groups associated with a System Group
   result = api_instance.graph_system_group_traverse_user_group(group_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SystemGroupsApi->graph_system_group_traverse_user_group: #{e}"
 end
 ```
@@ -622,16 +622,16 @@ This endpoint allows you to delete a System Group.  #### Sample Request ``` http
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemGroupsApi.new
+api_instance = JCAPIv2::SystemGroupsApi.new
 
 id = "id_example" # String | ObjectID of the System Group.
 
@@ -643,7 +643,7 @@ accept = "application/json" # String |
 begin
   #Delete a System Group
   api_instance.groups_system_delete(id, content_type, accept)
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SystemGroupsApi->groups_system_delete: #{e}"
 end
 ```
@@ -681,16 +681,16 @@ This endpoint returns the details of a System Group.  #### Sample Request ``` ht
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemGroupsApi.new
+api_instance = JCAPIv2::SystemGroupsApi.new
 
 id = "id_example" # String | ObjectID of the System Group.
 
@@ -703,7 +703,7 @@ begin
   #View an individual System Group details
   result = api_instance.groups_system_get(id, content_type, accept)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SystemGroupsApi->groups_system_get: #{e}"
 end
 ```
@@ -741,16 +741,16 @@ This endpoint returns all System Groups.  Available filter fields:   - `name`   
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemGroupsApi.new
+api_instance = JCAPIv2::SystemGroupsApi.new
 
 content_type = "application/json" # String | 
 
@@ -768,7 +768,7 @@ begin
   #List all System Groups
   result = api_instance.groups_system_list(content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SystemGroupsApi->groups_system_list: #{e}"
 end
 ```
@@ -810,16 +810,16 @@ We have hidden PATCH on the systemgroups and usergroups for now; we don't have t
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemGroupsApi.new
+api_instance = JCAPIv2::SystemGroupsApi.new
 
 id = "id_example" # String | ObjectID of the System Group.
 
@@ -828,14 +828,14 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::SystemGroupData.new # SystemGroupData | 
+  body: JCAPIv2::SystemGroupData.new # SystemGroupData | 
 }
 
 begin
   #Partial update a System Group
   result = api_instance.groups_system_patch(id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SystemGroupsApi->groups_system_patch: #{e}"
 end
 ```
@@ -874,30 +874,30 @@ This endpoint allows you to create a new System Group.  #### Sample Request  ```
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemGroupsApi.new
+api_instance = JCAPIv2::SystemGroupsApi.new
 
 content_type = "application/json" # String | 
 
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::SystemGroupData.new # SystemGroupData | 
+  body: JCAPIv2::SystemGroupData.new # SystemGroupData | 
 }
 
 begin
   #Create a new System Group
   result = api_instance.groups_system_post(content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SystemGroupsApi->groups_system_post: #{e}"
 end
 ```
@@ -935,16 +935,16 @@ This enpoint allows you to do a full update of the System Group.  #### Sample Re
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemGroupsApi.new
+api_instance = JCAPIv2::SystemGroupsApi.new
 
 id = "id_example" # String | ObjectID of the System Group.
 
@@ -953,14 +953,14 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::SystemGroupData.new # SystemGroupData | 
+  body: JCAPIv2::SystemGroupData.new # SystemGroupData | 
 }
 
 begin
   #Update a System Group
   result = api_instance.groups_system_put(id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SystemGroupsApi->groups_system_put: #{e}"
 end
 ```

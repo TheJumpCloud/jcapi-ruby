@@ -1,4 +1,4 @@
-# SwaggerClient::System
+# JCAPIv1::System
 
 ## Properties
 Name | Type | Description | Notes

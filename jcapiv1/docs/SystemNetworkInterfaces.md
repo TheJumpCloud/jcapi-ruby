@@ -1,4 +1,4 @@
-# SwaggerClient::SystemNetworkInterfaces
+# JCAPIv1::SystemNetworkInterfaces
 
 ## Properties
 Name | Type | Description | Notes

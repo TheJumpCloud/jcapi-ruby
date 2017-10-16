@@ -1,4 +1,4 @@
-# SwaggerClient::PolicyWithDetails
+# JCAPIv2::PolicyWithDetails
 
 ## Properties
 Name | Type | Description | Notes

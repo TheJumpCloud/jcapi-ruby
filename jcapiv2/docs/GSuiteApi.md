@@ -1,4 +1,4 @@
-# SwaggerClient::GSuiteApi
+# JCAPIv2::GSuiteApi
 
 All URIs are relative to *https://console.jumpcloud.com/api/v2*
 
@@ -20,16 +20,16 @@ This endpoint returns the _direct_ associations of this G Suite instance.  A dir
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::GSuiteApi.new
+api_instance = JCAPIv2::GSuiteApi.new
 
 gsuite_id = "gsuite_id_example" # String | ObjectID of the G Suite instance.
 
@@ -48,7 +48,7 @@ begin
   #List the associations of a G Suite instance
   result = api_instance.graph_g_suite_associations_list(gsuite_idtargets, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling GSuiteApi->graph_g_suite_associations_list: #{e}"
 end
 ```
@@ -89,27 +89,27 @@ This endpoint returns the _direct_ associations of this G Suite instance.  A dir
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::GSuiteApi.new
+api_instance = JCAPIv2::GSuiteApi.new
 
 gsuite_id = "gsuite_id_example" # String | ObjectID of the G Suite instance.
 
 opts = { 
-  body: SwaggerClient::GraphManagementReq.new # GraphManagementReq | 
+  body: JCAPIv2::GraphManagementReq.new # GraphManagementReq | 
 }
 
 begin
   #Manage the associations of a G Suite instance
   api_instance.graph_g_suite_associations_post(gsuite_id, opts)
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling GSuiteApi->graph_g_suite_associations_post: #{e}"
 end
 ```
@@ -146,16 +146,16 @@ This endpoint will return Users associated with a G Suite instance. Each element
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::GSuiteApi.new
+api_instance = JCAPIv2::GSuiteApi.new
 
 gsuite_id = "gsuite_id_example" # String | ObjectID of the G Suite instance.
 
@@ -172,7 +172,7 @@ begin
   #List the Users associated with a G Suite instance
   result = api_instance.graph_g_suite_traverse_user(gsuite_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling GSuiteApi->graph_g_suite_traverse_user: #{e}"
 end
 ```
@@ -212,16 +212,16 @@ This endpoint will return User Groups associated with a G Suite instance. Each e
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::GSuiteApi.new
+api_instance = JCAPIv2::GSuiteApi.new
 
 gsuite_id = "gsuite_id_example" # String | ObjectID of the G Suite instance.
 
@@ -238,7 +238,7 @@ begin
   #List the User Groups associated with a G Suite instance
   result = api_instance.graph_g_suite_traverse_user_group(gsuite_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling GSuiteApi->graph_g_suite_traverse_user_group: #{e}"
 end
 ```

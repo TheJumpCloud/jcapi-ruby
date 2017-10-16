@@ -1,4 +1,4 @@
-# SwaggerClient::UserGroupsApi
+# JCAPIv2::UserGroupsApi
 
 All URIs are relative to *https://console.jumpcloud.com/api/v2*
 
@@ -37,16 +37,16 @@ This endpoint returns the _direct_ associations of this User Group.  A direct as
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UserGroupsApi.new
+api_instance = JCAPIv2::UserGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the User Group.
 
@@ -65,7 +65,7 @@ begin
   #List the associations of a User Group.
   result = api_instance.graph_user_group_associations_list(group_id, targets, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UserGroupsApi->graph_user_group_associations_list: #{e}"
 end
 ```
@@ -106,16 +106,16 @@ This endpoint manages the _direct_ associations of this User Group.  A direct as
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UserGroupsApi.new
+api_instance = JCAPIv2::UserGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the User Group.
 
@@ -124,13 +124,13 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::UserGroupGraphManagementReq.new # UserGroupGraphManagementReq | 
+  body: JCAPIv2::UserGroupGraphManagementReq.new # UserGroupGraphManagementReq | 
 }
 
 begin
   #Manage the associations of a User Group
   api_instance.graph_user_group_associations_post(group_id, content_type, accept, opts)
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UserGroupsApi->graph_user_group_associations_post: #{e}"
 end
 ```
@@ -169,16 +169,16 @@ This endpoint returns all User Groups a User Group is a member of.  #### Sample 
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UserGroupsApi.new
+api_instance = JCAPIv2::UserGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the User Group.
 
@@ -195,7 +195,7 @@ begin
   #List the User Group's parents
   result = api_instance.graph_user_group_member_of(group_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UserGroupsApi->graph_user_group_member_of: #{e}"
 end
 ```
@@ -235,16 +235,16 @@ This endpoint returns the user members of a User Group.  #### Sample Request ```
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UserGroupsApi.new
+api_instance = JCAPIv2::UserGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the User Group.
 
@@ -261,7 +261,7 @@ begin
   #List the members of a User Group
   result = api_instance.graph_user_group_members_list(group_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UserGroupsApi->graph_user_group_members_list: #{e}"
 end
 ```
@@ -301,16 +301,16 @@ This endpoint allows you to manage the user members of a User Group.  #### Sampl
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UserGroupsApi.new
+api_instance = JCAPIv2::UserGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the User Group.
 
@@ -319,13 +319,13 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::UserGroupMembersReq.new # UserGroupMembersReq | 
+  body: JCAPIv2::UserGroupMembersReq.new # UserGroupMembersReq | 
 }
 
 begin
   #Manage the members of a User Group
   api_instance.graph_user_group_members_post(group_id, content_type, accept, opts)
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UserGroupsApi->graph_user_group_members_post: #{e}"
 end
 ```
@@ -364,16 +364,16 @@ This endpoint returns all users members that are a member of this User Group.  #
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UserGroupsApi.new
+api_instance = JCAPIv2::UserGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the User Group.
 
@@ -390,7 +390,7 @@ begin
   #List the User Group's membership
   result = api_instance.graph_user_group_membership(group_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UserGroupsApi->graph_user_group_membership: #{e}"
 end
 ```
@@ -430,16 +430,16 @@ This endpoint will return the Active Directories associated with a User Group. E
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UserGroupsApi.new
+api_instance = JCAPIv2::UserGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the User Group.
 
@@ -456,7 +456,7 @@ begin
   #List the Active Directories associated with a User Group
   result = api_instance.graph_user_group_traverse_active_directory(group_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UserGroupsApi->graph_user_group_traverse_active_directory: #{e}"
 end
 ```
@@ -496,16 +496,16 @@ This endpoint will return Applications associated with a User Group. Each elemen
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UserGroupsApi.new
+api_instance = JCAPIv2::UserGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the User Group.
 
@@ -522,7 +522,7 @@ begin
   #List the Applications associated with a User Group
   result = api_instance.graph_user_group_traverse_application(group_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UserGroupsApi->graph_user_group_traverse_application: #{e}"
 end
 ```
@@ -562,16 +562,16 @@ This endpoint will return Directories associated with a User Group. Each element
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UserGroupsApi.new
+api_instance = JCAPIv2::UserGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the User Group.
 
@@ -588,7 +588,7 @@ begin
   #List the Directories associated with a User Group
   result = api_instance.graph_user_group_traverse_directory(group_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UserGroupsApi->graph_user_group_traverse_directory: #{e}"
 end
 ```
@@ -628,16 +628,16 @@ This endpoint will return the G Suite instances associated with a User Group. Ea
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UserGroupsApi.new
+api_instance = JCAPIv2::UserGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the User Group.
 
@@ -654,7 +654,7 @@ begin
   #List the G Suite instances associated with a User Group
   result = api_instance.graph_user_group_traverse_g_suite(group_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UserGroupsApi->graph_user_group_traverse_g_suite: #{e}"
 end
 ```
@@ -694,16 +694,16 @@ This endpoint will return the LDAP Servers associated with a User Group. Each el
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UserGroupsApi.new
+api_instance = JCAPIv2::UserGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the User Group.
 
@@ -720,7 +720,7 @@ begin
   #List the LDAP Servers associated with a User Group
   result = api_instance.graph_user_group_traverse_ldap_server(group_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UserGroupsApi->graph_user_group_traverse_ldap_server: #{e}"
 end
 ```
@@ -760,16 +760,16 @@ This endpoint will return the Office 365 instances associated with a User Group.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UserGroupsApi.new
+api_instance = JCAPIv2::UserGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the User Group.
 
@@ -786,7 +786,7 @@ begin
   #List the Office 365 instances associated with a User Group
   result = api_instance.graph_user_group_traverse_office365(group_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UserGroupsApi->graph_user_group_traverse_office365: #{e}"
 end
 ```
@@ -826,16 +826,16 @@ This endpoint will return a RADIUS Servers associated with a User Group. Each el
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UserGroupsApi.new
+api_instance = JCAPIv2::UserGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the User Group.
 
@@ -852,7 +852,7 @@ begin
   #List the RADIUS Servers associated with a User Group
   result = api_instance.graph_user_group_traverse_radius_server(group_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UserGroupsApi->graph_user_group_traverse_radius_server: #{e}"
 end
 ```
@@ -892,16 +892,16 @@ This endpoint will return Systems associated with a User Group. Each element wil
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UserGroupsApi.new
+api_instance = JCAPIv2::UserGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the User Group.
 
@@ -918,7 +918,7 @@ begin
   #List the Systems associated with a User Group
   result = api_instance.graph_user_group_traverse_system(group_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UserGroupsApi->graph_user_group_traverse_system: #{e}"
 end
 ```
@@ -958,16 +958,16 @@ This endpoint will return System Groups associated with a User Group. Each eleme
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UserGroupsApi.new
+api_instance = JCAPIv2::UserGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the User Group.
 
@@ -984,7 +984,7 @@ begin
   #List the System Groups associated with User Groups
   result = api_instance.graph_user_group_traverse_system_group(group_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UserGroupsApi->graph_user_group_traverse_system_group: #{e}"
 end
 ```
@@ -1024,16 +1024,16 @@ This endpoint allows you to delete a User Group.  #### Sample Request ``` https:
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UserGroupsApi.new
+api_instance = JCAPIv2::UserGroupsApi.new
 
 id = "id_example" # String | ObjectID of the User Group.
 
@@ -1045,7 +1045,7 @@ accept = "application/json" # String |
 begin
   #Delete a User Group
   api_instance.groups_user_delete(id, content_type, accept)
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UserGroupsApi->groups_user_delete: #{e}"
 end
 ```
@@ -1083,16 +1083,16 @@ This endpoint allows you to view the details of a User Group.  #### Sample Reque
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UserGroupsApi.new
+api_instance = JCAPIv2::UserGroupsApi.new
 
 id = "id_example" # String | ObjectID of the User Group.
 
@@ -1105,7 +1105,7 @@ begin
   #View an indvidual User Group details
   result = api_instance.groups_user_get(id, content_type, accept)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UserGroupsApi->groups_user_get: #{e}"
 end
 ```
@@ -1143,16 +1143,16 @@ This endpoint returns all User Groups.  Available filter fields:   - `name`   - 
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UserGroupsApi.new
+api_instance = JCAPIv2::UserGroupsApi.new
 
 content_type = "application/json" # String | 
 
@@ -1170,7 +1170,7 @@ begin
   #List all User Groups
   result = api_instance.groups_user_list(content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UserGroupsApi->groups_user_list: #{e}"
 end
 ```
@@ -1212,16 +1212,16 @@ We have hidden PATCH on the systemgroups and usergroups for now; we don't have t
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UserGroupsApi.new
+api_instance = JCAPIv2::UserGroupsApi.new
 
 id = "id_example" # String | ObjectID of the User Group.
 
@@ -1230,14 +1230,14 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::UserGroupData.new # UserGroupData | 
+  body: JCAPIv2::UserGroupData.new # UserGroupData | 
 }
 
 begin
   #Partial update a User Group
   result = api_instance.groups_user_patch(id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UserGroupsApi->groups_user_patch: #{e}"
 end
 ```
@@ -1276,30 +1276,30 @@ This endpoint allows you to create a new User Group.  #### Sample Request ``` ht
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UserGroupsApi.new
+api_instance = JCAPIv2::UserGroupsApi.new
 
 content_type = "application/json" # String | 
 
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::UserGroupData.new # UserGroupData | 
+  body: JCAPIv2::UserGroupData.new # UserGroupData | 
 }
 
 begin
   #Create a new User Group
   result = api_instance.groups_user_post(content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UserGroupsApi->groups_user_post: #{e}"
 end
 ```
@@ -1337,16 +1337,16 @@ This enpoint allows you to do a full update of the User Group.  #### Sample Requ
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UserGroupsApi.new
+api_instance = JCAPIv2::UserGroupsApi.new
 
 id = "id_example" # String | ObjectID of the User Group.
 
@@ -1355,14 +1355,14 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::UserGroupData.new # UserGroupData | 
+  body: JCAPIv2::UserGroupData.new # UserGroupData | 
 }
 
 begin
   #Update a User Group
   result = api_instance.groups_user_put(id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UserGroupsApi->groups_user_put: #{e}"
 end
 ```

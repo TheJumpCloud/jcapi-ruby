@@ -1,4 +1,4 @@
-# SwaggerClient::CommandsApi
+# JCAPIv2::CommandsApi
 
 All URIs are relative to *https://console.jumpcloud.com/api/v2*
 
@@ -20,16 +20,16 @@ This endpoint will return the _direct_ associations of this Command.  A direct a
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::CommandsApi.new
+api_instance = JCAPIv2::CommandsApi.new
 
 command_id = "command_id_example" # String | ObjectID of the Command.
 
@@ -48,7 +48,7 @@ begin
   #List the associations of a Command
   result = api_instance.graph_command_associations_list(command_id, targets, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling CommandsApi->graph_command_associations_list: #{e}"
 end
 ```
@@ -89,16 +89,16 @@ This endpoint will allow you to manage the _direct_ associations of this Command
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::CommandsApi.new
+api_instance = JCAPIv2::CommandsApi.new
 
 command_id = "command_id_example" # String | ObjectID of the Command.
 
@@ -107,13 +107,13 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::GraphManagementReq.new # GraphManagementReq | 
+  body: JCAPIv2::GraphManagementReq.new # GraphManagementReq | 
 }
 
 begin
   #Manage the associations of a Command
   api_instance.graph_command_associations_post(command_id, content_type, accept, opts)
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling CommandsApi->graph_command_associations_post: #{e}"
 end
 ```
@@ -152,16 +152,16 @@ This endpoint will return Systems associated with a Command. Each element will c
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::CommandsApi.new
+api_instance = JCAPIv2::CommandsApi.new
 
 command_id = "command_id_example" # String | ObjectID of the Command.
 
@@ -178,7 +178,7 @@ begin
   #List the Systems associated with a Command
   result = api_instance.graph_command_traverse_system(command_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling CommandsApi->graph_command_traverse_system: #{e}"
 end
 ```
@@ -218,16 +218,16 @@ This endpoint will return System Groups associated with a Command. Each element 
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::CommandsApi.new
+api_instance = JCAPIv2::CommandsApi.new
 
 command_id = "command_id_example" # String | ObjectID of the Command.
 
@@ -244,7 +244,7 @@ begin
   #List the System Groups associated with a Command
   result = api_instance.graph_command_traverse_system_group(command_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling CommandsApi->graph_command_traverse_system_group: #{e}"
 end
 ```

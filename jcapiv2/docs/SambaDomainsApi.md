@@ -1,4 +1,4 @@
-# SwaggerClient::SambaDomainsApi
+# JCAPIv2::SambaDomainsApi
 
 All URIs are relative to *https://console.jumpcloud.com/api/v2*
 
@@ -21,16 +21,16 @@ This endpoint allows you to delete a samba domain from an LDAP server.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SambaDomainsApi.new
+api_instance = JCAPIv2::SambaDomainsApi.new
 
 ldapserver_id = "ldapserver_id_example" # String | Unique identifier o f the LDAP server.
 
@@ -45,7 +45,7 @@ begin
   #Delete Samba Domain
   result = api_instance.ldapservers_samba_domains_delete(ldapserver_id, id, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SambaDomainsApi->ldapservers_samba_domains_delete: #{e}"
 end
 ```
@@ -84,16 +84,16 @@ This endpoint returns a specific samba domain for an LDAP server.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SambaDomainsApi.new
+api_instance = JCAPIv2::SambaDomainsApi.new
 
 ldapserver_id = "ldapserver_id_example" # String | Unique identifier o f the LDAP server.
 
@@ -108,7 +108,7 @@ begin
   #Get Samba Domain
   result = api_instance.ldapservers_samba_domains_get(ldapserver_id, id, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SambaDomainsApi->ldapservers_samba_domains_get: #{e}"
 end
 ```
@@ -147,16 +147,16 @@ This endpoint returns all samba domains for an LDAP server.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SambaDomainsApi.new
+api_instance = JCAPIv2::SambaDomainsApi.new
 
 ldapserver_id = "ldapserver_id_example" # String | Unique identifier of the LDAP server.
 
@@ -174,7 +174,7 @@ begin
   #List Samba Domains
   result = api_instance.ldapservers_samba_domains_list(ldapserver_id, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SambaDomainsApi->ldapservers_samba_domains_list: #{e}"
 end
 ```
@@ -217,21 +217,21 @@ This endpoint allows you to create a samba domain for an LDAP server.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SambaDomainsApi.new
+api_instance = JCAPIv2::SambaDomainsApi.new
 
 ldapserver_id = "ldapserver_id_example" # String | Unique identifier of the LDAP server.
 
 opts = { 
-  body: SwaggerClient::SambaDomainInput.new, # SambaDomainInput | 
+  body: JCAPIv2::SambaDomainInput.new, # SambaDomainInput | 
   content_type: "application/json", # String | 
   accept: "application/json" # String | 
 }
@@ -240,7 +240,7 @@ begin
   #Create Samba Domain
   result = api_instance.ldapservers_samba_domains_post(ldapserver_id, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SambaDomainsApi->ldapservers_samba_domains_post: #{e}"
 end
 ```
@@ -279,23 +279,23 @@ This endpoint allows you to update the samba domain information for an LDAP serv
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SambaDomainsApi.new
+api_instance = JCAPIv2::SambaDomainsApi.new
 
 ldapserver_id = "ldapserver_id_example" # String | Unique identifier o f the LDAP server.
 
 id = "id_example" # String | Unique identifier of the samba domain.
 
 opts = { 
-  body: SwaggerClient::SambaDomainInput.new, # SambaDomainInput | 
+  body: JCAPIv2::SambaDomainInput.new, # SambaDomainInput | 
   content_type: "application/json", # String | 
   accept: "application/json" # String | 
 }
@@ -304,7 +304,7 @@ begin
   #Update Samba Domain
   result = api_instance.ldapservers_samba_domains_put(ldapserver_id, id, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SambaDomainsApi->ldapservers_samba_domains_put: #{e}"
 end
 ```

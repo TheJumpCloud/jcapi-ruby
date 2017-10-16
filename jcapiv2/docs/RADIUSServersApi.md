@@ -1,4 +1,4 @@
-# SwaggerClient::RADIUSServersApi
+# JCAPIv2::RADIUSServersApi
 
 All URIs are relative to *https://console.jumpcloud.com/api/v2*
 
@@ -20,16 +20,16 @@ This endpoint returns the _direct_ associations of a Radius Server.  A direct as
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::RADIUSServersApi.new
+api_instance = JCAPIv2::RADIUSServersApi.new
 
 radiusserver_id = "radiusserver_id_example" # String | ObjectID of the Radius Server.
 
@@ -48,7 +48,7 @@ begin
   #List the associations of a Radius Server
   result = api_instance.graph_radius_server_associations_list(radiusserver_id, targets, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling RADIUSServersApi->graph_radius_server_associations_list: #{e}"
 end
 ```
@@ -89,16 +89,16 @@ This endpoint allows you to manage the _direct_ associations of a Radius Server.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::RADIUSServersApi.new
+api_instance = JCAPIv2::RADIUSServersApi.new
 
 radiusserver_id = "radiusserver_id_example" # String | ObjectID of the Radius Server.
 
@@ -107,13 +107,13 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::GraphManagementReq.new # GraphManagementReq | 
+  body: JCAPIv2::GraphManagementReq.new # GraphManagementReq | 
 }
 
 begin
   #Manage the associations of a Radius Server
   api_instance.graph_radius_server_associations_post(radiusserver_id, content_type, accept, opts)
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling RADIUSServersApi->graph_radius_server_associations_post: #{e}"
 end
 ```
@@ -152,16 +152,16 @@ This endpoint will return Users associated with a RADIUS server instance. Each e
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::RADIUSServersApi.new
+api_instance = JCAPIv2::RADIUSServersApi.new
 
 radiusserver_id = "radiusserver_id_example" # String | ObjectID of the Radius Server.
 
@@ -178,7 +178,7 @@ begin
   #List the Users associated with a Radius Server
   result = api_instance.graph_radius_server_traverse_user(radiusserver_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling RADIUSServersApi->graph_radius_server_traverse_user: #{e}"
 end
 ```
@@ -218,16 +218,16 @@ This endpoint will return User Groups associated with a RADIUS server instance. 
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::RADIUSServersApi.new
+api_instance = JCAPIv2::RADIUSServersApi.new
 
 radiusserver_id = "radiusserver_id_example" # String | ObjectID of the Radius Server.
 
@@ -244,7 +244,7 @@ begin
   #List the User Groups associated with a Radius Server
   result = api_instance.graph_radius_server_traverse_user_group(radiusserver_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling RADIUSServersApi->graph_radius_server_traverse_user_group: #{e}"
 end
 ```

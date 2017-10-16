@@ -1,4 +1,4 @@
-# SwaggerClient::SambaDomainOutput
+# JCAPIv2::SambaDomainOutput
 
 ## Properties
 Name | Type | Description | Notes

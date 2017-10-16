@@ -1,4 +1,4 @@
-# SwaggerClient::SambaDomainInput
+# JCAPIv2::SambaDomainInput
 
 ## Properties
 Name | Type | Description | Notes

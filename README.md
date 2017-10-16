@@ -1,4 +1,4 @@
-## JCAPI-Python
+## JCAPI-Ruby
 
 ### Description ###
 
@@ -8,22 +8,22 @@ For detailed instructions on how to generate the code, see the [Contributing](CO
 
 #### Installing the Ruby Client
 
-Change to the appropriate directory (jcapiv1 or jcapiv2) and then run the following commands to build/install the Python Client API package:
+Change to the appropriate directory (jcapiv1 or jcapiv2) and then run the following commands to build/install the Ruby Client API package:
 
 To build the Ruby code into a gem:
 
 ```shell
-gem build swagger_client.gemspec
+gem build jcapiv1.gemspec
 ```
 
 Then either install the gem locally:
 ```shell
-gem install --user-install ./swagger_client-1.0.0.gem
+gem install --user-install ./jcapiv1-1.0.0.gem
 ```
 
 Or for all users:
 ```shell
-$ sudo gem install ./swagger_client-1.0.0.gem
+$ sudo gem install ./jcapiv1-1.0.0.gem
 ```
 
 #### Usage Examples
@@ -35,16 +35,16 @@ API v1 example:
 #!/usr/bin/env ruby
 
 # Load the gem
-require 'swagger_client'
+require 'jcapiv1'
 
 # Setup API key:
-SwaggerClient.configure do |config|
+JCAPIv1.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = '<YOUR_JUMPCLOUD_API_KEY>'
 end
 
 # instantiate the Systemusers API object:
-api_instance = SwaggerClient::SystemusersApi.new
+api_instance = JCAPIv1::SystemusersApi.new
 
 content_type = 'application/json'
 accept = 'application/json'
@@ -61,7 +61,7 @@ begin
   res = api_instance.systemusers_list(content_type, accept)
   puts res.total_count
   puts res.results
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv1::ApiError => e
   puts 'Exception when calling SystemusersApi->systemusers_list: #{e}'
 end
 
@@ -69,7 +69,7 @@ end
 # Example 2: modify the lastname of a specific user:
 
 # create a put request with the updated last name:
-put_request = SwaggerClient::Systemuserputpost.new
+put_request = JCAPIv1::Systemuserputpost.new
 put_request.lastname = 'updated last name'
 # pass the request in the optional parameters:
 opts = {
@@ -79,7 +79,7 @@ opts = {
 begin
   res = api_instance.systemusers_put('<YOUR_USER_ID>', content_type, accept, opts)
   puts res
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv1::ApiError => e
   puts 'Exception when calling SystemusersApi->systemusers_get: #{e}'
 end
 
@@ -91,16 +91,16 @@ API v2 example:
 #!/usr/bin/env ruby
 
 # Load the gem
-require 'swagger_client'
+require 'jcapiv2'
 
 # Setup API key:
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = '<YOUR_JUMPCLOUD_API_KEY>'
 end
 
 # instantiate the UserGroups API object:
-api_instance = SwaggerClient::UserGroupsApi.new
+api_instance = JCAPIv2::UserGroupsApi.new
 
 content_type = 'application/json'
 accept = 'application/json'
@@ -114,7 +114,7 @@ opts = {
 begin
   res = api_instance.groups_user_list(content_type, accept)
   puts res
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts 'Exception when calling UserGroupsApi->groups_user_list: #{e}'
 end
 ```

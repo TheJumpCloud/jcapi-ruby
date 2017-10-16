@@ -1,4 +1,4 @@
-# SwaggerClient::ApplicationsApi
+# JCAPIv1::ApplicationsApi
 
 All URIs are relative to *https://console.jumpcloud.com/api*
 
@@ -17,16 +17,16 @@ The endpoint is used to return all your SSO Applications.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv1'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv1.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::ApplicationsApi.new
+api_instance = JCAPIv1::ApplicationsApi.new
 
 content_type = "application/json" # String | 
 
@@ -43,7 +43,7 @@ begin
   #Applications
   result = api_instance.applications_list(content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv1::ApiError => e
   puts "Exception when calling ApplicationsApi->applications_list: #{e}"
 end
 ```

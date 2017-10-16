@@ -1,4 +1,4 @@
-# SwaggerClient::RadiusServersApi
+# JCAPIv1::RadiusServersApi
 
 All URIs are relative to *https://console.jumpcloud.com/api*
 
@@ -18,16 +18,16 @@ This endpoint allows you to get a list of all RADIUS servers in your organizatio
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv1'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv1.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::RadiusServersApi.new
+api_instance = JCAPIv1::RadiusServersApi.new
 
 content_type = "application/json" # String | 
 
@@ -44,7 +44,7 @@ begin
   #List Radius Servers
   result = api_instance.radius_servers_list(content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv1::ApiError => e
   puts "Exception when calling RadiusServersApi->radius_servers_list: #{e}"
 end
 ```
@@ -85,30 +85,30 @@ This endpoint allows you to update RADIUS servers in your organization.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv1'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv1.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::RadiusServersApi.new
+api_instance = JCAPIv1::RadiusServersApi.new
 
 content_type = "application/json" # String | 
 
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::Body.new # Body | 
+  body: JCAPIv1::Body.new # Body | 
 }
 
 begin
   #Update Radius Servers
   result = api_instance.radius_servers_put(content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv1::ApiError => e
   puts "Exception when calling RadiusServersApi->radius_servers_put: #{e}"
 end
 ```

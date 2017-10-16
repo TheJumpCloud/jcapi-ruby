@@ -1,4 +1,4 @@
-# SwaggerClient::ApplicationConfigIdpEntityIdTooltipVariables
+# JCAPIv1::ApplicationConfigIdpEntityIdTooltipVariables
 
 ## Properties
 Name | Type | Description | Notes

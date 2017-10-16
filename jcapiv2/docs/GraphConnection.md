@@ -1,4 +1,4 @@
-# SwaggerClient::GraphConnection
+# JCAPIv2::GraphConnection
 
 ## Properties
 Name | Type | Description | Notes

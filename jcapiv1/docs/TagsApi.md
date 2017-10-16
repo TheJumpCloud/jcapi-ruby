@@ -1,4 +1,4 @@
-# SwaggerClient::TagsApi
+# JCAPIv1::TagsApi
 
 All URIs are relative to *https://console.jumpcloud.com/api*
 
@@ -21,16 +21,16 @@ Delete a Tag.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv1'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv1.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::TagsApi.new
+api_instance = JCAPIv1::TagsApi.new
 
 name = "name_example" # String | 
 
@@ -43,7 +43,7 @@ begin
   #Delete a Tag
   result = api_instance.tags_delete(name, content_type, accept)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv1::ApiError => e
   puts "Exception when calling TagsApi->tags_delete: #{e}"
 end
 ```
@@ -81,16 +81,16 @@ Returns a specific tag.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv1'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv1.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::TagsApi.new
+api_instance = JCAPIv1::TagsApi.new
 
 name = "name_example" # String | 
 
@@ -109,7 +109,7 @@ begin
   #List a Tag
   result = api_instance.tags_get(name, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv1::ApiError => e
   puts "Exception when calling TagsApi->tags_get: #{e}"
 end
 ```
@@ -151,16 +151,16 @@ Returns all Tags.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv1'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv1.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::TagsApi.new
+api_instance = JCAPIv1::TagsApi.new
 
 content_type = "application/json" # String | 
 
@@ -177,7 +177,7 @@ begin
   #List All Tags
   result = api_instance.tags_list(content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv1::ApiError => e
   puts "Exception when calling TagsApi->tags_list: #{e}"
 end
 ```
@@ -218,30 +218,30 @@ Create a tag.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv1'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv1.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::TagsApi.new
+api_instance = JCAPIv1::TagsApi.new
 
 content_type = "application/json" # String | 
 
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::Tagpost.new # Tagpost | 
+  body: JCAPIv1::Tagpost.new # Tagpost | 
 }
 
 begin
   #Create a Tag
   result = api_instance.tags_post(content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv1::ApiError => e
   puts "Exception when calling TagsApi->tags_post: #{e}"
 end
 ```
@@ -279,16 +279,16 @@ Update a specific tag.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv1'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv1.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::TagsApi.new
+api_instance = JCAPIv1::TagsApi.new
 
 name = "name_example" # String | 
 
@@ -297,14 +297,14 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::Tagput.new # Tagput | 
+  body: JCAPIv1::Tagput.new # Tagput | 
 }
 
 begin
   #Update a Tag
   result = api_instance.tags_put(name, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv1::ApiError => e
   puts "Exception when calling TagsApi->tags_put: #{e}"
 end
 ```

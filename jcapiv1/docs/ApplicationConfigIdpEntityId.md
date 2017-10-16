@@ -1,4 +1,4 @@
-# SwaggerClient::ApplicationConfigIdpEntityId
+# JCAPIv1::ApplicationConfigIdpEntityId
 
 ## Properties
 Name | Type | Description | Notes

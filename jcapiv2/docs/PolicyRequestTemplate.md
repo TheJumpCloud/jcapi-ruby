@@ -1,4 +1,4 @@
-# SwaggerClient::PolicyRequestTemplate
+# JCAPIv2::PolicyRequestTemplate
 
 ## Properties
 Name | Type | Description | Notes

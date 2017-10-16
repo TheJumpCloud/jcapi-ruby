@@ -1,4 +1,4 @@
-# SwaggerClient::ActiveDirectoryInput
+# JCAPIv2::ActiveDirectoryInput
 
 ## Properties
 Name | Type | Description | Notes

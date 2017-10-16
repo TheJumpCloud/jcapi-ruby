@@ -1,4 +1,4 @@
-# SwaggerClient::Group
+# JCAPIv2::Group
 
 ## Properties
 Name | Type | Description | Notes

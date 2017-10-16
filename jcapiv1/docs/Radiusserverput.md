@@ -1,4 +1,4 @@
-# SwaggerClient::Radiusserverput
+# JCAPIv1::Radiusserverput
 
 ## Properties
 Name | Type | Description | Notes

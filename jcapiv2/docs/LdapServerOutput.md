@@ -1,4 +1,4 @@
-# SwaggerClient::LdapServerOutput
+# JCAPIv2::LdapServerOutput
 
 ## Properties
 Name | Type | Description | Notes

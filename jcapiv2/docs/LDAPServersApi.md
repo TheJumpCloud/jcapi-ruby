@@ -1,4 +1,4 @@
-# SwaggerClient::LDAPServersApi
+# JCAPIv2::LDAPServersApi
 
 All URIs are relative to *https://console.jumpcloud.com/api/v2*
 
@@ -22,16 +22,16 @@ This endpoint returns the _direct_ associations of this LDAP Server.  A direct a
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::LDAPServersApi.new
+api_instance = JCAPIv2::LDAPServersApi.new
 
 ldapserver_id = "ldapserver_id_example" # String | ObjectID of the LDAP Server.
 
@@ -50,7 +50,7 @@ begin
   #List the associations of a LDAP Server
   result = api_instance.graph_ldap_server_associations_list(ldapserver_id, targets, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling LDAPServersApi->graph_ldap_server_associations_list: #{e}"
 end
 ```
@@ -91,16 +91,16 @@ This endpoint allows you to manage the _direct_ associations of a LDAP Server.  
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::LDAPServersApi.new
+api_instance = JCAPIv2::LDAPServersApi.new
 
 ldapserver_id = "ldapserver_id_example" # String | ObjectID of the LDAP Server.
 
@@ -109,13 +109,13 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::GraphManagementReq.new # GraphManagementReq | 
+  body: JCAPIv2::GraphManagementReq.new # GraphManagementReq | 
 }
 
 begin
   #Manage the associations of a LDAP Server
   api_instance.graph_ldap_server_associations_post(ldapserver_id, content_type, accept, opts)
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling LDAPServersApi->graph_ldap_server_associations_post: #{e}"
 end
 ```
@@ -154,16 +154,16 @@ This endpoint will return Users associated with an LDAP server instance. Each el
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::LDAPServersApi.new
+api_instance = JCAPIv2::LDAPServersApi.new
 
 ldapserver_id = "ldapserver_id_example" # String | ObjectID of the LDAP Server.
 
@@ -180,7 +180,7 @@ begin
   #List the Users associated with a LDAP Server
   result = api_instance.graph_ldap_server_traverse_user(ldapserver_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling LDAPServersApi->graph_ldap_server_traverse_user: #{e}"
 end
 ```
@@ -220,16 +220,16 @@ This endpoint will return User Groups associated with a LDAP server instance. Ea
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::LDAPServersApi.new
+api_instance = JCAPIv2::LDAPServersApi.new
 
 ldapserver_id = "ldapserver_id_example" # String | ObjectID of the LDAP Server.
 
@@ -246,7 +246,7 @@ begin
   #List the User Groups associated with a LDAP Server
   result = api_instance.graph_ldap_server_traverse_user_group(ldapserver_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling LDAPServersApi->graph_ldap_server_traverse_user_group: #{e}"
 end
 ```
@@ -286,16 +286,16 @@ This endpoint returns a specific LDAP server.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::LDAPServersApi.new
+api_instance = JCAPIv2::LDAPServersApi.new
 
 id = "id_example" # String | Unique identifier of the LDAP server.
 
@@ -308,7 +308,7 @@ begin
   #Get LDAP Server
   result = api_instance.ldapservers_get(id, content_type, accept)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling LDAPServersApi->ldapservers_get: #{e}"
 end
 ```
@@ -344,16 +344,16 @@ List LDAP Servers
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::LDAPServersApi.new
+api_instance = JCAPIv2::LDAPServersApi.new
 
 content_type = "application/json" # String | 
 
@@ -371,7 +371,7 @@ begin
   #List LDAP Servers
   result = api_instance.ldapservers_list(content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling LDAPServersApi->ldapservers_list: #{e}"
 end
 ```

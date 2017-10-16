@@ -1,4 +1,4 @@
-# SwaggerClient::GraphObjectWithPaths
+# JCAPIv2::GraphObjectWithPaths
 
 ## Properties
 Name | Type | Description | Notes

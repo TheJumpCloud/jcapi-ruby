@@ -1,4 +1,4 @@
-# SwaggerClient::PolicytemplatesApi
+# JCAPIv2::PolicytemplatesApi
 
 All URIs are relative to *https://console.jumpcloud.com/api/v2*
 
@@ -18,16 +18,16 @@ This endpoint returns a specific policy template.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::PolicytemplatesApi.new
+api_instance = JCAPIv2::PolicytemplatesApi.new
 
 id = "id_example" # String | ObjectID of the Policy Template.
 
@@ -40,7 +40,7 @@ begin
   #Get a specific Policy Template
   result = api_instance.policytemplates_get(id, content_type, accept)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling PolicytemplatesApi->policytemplates_get: #{e}"
 end
 ```
@@ -78,16 +78,16 @@ This endpoint returns all policy templates.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::PolicytemplatesApi.new
+api_instance = JCAPIv2::PolicytemplatesApi.new
 
 content_type = "application/json" # String | 
 
@@ -105,7 +105,7 @@ begin
   #Lists all of the Policy Templates
   result = api_instance.policytemplates_list(content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling PolicytemplatesApi->policytemplates_list: #{e}"
 end
 ```

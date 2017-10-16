@@ -1,4 +1,4 @@
-# SwaggerClient::Commandresultslist
+# JCAPIv1::Commandresultslist
 
 ## Properties
 Name | Type | Description | Notes

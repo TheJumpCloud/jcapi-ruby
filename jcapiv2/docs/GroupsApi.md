@@ -1,4 +1,4 @@
-# SwaggerClient::GroupsApi
+# JCAPIv2::GroupsApi
 
 All URIs are relative to *https://console.jumpcloud.com/api/v2*
 
@@ -17,16 +17,16 @@ This endpoint returns all Groups that exist in your organization.  #### Availabl
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::GroupsApi.new
+api_instance = JCAPIv2::GroupsApi.new
 
 content_type = "application/json" # String | 
 
@@ -44,7 +44,7 @@ begin
   #List All Groups
   result = api_instance.groups_list(content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling GroupsApi->groups_list: #{e}"
 end
 ```

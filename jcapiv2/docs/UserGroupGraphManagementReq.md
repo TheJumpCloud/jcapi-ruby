@@ -1,4 +1,4 @@
-# SwaggerClient::UserGroupGraphManagementReq
+# JCAPIv2::UserGroupGraphManagementReq
 
 ## Properties
 Name | Type | Description | Notes

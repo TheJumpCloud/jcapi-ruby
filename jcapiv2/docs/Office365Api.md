@@ -1,4 +1,4 @@
-# SwaggerClient::Office365Api
+# JCAPIv2::Office365Api
 
 All URIs are relative to *https://console.jumpcloud.com/api/v2*
 
@@ -20,16 +20,16 @@ This endpoint returns _direct_ associations of an Office 365 instance.   A direc
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::Office365Api.new
+api_instance = JCAPIv2::Office365Api.new
 
 office365_id = "office365_id_example" # String | ObjectID of the Office 365 instance.
 
@@ -48,7 +48,7 @@ begin
   #List the associations of an Office 365 instance
   result = api_instance.graph_office365_associations_list(office365_id, targets, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling Office365Api->graph_office365_associations_list: #{e}"
 end
 ```
@@ -89,16 +89,16 @@ This endpoint allows you to manage the _direct_ associations of a Office 365 ins
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::Office365Api.new
+api_instance = JCAPIv2::Office365Api.new
 
 office365_id = "office365_id_example" # String | ObjectID of the Office 365 instance.
 
@@ -107,13 +107,13 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::GraphManagementReq.new # GraphManagementReq | 
+  body: JCAPIv2::GraphManagementReq.new # GraphManagementReq | 
 }
 
 begin
   #Manage the associations of an Office 365 instance
   api_instance.graph_office365_associations_post(office365_id, content_type, accept, opts)
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling Office365Api->graph_office365_associations_post: #{e}"
 end
 ```
@@ -152,16 +152,16 @@ This endpoint will return Users associated with an Office 365 instance. Each ele
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::Office365Api.new
+api_instance = JCAPIv2::Office365Api.new
 
 office365_id = "office365_id_example" # String | ObjectID of the Office 365 suite.
 
@@ -178,7 +178,7 @@ begin
   #List the Users associated with an Office 365 instance
   result = api_instance.graph_office365_traverse_user(office365_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling Office365Api->graph_office365_traverse_user: #{e}"
 end
 ```
@@ -218,16 +218,16 @@ This endpoint will return User Groups associated with an Office 365 instance. Ea
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::Office365Api.new
+api_instance = JCAPIv2::Office365Api.new
 
 office365_id = "office365_id_example" # String | ObjectID of the Office 365 suite.
 
@@ -244,7 +244,7 @@ begin
   #List the User Groups associated with an Office 365 instance
   result = api_instance.graph_office365_traverse_user_group(office365_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling Office365Api->graph_office365_traverse_user_group: #{e}"
 end
 ```

@@ -1,4 +1,4 @@
-# SwaggerClient::ApplicationConfigDatabaseAttributes
+# JCAPIv1::ApplicationConfigDatabaseAttributes
 
 ## Properties
 Name | Type | Description | Notes

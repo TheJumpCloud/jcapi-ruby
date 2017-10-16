@@ -1,4 +1,4 @@
-# SwaggerClient::SystemGroupGraphManagementReq
+# JCAPIv2::SystemGroupGraphManagementReq
 
 ## Properties
 Name | Type | Description | Notes

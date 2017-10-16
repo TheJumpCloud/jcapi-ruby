@@ -1,4 +1,4 @@
-# SwaggerClient::PolicyTemplateConfigField
+# JCAPIv2::PolicyTemplateConfigField
 
 ## Properties
 Name | Type | Description | Notes

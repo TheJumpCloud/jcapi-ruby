@@ -1,4 +1,4 @@
-# SwaggerClient::SystemsApi
+# JCAPIv1::SystemsApi
 
 All URIs are relative to *https://console.jumpcloud.com/api*
 
@@ -22,16 +22,16 @@ Delete a system record by its id. This command will cause the system to uninstal
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv1'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv1.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemsApi.new
+api_instance = JCAPIv1::SystemsApi.new
 
 id = "id_example" # String | 
 
@@ -44,7 +44,7 @@ begin
   #Delete a System
   result = api_instance.systems_delete(id, content_type, accept)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv1::ApiError => e
   puts "Exception when calling SystemsApi->systems_delete: #{e}"
 end
 ```
@@ -82,16 +82,16 @@ Returns an individual system.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv1'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv1.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemsApi.new
+api_instance = JCAPIv1::SystemsApi.new
 
 id = "id_example" # String | 
 
@@ -110,7 +110,7 @@ begin
   #List an individual system
   result = api_instance.systems_get(id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv1::ApiError => e
   puts "Exception when calling SystemsApi->systems_get: #{e}"
 end
 ```
@@ -152,16 +152,16 @@ Returns all Systems.
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv1'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv1.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemsApi.new
+api_instance = JCAPIv1::SystemsApi.new
 
 content_type = "application/json" # String | 
 
@@ -178,7 +178,7 @@ begin
   #List All Systems
   result = api_instance.systems_list(content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv1::ApiError => e
   puts "Exception when calling SystemsApi->systems_list: #{e}"
 end
 ```
@@ -219,16 +219,16 @@ Update a system record by its id and return the modified system record in single
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv1'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv1.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemsApi.new
+api_instance = JCAPIv1::SystemsApi.new
 
 id = "id_example" # String | 
 
@@ -237,13 +237,13 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::Systemput.new # Systemput | 
+  body: JCAPIv1::Systemput.new # Systemput | 
 }
 
 begin
   #Update a system
   api_instance.systems_put(id, content_type, accept, opts)
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv1::ApiError => e
   puts "Exception when calling SystemsApi->systems_put: #{e}"
 end
 ```
@@ -282,16 +282,16 @@ List system user bindings for a specific system in a system and user binding for
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv1'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv1.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemsApi.new
+api_instance = JCAPIv1::SystemsApi.new
 
 id = "id_example" # String | 
 
@@ -310,7 +310,7 @@ begin
   #List system user bindings
   result = api_instance.systems_systemusers_binding_list(id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv1::ApiError => e
   puts "Exception when calling SystemsApi->systems_systemusers_binding_list: #{e}"
 end
 ```
@@ -352,16 +352,16 @@ Adds or removes a user binding for a system.  This endpoint is only used for use
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv1'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv1.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemsApi.new
+api_instance = JCAPIv1::SystemsApi.new
 
 id = "id_example" # String | 
 
@@ -370,13 +370,13 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::Systemuserbindingsput.new # Systemuserbindingsput | 
+  body: JCAPIv1::Systemuserbindingsput.new # Systemuserbindingsput | 
 }
 
 begin
   #Update a system's or user's binding
   api_instance.systems_systemusers_binding_put(id, content_type, accept, opts)
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv1::ApiError => e
   puts "Exception when calling SystemsApi->systems_systemusers_binding_put: #{e}"
 end
 ```

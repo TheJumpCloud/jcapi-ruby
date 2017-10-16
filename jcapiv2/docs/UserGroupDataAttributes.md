@@ -1,4 +1,4 @@
-# SwaggerClient::UserGroupDataAttributes
+# JCAPIv2::UserGroupDataAttributes
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# SwaggerClient::Tag
+# JCAPIv1::Tag
 
 ## Properties
 Name | Type | Description | Notes

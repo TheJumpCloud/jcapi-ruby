@@ -1,4 +1,4 @@
-# SwaggerClient::UsersApi
+# JCAPIv2::UsersApi
 
 All URIs are relative to *https://console.jumpcloud.com/api/v2*
 
@@ -26,16 +26,16 @@ This endpoint returns the _direct_ associations of a User.  A direct association
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UsersApi.new
+api_instance = JCAPIv2::UsersApi.new
 
 user_id = "user_id_example" # String | ObjectID of the User.
 
@@ -54,7 +54,7 @@ begin
   #List the associations of a User
   result = api_instance.graph_user_associations_list(user_id, targets, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UsersApi->graph_user_associations_list: #{e}"
 end
 ```
@@ -95,16 +95,16 @@ This endpoint allows you to manage the _direct_ associations of a User.  A direc
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UsersApi.new
+api_instance = JCAPIv2::UsersApi.new
 
 user_id = "user_id_example" # String | ObjectID of the User.
 
@@ -113,13 +113,13 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::GraphManagementReq.new # GraphManagementReq | 
+  body: JCAPIv2::GraphManagementReq.new # GraphManagementReq | 
 }
 
 begin
   #Manage the associations of a User
   api_instance.graph_user_associations_post(user_id, content_type, accept, opts)
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UsersApi->graph_user_associations_post: #{e}"
 end
 ```
@@ -158,16 +158,16 @@ This endpoint returns all the User Groups a User is a member of.  #### Sample Re
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UsersApi.new
+api_instance = JCAPIv2::UsersApi.new
 
 user_id = "user_id_example" # String | ObjectID of the User.
 
@@ -184,7 +184,7 @@ begin
   #List the parent Groups of a User
   result = api_instance.graph_user_member_of(user_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UsersApi->graph_user_member_of: #{e}"
 end
 ```
@@ -224,16 +224,16 @@ This endpoint will return Applications associated with a User. Each element will
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UsersApi.new
+api_instance = JCAPIv2::UsersApi.new
 
 user_id = "user_id_example" # String | ObjectID of the User.
 
@@ -250,7 +250,7 @@ begin
   #List the Applications associated with a User
   result = api_instance.graph_user_traverse_application(user_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UsersApi->graph_user_traverse_application: #{e}"
 end
 ```
@@ -290,16 +290,16 @@ This endpoint will return Directories associated with a User. Each element will 
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UsersApi.new
+api_instance = JCAPIv2::UsersApi.new
 
 user_id = "user_id_example" # String | ObjectID of the User.
 
@@ -316,7 +316,7 @@ begin
   #List the Directories associated with a User
   result = api_instance.graph_user_traverse_directory(user_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UsersApi->graph_user_traverse_directory: #{e}"
 end
 ```
@@ -356,16 +356,16 @@ This endpoint will return G Suite instances associated with a User. Each element
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UsersApi.new
+api_instance = JCAPIv2::UsersApi.new
 
 user_id = "user_id_example" # String | ObjectID of the User.
 
@@ -382,7 +382,7 @@ begin
   #List the G Suite instances associated with a User
   result = api_instance.graph_user_traverse_g_suite(user_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UsersApi->graph_user_traverse_g_suite: #{e}"
 end
 ```
@@ -422,16 +422,16 @@ This endpoint will return LDAP Servers associated with a User. Each element will
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UsersApi.new
+api_instance = JCAPIv2::UsersApi.new
 
 user_id = "user_id_example" # String | ObjectID of the User.
 
@@ -448,7 +448,7 @@ begin
   #List the LDAP servers associated with a User
   result = api_instance.graph_user_traverse_ldap_server(user_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UsersApi->graph_user_traverse_ldap_server: #{e}"
 end
 ```
@@ -488,16 +488,16 @@ This endpoint will return Office 365 instances associated with a User. Each elem
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UsersApi.new
+api_instance = JCAPIv2::UsersApi.new
 
 user_id = "user_id_example" # String | ObjectID of the User.
 
@@ -514,7 +514,7 @@ begin
   #List the Office 365 instances associated with User
   result = api_instance.graph_user_traverse_office365(user_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UsersApi->graph_user_traverse_office365: #{e}"
 end
 ```
@@ -554,16 +554,16 @@ This endpoint will return RADIUS Servers associated with a User. Each element wi
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UsersApi.new
+api_instance = JCAPIv2::UsersApi.new
 
 user_id = "user_id_example" # String | ObjectID of the User.
 
@@ -580,7 +580,7 @@ begin
   #List the RADIUS Servers associated with a User
   result = api_instance.graph_user_traverse_radius_server(user_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UsersApi->graph_user_traverse_radius_server: #{e}"
 end
 ```
@@ -620,16 +620,16 @@ This endpoint will return Systems associated with a User. Each element will cont
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::UsersApi.new
+api_instance = JCAPIv2::UsersApi.new
 
 user_id = "user_id_example" # String | ObjectID of the User.
 
@@ -646,7 +646,7 @@ begin
   #List the Systems associated with a User
   result = api_instance.graph_user_traverse_system(user_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling UsersApi->graph_user_traverse_system: #{e}"
 end
 ```

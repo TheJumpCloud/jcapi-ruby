@@ -1,4 +1,4 @@
-# SwaggerClient::Systemuserputpost
+# JCAPIv1::Systemuserputpost
 
 ## Properties
 Name | Type | Description | Notes

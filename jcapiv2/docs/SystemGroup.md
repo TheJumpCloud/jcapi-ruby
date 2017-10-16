@@ -1,4 +1,4 @@
-# SwaggerClient::SystemGroup
+# JCAPIv2::SystemGroup
 
 ## Properties
 Name | Type | Description | Notes

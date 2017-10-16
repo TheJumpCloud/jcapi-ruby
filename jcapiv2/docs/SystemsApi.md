@@ -1,4 +1,4 @@
-# SwaggerClient::SystemsApi
+# JCAPIv2::SystemsApi
 
 All URIs are relative to *https://console.jumpcloud.com/api/v2*
 
@@ -21,16 +21,16 @@ This endpoint returns the _direct_ associations of a System.  A direct associati
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemsApi.new
+api_instance = JCAPIv2::SystemsApi.new
 
 system_id = "system_id_example" # String | ObjectID of the System.
 
@@ -49,7 +49,7 @@ begin
   #List the associations of a System
   result = api_instance.graph_system_associations_list(system_id, targets, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SystemsApi->graph_system_associations_list: #{e}"
 end
 ```
@@ -90,16 +90,16 @@ This endpoint allows you to manage the _direct_ associations of a System.  A dir
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemsApi.new
+api_instance = JCAPIv2::SystemsApi.new
 
 system_id = "system_id_example" # String | ObjectID of the System.
 
@@ -108,13 +108,13 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: SwaggerClient::GraphManagementReq.new # GraphManagementReq | 
+  body: JCAPIv2::GraphManagementReq.new # GraphManagementReq | 
 }
 
 begin
   #Manage associations of a System
   api_instance.graph_system_associations_post(system_id, content_type, accept, opts)
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SystemsApi->graph_system_associations_post: #{e}"
 end
 ```
@@ -153,16 +153,16 @@ This endpoint returns all the System Groups a System is a member of.  #### Sampl
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemsApi.new
+api_instance = JCAPIv2::SystemsApi.new
 
 system_id = "system_id_example" # String | ObjectID of the System.
 
@@ -179,7 +179,7 @@ begin
   #List the parent Groups of a System
   result = api_instance.graph_system_member_of(system_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SystemsApi->graph_system_member_of: #{e}"
 end
 ```
@@ -219,16 +219,16 @@ This endpoint will return Policies associated with a System. Each element will c
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemsApi.new
+api_instance = JCAPIv2::SystemsApi.new
 
 system_id = "system_id_example" # String | ObjectID of the System.
 
@@ -245,7 +245,7 @@ begin
   #List the Policies associated with a System
   result = api_instance.graph_system_traverse_policy(system_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SystemsApi->graph_system_traverse_policy: #{e}"
 end
 ```
@@ -285,16 +285,16 @@ This endpoint will return Users associated with a System. Each element will cont
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv2'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv2.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::SystemsApi.new
+api_instance = JCAPIv2::SystemsApi.new
 
 system_id = "system_id_example" # String | ObjectID of the System.
 
@@ -311,7 +311,7 @@ begin
   #List the Users associated with a System
   result = api_instance.graph_system_traverse_user(system_id, content_type, accept, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv2::ApiError => e
   puts "Exception when calling SystemsApi->graph_system_traverse_user: #{e}"
 end
 ```

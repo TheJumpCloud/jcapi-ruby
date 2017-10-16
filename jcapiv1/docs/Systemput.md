@@ -1,4 +1,4 @@
-# SwaggerClient::Systemput
+# JCAPIv1::Systemput
 
 ## Properties
 Name | Type | Description | Notes

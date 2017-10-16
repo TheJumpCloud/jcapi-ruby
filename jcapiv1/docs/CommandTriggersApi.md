@@ -1,4 +1,4 @@
-# SwaggerClient::CommandTriggersApi
+# JCAPIv1::CommandTriggersApi
 
 All URIs are relative to *https://console.jumpcloud.com/api*
 
@@ -15,16 +15,16 @@ Run a Command assigned to a webhook
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'jcapiv1'
 # setup authorization
-SwaggerClient.configure do |config|
+JCAPIv1.configure do |config|
   # Configure API key authorization: x-api-key
   config.api_key['x-api-key'] = 'YOUR API KEY'
   # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
   #config.api_key_prefix['x-api-key'] = 'Bearer'
 end
 
-api_instance = SwaggerClient::CommandTriggersApi.new
+api_instance = JCAPIv1::CommandTriggersApi.new
 
 triggername = "triggername_example" # String | 
 
@@ -36,7 +36,7 @@ accept = "application/json" # String |
 begin
   #Run a Command assigned to a webhook
   api_instance.command_trigger_webhook_post(triggername, content_type, accept)
-rescue SwaggerClient::ApiError => e
+rescue JCAPIv1::ApiError => e
   puts "Exception when calling CommandTriggersApi->command_trigger_webhook_post: #{e}"
 end
 ```

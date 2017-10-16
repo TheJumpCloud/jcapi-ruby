@@ -1,4 +1,5 @@
 {
-  "packageName": "jcapiv1",
-  "packageVersion": "1.0.0"
+  "gemName": "jcapiv1",
+  "moduleName": "JCAPIv1",
+  "gemVersion": "1.0.0"
 }

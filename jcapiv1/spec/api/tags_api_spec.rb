@@ -82,7 +82,7 @@ describe 'TagsApi' do
 
   # unit tests for tags_post
   # Create a Tag
-  # Create a tag.
+  # Create a tag.  ### Examples #### Create a new Tag  &#x60;&#x60;&#x60; curl \\   -d &#39;{\&quot;name\&quot; : \&quot;Developers\&quot;}&#39; \\   -X &#39;POST&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;Accept: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/tags\&quot; &#x60;&#x60;&#x60;
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters

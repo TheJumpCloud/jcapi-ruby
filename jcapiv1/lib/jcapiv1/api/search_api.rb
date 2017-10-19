@@ -20,7 +20,7 @@ module JCAPIv1
     end
 
     # List System Users
-    # Return System Users in multi-record format allowing for the passing of the 'filter' parameter. This WILL NOT allow you to add a new system.
+    # Return System Users in multi-record format allowing for the passing of the 'filter' parameter. This WILL NOT allow you to add a new system.  ### Example  ##### Find a System User by username  ``` curl \\   -d '{\"filter\": [{\"username\" : \"bob\"}]}' \\   -X 'POST' \\   -H 'Content-Type: application/json' \\   -H 'Accept: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/search/systemusers\" ```
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
@@ -35,7 +35,7 @@ module JCAPIv1
     end
 
     # List System Users
-    # Return System Users in multi-record format allowing for the passing of the &#39;filter&#39; parameter. This WILL NOT allow you to add a new system.
+    # Return System Users in multi-record format allowing for the passing of the &#39;filter&#39; parameter. This WILL NOT allow you to add a new system.  ### Example  ##### Find a System User by username  &#x60;&#x60;&#x60; curl \\   -d &#39;{\&quot;filter\&quot;: [{\&quot;username\&quot; : \&quot;bob\&quot;}]}&#39; \\   -X &#39;POST&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;Accept: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/search/systemusers\&quot; &#x60;&#x60;&#x60;
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters

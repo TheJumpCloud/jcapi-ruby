@@ -19,8 +19,8 @@ module JCAPIv1
       @api_client = api_client
     end
 
-    # Run a Command assigned to a webhook
-    # 
+    # Launch a command via a Trigger
+    # ### Examples  ##### Launch a Command via a Trigger  ``` curl --silent \\      -X 'POST' \\      -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\      \"https://console.jumpcloud.com/api/command/trigger/[TRIGGER_NAME_HERE]\" ``` ##### Launch a Command via a Trigger passing a JSON object to the command ``` curl --silent \\      -X 'POST' \\      -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\      -H 'Accept: application/json' \\      -d '{ \"srcip\":\"192.168.2.32\", \"attack\":\"Cross Site Scripting Attempt\" }' \\      \"https://console.jumpcloud.com/api/command/trigger/[TRIGGER_NAME_HERE]\" ```
     # @param triggername 
     # @param content_type 
     # @param accept 
@@ -31,8 +31,8 @@ module JCAPIv1
       return nil
     end
 
-    # Run a Command assigned to a webhook
-    # 
+    # Launch a command via a Trigger
+    # ### Examples  ##### Launch a Command via a Trigger  &#x60;&#x60;&#x60; curl --silent \\      -X &#39;POST&#39; \\      -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\      \&quot;https://console.jumpcloud.com/api/command/trigger/[TRIGGER_NAME_HERE]\&quot; &#x60;&#x60;&#x60; ##### Launch a Command via a Trigger passing a JSON object to the command &#x60;&#x60;&#x60; curl --silent \\      -X &#39;POST&#39; \\      -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\      -H &#39;Accept: application/json&#39; \\      -d &#39;{ \&quot;srcip\&quot;:\&quot;192.168.2.32\&quot;, \&quot;attack\&quot;:\&quot;Cross Site Scripting Attempt\&quot; }&#39; \\      \&quot;https://console.jumpcloud.com/api/command/trigger/[TRIGGER_NAME_HERE]\&quot; &#x60;&#x60;&#x60;
     # @param triggername 
     # @param content_type 
     # @param accept 

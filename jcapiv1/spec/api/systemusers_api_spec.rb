@@ -83,7 +83,7 @@ describe 'SystemusersApi' do
 
   # unit tests for systemusers_post
   # Create a system user
-  # Add new System Users.
+  # Create a new system user.  ### Example  #### Create a system user  This example assumes there is already a Tag named \&quot;admins\&quot; in your JumpCloud account.  &#x60;&#x60;&#x60; curl \\   -d &#39;{\&quot;email\&quot; : \&quot;bob@myco.com\&quot;, \&quot;username\&quot; : \&quot;bob\&quot;, \&quot;tags\&quot; : [\&quot;admins\&quot;]}&#39; \\   -X &#39;POST&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;Accept: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers\&quot;
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
@@ -97,7 +97,7 @@ describe 'SystemusersApi' do
 
   # unit tests for systemusers_put
   # Update a system user
-  # Update a system user record and return the modified record.
+  # Update a system user record and return the modified record.  ### Example  #### Add attributes to a System User  &#x60;&#x60;&#x60; curl \\  -X &#39;PUT&#39; \\  -H &#39;Content-Type: application/json&#39; \\  -H &#39;Accept: application/json&#39; \\  -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\  -d &#39;{ \&quot;attributes\&quot; : [ { \&quot;name\&quot; : \&quot;myhappyattribute\&quot;, \&quot;value\&quot; : \&quot;myhappyattributevalue\&quot; }] }&#39; \\  \&quot;https://console.jumpcloud.com/api/systemusers/:id\&quot; &#x60;&#x60;&#x60;
   # @param id 
   # @param content_type 
   # @param accept 
@@ -112,7 +112,7 @@ describe 'SystemusersApi' do
 
   # unit tests for systemusers_systems_binding_list
   # List system user binding
-  # List system bindings for a specific system user in a system and user binding format.
+  # List system bindings for a specific system user in a system and user binding format.  ### Examples  #### List system bindings for specific system user  &#x60;&#x60;&#x60; curl \\   -H &#39;Content-Type: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
   # @param id 
   # @param content_type 
   # @param accept 
@@ -130,13 +130,13 @@ describe 'SystemusersApi' do
 
   # unit tests for systemusers_systems_binding_put
   # Update a system user binding
-  # Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).
+  # Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) system to system user  &#x60;&#x60;&#x60; curl \\   -d &#39;{ \&quot;add\&quot;: [\&quot;[SYSTEM_ID_TO_ADD_HERE]\&quot;], \&quot;remove\&quot;: [\&quot;[SYSTEM_ID_TO_REMOVE_HERE]\&quot;] }&#39; \\   -X PUT \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;Accept: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
   # @param id 
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Usersystembindingsput] :body 
-  # @return [nil]
+  # @return [Usersystembinding]
   describe 'systemusers_systems_binding_put test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

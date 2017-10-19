@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **systems_delete**
-> System systems_delete(id, content_type, accept)
+> System systems_delete(id, content_type, accept, opts)
 
 Delete a System
 
@@ -39,10 +39,14 @@ content_type = "application/json" # String |
 
 accept = "application/json" # String | 
 
+opts = { 
+  date: "date_example", # String | Current date header for the System Context API
+  authorization: "authorization_example" # String | Authorization header for the System Context API
+}
 
 begin
   #Delete a System
-  result = api_instance.systems_delete(id, content_type, accept)
+  result = api_instance.systems_delete(id, content_type, accept, opts)
   p result
 rescue JCAPIv1::ApiError => e
   puts "Exception when calling SystemsApi->systems_delete: #{e}"
@@ -56,6 +60,8 @@ Name | Type | Description  | Notes
  **id** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **date** | **String**| Current date header for the System Context API | [optional] 
+ **authorization** | **String**| Authorization header for the System Context API | [optional] 
 
 ### Return type
 
@@ -104,6 +110,8 @@ opts = {
   limit: 10, # Integer | The number of records to return at once.
   skip: 0, # Integer | The offset into the records to return.
   sort: "" # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  date: "date_example", # String | Current date header for the System Context API
+  authorization: "authorization_example" # String | Authorization header for the System Context API
 }
 
 begin
@@ -126,6 +134,8 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | **String**| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+ **date** | **String**| Current date header for the System Context API | [optional] 
+ **authorization** | **String**| Authorization header for the System Context API | [optional] 
 
 ### Return type
 
@@ -237,7 +247,9 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: JCAPIv1::Systemput.new # Systemput | 
+  body: JCAPIv1::Systemput.new, # Systemput | 
+  date: "date_example", # String | Current date header for the System Context API
+  authorization: "authorization_example" # String | Authorization header for the System Context API
 }
 
 begin
@@ -256,6 +268,8 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Systemput**](Systemput.md)|  | [optional] 
+ **date** | **String**| Current date header for the System Context API | [optional] 
+ **authorization** | **String**| Authorization header for the System Context API | [optional] 
 
 ### Return type
 
@@ -273,11 +287,11 @@ nil (empty response body)
 
 
 # **systems_systemusers_binding_list**
-> Object systems_systemusers_binding_list(id, content_type, accept, opts)
+> Systemuserbinding systems_systemusers_binding_list(id, content_type, accept, opts)
 
 List system user bindings
 
-List system user bindings for a specific system in a system and user binding format.
+List system user bindings for a specific system in a system and user binding format.  ### Example  #### List system user bindings for specific system  ``` curl \\   -H 'Content-Type: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/systems/[SYSTEM_ID_HERE]/systemusers\" ```
 
 ### Example
 ```ruby
@@ -329,7 +343,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**Systemuserbinding**](Systemuserbinding.md)
 
 ### Authorization
 
@@ -347,7 +361,7 @@ Name | Type | Description  | Notes
 
 Update a system's or user's binding
 
-Adds or removes a user binding for a system.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).
+Adds or removes a user binding for a system.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) a system user to (from) a system  ``` curl \\   -d '{ \"add\": [\"[SYSTEM_USER_ID_TO_ADD_HERE]\"], \"remove\": [\"[SYSTEM_USER_ID_TO_REMOVE_HERE]\"] }' \\   -X PUT \\   -H 'Content-Type: application/json' \\   -H 'Accept: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/systems/[SYSTEM_ID_HERE]/systemusers
 
 ### Example
 ```ruby

@@ -38,6 +38,8 @@ describe 'SystemsApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :date Current date header for the System Context API
+  # @option opts [String] :authorization Authorization header for the System Context API
   # @return [System]
   describe 'systems_delete test' do
     it "should work" do
@@ -56,6 +58,8 @@ describe 'SystemsApi' do
   # @option opts [Integer] :limit The number of records to return at once.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+  # @option opts [String] :date Current date header for the System Context API
+  # @option opts [String] :authorization Authorization header for the System Context API
   # @return [System]
   describe 'systems_get test' do
     it "should work" do
@@ -88,6 +92,8 @@ describe 'SystemsApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Systemput] :body 
+  # @option opts [String] :date Current date header for the System Context API
+  # @option opts [String] :authorization Authorization header for the System Context API
   # @return [nil]
   describe 'systems_put test' do
     it "should work" do
@@ -97,7 +103,7 @@ describe 'SystemsApi' do
 
   # unit tests for systems_systemusers_binding_list
   # List system user bindings
-  # List system user bindings for a specific system in a system and user binding format.
+  # List system user bindings for a specific system in a system and user binding format.  ### Example  #### List system user bindings for specific system  &#x60;&#x60;&#x60; curl \\   -H &#39;Content-Type: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systems/[SYSTEM_ID_HERE]/systemusers\&quot; &#x60;&#x60;&#x60;
   # @param id 
   # @param content_type 
   # @param accept 
@@ -106,7 +112,7 @@ describe 'SystemsApi' do
   # @option opts [Integer] :limit The number of records to return at once.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
-  # @return [Object]
+  # @return [Systemuserbinding]
   describe 'systems_systemusers_binding_list test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -115,7 +121,7 @@ describe 'SystemsApi' do
 
   # unit tests for systems_systemusers_binding_put
   # Update a system&#39;s or user&#39;s binding
-  # Adds or removes a user binding for a system.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).
+  # Adds or removes a user binding for a system.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) a system user to (from) a system  &#x60;&#x60;&#x60; curl \\   -d &#39;{ \&quot;add\&quot;: [\&quot;[SYSTEM_USER_ID_TO_ADD_HERE]\&quot;], \&quot;remove\&quot;: [\&quot;[SYSTEM_USER_ID_TO_REMOVE_HERE]\&quot;] }&#39; \\   -X PUT \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;Accept: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systems/[SYSTEM_ID_HERE]/systemusers
   # @param id 
   # @param content_type 
   # @param accept 

@@ -25,6 +25,8 @@ module JCAPIv1
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :date Current date header for the System Context API
+    # @option opts [String] :authorization Authorization header for the System Context API
     # @return [System]
     def systems_delete(id, content_type, accept, opts = {})
       data, _status_code, _headers = systems_delete_with_http_info(id, content_type, accept, opts)
@@ -37,6 +39,8 @@ module JCAPIv1
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :date Current date header for the System Context API
+    # @option opts [String] :authorization Authorization header for the System Context API
     # @return [Array<(System, Fixnum, Hash)>] System data, response status code and response headers
     def systems_delete_with_http_info(id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -62,6 +66,8 @@ module JCAPIv1
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'Date'] = opts[:'date'] if !opts[:'date'].nil?
+      header_params[:'Authorization'] = opts[:'authorization'] if !opts[:'authorization'].nil?
 
       # form parameters
       form_params = {}
@@ -92,6 +98,8 @@ module JCAPIv1
     # @option opts [Integer] :limit The number of records to return at once. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (default to )
+    # @option opts [String] :date Current date header for the System Context API
+    # @option opts [String] :authorization Authorization header for the System Context API
     # @return [System]
     def systems_get(id, content_type, accept, opts = {})
       data, _status_code, _headers = systems_get_with_http_info(id, content_type, accept, opts)
@@ -108,6 +116,8 @@ module JCAPIv1
     # @option opts [Integer] :limit The number of records to return at once.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :date Current date header for the System Context API
+    # @option opts [String] :authorization Authorization header for the System Context API
     # @return [Array<(System, Fixnum, Hash)>] System data, response status code and response headers
     def systems_get_with_http_info(id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -137,6 +147,8 @@ module JCAPIv1
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'Date'] = opts[:'date'] if !opts[:'date'].nil?
+      header_params[:'Authorization'] = opts[:'authorization'] if !opts[:'authorization'].nil?
 
       # form parameters
       form_params = {}
@@ -235,6 +247,8 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Systemput] :body 
+    # @option opts [String] :date Current date header for the System Context API
+    # @option opts [String] :authorization Authorization header for the System Context API
     # @return [nil]
     def systems_put(id, content_type, accept, opts = {})
       systems_put_with_http_info(id, content_type, accept, opts)
@@ -248,6 +262,8 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Systemput] :body 
+    # @option opts [String] :date Current date header for the System Context API
+    # @option opts [String] :authorization Authorization header for the System Context API
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def systems_put_with_http_info(id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -273,6 +289,8 @@ module JCAPIv1
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'Date'] = opts[:'date'] if !opts[:'date'].nil?
+      header_params[:'Authorization'] = opts[:'authorization'] if !opts[:'authorization'].nil?
 
       # form parameters
       form_params = {}
@@ -293,7 +311,7 @@ module JCAPIv1
     end
 
     # List system user bindings
-    # List system user bindings for a specific system in a system and user binding format.
+    # List system user bindings for a specific system in a system and user binding format.  ### Example  #### List system user bindings for specific system  ``` curl \\   -H 'Content-Type: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/systems/[SYSTEM_ID_HERE]/systemusers\" ```
     # @param id 
     # @param content_type 
     # @param accept 
@@ -302,14 +320,14 @@ module JCAPIv1
     # @option opts [Integer] :limit The number of records to return at once. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (default to )
-    # @return [Object]
+    # @return [Systemuserbinding]
     def systems_systemusers_binding_list(id, content_type, accept, opts = {})
       data, _status_code, _headers = systems_systemusers_binding_list_with_http_info(id, content_type, accept, opts)
       return data
     end
 
     # List system user bindings
-    # List system user bindings for a specific system in a system and user binding format.
+    # List system user bindings for a specific system in a system and user binding format.  ### Example  #### List system user bindings for specific system  &#x60;&#x60;&#x60; curl \\   -H &#39;Content-Type: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systems/[SYSTEM_ID_HERE]/systemusers\&quot; &#x60;&#x60;&#x60;
     # @param id 
     # @param content_type 
     # @param accept 
@@ -318,7 +336,7 @@ module JCAPIv1
     # @option opts [Integer] :limit The number of records to return at once.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
-    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    # @return [Array<(Systemuserbinding, Fixnum, Hash)>] Systemuserbinding data, response status code and response headers
     def systems_systemusers_binding_list_with_http_info(id, content_type, accept, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemsApi.systems_systemusers_binding_list ..."
@@ -360,7 +378,7 @@ module JCAPIv1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Object')
+        :return_type => 'Systemuserbinding')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SystemsApi#systems_systemusers_binding_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -368,7 +386,7 @@ module JCAPIv1
     end
 
     # Update a system's or user's binding
-    # Adds or removes a user binding for a system.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).
+    # Adds or removes a user binding for a system.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) a system user to (from) a system  ``` curl \\   -d '{ \"add\": [\"[SYSTEM_USER_ID_TO_ADD_HERE]\"], \"remove\": [\"[SYSTEM_USER_ID_TO_REMOVE_HERE]\"] }' \\   -X PUT \\   -H 'Content-Type: application/json' \\   -H 'Accept: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/systems/[SYSTEM_ID_HERE]/systemusers
     # @param id 
     # @param content_type 
     # @param accept 
@@ -381,7 +399,7 @@ module JCAPIv1
     end
 
     # Update a system&#39;s or user&#39;s binding
-    # Adds or removes a user binding for a system.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).
+    # Adds or removes a user binding for a system.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) a system user to (from) a system  &#x60;&#x60;&#x60; curl \\   -d &#39;{ \&quot;add\&quot;: [\&quot;[SYSTEM_USER_ID_TO_ADD_HERE]\&quot;], \&quot;remove\&quot;: [\&quot;[SYSTEM_USER_ID_TO_REMOVE_HERE]\&quot;] }&#39; \\   -X PUT \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;Accept: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systems/[SYSTEM_ID_HERE]/systemusers
     # @param id 
     # @param content_type 
     # @param accept 

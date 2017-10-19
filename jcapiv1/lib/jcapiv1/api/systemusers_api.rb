@@ -232,7 +232,7 @@ module JCAPIv1
     end
 
     # Create a system user
-    # Add new System Users.
+    # Create a new system user.  ### Example  #### Create a system user  This example assumes there is already a Tag named \"admins\" in your JumpCloud account.  ``` curl \\   -d '{\"email\" : \"bob@myco.com\", \"username\" : \"bob\", \"tags\" : [\"admins\"]}' \\   -X 'POST' \\   -H 'Content-Type: application/json' \\   -H 'Accept: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/systemusers\"
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
@@ -244,7 +244,7 @@ module JCAPIv1
     end
 
     # Create a system user
-    # Add new System Users.
+    # Create a new system user.  ### Example  #### Create a system user  This example assumes there is already a Tag named \&quot;admins\&quot; in your JumpCloud account.  &#x60;&#x60;&#x60; curl \\   -d &#39;{\&quot;email\&quot; : \&quot;bob@myco.com\&quot;, \&quot;username\&quot; : \&quot;bob\&quot;, \&quot;tags\&quot; : [\&quot;admins\&quot;]}&#39; \\   -X &#39;POST&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;Accept: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers\&quot;
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
@@ -293,7 +293,7 @@ module JCAPIv1
     end
 
     # Update a system user
-    # Update a system user record and return the modified record.
+    # Update a system user record and return the modified record.  ### Example  #### Add attributes to a System User  ``` curl \\  -X 'PUT' \\  -H 'Content-Type: application/json' \\  -H 'Accept: application/json' \\  -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\  -d '{ \"attributes\" : [ { \"name\" : \"myhappyattribute\", \"value\" : \"myhappyattributevalue\" }] }' \\  \"https://console.jumpcloud.com/api/systemusers/:id\" ```
     # @param id 
     # @param content_type 
     # @param accept 
@@ -306,7 +306,7 @@ module JCAPIv1
     end
 
     # Update a system user
-    # Update a system user record and return the modified record.
+    # Update a system user record and return the modified record.  ### Example  #### Add attributes to a System User  &#x60;&#x60;&#x60; curl \\  -X &#39;PUT&#39; \\  -H &#39;Content-Type: application/json&#39; \\  -H &#39;Accept: application/json&#39; \\  -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\  -d &#39;{ \&quot;attributes\&quot; : [ { \&quot;name\&quot; : \&quot;myhappyattribute\&quot;, \&quot;value\&quot; : \&quot;myhappyattributevalue\&quot; }] }&#39; \\  \&quot;https://console.jumpcloud.com/api/systemusers/:id\&quot; &#x60;&#x60;&#x60;
     # @param id 
     # @param content_type 
     # @param accept 
@@ -358,7 +358,7 @@ module JCAPIv1
     end
 
     # List system user binding
-    # List system bindings for a specific system user in a system and user binding format.
+    # List system bindings for a specific system user in a system and user binding format.  ### Examples  #### List system bindings for specific system user  ``` curl \\   -H 'Content-Type: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\" ```
     # @param id 
     # @param content_type 
     # @param accept 
@@ -374,7 +374,7 @@ module JCAPIv1
     end
 
     # List system user binding
-    # List system bindings for a specific system user in a system and user binding format.
+    # List system bindings for a specific system user in a system and user binding format.  ### Examples  #### List system bindings for specific system user  &#x60;&#x60;&#x60; curl \\   -H &#39;Content-Type: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
     # @param id 
     # @param content_type 
     # @param accept 
@@ -433,26 +433,26 @@ module JCAPIv1
     end
 
     # Update a system user binding
-    # Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).
+    # Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) system to system user  ``` curl \\   -d '{ \"add\": [\"[SYSTEM_ID_TO_ADD_HERE]\"], \"remove\": [\"[SYSTEM_ID_TO_REMOVE_HERE]\"] }' \\   -X PUT \\   -H 'Content-Type: application/json' \\   -H 'Accept: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\" ```
     # @param id 
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Usersystembindingsput] :body 
-    # @return [nil]
+    # @return [Usersystembinding]
     def systemusers_systems_binding_put(id, content_type, accept, opts = {})
-      systemusers_systems_binding_put_with_http_info(id, content_type, accept, opts)
-      return nil
+      data, _status_code, _headers = systemusers_systems_binding_put_with_http_info(id, content_type, accept, opts)
+      return data
     end
 
     # Update a system user binding
-    # Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).
+    # Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) system to system user  &#x60;&#x60;&#x60; curl \\   -d &#39;{ \&quot;add\&quot;: [\&quot;[SYSTEM_ID_TO_ADD_HERE]\&quot;], \&quot;remove\&quot;: [\&quot;[SYSTEM_ID_TO_REMOVE_HERE]\&quot;] }&#39; \\   -X PUT \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;Accept: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
     # @param id 
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Usersystembindingsput] :body 
-    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    # @return [Array<(Usersystembinding, Fixnum, Hash)>] Usersystembinding data, response status code and response headers
     def systemusers_systems_binding_put_with_http_info(id, content_type, accept, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemusersApi.systemusers_systems_binding_put ..."
@@ -489,7 +489,8 @@ module JCAPIv1
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
-        :auth_names => auth_names)
+        :auth_names => auth_names,
+        :return_type => 'Usersystembinding')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SystemusersApi#systemusers_systems_binding_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

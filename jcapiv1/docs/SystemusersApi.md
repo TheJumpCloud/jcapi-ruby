@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 
 Create a system user
 
-Add new System Users.
+Create a new system user.  ### Example  #### Create a system user  This example assumes there is already a Tag named \"admins\" in your JumpCloud account.  ``` curl \\   -d '{\"email\" : \"bob@myco.com\", \"username\" : \"bob\", \"tags\" : [\"admins\"]}' \\   -X 'POST' \\   -H 'Content-Type: application/json' \\   -H 'Accept: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/systemusers\"
 
 ### Example
 ```ruby
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 Update a system user
 
-Update a system user record and return the modified record.
+Update a system user record and return the modified record.  ### Example  #### Add attributes to a System User  ``` curl \\  -X 'PUT' \\  -H 'Content-Type: application/json' \\  -H 'Accept: application/json' \\  -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\  -d '{ \"attributes\" : [ { \"name\" : \"myhappyattribute\", \"value\" : \"myhappyattributevalue\" }] }' \\  \"https://console.jumpcloud.com/api/systemusers/:id\" ```
 
 ### Example
 ```ruby
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 
 List system user binding
 
-List system bindings for a specific system user in a system and user binding format.
+List system bindings for a specific system user in a system and user binding format.  ### Examples  #### List system bindings for specific system user  ``` curl \\   -H 'Content-Type: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\" ```
 
 ### Example
 ```ruby
@@ -408,11 +408,11 @@ Name | Type | Description  | Notes
 
 
 # **systemusers_systems_binding_put**
-> systemusers_systems_binding_put(id, content_type, accept, opts)
+> Usersystembinding systemusers_systems_binding_put(id, content_type, accept, opts)
 
 Update a system user binding
 
-Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).
+Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) system to system user  ``` curl \\   -d '{ \"add\": [\"[SYSTEM_ID_TO_ADD_HERE]\"], \"remove\": [\"[SYSTEM_ID_TO_REMOVE_HERE]\"] }' \\   -X PUT \\   -H 'Content-Type: application/json' \\   -H 'Accept: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\" ```
 
 ### Example
 ```ruby
@@ -440,7 +440,8 @@ opts = {
 
 begin
   #Update a system user binding
-  api_instance.systemusers_systems_binding_put(id, content_type, accept, opts)
+  result = api_instance.systemusers_systems_binding_put(id, content_type, accept, opts)
+  p result
 rescue JCAPIv1::ApiError => e
   puts "Exception when calling SystemusersApi->systemusers_systems_binding_put: #{e}"
 end
@@ -457,7 +458,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-nil (empty response body)
+[**Usersystembinding**](Usersystembinding.md)
 
 ### Authorization
 

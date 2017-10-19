@@ -13,19 +13,20 @@ require 'date'
 
 module JCAPIv2
 
-  class SambaDomainInput
-    # Name of this domain
+  class Body
     attr_accessor :name
 
-    # Security identifier of this domain
-    attr_accessor :sid
+    attr_accessor :report_url
+
+    attr_accessor :oauth
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'name' => :'name',
-        :'sid' => :'sid'
+        :'report_url' => :'reportUrl',
+        :'oauth' => :'oauth'
       }
     end
 
@@ -33,7 +34,8 @@ module JCAPIv2
     def self.swagger_types
       {
         :'name' => :'String',
-        :'sid' => :'String'
+        :'report_url' => :'String',
+        :'oauth' => :'WorkdaysOauth'
       }
     end
 
@@ -49,8 +51,12 @@ module JCAPIv2
         self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'sid')
-        self.sid = attributes[:'sid']
+      if attributes.has_key?(:'reportUrl')
+        self.report_url = attributes[:'reportUrl']
+      end
+
+      if attributes.has_key?(:'oauth')
+        self.oauth = attributes[:'oauth']
       end
 
     end
@@ -63,8 +69,8 @@ module JCAPIv2
         invalid_properties.push("invalid value for 'name', name cannot be nil.")
       end
 
-      if @sid.nil?
-        invalid_properties.push("invalid value for 'sid', sid cannot be nil.")
+      if @report_url.nil?
+        invalid_properties.push("invalid value for 'report_url', report_url cannot be nil.")
       end
 
       return invalid_properties
@@ -74,7 +80,7 @@ module JCAPIv2
     # @return true if the model is valid
     def valid?
       return false if @name.nil?
-      return false if @sid.nil?
+      return false if @report_url.nil?
       return true
     end
 
@@ -84,7 +90,8 @@ module JCAPIv2
       return true if self.equal?(o)
       self.class == o.class &&
           name == o.name &&
-          sid == o.sid
+          report_url == o.report_url &&
+          oauth == o.oauth
     end
 
     # @see the `==` method
@@ -96,7 +103,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, sid].hash
+      [name, report_url, oauth].hash
     end
 
     # Builds the object from hash

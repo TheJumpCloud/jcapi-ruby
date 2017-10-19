@@ -673,9 +673,8 @@ module JCAPIv2
       return data, status_code, headers
     end
 
-    # Lists all the policy results of a given policy.
+    # Lists all the policy results for an organization.
     # 
-    # @param policy_id 
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
@@ -686,14 +685,13 @@ module JCAPIv2
     # @option opts [String] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (default to )
     # @option opts [String] :aggregate  (default to )
     # @return [Array<PolicyResult>]
-    def policyresults_list(policy_id, content_type, accept, opts = {})
-      data, _status_code, _headers = policyresults_list_with_http_info(policy_id, content_type, accept, opts)
+    def policyresults_list(content_type, accept, opts = {})
+      data, _status_code, _headers = policyresults_list_with_http_info(content_type, accept, opts)
       return data
     end
 
-    # Lists all the policy results of a given policy.
+    # Lists all the policy results for an organization.
     # 
-    # @param policy_id 
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
@@ -704,18 +702,16 @@ module JCAPIv2
     # @option opts [String] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
     # @option opts [String] :aggregate 
     # @return [Array<(Array<PolicyResult>, Fixnum, Hash)>] Array<PolicyResult> data, response status code and response headers
-    def policyresults_list_with_http_info(policy_id, content_type, accept, opts = {})
+    def policyresults_list_with_http_info(content_type, accept, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PoliciesApi.policyresults_list ..."
       end
-      # verify the required parameter 'policy_id' is set
-      fail ArgumentError, "Missing the required parameter 'policy_id' when calling PoliciesApi.policyresults_list" if policy_id.nil?
       # verify the required parameter 'content_type' is set
       fail ArgumentError, "Missing the required parameter 'content_type' when calling PoliciesApi.policyresults_list" if content_type.nil?
       # verify the required parameter 'accept' is set
       fail ArgumentError, "Missing the required parameter 'accept' when calling PoliciesApi.policyresults_list" if accept.nil?
       # resource path
-      local_var_path = "/policies/{policy_id}/policyresults".sub('{format}','json').sub('{' + 'policy_id' + '}', policy_id.to_s)
+      local_var_path = "/policyresults".sub('{format}','json')
 
       # query parameters
       query_params = {}
@@ -754,8 +750,9 @@ module JCAPIv2
       return data, status_code, headers
     end
 
-    # Lists all the policy results for an organization.
+    # Lists all the policy results of a given policy.
     # 
+    # @param policy_id 
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
@@ -766,13 +763,14 @@ module JCAPIv2
     # @option opts [String] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (default to )
     # @option opts [String] :aggregate  (default to )
     # @return [Array<PolicyResult>]
-    def policyresults_list_0(content_type, accept, opts = {})
-      data, _status_code, _headers = policyresults_list_0_with_http_info(content_type, accept, opts)
+    def policyresults_list_0(policy_id, content_type, accept, opts = {})
+      data, _status_code, _headers = policyresults_list_0_with_http_info(policy_id, content_type, accept, opts)
       return data
     end
 
-    # Lists all the policy results for an organization.
+    # Lists all the policy results of a given policy.
     # 
+    # @param policy_id 
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
@@ -783,16 +781,18 @@ module JCAPIv2
     # @option opts [String] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
     # @option opts [String] :aggregate 
     # @return [Array<(Array<PolicyResult>, Fixnum, Hash)>] Array<PolicyResult> data, response status code and response headers
-    def policyresults_list_0_with_http_info(content_type, accept, opts = {})
+    def policyresults_list_0_with_http_info(policy_id, content_type, accept, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: PoliciesApi.policyresults_list_0 ..."
       end
+      # verify the required parameter 'policy_id' is set
+      fail ArgumentError, "Missing the required parameter 'policy_id' when calling PoliciesApi.policyresults_list_0" if policy_id.nil?
       # verify the required parameter 'content_type' is set
       fail ArgumentError, "Missing the required parameter 'content_type' when calling PoliciesApi.policyresults_list_0" if content_type.nil?
       # verify the required parameter 'accept' is set
       fail ArgumentError, "Missing the required parameter 'accept' when calling PoliciesApi.policyresults_list_0" if accept.nil?
       # resource path
-      local_var_path = "/policyresults".sub('{format}','json')
+      local_var_path = "/policies/{policy_id}/policyresults".sub('{format}','json').sub('{' + 'policy_id' + '}', policy_id.to_s)
 
       # query parameters
       query_params = {}

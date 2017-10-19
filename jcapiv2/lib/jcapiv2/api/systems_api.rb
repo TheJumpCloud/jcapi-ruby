@@ -28,6 +28,8 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :date Current date header for the System Context API
+    # @option opts [String] :authorization Authorization header for the System Context API
     # @return [Array<GraphConnection>]
     def graph_system_associations_list(system_id, targets, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_associations_list_with_http_info(system_id, targets, content_type, accept, opts)
@@ -43,6 +45,8 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :date Current date header for the System Context API
+    # @option opts [String] :authorization Authorization header for the System Context API
     # @return [Array<(Array<GraphConnection>, Fixnum, Hash)>] Array<GraphConnection> data, response status code and response headers
     def graph_system_associations_list_with_http_info(system_id, targets, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -73,6 +77,8 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'Date'] = opts[:'date'] if !opts[:'date'].nil?
+      header_params[:'Authorization'] = opts[:'authorization'] if !opts[:'authorization'].nil?
 
       # form parameters
       form_params = {}
@@ -100,6 +106,8 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [GraphManagementReq] :body 
+    # @option opts [String] :date Current date header for the System Context API
+    # @option opts [String] :authorization Authorization header for the System Context API
     # @return [nil]
     def graph_system_associations_post(system_id, content_type, accept, opts = {})
       graph_system_associations_post_with_http_info(system_id, content_type, accept, opts)
@@ -113,6 +121,8 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [GraphManagementReq] :body 
+    # @option opts [String] :date Current date header for the System Context API
+    # @option opts [String] :authorization Authorization header for the System Context API
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def graph_system_associations_post_with_http_info(system_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -138,6 +148,8 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'Date'] = opts[:'date'] if !opts[:'date'].nil?
+      header_params[:'Authorization'] = opts[:'authorization'] if !opts[:'authorization'].nil?
 
       # form parameters
       form_params = {}
@@ -165,6 +177,8 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :date Current date header for the System Context API
+    # @option opts [String] :authorization Authorization header for the System Context API
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_member_of(system_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_member_of_with_http_info(system_id, content_type, accept, opts)
@@ -179,6 +193,8 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :date Current date header for the System Context API
+    # @option opts [String] :authorization Authorization header for the System Context API
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_member_of_with_http_info(system_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -206,6 +222,8 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'Date'] = opts[:'date'] if !opts[:'date'].nil?
+      header_params[:'Authorization'] = opts[:'authorization'] if !opts[:'authorization'].nil?
 
       # form parameters
       form_params = {}
@@ -303,6 +321,8 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :date Current date header for the System Context API
+    # @option opts [String] :authorization Authorization header for the System Context API
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_traverse_user(system_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_traverse_user_with_http_info(system_id, content_type, accept, opts)
@@ -317,6 +337,8 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :date Current date header for the System Context API
+    # @option opts [String] :authorization Authorization header for the System Context API
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_traverse_user_with_http_info(system_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -344,6 +366,8 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'Date'] = opts[:'date'] if !opts[:'date'].nil?
+      header_params[:'Authorization'] = opts[:'authorization'] if !opts[:'authorization'].nil?
 
       # form parameters
       form_params = {}

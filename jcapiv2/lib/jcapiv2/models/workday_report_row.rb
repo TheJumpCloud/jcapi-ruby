@@ -13,27 +13,17 @@ require 'date'
 
 module JCAPIv2
 
-  class SambaDomainInput
-    # Name of this domain
-    attr_accessor :name
-
-    # Security identifier of this domain
-    attr_accessor :sid
-
+  class WorkdayReportRow
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'sid' => :'sid'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'name' => :'String',
-        :'sid' => :'String'
       }
     end
 
@@ -45,36 +35,18 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'sid')
-        self.sid = attributes[:'sid']
-      end
-
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push("invalid value for 'name', name cannot be nil.")
-      end
-
-      if @sid.nil?
-        invalid_properties.push("invalid value for 'sid', sid cannot be nil.")
-      end
-
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @name.nil?
-      return false if @sid.nil?
       return true
     end
 
@@ -82,9 +54,7 @@ module JCAPIv2
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
-      self.class == o.class &&
-          name == o.name &&
-          sid == o.sid
+      self.class == o.class
     end
 
     # @see the `==` method
@@ -96,7 +66,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, sid].hash
+      [].hash
     end
 
     # Builds the object from hash

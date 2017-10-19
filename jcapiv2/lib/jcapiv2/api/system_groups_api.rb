@@ -302,6 +302,8 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [SystemGroupMembersReq] :body 
+    # @option opts [String] :date Current date header for the System Context API
+    # @option opts [String] :authorization Authorization header for the System Context API
     # @return [nil]
     def graph_system_group_members_post(group_id, content_type, accept, opts = {})
       graph_system_group_members_post_with_http_info(group_id, content_type, accept, opts)
@@ -315,6 +317,8 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [SystemGroupMembersReq] :body 
+    # @option opts [String] :date Current date header for the System Context API
+    # @option opts [String] :authorization Authorization header for the System Context API
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def graph_system_group_members_post_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -340,6 +344,8 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'Date'] = opts[:'date'] if !opts[:'date'].nil?
+      header_params[:'Authorization'] = opts[:'authorization'] if !opts[:'authorization'].nil?
 
       # form parameters
       form_params = {}

@@ -103,6 +103,8 @@ describe 'SystemGroupsApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [SystemGroupMembersReq] :body 
+  # @option opts [String] :date Current date header for the System Context API
+  # @option opts [String] :authorization Authorization header for the System Context API
   # @return [nil]
   describe 'graph_system_group_members_post test' do
     it "should work" do

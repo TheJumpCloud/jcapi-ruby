@@ -43,6 +43,8 @@ accept = "application/json" # String |
 opts = { 
   limit: 10, # Integer | The number of records to return at once.
   skip: 0 # Integer | The offset into the records to return.
+  date: "date_example", # String | Current date header for the System Context API
+  authorization: "authorization_example" # String | Authorization header for the System Context API
 }
 
 begin
@@ -64,6 +66,8 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **date** | **String**| Current date header for the System Context API | [optional] 
+ **authorization** | **String**| Authorization header for the System Context API | [optional] 
 
 ### Return type
 
@@ -108,7 +112,9 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: JCAPIv2::GraphManagementReq.new # GraphManagementReq | 
+  body: JCAPIv2::GraphManagementReq.new, # GraphManagementReq | 
+  date: "date_example", # String | Current date header for the System Context API
+  authorization: "authorization_example" # String | Authorization header for the System Context API
 }
 
 begin
@@ -127,6 +133,8 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**GraphManagementReq**](GraphManagementReq.md)|  | [optional] 
+ **date** | **String**| Current date header for the System Context API | [optional] 
+ **authorization** | **String**| Authorization header for the System Context API | [optional] 
 
 ### Return type
 
@@ -173,6 +181,8 @@ accept = "application/json" # String |
 opts = { 
   limit: 10, # Integer | The number of records to return at once.
   skip: 0 # Integer | The offset into the records to return.
+  date: "date_example", # String | Current date header for the System Context API
+  authorization: "authorization_example" # String | Authorization header for the System Context API
 }
 
 begin
@@ -193,6 +203,8 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **date** | **String**| Current date header for the System Context API | [optional] 
+ **authorization** | **String**| Authorization header for the System Context API | [optional] 
 
 ### Return type
 
@@ -305,6 +317,8 @@ accept = "application/json" # String |
 opts = { 
   limit: 10, # Integer | The number of records to return at once.
   skip: 0 # Integer | The offset into the records to return.
+  date: "date_example", # String | Current date header for the System Context API
+  authorization: "authorization_example" # String | Authorization header for the System Context API
 }
 
 begin
@@ -325,6 +339,8 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **date** | **String**| Current date header for the System Context API | [optional] 
+ **authorization** | **String**| Authorization header for the System Context API | [optional] 
 
 ### Return type
 

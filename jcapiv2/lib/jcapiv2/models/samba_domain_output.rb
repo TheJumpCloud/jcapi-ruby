@@ -68,6 +68,14 @@ module JCAPIv2
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @name.nil?
+        invalid_properties.push("invalid value for 'name', name cannot be nil.")
+      end
+
+      if @sid.nil?
+        invalid_properties.push("invalid value for 'sid', sid cannot be nil.")
+      end
+
       if @id.nil?
         invalid_properties.push("invalid value for 'id', id cannot be nil.")
       end
@@ -78,6 +86,8 @@ module JCAPIv2
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @name.nil?
+      return false if @sid.nil?
       return false if @id.nil?
       return true
     end

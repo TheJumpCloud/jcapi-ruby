@@ -183,9 +183,8 @@ describe 'PoliciesApi' do
   end
 
   # unit tests for policyresults_list
-  # Lists all the policy results of a given policy.
+  # Lists all the policy results for an organization.
   # 
-  # @param policy_id 
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
@@ -203,8 +202,9 @@ describe 'PoliciesApi' do
   end
 
   # unit tests for policyresults_list_0
-  # Lists all the policy results for an organization.
+  # Lists all the policy results of a given policy.
   # 
+  # @param policy_id 
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters

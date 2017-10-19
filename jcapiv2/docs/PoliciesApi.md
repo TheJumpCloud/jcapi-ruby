@@ -14,8 +14,8 @@ Method | HTTP request | Description
 [**policies_post**](PoliciesApi.md#policies_post) | **POST** /policies | Create a new Policy
 [**policies_put**](PoliciesApi.md#policies_put) | **PUT** /policies/{id} | Update an existing Policy
 [**policyresults_get**](PoliciesApi.md#policyresults_get) | **GET** /policyresults/{id} | Get a specific Policy Result.
-[**policyresults_list**](PoliciesApi.md#policyresults_list) | **GET** /policies/{policy_id}/policyresults | Lists all the policy results of a given policy.
-[**policyresults_list_0**](PoliciesApi.md#policyresults_list_0) | **GET** /policyresults | Lists all the policy results for an organization.
+[**policyresults_list**](PoliciesApi.md#policyresults_list) | **GET** /policyresults | Lists all the policy results for an organization.
+[**policyresults_list_0**](PoliciesApi.md#policyresults_list_0) | **GET** /policies/{policy_id}/policyresults | Lists all the policy results of a given policy.
 [**policytemplates_get**](PoliciesApi.md#policytemplates_get) | **GET** /policytemplates/{id} | Get a specific Policy Template
 [**policytemplates_list**](PoliciesApi.md#policytemplates_list) | **GET** /policytemplates | Lists all of the Policy Templates
 
@@ -433,7 +433,7 @@ opts = {
   filter: "", # String | Supported operators are: eq, ne, gt, ge, lt, le, between, search
   limit: 10, # Integer | The number of records to return at once.
   skip: 0 # Integer | The offset into the records to return.
-  sort: "" # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  sort: "", # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 }
 
 begin
@@ -650,7 +650,76 @@ Name | Type | Description  | Notes
 
 
 # **policyresults_list**
-> Array&lt;PolicyResult&gt; policyresults_list(policy_id, content_type, accept, opts)
+> Array&lt;PolicyResult&gt; policyresults_list(content_type, accept, opts)
+
+Lists all the policy results for an organization.
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv2'
+# setup authorization
+JCAPIv2.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = JCAPIv2::PoliciesApi.new
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  fields: "", # String | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
+  filter: "", # String | Supported operators are: eq, ne, gt, ge, lt, le, between, search
+  limit: 10, # Integer | The number of records to return at once.
+  skip: 0 # Integer | The offset into the records to return.
+  sort: "", # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  aggregate: "" # String | 
+}
+
+begin
+  #Lists all the policy results for an organization.
+  result = api_instance.policyresults_list(content_type, accept, opts)
+  p result
+rescue JCAPIv2::ApiError => e
+  puts "Exception when calling PoliciesApi->policyresults_list: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **fields** | **String**| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to ]
+ **filter** | **String**| Supported operators are: eq, ne, gt, ge, lt, le, between, search | [optional] [default to ]
+ **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **sort** | **String**| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+ **aggregate** | **String**|  | [optional] [default to ]
+
+### Return type
+
+[**Array&lt;PolicyResult&gt;**](PolicyResult.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **policyresults_list_0**
+> Array&lt;PolicyResult&gt; policyresults_list_0(policy_id, content_type, accept, opts)
 
 Lists all the policy results of a given policy.
 
@@ -679,83 +748,13 @@ opts = {
   filter: "", # String | Supported operators are: eq, ne, gt, ge, lt, le, between, search
   limit: 10, # Integer | The number of records to return at once.
   skip: 0 # Integer | The offset into the records to return.
-  sort: "" # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  sort: "", # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
   aggregate: "" # String | 
 }
 
 begin
   #Lists all the policy results of a given policy.
-  result = api_instance.policyresults_list(policy_id, content_type, accept, opts)
-  p result
-rescue JCAPIv2::ApiError => e
-  puts "Exception when calling PoliciesApi->policyresults_list: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **policy_id** | **String**|  | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **fields** | **String**| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to ]
- **filter** | **String**| Supported operators are: eq, ne, gt, ge, lt, le, between, search | [optional] [default to ]
- **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | **String**| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
- **aggregate** | **String**|  | [optional] [default to ]
-
-### Return type
-
-[**Array&lt;PolicyResult&gt;**](PolicyResult.md)
-
-### Authorization
-
-[x-api-key](../README.md#x-api-key)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-
-# **policyresults_list_0**
-> Array&lt;PolicyResult&gt; policyresults_list_0(content_type, accept, opts)
-
-Lists all the policy results for an organization.
-
-### Example
-```ruby
-# load the gem
-require 'jcapiv2'
-# setup authorization
-JCAPIv2.configure do |config|
-  # Configure API key authorization: x-api-key
-  config.api_key['x-api-key'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['x-api-key'] = 'Bearer'
-end
-
-api_instance = JCAPIv2::PoliciesApi.new
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
-opts = { 
-  fields: "", # String | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-  filter: "", # String | Supported operators are: eq, ne, gt, ge, lt, le, between, search
-  limit: 10, # Integer | The number of records to return at once.
-  skip: 0 # Integer | The offset into the records to return.
-  sort: "" # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  aggregate: "" # String | 
-}
-
-begin
-  #Lists all the policy results for an organization.
-  result = api_instance.policyresults_list_0(content_type, accept, opts)
+  result = api_instance.policyresults_list_0(policy_id, content_type, accept, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling PoliciesApi->policyresults_list_0: #{e}"
@@ -766,6 +765,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **policy_id** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **fields** | **String**| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to ]
@@ -880,7 +880,7 @@ opts = {
   filter: "", # String | Supported operators are: eq, ne, gt, ge, lt, le, between, search
   limit: 10, # Integer | The number of records to return at once.
   skip: 0 # Integer | The offset into the records to return.
-  sort: "" # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  sort: "", # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 }
 
 begin

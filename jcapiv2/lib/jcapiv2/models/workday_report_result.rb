@@ -13,27 +13,25 @@ require 'date'
 
 module JCAPIv2
 
-  class SambaDomainInput
-    # Name of this domain
-    attr_accessor :name
+  class WorkdayReportResult
+    attr_accessor :colums
 
-    # Security identifier of this domain
-    attr_accessor :sid
+    attr_accessor :rows
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'sid' => :'sid'
+        :'colums' => :'colums',
+        :'rows' => :'rows'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'name' => :'String',
-        :'sid' => :'String'
+        :'colums' => :'Array<String>',
+        :'rows' => :'Array<WorkdayReportRow>'
       }
     end
 
@@ -45,12 +43,16 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.has_key?(:'colums')
+        if (value = attributes[:'colums']).is_a?(Array)
+          self.colums = value
+        end
       end
 
-      if attributes.has_key?(:'sid')
-        self.sid = attributes[:'sid']
+      if attributes.has_key?(:'rows')
+        if (value = attributes[:'rows']).is_a?(Array)
+          self.rows = value
+        end
       end
 
     end
@@ -59,22 +61,12 @@ module JCAPIv2
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push("invalid value for 'name', name cannot be nil.")
-      end
-
-      if @sid.nil?
-        invalid_properties.push("invalid value for 'sid', sid cannot be nil.")
-      end
-
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @name.nil?
-      return false if @sid.nil?
       return true
     end
 
@@ -83,8 +75,8 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          sid == o.sid
+          colums == o.colums &&
+          rows == o.rows
     end
 
     # @see the `==` method
@@ -96,7 +88,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, sid].hash
+      [colums, rows].hash
     end
 
     # Builds the object from hash

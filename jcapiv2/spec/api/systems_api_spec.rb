@@ -41,6 +41,8 @@ describe 'SystemsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once.
   # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [String] :date Current date header for the System Context API
+  # @option opts [String] :authorization Authorization header for the System Context API
   # @return [Array<GraphConnection>]
   describe 'graph_system_associations_list test' do
     it "should work" do
@@ -56,6 +58,8 @@ describe 'SystemsApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [GraphManagementReq] :body 
+  # @option opts [String] :date Current date header for the System Context API
+  # @option opts [String] :authorization Authorization header for the System Context API
   # @return [nil]
   describe 'graph_system_associations_post test' do
     it "should work" do
@@ -72,6 +76,8 @@ describe 'SystemsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once.
   # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [String] :date Current date header for the System Context API
+  # @option opts [String] :authorization Authorization header for the System Context API
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_system_member_of test' do
     it "should work" do
@@ -104,6 +110,8 @@ describe 'SystemsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once.
   # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [String] :date Current date header for the System Context API
+  # @option opts [String] :authorization Authorization header for the System Context API
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_system_traverse_user test' do
     it "should work" do

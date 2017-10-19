@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** | Name of this domain | [optional] 
-**sid** | **String** | Security identifier of this domain | [optional] 
+**name** | **String** | Name of this domain | 
+**sid** | **String** | Security identifier of this domain | 
 **id** | **String** | Unique identifier of this domain | 
 
 

@@ -197,8 +197,8 @@ Class | Method | HTTP request | Description
 *JCAPIv2::PoliciesApi* | [**policies_post**](docs/PoliciesApi.md#policies_post) | **POST** /policies | Create a new Policy
 *JCAPIv2::PoliciesApi* | [**policies_put**](docs/PoliciesApi.md#policies_put) | **PUT** /policies/{id} | Update an existing Policy
 *JCAPIv2::PoliciesApi* | [**policyresults_get**](docs/PoliciesApi.md#policyresults_get) | **GET** /policyresults/{id} | Get a specific Policy Result.
-*JCAPIv2::PoliciesApi* | [**policyresults_list**](docs/PoliciesApi.md#policyresults_list) | **GET** /policies/{policy_id}/policyresults | Lists all the policy results of a given policy.
-*JCAPIv2::PoliciesApi* | [**policyresults_list_0**](docs/PoliciesApi.md#policyresults_list_0) | **GET** /policyresults | Lists all the policy results for an organization.
+*JCAPIv2::PoliciesApi* | [**policyresults_list**](docs/PoliciesApi.md#policyresults_list) | **GET** /policyresults | Lists all the policy results for an organization.
+*JCAPIv2::PoliciesApi* | [**policyresults_list_0**](docs/PoliciesApi.md#policyresults_list_0) | **GET** /policies/{policy_id}/policyresults | Lists all the policy results of a given policy.
 *JCAPIv2::PoliciesApi* | [**policytemplates_get**](docs/PoliciesApi.md#policytemplates_get) | **GET** /policytemplates/{id} | Get a specific Policy Template
 *JCAPIv2::PoliciesApi* | [**policytemplates_list**](docs/PoliciesApi.md#policytemplates_list) | **GET** /policytemplates | Lists all of the Policy Templates
 *JCAPIv2::PolicytemplatesApi* | [**policytemplates_get**](docs/PolicytemplatesApi.md#policytemplates_get) | **GET** /policytemplates/{id} | Get a specific Policy Template
@@ -263,12 +263,20 @@ Class | Method | HTTP request | Description
 *JCAPIv2::UsersApi* | [**graph_user_traverse_office365**](docs/UsersApi.md#graph_user_traverse_office365) | **GET** /users/{user_id}/office365s | List the Office 365 instances associated with User
 *JCAPIv2::UsersApi* | [**graph_user_traverse_radius_server**](docs/UsersApi.md#graph_user_traverse_radius_server) | **GET** /users/{user_id}/radiusservers | List the RADIUS Servers associated with a User
 *JCAPIv2::UsersApi* | [**graph_user_traverse_system**](docs/UsersApi.md#graph_user_traverse_system) | **GET** /users/{user_id}/systems | List the Systems associated with a User
+*JCAPIv2::WorkdayApi* | [**workdays_delete**](docs/WorkdayApi.md#workdays_delete) | **DELETE** /workdays/{id} | Delete Workday
+*JCAPIv2::WorkdayApi* | [**workdays_get**](docs/WorkdayApi.md#workdays_get) | **GET** /workdays/{id} | Get Workday
+*JCAPIv2::WorkdayApi* | [**workdays_list**](docs/WorkdayApi.md#workdays_list) | **GET** /workdays | List Workdays
+*JCAPIv2::WorkdayApi* | [**workdays_post**](docs/WorkdayApi.md#workdays_post) | **POST** /workdays | Create new Workday
+*JCAPIv2::WorkdayApi* | [**workdays_put**](docs/WorkdayApi.md#workdays_put) | **PUT** /workdays/{id} | Update Workday
+*JCAPIv2::WorkdayApi* | [**workdays_report**](docs/WorkdayApi.md#workdays_report) | **GET** /workdays/{id}/report | Get Workday Report Results
+*JCAPIv2::WorkdayApi* | [**workdays_settings**](docs/WorkdayApi.md#workdays_settings) | **GET** /workdays/settings | Get Workday Settings
 
 
 ## Documentation for Models
 
  - [JCAPIv2::ActiveDirectoryInput](docs/ActiveDirectoryInput.md)
  - [JCAPIv2::ActiveDirectoryOutput](docs/ActiveDirectoryOutput.md)
+ - [JCAPIv2::Body](docs/Body.md)
  - [JCAPIv2::Directory](docs/Directory.md)
  - [JCAPIv2::Error](docs/Error.md)
  - [JCAPIv2::GraphConnection](docs/GraphConnection.md)
@@ -278,8 +286,10 @@ Class | Method | HTTP request | Description
  - [JCAPIv2::GraphType](docs/GraphType.md)
  - [JCAPIv2::Group](docs/Group.md)
  - [JCAPIv2::GroupType](docs/GroupType.md)
+ - [JCAPIv2::InlineResponse200](docs/InlineResponse200.md)
  - [JCAPIv2::LdapServerInput](docs/LdapServerInput.md)
  - [JCAPIv2::LdapServerOutput](docs/LdapServerOutput.md)
+ - [JCAPIv2::OauthCodeInput](docs/OauthCodeInput.md)
  - [JCAPIv2::Policy](docs/Policy.md)
  - [JCAPIv2::PolicyRequest](docs/PolicyRequest.md)
  - [JCAPIv2::PolicyRequestTemplate](docs/PolicyRequestTemplate.md)
@@ -301,6 +311,12 @@ Class | Method | HTTP request | Description
  - [JCAPIv2::UserGroupDataAttributesPosixGroups](docs/UserGroupDataAttributesPosixGroups.md)
  - [JCAPIv2::UserGroupGraphManagementReq](docs/UserGroupGraphManagementReq.md)
  - [JCAPIv2::UserGroupMembersReq](docs/UserGroupMembersReq.md)
+ - [JCAPIv2::WorkdayInput](docs/WorkdayInput.md)
+ - [JCAPIv2::WorkdayOutput](docs/WorkdayOutput.md)
+ - [JCAPIv2::WorkdayReportResult](docs/WorkdayReportResult.md)
+ - [JCAPIv2::WorkdayReportRow](docs/WorkdayReportRow.md)
+ - [JCAPIv2::WorkdayRequest](docs/WorkdayRequest.md)
+ - [JCAPIv2::WorkdaysOauth](docs/WorkdaysOauth.md)
 
 
 ## Documentation for Authorization

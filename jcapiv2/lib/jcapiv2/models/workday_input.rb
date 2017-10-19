@@ -13,27 +13,29 @@ require 'date'
 
 module JCAPIv2
 
-  class SambaDomainInput
-    # Name of this domain
+  class WorkdayInput
+    attr_accessor :report_url
+
     attr_accessor :name
 
-    # Security identifier of this domain
-    attr_accessor :sid
+    attr_accessor :oauth
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'report_url' => :'reportUrl',
         :'name' => :'name',
-        :'sid' => :'sid'
+        :'oauth' => :'oauth'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'report_url' => :'String',
         :'name' => :'String',
-        :'sid' => :'String'
+        :'oauth' => :'OauthCodeInput'
       }
     end
 
@@ -45,12 +47,16 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
+      if attributes.has_key?(:'reportUrl')
+        self.report_url = attributes[:'reportUrl']
+      end
+
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'sid')
-        self.sid = attributes[:'sid']
+      if attributes.has_key?(:'oauth')
+        self.oauth = attributes[:'oauth']
       end
 
     end
@@ -59,22 +65,12 @@ module JCAPIv2
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @name.nil?
-        invalid_properties.push("invalid value for 'name', name cannot be nil.")
-      end
-
-      if @sid.nil?
-        invalid_properties.push("invalid value for 'sid', sid cannot be nil.")
-      end
-
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @name.nil?
-      return false if @sid.nil?
       return true
     end
 
@@ -83,8 +79,9 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          report_url == o.report_url &&
           name == o.name &&
-          sid == o.sid
+          oauth == o.oauth
     end
 
     # @see the `==` method
@@ -96,7 +93,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, sid].hash
+      [report_url, name, oauth].hash
     end
 
     # Builds the object from hash

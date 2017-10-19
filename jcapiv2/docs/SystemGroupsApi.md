@@ -313,7 +313,9 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: JCAPIv2::SystemGroupMembersReq.new # SystemGroupMembersReq | 
+  body: JCAPIv2::SystemGroupMembersReq.new, # SystemGroupMembersReq | 
+  date: "date_example", # String | Current date header for the System Context API
+  authorization: "authorization_example" # String | Authorization header for the System Context API
 }
 
 begin
@@ -332,6 +334,8 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**SystemGroupMembersReq**](SystemGroupMembersReq.md)|  | [optional] 
+ **date** | **String**| Current date header for the System Context API | [optional] 
+ **authorization** | **String**| Authorization header for the System Context API | [optional] 
 
 ### Return type
 
@@ -761,7 +765,7 @@ opts = {
   filter: "", # String | Supported operators are: eq, ne, gt, ge, lt, le, between, search
   limit: 10, # Integer | The number of records to return at once.
   skip: 0 # Integer | The offset into the records to return.
-  sort: "" # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  sort: "", # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 }
 
 begin

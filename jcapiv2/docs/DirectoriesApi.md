@@ -36,7 +36,7 @@ opts = {
   fields: "", # String | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
   limit: 10, # Integer | The number of records to return at once.
   skip: 0 # Integer | The offset into the records to return.
-  sort: "" # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  sort: "", # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 }
 
 begin

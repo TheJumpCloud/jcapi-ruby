@@ -13,27 +13,33 @@ require 'date'
 
 module JCAPIv2
 
-  class SambaDomainInput
-    # Name of this domain
+  class WorkdayOutput
+    attr_accessor :id
+
     attr_accessor :name
 
-    # Security identifier of this domain
-    attr_accessor :sid
+    attr_accessor :report_url
+
+    attr_accessor :last_import
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'id' => :'id',
         :'name' => :'name',
-        :'sid' => :'sid'
+        :'report_url' => :'reportUrl',
+        :'last_import' => :'lastImport'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'id' => :'String',
         :'name' => :'String',
-        :'sid' => :'String'
+        :'report_url' => :'String',
+        :'last_import' => :'String'
       }
     end
 
@@ -45,12 +51,20 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
+      end
+
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'sid')
-        self.sid = attributes[:'sid']
+      if attributes.has_key?(:'reportUrl')
+        self.report_url = attributes[:'reportUrl']
+      end
+
+      if attributes.has_key?(:'lastImport')
+        self.last_import = attributes[:'lastImport']
       end
 
     end
@@ -59,12 +73,20 @@ module JCAPIv2
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @id.nil?
+        invalid_properties.push("invalid value for 'id', id cannot be nil.")
+      end
+
       if @name.nil?
         invalid_properties.push("invalid value for 'name', name cannot be nil.")
       end
 
-      if @sid.nil?
-        invalid_properties.push("invalid value for 'sid', sid cannot be nil.")
+      if @report_url.nil?
+        invalid_properties.push("invalid value for 'report_url', report_url cannot be nil.")
+      end
+
+      if @last_import.nil?
+        invalid_properties.push("invalid value for 'last_import', last_import cannot be nil.")
       end
 
       return invalid_properties
@@ -73,8 +95,10 @@ module JCAPIv2
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @id.nil?
       return false if @name.nil?
-      return false if @sid.nil?
+      return false if @report_url.nil?
+      return false if @last_import.nil?
       return true
     end
 
@@ -83,8 +107,10 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          id == o.id &&
           name == o.name &&
-          sid == o.sid
+          report_url == o.report_url &&
+          last_import == o.last_import
     end
 
     # @see the `==` method
@@ -96,7 +122,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, sid].hash
+      [id, name, report_url, last_import].hash
     end
 
     # Builds the object from hash

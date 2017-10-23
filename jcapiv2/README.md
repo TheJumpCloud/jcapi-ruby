@@ -275,7 +275,6 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [JCAPIv2::ActiveDirectoryInput](docs/ActiveDirectoryInput.md)
- - [JCAPIv2::ActiveDirectoryOutput](docs/ActiveDirectoryOutput.md)
  - [JCAPIv2::Body](docs/Body.md)
  - [JCAPIv2::Directory](docs/Directory.md)
  - [JCAPIv2::Error](docs/Error.md)
@@ -288,7 +287,6 @@ Class | Method | HTTP request | Description
  - [JCAPIv2::GroupType](docs/GroupType.md)
  - [JCAPIv2::InlineResponse200](docs/InlineResponse200.md)
  - [JCAPIv2::LdapServerInput](docs/LdapServerInput.md)
- - [JCAPIv2::LdapServerOutput](docs/LdapServerOutput.md)
  - [JCAPIv2::OauthCodeInput](docs/OauthCodeInput.md)
  - [JCAPIv2::Policy](docs/Policy.md)
  - [JCAPIv2::PolicyRequest](docs/PolicyRequest.md)
@@ -300,7 +298,6 @@ Class | Method | HTTP request | Description
  - [JCAPIv2::PolicyValue](docs/PolicyValue.md)
  - [JCAPIv2::PolicyWithDetails](docs/PolicyWithDetails.md)
  - [JCAPIv2::SambaDomainInput](docs/SambaDomainInput.md)
- - [JCAPIv2::SambaDomainOutput](docs/SambaDomainOutput.md)
  - [JCAPIv2::SystemGroup](docs/SystemGroup.md)
  - [JCAPIv2::SystemGroupData](docs/SystemGroupData.md)
  - [JCAPIv2::SystemGroupGraphManagementReq](docs/SystemGroupGraphManagementReq.md)
@@ -317,6 +314,9 @@ Class | Method | HTTP request | Description
  - [JCAPIv2::WorkdayReportRow](docs/WorkdayReportRow.md)
  - [JCAPIv2::WorkdayRequest](docs/WorkdayRequest.md)
  - [JCAPIv2::WorkdaysOauth](docs/WorkdaysOauth.md)
+ - [JCAPIv2::ActiveDirectoryOutput](docs/ActiveDirectoryOutput.md)
+ - [JCAPIv2::LdapServerOutput](docs/LdapServerOutput.md)
+ - [JCAPIv2::SambaDomainOutput](docs/SambaDomainOutput.md)
 
 
 ## Documentation for Authorization

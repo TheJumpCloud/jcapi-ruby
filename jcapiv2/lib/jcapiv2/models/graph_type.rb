@@ -32,7 +32,7 @@ module JCAPIv2
     # @param [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      consantValues = GraphType.constants.select{|c| c.to_s == value}
+      consantValues = GraphType.constants.select{|c| GraphType::const_get(c) == value}
       raise "Invalid ENUM value #{value} for class #GraphType" if consantValues.empty?
       value
     end

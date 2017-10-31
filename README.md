@@ -18,7 +18,8 @@ And run: `bundle install`
 
 #### Manual install
 
-Change to the appropriate directory (jcapiv1 or jcapiv2) and then run the following commands to build/install the Ruby Client API package:
+Change to the appropriate directory (jcapiv1 or jcapiv2) and then run the following
+commands to build/install the Ruby Client API package:
 
 To build the Ruby code into a gem:
 ```shell
@@ -35,14 +36,18 @@ $ sudo gem install ./jcapiv1-1.0.0.gem
 
 ### Authentication and Authorization
 
-All endpoints support authentication via API key: see the [Authentication and Authorization](https://docs.jumpcloud.com/2.0/authentication-and-authorization/authentication-and-authorization-overview) section in our API docs.
+All endpoints support authentication via API key: see the [Authentication and Authorization](https://docs.jumpcloud.com/2.0/authentication-and-authorization/authentication-and-authorization-overview)
+section in our API docs.
 
-Some Systems endpoints (in both API v1 and v2) also support the [System Context authorization](https://docs.jumpcloud.com/2.0/authentication-and-authorization/system-context) which allows an individual system to manage its information and resource associations.
+Some Systems endpoints (in both API v1 and v2) also support the [System Context authorization](https://docs.jumpcloud.com/2.0/authentication-and-authorization/system-context)
+which allows an individual system to manage its information and resource associations.
 
 
 ### Usage Examples
 
-For more detailed instructions, refer to each API's respective README file ([README for API v1](jcapiv1/README.md) and [README for API v2](jcapiv2/README.md)) and the generated docs under each folder.
+For more detailed instructions, refer to each API's respective README file
+([README for API v1](jcapiv1/README.md) and [README for API v2](jcapiv2/README.md))
+and the generated docs under each folder.
 
 #### API v1 example:
 ```ruby

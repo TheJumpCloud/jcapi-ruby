@@ -11,7 +11,9 @@ For detailed instructions on how to generate the code, see the [Contributing](CO
 #### Installing from github with Bundler
 
 Add the following line(s) to your Gemfile:
+
 `gem 'jcapiv1', :git => 'https://github.com/TheJumpCloud/jcapi-ruby.git'`  for the jcapiv1 gem
+
 `gem 'jcapiv2', :git => 'https://github.com/TheJumpCloud/jcapi-ruby.git'`  for the jcapiv2 gem
 
 And run: `bundle install`

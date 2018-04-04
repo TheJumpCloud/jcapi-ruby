@@ -3,9 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | 
-**name** | **String** |  | 
-**report_url** | **String** |  | 
-**last_import** | **String** |  | 
+**id** | **String** |  | [optional] 
+**name** | **String** |  | [optional] 
+**report_url** | **String** |  | [optional] 
+**last_import** | **String** |  | [optional] 
+**auth** | [**WorkdayoutputAuth**](WorkdayoutputAuth.md) |  | [optional] 
 
 

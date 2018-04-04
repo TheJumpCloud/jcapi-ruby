@@ -5,6 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **report_url** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
-**oauth** | [**OauthCodeInput**](OauthCodeInput.md) |  | [optional] 
+**auth** | [**AuthInput**](AuthInput.md) |  | [optional] 
 
 

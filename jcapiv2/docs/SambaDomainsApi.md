@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Delete Samba Domain
 
-This endpoint allows you to delete a samba domain from an LDAP server.
+This endpoint allows you to delete a samba domain from an LDAP server.  ##### Sample Request ``` curl -X DELETE https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/sambadomains/{SAMBA_ID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
 
 ### Example
 ```ruby
@@ -32,7 +32,7 @@ end
 
 api_instance = JCAPIv2::SambaDomainsApi.new
 
-ldapserver_id = "ldapserver_id_example" # String | Unique identifier o f the LDAP server.
+ldapserver_id = "ldapserver_id_example" # String | Unique identifier of the LDAP server.
 
 id = "id_example" # String | Unique identifier of the samba domain.
 
@@ -54,7 +54,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ldapserver_id** | **String**| Unique identifier o f the LDAP server. | 
+ **ldapserver_id** | **String**| Unique identifier of the LDAP server. | 
  **id** | **String**| Unique identifier of the samba domain. | 
  **content_type** | **String**|  | [optional] [default to application/json]
  **accept** | **String**|  | [optional] [default to application/json]
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 Get Samba Domain
 
-This endpoint returns a specific samba domain for an LDAP server.
+This endpoint returns a specific samba domain for an LDAP server.  ##### Sample Request ``` curl -X GET \\   https://console.jumpcloud.com/api/v2/ldapservers/ldapservers/{LDAP_ID}/sambadomains/{SAMBA_ID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
 
 ### Example
 ```ruby
@@ -95,7 +95,7 @@ end
 
 api_instance = JCAPIv2::SambaDomainsApi.new
 
-ldapserver_id = "ldapserver_id_example" # String | Unique identifier o f the LDAP server.
+ldapserver_id = "ldapserver_id_example" # String | Unique identifier of the LDAP server.
 
 id = "id_example" # String | Unique identifier of the samba domain.
 
@@ -117,7 +117,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ldapserver_id** | **String**| Unique identifier o f the LDAP server. | 
+ **ldapserver_id** | **String**| Unique identifier of the LDAP server. | 
  **id** | **String**| Unique identifier of the samba domain. | 
  **content_type** | **String**|  | [optional] [default to application/json]
  **accept** | **String**|  | [optional] [default to application/json]
@@ -142,7 +142,7 @@ Name | Type | Description  | Notes
 
 List Samba Domains
 
-This endpoint returns all samba domains for an LDAP server.
+This endpoint returns all samba domains for an LDAP server.  ##### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/sambadomains \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
 
 ### Example
 ```ruby
@@ -163,11 +163,11 @@ ldapserver_id = "ldapserver_id_example" # String | Unique identifier of the LDAP
 opts = { 
   content_type: "application/json", # String | 
   accept: "application/json", # String | 
-  fields: "", # String | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-  filter: "", # String | Supported operators are: eq, ne, gt, ge, lt, le, between, search
-  limit: 10, # Integer | The number of records to return at once.
-  skip: 0 # Integer | The offset into the records to return.
-  sort: "", # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  fields: ["fields_example"], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  limit: 10 # Integer | The number of records to return at once.
+  skip: 0, # Integer | The offset into the records to return.
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 }
 
 begin
@@ -186,11 +186,11 @@ Name | Type | Description  | Notes
  **ldapserver_id** | **String**| Unique identifier of the LDAP server. | 
  **content_type** | **String**|  | [optional] [default to application/json]
  **accept** | **String**|  | [optional] [default to application/json]
- **fields** | **String**| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to ]
- **filter** | **String**| Supported operators are: eq, ne, gt, ge, lt, le, between, search | [optional] [default to ]
+ **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] 
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
  **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | **String**| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
 
 ### Return type
 
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
 
 Create Samba Domain
 
-This endpoint allows you to create a samba domain for an LDAP server.
+This endpoint allows you to create a samba domain for an LDAP server.  ##### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/sambadomains \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{ \"sid\":\"{SID_ID}\",  \"name\":\"{WORKGROUP_NAME}\"  }' ```
 
 ### Example
 ```ruby
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 
 Update Samba Domain
 
-This endpoint allows you to update the samba domain information for an LDAP server.
+This endpoint allows you to update the samba domain information for an LDAP server.  ##### Sample Request ``` curl -X PUT https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/sambadomains/{SAMBA_ID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{ \"sid\":\"{SID_ID}\",  \"name\":\"{WORKGROUP_NAME}\" }'  ```
 
 ### Example
 ```ruby
@@ -290,7 +290,7 @@ end
 
 api_instance = JCAPIv2::SambaDomainsApi.new
 
-ldapserver_id = "ldapserver_id_example" # String | Unique identifier o f the LDAP server.
+ldapserver_id = "ldapserver_id_example" # String | Unique identifier of the LDAP server.
 
 id = "id_example" # String | Unique identifier of the samba domain.
 
@@ -313,7 +313,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ldapserver_id** | **String**| Unique identifier o f the LDAP server. | 
+ **ldapserver_id** | **String**| Unique identifier of the LDAP server. | 
  **id** | **String**| Unique identifier of the samba domain. | 
  **body** | [**SambaDomainInput**](SambaDomainInput.md)|  | [optional] 
  **content_type** | **String**|  | [optional] [default to application/json]

@@ -10,9 +10,9 @@ Method | HTTP request | Description
 [**graph_system_group_members_list**](SystemGroupsApi.md#graph_system_group_members_list) | **GET** /systemgroups/{group_id}/members | List the members of a System Group
 [**graph_system_group_members_post**](SystemGroupsApi.md#graph_system_group_members_post) | **POST** /systemgroups/{group_id}/members | Manage the members of a System Group
 [**graph_system_group_membership**](SystemGroupsApi.md#graph_system_group_membership) | **GET** /systemgroups/{group_id}/membership | List the System Group&#39;s membership
-[**graph_system_group_traverse_policy**](SystemGroupsApi.md#graph_system_group_traverse_policy) | **GET** /systemgroups/{group_id}/policies | List the Policies associated with a System Group
-[**graph_system_group_traverse_user**](SystemGroupsApi.md#graph_system_group_traverse_user) | **GET** /systemgroups/{group_id}/users | List the Users associated with a System Group
-[**graph_system_group_traverse_user_group**](SystemGroupsApi.md#graph_system_group_traverse_user_group) | **GET** /systemgroups/{group_id}/usergroups | List the User Groups associated with a System Group
+[**graph_system_group_traverse_policy**](SystemGroupsApi.md#graph_system_group_traverse_policy) | **GET** /systemgroups/{group_id}/policies | List the Policies bound to a System Group
+[**graph_system_group_traverse_user**](SystemGroupsApi.md#graph_system_group_traverse_user) | **GET** /systemgroups/{group_id}/users | List the Users bound to a System Group
+[**graph_system_group_traverse_user_group**](SystemGroupsApi.md#graph_system_group_traverse_user_group) | **GET** /systemgroups/{group_id}/usergroups | List the User Groups bound to a System Group
 [**groups_system_delete**](SystemGroupsApi.md#groups_system_delete) | **DELETE** /systemgroups/{id} | Delete a System Group
 [**groups_system_get**](SystemGroupsApi.md#groups_system_get) | **GET** /systemgroups/{id} | View an individual System Group details
 [**groups_system_list**](SystemGroupsApi.md#groups_system_list) | **GET** /systemgroups | List all System Groups
@@ -22,11 +22,11 @@ Method | HTTP request | Description
 
 
 # **graph_system_group_associations_list**
-> Array&lt;GraphConnection&gt; graph_system_group_associations_list(group_id, targets, content_type, accept, opts)
+> Array&lt;GraphConnection&gt; graph_system_group_associations_list(group_id, content_type, accepttargets, opts)
 
 List the associations of a System Group
 
-This endpoint returns the _direct_ associations of a System Group.  A direct association can be a non-homogenous relationship between 2 different objects. for example System Groups and Users.   #### Sample Request ``` https://console.jumpcloud.com/api/v2/systemgroups/{group_id}/associations?targets=user ```
+This endpoint returns the _direct_ associations of a System Group.  A direct association can be a non-homogenous relationship between 2 different objects. for example System Groups and Users.   #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations?targets=user \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
 
 ### Example
 ```ruby
@@ -44,20 +44,20 @@ api_instance = JCAPIv2::SystemGroupsApi.new
 
 group_id = "group_id_example" # String | ObjectID of the System Group.
 
-targets = ["targets_example"] # Array<String> | 
-
 content_type = "application/json" # String | 
 
 accept = "application/json" # String | 
 
+targets = ["targets_example"] # Array<String> | 
+
 opts = { 
-  limit: 10, # Integer | The number of records to return at once.
-  skip: 0 # Integer | The offset into the records to return.
+  limit: 10 # Integer | The number of records to return at once.
+  skip: 0, # Integer | The offset into the records to return.
 }
 
 begin
   #List the associations of a System Group
-  result = api_instance.graph_system_group_associations_list(group_id, targets, content_type, accept, opts)
+  result = api_instance.graph_system_group_associations_list(group_id, content_type, accepttargets, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling SystemGroupsApi->graph_system_group_associations_list: #{e}"
@@ -69,9 +69,9 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **String**| ObjectID of the System Group. | 
- **targets** | [**Array&lt;String&gt;**](String.md)|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **targets** | [**Array&lt;String&gt;**](String.md)|  | 
  **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
 
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 Manage the associations of a System Group
 
-This endpoint allows you to manage the _direct_ associations of a System Group.  A direct association can be a non-homogenous relationship between 2 different objects. for example System Groups and Users.   #### Sample Request ``` https://console.jumpcloud.com/api/v2/systemgroups/{group_id}/associations ```
+This endpoint allows you to manage the _direct_ associations of a System Group.  A direct association can be a non-homogenous relationship between 2 different objects. for example System Groups and Users.   #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"op\": \"add\",     \"type\": \"user\",     \"id\": \"{UserID}\" }'  ```
 
 ### Example
 ```ruby
@@ -181,8 +181,10 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  limit: 10, # Integer | The number of records to return at once.
-  skip: 0 # Integer | The offset into the records to return.
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  limit: 10 # Integer | The number of records to return at once.
+  skip: 0, # Integer | The offset into the records to return.
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 }
 
 begin
@@ -201,8 +203,10 @@ Name | Type | Description  | Notes
  **group_id** | **String**| ObjectID of the System Group. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
  **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
 
 ### Return type
 
@@ -224,7 +228,7 @@ Name | Type | Description  | Notes
 
 List the members of a System Group
 
-This endpoint returns the system members of a System Group.  #### Sample Request ``` https://console.jumpcloud.com/api/v2/systemgroups/{group_id}/members ```
+This endpoint returns the system members of a System Group.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID}/members \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'  ```
 
 ### Example
 ```ruby
@@ -247,8 +251,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  limit: 10, # Integer | The number of records to return at once.
-  skip: 0 # Integer | The offset into the records to return.
+  limit: 10 # Integer | The number of records to return at once.
+  skip: 0, # Integer | The offset into the records to return.
 }
 
 begin
@@ -290,7 +294,7 @@ Name | Type | Description  | Notes
 
 Manage the members of a System Group
 
-This endpoint allows you to manage the system members of a System Group.  #### Sample Request ``` https://console.jumpcloud.com/api/v2/systemgroups/{group_id}/members ```
+This endpoint allows you to manage the system members of a System Group.  #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID}/members \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY' \\   -d '{     \"op\": \"add\",     \"type\": \"system\",     \"id\": \"{System_ID\" }' ```
 
 ### Example
 ```ruby
@@ -357,7 +361,7 @@ nil (empty response body)
 
 List the System Group's membership
 
-This endpoint returns all Systems that are a member of this System Group.  #### Sample Request ``` https://console.jumpcloud.com/api/v2/systemgroups/{group_id}/membership ```
+This endpoint returns all Systems that are a member of this System Group.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID/membership \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'  ```
 
 ### Example
 ```ruby
@@ -380,8 +384,10 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  limit: 10, # Integer | The number of records to return at once.
-  skip: 0 # Integer | The offset into the records to return.
+  limit: 10 # Integer | The number of records to return at once.
+  skip: 0, # Integer | The offset into the records to return.
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 }
 
 begin
@@ -402,6 +408,8 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
 
 ### Return type
 
@@ -421,9 +429,9 @@ Name | Type | Description  | Notes
 # **graph_system_group_traverse_policy**
 > Array&lt;GraphObjectWithPaths&gt; graph_system_group_traverse_policy(group_id, content_type, accept, opts)
 
-List the Policies associated with a System Group
+List the Policies bound to a System Group
 
-This endpoint will return Policies associated with a System Group. Each element will contain the type, id, attributes and paths.  The `attributes` object is a key/value hash of attributes specifically set for this group.  The `paths` array enumerates each path from this System Group to the corresponding Policy; this array represents all grouping and/or associations that would have to be removed to deprovision the Policy from this System Group.  See `/members` and `/associations` endpoints to manage those collections.  This endpoint is not public yet as we haven't finished the code.
+This endpoint will return all Policies bound to a System Group, either directly or indirectly, essentially traversing the JumpCloud Graph for your Organization.  Each element will contain the type, id, attributes and paths.  The `attributes` object is a key/value hash of compiled graph attributes for all paths followed.  The `paths` array enumerates each path from this System Group to the corresponding Policy; this array represents all grouping and/or associations that would have to be removed to deprovision the Policy from this System Group.  See `/members` and `/associations` endpoints to manage those collections.  This endpoint is not public yet as we haven't finished the code.  ##### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/policies \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
 
 ### Example
 ```ruby
@@ -446,12 +454,12 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  limit: 10, # Integer | The number of records to return at once.
-  skip: 0 # Integer | The offset into the records to return.
+  limit: 10 # Integer | The number of records to return at once.
+  skip: 0, # Integer | The offset into the records to return.
 }
 
 begin
-  #List the Policies associated with a System Group
+  #List the Policies bound to a System Group
   result = api_instance.graph_system_group_traverse_policy(group_id, content_type, accept, opts)
   p result
 rescue JCAPIv2::ApiError => e
@@ -487,9 +495,9 @@ Name | Type | Description  | Notes
 # **graph_system_group_traverse_user**
 > Array&lt;GraphObjectWithPaths&gt; graph_system_group_traverse_user(group_id, content_type, accept, opts)
 
-List the Users associated with a System Group
+List the Users bound to a System Group
 
-This endpoint will return Users associated with a System Group. Each element will contain the type, id, attributes and paths.  The `attributes` object is a key/value hash of attributes specifically set for this group.  The `paths` array enumerates each path from this System Group to the corresponding User; this array represents all grouping and/or associations that would have to be removed to deprovision the User from this System Group.  See `/members` and `/associations` endpoints to manage those collections.  #### Sample Request ``` https://console.jumpcloud.com/api/v2/systemgroups/{group_id}/users ```
+This endpoint will return all Users bound to a System Group, either directly or indirectly, essentially traversing the JumpCloud Graph for your Organization.  Each element will contain the type, id, attributes and paths.  The `attributes` object is a key/value hash of compiled graph attributes for all paths followed.  The `paths` array enumerates each path from this System Group to the corresponding User; this array represents all grouping and/or associations that would have to be removed to deprovision the User from this System Group.  See `/members` and `/associations` endpoints to manage those collections.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/users \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
 
 ### Example
 ```ruby
@@ -512,12 +520,12 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  limit: 10, # Integer | The number of records to return at once.
-  skip: 0 # Integer | The offset into the records to return.
+  limit: 10 # Integer | The number of records to return at once.
+  skip: 0, # Integer | The offset into the records to return.
 }
 
 begin
-  #List the Users associated with a System Group
+  #List the Users bound to a System Group
   result = api_instance.graph_system_group_traverse_user(group_id, content_type, accept, opts)
   p result
 rescue JCAPIv2::ApiError => e
@@ -553,9 +561,9 @@ Name | Type | Description  | Notes
 # **graph_system_group_traverse_user_group**
 > Array&lt;GraphObjectWithPaths&gt; graph_system_group_traverse_user_group(group_id, content_type, accept, opts)
 
-List the User Groups associated with a System Group
+List the User Groups bound to a System Group
 
-This endpoint will return User Groups associated with a System Group. Each element will contain the group's type, id, attributes and paths.  The `attributes` object is a key/value hash of attributes specifically set for this group.  The `paths` array enumerates each path from this System Group to the corresponding User Group; this array represents all grouping and/or associations that would have to be removed to deprovision the User Group from this System Group.  See `/members` and `/associations` endpoints to manage those collections.  #### Sample Request ``` https://console.jumpcloud.com/api/v2/systemgroups/{group_id}/usergroups ```
+This endpoint will return all User Groups bound to a System Group, either directly or indirectly, essentially traversing the JumpCloud Graph for your Organization.  Each element will contain the type, id, attributes and paths.  The `attributes` object is a key/value hash of compiled graph attributes for all paths followed.  The `paths` array enumerates each path from this System Group to the corresponding User Group; this array represents all grouping and/or associations that would have to be removed to deprovision the User Group from this System Group.  See `/members` and `/associations` endpoints to manage those collections.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/usergroups \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'  ```
 
 ### Example
 ```ruby
@@ -578,12 +586,12 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  limit: 10, # Integer | The number of records to return at once.
-  skip: 0 # Integer | The offset into the records to return.
+  limit: 10 # Integer | The number of records to return at once.
+  skip: 0, # Integer | The offset into the records to return.
 }
 
 begin
-  #List the User Groups associated with a System Group
+  #List the User Groups bound to a System Group
   result = api_instance.graph_system_group_traverse_user_group(group_id, content_type, accept, opts)
   p result
 rescue JCAPIv2::ApiError => e
@@ -621,7 +629,7 @@ Name | Type | Description  | Notes
 
 Delete a System Group
 
-This endpoint allows you to delete a System Group.  #### Sample Request ``` https://console.jumpcloud.com/api/v2/systemgroups/{id} ```
+This endpoint allows you to delete a System Group.  #### Sample Request ``` curl -X DELETE https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'  ```
 
 ### Example
 ```ruby
@@ -680,7 +688,7 @@ nil (empty response body)
 
 View an individual System Group details
 
-This endpoint returns the details of a System Group.  #### Sample Request ``` https://console.jumpcloud.com/api/v2/systemgroups/{id} ```
+This endpoint returns the details of a System Group.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'  ```
 
 ### Example
 ```ruby
@@ -740,7 +748,7 @@ Name | Type | Description  | Notes
 
 List all System Groups
 
-This endpoint returns all System Groups.  Available filter fields:   - `name`   - `disabled`   - `type`  #### Sample Request  ``` https://console.jumpcloud.com/api/v2/systemgroups ```
+This endpoint returns all System Groups.  Available filter fields:   - `name`   - `disabled`   - `type`  #### Sample Request  ``` curl -X GET https://console.jumpcloud.com/api/v2/systemgroups \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
 
 ### Example
 ```ruby
@@ -761,11 +769,11 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  fields: "", # String | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-  filter: "", # String | Supported operators are: eq, ne, gt, ge, lt, le, between, search
-  limit: 10, # Integer | The number of records to return at once.
-  skip: 0 # Integer | The offset into the records to return.
-  sort: "", # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  fields: ["fields_example"], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  limit: 10 # Integer | The number of records to return at once.
+  skip: 0, # Integer | The offset into the records to return.
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 }
 
 begin
@@ -783,11 +791,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **fields** | **String**| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to ]
- **filter** | **String**| Supported operators are: eq, ne, gt, ge, lt, le, between, search | [optional] [default to ]
+ **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] 
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
  **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | **String**| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
 
 ### Return type
 
@@ -873,7 +881,7 @@ Name | Type | Description  | Notes
 
 Create a new System Group
 
-This endpoint allows you to create a new System Group.  #### Sample Request  ``` https://console.jumpcloud.com/api/v2/systemgroups ```
+This endpoint allows you to create a new System Group.  #### Sample Request  ``` curl -X POST https://console.jumpcloud.com/api/v2/systemgroups \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{  \"name\": \"{Group_Name}\" }'  ```
 
 ### Example
 ```ruby
@@ -934,7 +942,7 @@ Name | Type | Description  | Notes
 
 Update a System Group
 
-This enpoint allows you to do a full update of the System Group.  #### Sample Request ``` https://console.jumpcloud.com/api/v2/systemgroups/{id} ```
+This enpoint allows you to do a full update of the System Group.  #### Sample Request ``` curl -X PUT https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{  \"name\": \"Name_Update\" }' ```
 
 ### Example
 ```ruby

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**activedirectories_post**](ActiveDirectoryApi.md#activedirectories_post) | **POST** /activedirectories | Create a new Active Directory
 [**graph_active_directory_associations_list**](ActiveDirectoryApi.md#graph_active_directory_associations_list) | **GET** /activedirectories/{activedirectory_id}/associations | List the associations of an Active Directory instance
 [**graph_active_directory_associations_post**](ActiveDirectoryApi.md#graph_active_directory_associations_post) | **POST** /activedirectories/{activedirectory_id}/associations | Manage the associations of an Active Directory instance
-[**graph_active_directory_traverse_user_group**](ActiveDirectoryApi.md#graph_active_directory_traverse_user_group) | **GET** /activedirectories/{activedirectory_id}/usergroups | List the User Groups associated with an Active Directory instance
+[**graph_active_directory_traverse_user_group**](ActiveDirectoryApi.md#graph_active_directory_traverse_user_group) | **GET** /activedirectories/{activedirectory_id}/usergroups | List the User Groups bound to an Active Directory instance
 
 
 # **activedirectories_delete**
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Delete an Active Directory
 
-This endpoint allows you to delete an Active Directory.
+This endpoint allows you to delete an Active Directory Instance.  #### Sample Request ``` curl -X DELETE https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID} \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY'   ```
 
 ### Example
 ```ruby
@@ -77,7 +77,7 @@ nil (empty response body)
 
 Get an Active Directory
 
-This endpoint returns a specific Active Directory.
+This endpoint returns a specific Active Directory.  #### Sample Request  ``` curl -X GET https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID} \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
 
 ### Example
 ```ruby
@@ -137,6 +137,8 @@ Name | Type | Description  | Notes
 
 List Active Directories
 
+This endpoint allows you to list all your Active Directory Instances.   #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/activedirectories/ \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
+
 ### Example
 ```ruby
 # load the gem
@@ -156,11 +158,11 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  fields: "", # String | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-  filter: "", # String | Supported operators are: eq, ne, gt, ge, lt, le, between, search
-  limit: 10, # Integer | The number of records to return at once.
-  skip: 0 # Integer | The offset into the records to return.
-  sort: "", # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  fields: ["fields_example"], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  limit: 10 # Integer | The number of records to return at once.
+  skip: 0, # Integer | The offset into the records to return.
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 }
 
 begin
@@ -178,11 +180,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **fields** | **String**| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to ]
- **filter** | **String**| Supported operators are: eq, ne, gt, ge, lt, le, between, search | [optional] [default to ]
+ **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] 
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
  **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | **String**| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
 
 ### Return type
 
@@ -204,7 +206,7 @@ Name | Type | Description  | Notes
 
 Create a new Active Directory
 
-This endpoint allows you to create a new Active Directory.
+This endpoint allows you to create a new Active Directory.   #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/ \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{         \"domain\": \"{DC=AD_domain_name;DC=com}\" } ' ```
 
 ### Example
 ```ruby
@@ -265,7 +267,7 @@ Name | Type | Description  | Notes
 
 List the associations of an Active Directory instance
 
-This endpoint returns the direct associations of this Active Directory instance.  A direct association can be a non-homogenous relationship between 2 different objects. For example Active Directory and Users.   #### Sample Request ``` https://console.jumpcloud.com/api/v2/activedirectories/{activedirectory_id}/associations?targets=user ```
+This endpoint returns the direct associations of this Active Directory instance.  A direct association can be a non-homogenous relationship between 2 different objects. For example Active Directory and Users.   #### Sample Request ``` curl -X GET 'https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/associations?targets=user \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
 
 ### Example
 ```ruby
@@ -290,8 +292,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  limit: 10, # Integer | The number of records to return at once.
-  skip: 0 # Integer | The offset into the records to return.
+  limit: 10 # Integer | The number of records to return at once.
+  skip: 0, # Integer | The offset into the records to return.
 }
 
 begin
@@ -334,7 +336,7 @@ Name | Type | Description  | Notes
 
 Manage the associations of an Active Directory instance
 
-This endpoint allows you to manage the _direct_ associations of an Active Directory instance.  A direct association can be a non-homogenous relationship between 2 different objects. For example Active Directory and Users.  #### Sample Request ``` https://console.jumpcloud.com/api/v2/activedirectories/{activedirectory_id}/associations ```
+This endpoint allows you to manage the _direct_ associations of an Active Directory instance.  A direct association can be a non-homogenous relationship between 2 different objects. For example Active Directory and Users.  #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{AD_Instance_ID}/associations \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{         \"op\": \"add\",         \"type\": \"user\",         \"id\": \"{User_ID}\" } ' ```
 
 ### Example
 ```ruby
@@ -395,9 +397,9 @@ nil (empty response body)
 # **graph_active_directory_traverse_user_group**
 > Array&lt;GraphObjectWithPaths&gt; graph_active_directory_traverse_user_group(activedirectory_id, content_type, accept, opts)
 
-List the User Groups associated with an Active Directory instance
+List the User Groups bound to an Active Directory instance
 
-This endpoint will return User Groups associated with an Active Directory instance. Each element will contain the group's type, id, attributes and paths.  The `attributes` object is a key/value hash of attributes specifically set for this group.  The `paths` array enumerates each path from this Active Directory instance to the corresponding User Group; this array represents all grouping and/or associations that would have to be removed to deprovision the User Group from this Active Directory instance.  See `/members` and `/associations` endpoints to manage those collections.  #### Sample Request ``` https://console.jumpcloud.com/api/v2/activedirectories/{activedirectory_id}/usersgroups ```
+This endpoint will return all Users Groups bound to an Active Directory instance, either directly or indirectly, essentially traversing the JumpCloud Graph for your Organization.  Each element will contain the group's type, id, attributes and paths.  The `attributes` object is a key/value hash of compiled graph attributes for all paths followed.  The `paths` array enumerates each path from this Active Directory instance to the corresponding User Group; this array represents all grouping and/or associations that would have to be removed to deprovision the User Group from this Active Directory instance.  See `/members` and `/associations` endpoints to manage those collections.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/usergroups \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
 
 ### Example
 ```ruby
@@ -420,12 +422,12 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  limit: 10, # Integer | The number of records to return at once.
-  skip: 0 # Integer | The offset into the records to return.
+  limit: 10 # Integer | The number of records to return at once.
+  skip: 0, # Integer | The offset into the records to return.
 }
 
 begin
-  #List the User Groups associated with an Active Directory instance
+  #List the User Groups bound to an Active Directory instance
   result = api_instance.graph_active_directory_traverse_user_group(activedirectory_id, content_type, accept, opts)
   p result
 rescue JCAPIv2::ApiError => e

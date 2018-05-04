@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Delete a system user
 
-Delete a particular system user.
+This endpoint allows you to delete a particular system user.  #### Sample Request ``` curl -X DELETE https://console.jumpcloud.com/api/systemusers/{UserID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'  ```
 
 ### Example
 ```ruby
@@ -74,11 +74,11 @@ Name | Type | Description  | Notes
 
 
 # **systemusers_get**
-> Systemuser systemusers_get(id, content_type, accept, opts)
+> Systemuserreturn systemusers_get(id, content_type, accept, opts)
 
 List a system user
 
-Get a particular System User.
+This endpoint returns a particular System User.  #### Sample Request  ``` curl -X GET https://console.jumpcloud.com/api/systemusers/{UserID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
 
 ### Example
 ```ruby
@@ -101,10 +101,10 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  fields: "", # String | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-  limit: 10, # Integer | The number of records to return at once.
+  fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: "" # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  sort: "" # String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
 }
 
 begin
@@ -123,14 +123,14 @@ Name | Type | Description  | Notes
  **id** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **fields** | **String**| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to ]
- **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
+ **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  | [optional] [default to ]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | **String**| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+ **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
 
 ### Return type
 
-[**Systemuser**](Systemuser.md)
+[**Systemuserreturn**](Systemuserreturn.md)
 
 ### Authorization
 
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 List all system users
 
-Returns all systemusers.
+This endpoint returns all systemusers.  #### Sample Request  ``` curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'  ```
 
 ### Example
 ```ruby
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 
 Create a system user
 
-Create a new system user.  ### Example  #### Create a system user  This example assumes there is already a Tag named \"admins\" in your JumpCloud account.  ``` curl \\   -d '{\"email\" : \"bob@myco.com\", \"username\" : \"bob\", \"tags\" : [\"admins\"]}' \\   -X 'POST' \\   -H 'Content-Type: application/json' \\   -H 'Accept: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/systemusers\"
+This endpoint allows you to create a new system user.  #### Sample Request  ``` curl -X POST https://console.jumpcloud.com/api/systemusers \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{  \"username\":\"{username}\",  \"email\":\"{email_address}\",  \"firstname\":\"{Name}\",  \"lastname\":\"{Name}\" }' ```
 
 ### Example
 ```ruby
@@ -278,7 +278,7 @@ Name | Type | Description  | Notes
 
 Update a system user
 
-Update a system user record and return the modified record.  ### Example  #### Add attributes to a System User  ``` curl \\  -X 'PUT' \\  -H 'Content-Type: application/json' \\  -H 'Accept: application/json' \\  -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\  -d '{ \"attributes\" : [ { \"name\" : \"myhappyattribute\", \"value\" : \"myhappyattributevalue\" }] }' \\  \"https://console.jumpcloud.com/api/systemusers/:id\" ```
+This endpoint allows you to update a system user.  #### Sample Request  ``` curl -X PUT https://console.jumpcloud.com/api/systemusers/{UserID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{  \"email\":\"{email_address}\",  \"firstname\":\"{Name}\",  \"lastname\":\"{Name}\" }' ```
 
 ### Example
 ```ruby
@@ -301,7 +301,7 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: JCAPIv1::Systemuserputpost.new # Systemuserputpost | 
+  body: JCAPIv1::Systemuserput.new # Systemuserput | 
 }
 
 begin
@@ -320,7 +320,7 @@ Name | Type | Description  | Notes
  **id** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **body** | [**Systemuserputpost**](Systemuserputpost.md)|  | [optional] 
+ **body** | [**Systemuserput**](Systemuserput.md)|  | [optional] 
 
 ### Return type
 
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 
 List system user binding
 
-List system bindings for a specific system user in a system and user binding format.  ### Examples  #### List system bindings for specific system user  ``` curl \\   -H 'Content-Type: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\" ```
+Hidden as Tags is deprecated  Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).   List system bindings for a specific system user in a system and user binding format.  ### Examples  #### List system bindings for specific system user  ``` curl \\   -H 'Content-Type: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\" ```
 
 ### Example
 ```ruby
@@ -365,10 +365,10 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  fields: "", # String | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-  limit: 10, # Integer | The number of records to return at once.
+  fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: "" # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  sort: "" # String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
 }
 
 begin
@@ -387,10 +387,10 @@ Name | Type | Description  | Notes
  **id** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **fields** | **String**| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to ]
- **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
+ **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  | [optional] [default to ]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | **String**| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+ **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
 
 ### Return type
 
@@ -412,7 +412,7 @@ Name | Type | Description  | Notes
 
 Update a system user binding
 
-Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) system to system user  ``` curl \\   -d '{ \"add\": [\"[SYSTEM_ID_TO_ADD_HERE]\"], \"remove\": [\"[SYSTEM_ID_TO_REMOVE_HERE]\"] }' \\   -X PUT \\   -H 'Content-Type: application/json' \\   -H 'Accept: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\" ```
+Hidden as Tags is deprecated  Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) system to system user  ``` curl \\   -d '{ \"add\": [\"[SYSTEM_ID_TO_ADD_HERE]\"], \"remove\": [\"[SYSTEM_ID_TO_REMOVE_HERE]\"] }' \\   -X PUT \\   -H 'Content-Type: application/json' \\   -H 'Accept: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\" ```
 
 ### Example
 ```ruby

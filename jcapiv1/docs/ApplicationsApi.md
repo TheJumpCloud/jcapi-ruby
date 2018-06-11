@@ -8,11 +8,11 @@ Method | HTTP request | Description
 
 
 # **applications_list**
-> InlineResponse200 applications_list(content_type, accept, opts)
+> Applicationslist applications_list(content_type, accept, opts)
 
 Applications
 
-The endpoint returns all your SSO / SAML Applications.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/applications \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'  ```
+The endpoint returns all your SSO / SAML Applications.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/applications \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
 
 ### Example
 ```ruby
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**Applicationslist**](Applicationslist.md)
 
 ### Authorization
 

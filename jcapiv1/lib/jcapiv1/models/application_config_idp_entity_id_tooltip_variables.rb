@@ -14,33 +14,25 @@ require 'date'
 
 module JCAPIv1
 
-  class InlineResponse200Results
-    attr_accessor :display_name
+  class ApplicationConfigIdpEntityIdTooltipVariables
+    attr_accessor :icon
 
-    attr_accessor :config
-
-    attr_accessor :name
-
-    attr_accessor :active
+    attr_accessor :message
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'display_name' => :'displayName',
-        :'config' => :'config',
-        :'name' => :'name',
-        :'active' => :'active'
+        :'icon' => :'icon',
+        :'message' => :'message'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'display_name' => :'String',
-        :'config' => :'InlineResponse200Config',
-        :'name' => :'String',
-        :'active' => :'BOOLEAN'
+        :'icon' => :'String',
+        :'message' => :'String'
       }
     end
 
@@ -52,20 +44,12 @@ module JCAPIv1
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'displayName')
-        self.display_name = attributes[:'displayName']
+      if attributes.has_key?(:'icon')
+        self.icon = attributes[:'icon']
       end
 
-      if attributes.has_key?(:'config')
-        self.config = attributes[:'config']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'active')
-        self.active = attributes[:'active']
+      if attributes.has_key?(:'message')
+        self.message = attributes[:'message']
       end
 
     end
@@ -88,10 +72,8 @@ module JCAPIv1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          display_name == o.display_name &&
-          config == o.config &&
-          name == o.name &&
-          active == o.active
+          icon == o.icon &&
+          message == o.message
     end
 
     # @see the `==` method
@@ -103,7 +85,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [display_name, config, name, active].hash
+      [icon, message].hash
     end
 
     # Builds the object from hash

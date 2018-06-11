@@ -14,13 +14,34 @@ require 'date'
 
 module JCAPIv1
 
-  class InlineResponse200ConfigDatabaseAttributes
+  class ApplicationConfigIdpEntityId
+    attr_accessor :label
+
+    attr_accessor :read_only
+
+    attr_accessor :tooltip
+
+    attr_accessor :type
+
+    attr_accessor :value
+
+    attr_accessor :visible
+
+    attr_accessor :required
+
     attr_accessor :position
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'label' => :'label',
+        :'read_only' => :'readOnly',
+        :'tooltip' => :'tooltip',
+        :'type' => :'type',
+        :'value' => :'value',
+        :'visible' => :'visible',
+        :'required' => :'required',
         :'position' => :'position'
       }
     end
@@ -28,6 +49,13 @@ module JCAPIv1
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'label' => :'String',
+        :'read_only' => :'BOOLEAN',
+        :'tooltip' => :'ApplicationConfigIdpEntityIdTooltip',
+        :'type' => :'String',
+        :'value' => :'String',
+        :'visible' => :'BOOLEAN',
+        :'required' => :'BOOLEAN',
         :'position' => :'Integer'
       }
     end
@@ -39,6 +67,34 @@ module JCAPIv1
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
+
+      if attributes.has_key?(:'label')
+        self.label = attributes[:'label']
+      end
+
+      if attributes.has_key?(:'readOnly')
+        self.read_only = attributes[:'readOnly']
+      end
+
+      if attributes.has_key?(:'tooltip')
+        self.tooltip = attributes[:'tooltip']
+      end
+
+      if attributes.has_key?(:'type')
+        self.type = attributes[:'type']
+      end
+
+      if attributes.has_key?(:'value')
+        self.value = attributes[:'value']
+      end
+
+      if attributes.has_key?(:'visible')
+        self.visible = attributes[:'visible']
+      end
+
+      if attributes.has_key?(:'required')
+        self.required = attributes[:'required']
+      end
 
       if attributes.has_key?(:'position')
         self.position = attributes[:'position']
@@ -64,6 +120,13 @@ module JCAPIv1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          label == o.label &&
+          read_only == o.read_only &&
+          tooltip == o.tooltip &&
+          type == o.type &&
+          value == o.value &&
+          visible == o.visible &&
+          required == o.required &&
           position == o.position
     end
 
@@ -76,7 +139,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [position].hash
+      [label, read_only, tooltip, type, value, visible, required, position].hash
     end
 
     # Builds the object from hash

@@ -21,7 +21,7 @@ module JCAPIv1
     end
 
     # Applications
-    # The endpoint returns all your SSO / SAML Applications.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/applications \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'  ```
+    # The endpoint returns all your SSO / SAML Applications.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/applications \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
@@ -29,14 +29,14 @@ module JCAPIv1
     # @option opts [Integer] :limit The number of records to return at once.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :sort  (default to The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending.)
-    # @return [InlineResponse200]
+    # @return [Applicationslist]
     def applications_list(content_type, accept, opts = {})
       data, _status_code, _headers = applications_list_with_http_info(content_type, accept, opts)
       return data
     end
 
     # Applications
-    # The endpoint returns all your SSO / SAML Applications.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/applications \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+    # The endpoint returns all your SSO / SAML Applications.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/applications \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
@@ -44,7 +44,7 @@ module JCAPIv1
     # @option opts [Integer] :limit The number of records to return at once.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :sort 
-    # @return [Array<(InlineResponse200, Fixnum, Hash)>] InlineResponse200 data, response status code and response headers
+    # @return [Array<(Applicationslist, Fixnum, Hash)>] Applicationslist data, response status code and response headers
     def applications_list_with_http_info(content_type, accept, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: ApplicationsApi.applications_list ..."
@@ -88,7 +88,7 @@ module JCAPIv1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse200')
+        :return_type => 'Applicationslist')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ApplicationsApi#applications_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

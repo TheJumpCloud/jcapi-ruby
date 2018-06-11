@@ -1,11 +1,11 @@
-# JCAPIv1::InlineResponse200ConfigIdpEntityId
+# JCAPIv1::ApplicationConfigIdpEntityId
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **label** | **String** |  | [optional] 
 **read_only** | **BOOLEAN** |  | [optional] 
-**tooltip** | [**InlineResponse200ConfigIdpEntityIdTooltip**](InlineResponse200ConfigIdpEntityIdTooltip.md) |  | [optional] 
+**tooltip** | [**ApplicationConfigIdpEntityIdTooltip**](ApplicationConfigIdpEntityIdTooltip.md) |  | [optional] 
 **type** | **String** |  | [optional] 
 **value** | **String** |  | [optional] 
 **visible** | **BOOLEAN** |  | [optional] 

@@ -14,25 +14,21 @@ require 'date'
 
 module JCAPIv1
 
-  class InlineResponse200ConfigIdpEntityIdTooltipVariables
-    attr_accessor :icon
-
-    attr_accessor :message
+  class ApplicationConfigDatabaseAttributes
+    attr_accessor :position
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'icon' => :'icon',
-        :'message' => :'message'
+        :'position' => :'position'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'icon' => :'String',
-        :'message' => :'String'
+        :'position' => :'Integer'
       }
     end
 
@@ -44,12 +40,8 @@ module JCAPIv1
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'icon')
-        self.icon = attributes[:'icon']
-      end
-
-      if attributes.has_key?(:'message')
-        self.message = attributes[:'message']
+      if attributes.has_key?(:'position')
+        self.position = attributes[:'position']
       end
 
     end
@@ -72,8 +64,7 @@ module JCAPIv1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          icon == o.icon &&
-          message == o.message
+          position == o.position
     end
 
     # @see the `==` method
@@ -85,7 +76,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [icon, message].hash
+      [position].hash
     end
 
     # Builds the object from hash

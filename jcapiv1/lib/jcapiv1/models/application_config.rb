@@ -43,12 +43,12 @@ module JCAPIv1
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'idp_entity_id' => :'InlineResponse200ConfigIdpEntityId',
-        :'idp_certificate' => :'InlineResponse200ConfigIdpEntityId',
-        :'sp_entity_id' => :'InlineResponse200ConfigIdpEntityId',
-        :'acs_url' => :'InlineResponse200ConfigIdpEntityId',
+        :'idp_entity_id' => :'ApplicationConfigIdpEntityId',
+        :'idp_certificate' => :'ApplicationConfigIdpEntityId',
+        :'sp_entity_id' => :'ApplicationConfigIdpEntityId',
+        :'acs_url' => :'ApplicationConfigIdpEntityId',
         :'constant_attributes' => :'ApplicationConfigConstantAttributes',
-        :'database_attributes' => :'InlineResponse200ConfigDatabaseAttributes'
+        :'database_attributes' => :'ApplicationConfigDatabaseAttributes'
       }
     end
 

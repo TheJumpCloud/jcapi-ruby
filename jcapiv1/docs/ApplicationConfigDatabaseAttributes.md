@@ -1,4 +1,4 @@
-# JCAPIv1::InlineResponse200ConfigDatabaseAttributes
+# JCAPIv1::ApplicationConfigDatabaseAttributes
 
 ## Properties
 Name | Type | Description | Notes

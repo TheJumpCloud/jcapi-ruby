@@ -54,7 +54,7 @@ module JCAPIv1
       {
         :'label' => :'String',
         :'read_only' => :'BOOLEAN',
-        :'tooltip' => :'InlineResponse200ConfigIdpEntityIdTooltip',
+        :'tooltip' => :'ApplicationConfigIdpEntityIdTooltip',
         :'type' => :'String',
         :'value' => :'Array<ApplicationConfigConstantAttributesValue>',
         :'visible' => :'BOOLEAN',

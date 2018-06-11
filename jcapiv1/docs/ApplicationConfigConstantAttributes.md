@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **label** | **String** |  | [optional] 
 **read_only** | **BOOLEAN** |  | [optional] 
-**tooltip** | [**InlineResponse200ConfigIdpEntityIdTooltip**](InlineResponse200ConfigIdpEntityIdTooltip.md) |  | [optional] 
+**tooltip** | [**ApplicationConfigIdpEntityIdTooltip**](ApplicationConfigIdpEntityIdTooltip.md) |  | [optional] 
 **type** | **String** |  | [optional] 
 **value** | [**Array&lt;ApplicationConfigConstantAttributesValue&gt;**](ApplicationConfigConstantAttributesValue.md) |  | [optional] 
 **visible** | **BOOLEAN** |  | [optional] 

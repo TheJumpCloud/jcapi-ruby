@@ -1,4 +1,4 @@
-# JCAPIv1::ApplicationConfigIdpEntityIdTooltipVariables
+# JCAPIv1::InlineResponse200ConfigIdpEntityIdTooltipVariables
 
 ## Properties
 Name | Type | Description | Notes

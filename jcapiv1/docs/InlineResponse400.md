@@ -1,8 +1,8 @@
-# JCAPIv1::ApplicationConfigDatabaseAttributes
+# JCAPIv1::InlineResponse400
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**position** | **Integer** |  | [optional] 
+**message** | **String** |  | [optional] 
 
 

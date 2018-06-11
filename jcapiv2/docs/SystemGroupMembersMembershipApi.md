@@ -38,10 +38,10 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-  limit: 10 # Integer | The number of records to return at once.
-  skip: 0, # Integer | The offset into the records to return.
-  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  filter: ["filter_example"] # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  skip: 0 # Integer | The offset into the records to return.
+  sort: ["sort_example"] # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 }
 
 begin
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
- **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
 
@@ -108,8 +108,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  limit: 10 # Integer | The number of records to return at once.
-  skip: 0, # Integer | The offset into the records to return.
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  skip: 0 # Integer | The offset into the records to return.
 }
 
 begin
@@ -128,7 +128,7 @@ Name | Type | Description  | Notes
  **group_id** | **String**| ObjectID of the System Group. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
 
 ### Return type
@@ -241,10 +241,10 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  limit: 10 # Integer | The number of records to return at once.
-  skip: 0, # Integer | The offset into the records to return.
-  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  skip: 0 # Integer | The offset into the records to return.
+  sort: ["sort_example"] # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  filter: ["filter_example"] # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 }
 
 begin
@@ -263,7 +263,7 @@ Name | Type | Description  | Notes
  **group_id** | **String**| ObjectID of the System Group. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
  **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 

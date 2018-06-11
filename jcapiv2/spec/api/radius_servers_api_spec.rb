@@ -40,7 +40,7 @@ describe 'RADIUSServersApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :limit The number of records to return at once.
+  # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @return [Array<GraphConnection>]
   describe 'graph_radius_server_associations_list test' do
@@ -71,7 +71,7 @@ describe 'RADIUSServersApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :limit The number of records to return at once.
+  # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_radius_server_traverse_user test' do
@@ -87,7 +87,7 @@ describe 'RADIUSServersApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :limit The number of records to return at once.
+  # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_radius_server_traverse_user_group test' do

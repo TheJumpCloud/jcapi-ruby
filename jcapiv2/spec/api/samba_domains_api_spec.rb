@@ -71,7 +71,7 @@ describe 'SambaDomainsApi' do
   # @option opts [String] :accept 
   # @option opts [Array<String>] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
   # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-  # @option opts [Integer] :limit The number of records to return at once.
+  # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
   # @return [Array<SambaDomainOutput>]

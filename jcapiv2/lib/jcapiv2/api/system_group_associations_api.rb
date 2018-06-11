@@ -27,7 +27,7 @@ module JCAPIv2
     # @param accept 
     # @param targets 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @return [Array<GraphConnection>]
     def graph_system_group_associations_list(group_id, content_type, accept, targets, opts = {})
@@ -42,7 +42,7 @@ module JCAPIv2
     # @param accept 
     # @param targets 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @return [Array<(Array<GraphConnection>, Fixnum, Hash)>] Array<GraphConnection> data, response status code and response headers
     def graph_system_group_associations_list_with_http_info(group_id, content_type, accept, targets, opts = {})
@@ -178,7 +178,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_group_traverse_command(group_id, content_type, accept, opts = {})
@@ -192,7 +192,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_group_traverse_command_with_http_info(group_id, content_type, accept, opts = {})
@@ -253,7 +253,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_group_traverse_policy(group_id, content_type, accept, opts = {})
@@ -267,7 +267,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_group_traverse_policy_with_http_info(group_id, content_type, accept, opts = {})
@@ -328,7 +328,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_group_traverse_user(group_id, content_type, accept, opts = {})
@@ -342,7 +342,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_group_traverse_user_with_http_info(group_id, content_type, accept, opts = {})
@@ -403,7 +403,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_group_traverse_user_group(group_id, content_type, accept, opts = {})
@@ -417,7 +417,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_group_traverse_user_group_with_http_info(group_id, content_type, accept, opts = {})

@@ -27,7 +27,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @return [Array<GraphConnection>]
     def graph_ldap_server_associations_list(ldapserver_id, targets, content_type, accept, opts = {})
@@ -42,7 +42,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @return [Array<(Array<GraphConnection>, Fixnum, Hash)>] Array<GraphConnection> data, response status code and response headers
     def graph_ldap_server_associations_list_with_http_info(ldapserver_id, targets, content_type, accept, opts = {})
@@ -178,7 +178,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @return [Array<GraphObjectWithPaths>]
     def graph_ldap_server_traverse_user(ldapserver_id, content_type, accept, opts = {})
@@ -192,7 +192,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_ldap_server_traverse_user_with_http_info(ldapserver_id, content_type, accept, opts = {})
@@ -253,7 +253,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @return [Array<GraphObjectWithPaths>]
     def graph_ldap_server_traverse_user_group(ldapserver_id, content_type, accept, opts = {})
@@ -267,7 +267,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_ldap_server_traverse_user_group_with_http_info(ldapserver_id, content_type, accept, opts = {})
@@ -398,7 +398,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
     # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
     # @return [Array<LdapServerOutput>]
@@ -414,7 +414,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
     # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
     # @return [Array<(Array<LdapServerOutput>, Fixnum, Hash)>] Array<LdapServerOutput> data, response status code and response headers

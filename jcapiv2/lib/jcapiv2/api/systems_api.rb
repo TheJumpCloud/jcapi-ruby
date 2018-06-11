@@ -27,7 +27,7 @@ module JCAPIv2
     # @param accept 
     # @param targets 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
@@ -44,7 +44,7 @@ module JCAPIv2
     # @param accept 
     # @param targets 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
@@ -109,7 +109,7 @@ module JCAPIv2
     end
 
     # Manage associations of a System
-    # This endpoint allows you to manage the _direct_ associations of a System.  A direct association can be a non-homogenous relationship between 2 different objects. for example Systems and Users.   #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"op\": \"add\",     \"type\": \"user\",     \"id\": \"{User_ID}\" }'  ```
+    # This endpoint allows you to manage the _direct_ associations of a System.  A direct association can be a non-homogenous relationship between 2 different objects. for example Systems and Users.   #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{    \"attributes\": {       \"sudo\": {          \"enabled\": true,          \"withoutPassword\": false       }    },      \"op\": \"add\",     \"type\": \"user\",     \"id\": \"UserID\" }'  ```
     # @param system_id ObjectID of the System.
     # @param content_type 
     # @param accept 
@@ -124,7 +124,7 @@ module JCAPIv2
     end
 
     # Manage associations of a System
-    # This endpoint allows you to manage the _direct_ associations of a System.  A direct association can be a non-homogenous relationship between 2 different objects. for example Systems and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;{User_ID}\&quot; }&#39;  &#x60;&#x60;&#x60;
+    # This endpoint allows you to manage the _direct_ associations of a System.  A direct association can be a non-homogenous relationship between 2 different objects. for example Systems and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{    \&quot;attributes\&quot;: {       \&quot;sudo\&quot;: {          \&quot;enabled\&quot;: true,          \&quot;withoutPassword\&quot;: false       }    },      \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;UserID\&quot; }&#39;  &#x60;&#x60;&#x60;
     # @param system_id ObjectID of the System.
     # @param content_type 
     # @param accept 
@@ -191,7 +191,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
@@ -209,7 +209,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
@@ -277,7 +277,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_traverse_command(system_id, content_type, accept, opts = {})
@@ -291,7 +291,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_traverse_command_with_http_info(system_id, content_type, accept, opts = {})
@@ -352,7 +352,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_traverse_policy(system_id, content_type, accept, opts = {})
@@ -366,7 +366,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_traverse_policy_with_http_info(system_id, content_type, accept, opts = {})
@@ -427,7 +427,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
@@ -443,7 +443,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
@@ -508,7 +508,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
@@ -524,7 +524,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API

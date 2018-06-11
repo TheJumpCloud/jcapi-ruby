@@ -27,7 +27,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
     # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
     # @return [Array<Group>]
@@ -43,7 +43,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
     # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
     # @return [Array<(Array<Group>, Fixnum, Hash)>] Array<Group> data, response status code and response headers

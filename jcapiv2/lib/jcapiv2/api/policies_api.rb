@@ -22,12 +22,12 @@ module JCAPIv2
 
     # List the associations of a Policy
     # This endpoint returns the _direct_ associations of a Policy.  A direct association can be a non-homogenous relationship between 2 different objects. for example Policies and Systems.  #### Sample Request ``` curl -X GET 'https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/associations?targets=system_group \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
-    # @param policy_id 
+    # @param policy_id ObjectID of the Policy.
     # @param targets 
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @return [Array<GraphConnection>]
     def graph_policy_associations_list(policy_id, targets, content_type, accept, opts = {})
@@ -37,12 +37,12 @@ module JCAPIv2
 
     # List the associations of a Policy
     # This endpoint returns the _direct_ associations of a Policy.  A direct association can be a non-homogenous relationship between 2 different objects. for example Policies and Systems.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/associations?targets&#x3D;system_group \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
-    # @param policy_id 
+    # @param policy_id ObjectID of the Policy.
     # @param targets 
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @return [Array<(Array<GraphConnection>, Fixnum, Hash)>] Array<GraphConnection> data, response status code and response headers
     def graph_policy_associations_list_with_http_info(policy_id, targets, content_type, accept, opts = {})
@@ -104,7 +104,7 @@ module JCAPIv2
 
     # Manage the associations of a Policy
     # This endpoint allows you to manage the _direct_ associations of a Policy.  A direct association can be a non-homogenous relationship between 2 different objects. for example Policies and Systems.  #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/associations/ \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"op\": \"add\",     \"type\": \"system_group\",     \"id\": \"{Group_ID}\" }' ```
-    # @param policy_id 
+    # @param policy_id ObjectID of the Policy.
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
@@ -117,7 +117,7 @@ module JCAPIv2
 
     # Manage the associations of a Policy
     # This endpoint allows you to manage the _direct_ associations of a Policy.  A direct association can be a non-homogenous relationship between 2 different objects. for example Policies and Systems.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/associations/ \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;system_group\&quot;,     \&quot;id\&quot;: \&quot;{Group_ID}\&quot; }&#39; &#x60;&#x60;&#x60;
-    # @param policy_id 
+    # @param policy_id ObjectID of the Policy.
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
@@ -178,7 +178,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @return [Array<GraphObjectWithPaths>]
     def graph_policy_traverse_system(policy_id, content_type, accept, opts = {})
@@ -192,7 +192,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_policy_traverse_system_with_http_info(policy_id, content_type, accept, opts = {})
@@ -253,7 +253,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @return [Array<GraphObjectWithPaths>]
     def graph_policy_traverse_system_group(policy_id, content_type, accept, opts = {})
@@ -267,7 +267,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_policy_traverse_system_group_with_http_info(policy_id, content_type, accept, opts = {})
@@ -466,7 +466,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
     # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
     # @return [Array<Policy>]
@@ -482,7 +482,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
     # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
     # @return [Array<(Array<Policy>, Fixnum, Hash)>] Array<Policy> data, response status code and response headers
@@ -728,15 +728,15 @@ module JCAPIv2
       return data, status_code, headers
     end
 
-    # Lists all the policy results of a given policy.
-    # This endpoint returns all policies results for a specific policy.   ##### Sample Results  ```  curl -X GET https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/policyresults \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
+    # Lists all the policy results of a policy.
+    # This endpoint returns all policies results for a specific policy.   ##### Sample Request  ```  curl -X GET https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/policyresults \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
     # @param policy_id 
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
     # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
     # @option opts [Array<String>] :aggregate 
@@ -746,15 +746,15 @@ module JCAPIv2
       return data
     end
 
-    # Lists all the policy results of a given policy.
-    # This endpoint returns all policies results for a specific policy.   ##### Sample Results  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+    # Lists all the policy results of a policy.
+    # This endpoint returns all policies results for a specific policy.   ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
     # @param policy_id 
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
     # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
     # @option opts [Array<String>] :aggregate 
@@ -816,13 +816,13 @@ module JCAPIv2
     end
 
     # Lists all the policy results for an organization.
-    # This endpoint returns all policies results for an Organization.   ##### Sample Results  ```  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
+    # This endpoint returns all policies results for an Organization.   ##### Sample Request  ```  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
     # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
     # @option opts [Array<String>] :aggregate 
@@ -833,13 +833,13 @@ module JCAPIv2
     end
 
     # Lists all the policy results for an organization.
-    # This endpoint returns all policies results for an Organization.   ##### Sample Results  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+    # This endpoint returns all policies results for an Organization.   ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
     # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
     # @option opts [Array<String>] :aggregate 
@@ -892,6 +892,174 @@ module JCAPIv2
         :return_type => 'Array<PolicyResult>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PoliciesApi#policyresults_list_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List the policy statuses for a system
+    # This endpoint returns the policy results for a particular system.  ##### Sample Request  ``` curl -X GET https://console.jumpcloud.com/api/v2/systems/{System_ID}/policystatuses \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'  ```
+    # @param system_id ObjectID of the System.
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @return [Array<PolicyResult>]
+    def policystatuses_list(system_id, content_type, accept, opts = {})
+      data, _status_code, _headers = policystatuses_list_with_http_info(system_id, content_type, accept, opts)
+      return data
+    end
+
+    # List the policy statuses for a system
+    # This endpoint returns the policy results for a particular system.  ##### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systems/{System_ID}/policystatuses \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+    # @param system_id ObjectID of the System.
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @return [Array<(Array<PolicyResult>, Fixnum, Hash)>] Array<PolicyResult> data, response status code and response headers
+    def policystatuses_list_with_http_info(system_id, content_type, accept, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: PoliciesApi.policystatuses_list ..."
+      end
+      # verify the required parameter 'system_id' is set
+      if @api_client.config.client_side_validation && system_id.nil?
+        fail ArgumentError, "Missing the required parameter 'system_id' when calling PoliciesApi.policystatuses_list"
+      end
+      # verify the required parameter 'content_type' is set
+      if @api_client.config.client_side_validation && content_type.nil?
+        fail ArgumentError, "Missing the required parameter 'content_type' when calling PoliciesApi.policystatuses_list"
+      end
+      # verify the required parameter 'accept' is set
+      if @api_client.config.client_side_validation && accept.nil?
+        fail ArgumentError, "Missing the required parameter 'accept' when calling PoliciesApi.policystatuses_list"
+      end
+      # resource path
+      local_var_path = "/systems/{system_id}/policystatuses".sub('{' + 'system_id' + '}', system_id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'fields'] = @api_client.build_collection_param(opts[:'fields'], :csv) if !opts[:'fields'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'sort'] = @api_client.build_collection_param(opts[:'sort'], :csv) if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'Content-Type'] = content_type
+      header_params[:'Accept'] = accept
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['x-api-key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<PolicyResult>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PoliciesApi#policystatuses_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Lists the latest policy results of a policy.
+    # This endpoint returns the latest policies results for a specific policy.   ##### Sample Request  ```  curl -X GET https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/policystatuses \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
+    # @param policy_id 
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @return [Array<PolicyResult>]
+    def policystatuses_list_0(policy_id, content_type, accept, opts = {})
+      data, _status_code, _headers = policystatuses_list_0_with_http_info(policy_id, content_type, accept, opts)
+      return data
+    end
+
+    # Lists the latest policy results of a policy.
+    # This endpoint returns the latest policies results for a specific policy.   ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/policystatuses \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+    # @param policy_id 
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Array<String>] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @return [Array<(Array<PolicyResult>, Fixnum, Hash)>] Array<PolicyResult> data, response status code and response headers
+    def policystatuses_list_0_with_http_info(policy_id, content_type, accept, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: PoliciesApi.policystatuses_list_0 ..."
+      end
+      # verify the required parameter 'policy_id' is set
+      if @api_client.config.client_side_validation && policy_id.nil?
+        fail ArgumentError, "Missing the required parameter 'policy_id' when calling PoliciesApi.policystatuses_list_0"
+      end
+      # verify the required parameter 'content_type' is set
+      if @api_client.config.client_side_validation && content_type.nil?
+        fail ArgumentError, "Missing the required parameter 'content_type' when calling PoliciesApi.policystatuses_list_0"
+      end
+      # verify the required parameter 'accept' is set
+      if @api_client.config.client_side_validation && accept.nil?
+        fail ArgumentError, "Missing the required parameter 'accept' when calling PoliciesApi.policystatuses_list_0"
+      end
+      # resource path
+      local_var_path = "/policies/{policy_id}/policystatuses".sub('{' + 'policy_id' + '}', policy_id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'fields'] = @api_client.build_collection_param(opts[:'fields'], :csv) if !opts[:'fields'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'sort'] = @api_client.build_collection_param(opts[:'sort'], :csv) if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'Content-Type'] = content_type
+      header_params[:'Accept'] = accept
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['x-api-key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<PolicyResult>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: PoliciesApi#policystatuses_list_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -972,7 +1140,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
     # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
     # @return [Array<PolicyTemplate>]
@@ -988,7 +1156,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
     # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
     # @return [Array<(Array<PolicyTemplate>, Fixnum, Hash)>] Array<PolicyTemplate> data, response status code and response headers

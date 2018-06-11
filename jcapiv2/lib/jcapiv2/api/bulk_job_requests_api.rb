@@ -20,40 +20,40 @@ module JCAPIv2
       @api_client = api_client
     end
 
-    # Get Job
-    # Under development
+    # Get Job (incomplete)
+    # **This endpoint is not complete and should remain hidden as it's not functional yet.**
     # @param id 
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @return [JobDetails]
-    def job_get(id, content_type, accept, opts = {})
-      data, _status_code, _headers = job_get_with_http_info(id, content_type, accept, opts)
+    def jobs_get(id, content_type, accept, opts = {})
+      data, _status_code, _headers = jobs_get_with_http_info(id, content_type, accept, opts)
       return data
     end
 
-    # Get Job
-    # Under development
+    # Get Job (incomplete)
+    # **This endpoint is not complete and should remain hidden as it&#39;s not functional yet.**
     # @param id 
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @return [Array<(JobDetails, Fixnum, Hash)>] JobDetails data, response status code and response headers
-    def job_get_with_http_info(id, content_type, accept, opts = {})
+    def jobs_get_with_http_info(id, content_type, accept, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: BulkJobRequestsApi.job_get ..."
+        @api_client.config.logger.debug "Calling API: BulkJobRequestsApi.jobs_get ..."
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling BulkJobRequestsApi.job_get"
+        fail ArgumentError, "Missing the required parameter 'id' when calling BulkJobRequestsApi.jobs_get"
       end
       # verify the required parameter 'content_type' is set
       if @api_client.config.client_side_validation && content_type.nil?
-        fail ArgumentError, "Missing the required parameter 'content_type' when calling BulkJobRequestsApi.job_get"
+        fail ArgumentError, "Missing the required parameter 'content_type' when calling BulkJobRequestsApi.jobs_get"
       end
       # verify the required parameter 'accept' is set
       if @api_client.config.client_side_validation && accept.nil?
-        fail ArgumentError, "Missing the required parameter 'accept' when calling BulkJobRequestsApi.job_get"
+        fail ArgumentError, "Missing the required parameter 'accept' when calling BulkJobRequestsApi.jobs_get"
       end
       # resource path
       local_var_path = "/jobs/{id}".sub('{' + 'id' + '}', id.to_s)
@@ -84,49 +84,49 @@ module JCAPIv2
         :auth_names => auth_names,
         :return_type => 'JobDetails')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BulkJobRequestsApi#job_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BulkJobRequestsApi#jobs_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
     # List Job Results
-    # Under development
+    # This endpoint will return the results of particular import job request.  ###Sample Request  ``` curl -X GET \\   https://console.jumpcloud.com/api/v2/jobs/{ImportJobID}/results \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
     # @param id 
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once. (default to 10)
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @return [Array<JobWorkresult>]
-    def job_results(id, content_type, accept, opts = {})
-      data, _status_code, _headers = job_results_with_http_info(id, content_type, accept, opts)
+    def jobs_results(id, content_type, accept, opts = {})
+      data, _status_code, _headers = jobs_results_with_http_info(id, content_type, accept, opts)
       return data
     end
 
     # List Job Results
-    # Under development
+    # This endpoint will return the results of particular import job request.  ###Sample Request  &#x60;&#x60;&#x60; curl -X GET \\   https://console.jumpcloud.com/api/v2/jobs/{ImportJobID}/results \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
     # @param id 
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit The number of records to return at once.
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @return [Array<(Array<JobWorkresult>, Fixnum, Hash)>] Array<JobWorkresult> data, response status code and response headers
-    def job_results_with_http_info(id, content_type, accept, opts = {})
+    def jobs_results_with_http_info(id, content_type, accept, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: BulkJobRequestsApi.job_results ..."
+        @api_client.config.logger.debug "Calling API: BulkJobRequestsApi.jobs_results ..."
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
-        fail ArgumentError, "Missing the required parameter 'id' when calling BulkJobRequestsApi.job_results"
+        fail ArgumentError, "Missing the required parameter 'id' when calling BulkJobRequestsApi.jobs_results"
       end
       # verify the required parameter 'content_type' is set
       if @api_client.config.client_side_validation && content_type.nil?
-        fail ArgumentError, "Missing the required parameter 'content_type' when calling BulkJobRequestsApi.job_results"
+        fail ArgumentError, "Missing the required parameter 'content_type' when calling BulkJobRequestsApi.jobs_results"
       end
       # verify the required parameter 'accept' is set
       if @api_client.config.client_side_validation && accept.nil?
-        fail ArgumentError, "Missing the required parameter 'accept' when calling BulkJobRequestsApi.job_results"
+        fail ArgumentError, "Missing the required parameter 'accept' when calling BulkJobRequestsApi.jobs_results"
       end
       # resource path
       local_var_path = "/jobs/{id}/results".sub('{' + 'id' + '}', id.to_s)
@@ -159,7 +159,7 @@ module JCAPIv2
         :auth_names => auth_names,
         :return_type => 'Array<JobWorkresult>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: BulkJobRequestsApi#job_results\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: BulkJobRequestsApi#jobs_results\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

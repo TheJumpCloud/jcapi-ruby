@@ -32,31 +32,31 @@ describe 'BulkJobRequestsApi' do
     end
   end
 
-  # unit tests for job_get
-  # Get Job
-  # Under development
+  # unit tests for jobs_get
+  # Get Job (incomplete)
+  # **This endpoint is not complete and should remain hidden as it&#39;s not functional yet.**
   # @param id 
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @return [JobDetails]
-  describe 'job_get test' do
+  describe 'jobs_get test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for job_results
+  # unit tests for jobs_results
   # List Job Results
-  # Under development
+  # This endpoint will return the results of particular import job request.  ###Sample Request  &#x60;&#x60;&#x60; curl -X GET \\   https://console.jumpcloud.com/api/v2/jobs/{ImportJobID}/results \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
   # @param id 
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :limit The number of records to return at once.
+  # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @return [Array<JobWorkresult>]
-  describe 'job_results test' do
+  describe 'jobs_results test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

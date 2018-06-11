@@ -14,17 +14,37 @@ require 'date'
 
 module JCAPIv2
 
-  class WorkdayReportRow
+  class WorkdayWorkerImport
+    attr_accessor :username
+
+    attr_accessor :firstname
+
+    attr_accessor :lastname
+
+    attr_accessor :email
+
+    attr_accessor :attributes
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'username' => :'username',
+        :'firstname' => :'firstname',
+        :'lastname' => :'lastname',
+        :'email' => :'email',
+        :'attributes' => :'attributes'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'username' => :'String',
+        :'firstname' => :'String',
+        :'lastname' => :'String',
+        :'email' => :'String',
+        :'attributes' => :'Array<Object>'
       }
     end
 
@@ -35,6 +55,28 @@ module JCAPIv2
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
+
+      if attributes.has_key?(:'username')
+        self.username = attributes[:'username']
+      end
+
+      if attributes.has_key?(:'firstname')
+        self.firstname = attributes[:'firstname']
+      end
+
+      if attributes.has_key?(:'lastname')
+        self.lastname = attributes[:'lastname']
+      end
+
+      if attributes.has_key?(:'email')
+        self.email = attributes[:'email']
+      end
+
+      if attributes.has_key?(:'attributes')
+        if (value = attributes[:'attributes']).is_a?(Array)
+          self.attributes = value
+        end
+      end
 
     end
 
@@ -55,7 +97,12 @@ module JCAPIv2
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
-      self.class == o.class
+      self.class == o.class &&
+          username == o.username &&
+          firstname == o.firstname &&
+          lastname == o.lastname &&
+          email == o.email &&
+          attributes == o.attributes
     end
 
     # @see the `==` method
@@ -67,7 +114,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [].hash
+      [username, firstname, lastname, email, attributes].hash
     end
 
     # Builds the object from hash

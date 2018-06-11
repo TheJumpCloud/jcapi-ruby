@@ -14,21 +14,21 @@ require 'date'
 
 module JCAPIv2
 
-  class WorkdayimportresultResult
-    attr_accessor :msg
+  class InlineResponse204
+    attr_accessor :id
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'msg' => :'msg'
+        :'id' => :'id'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'msg' => :'String'
+        :'id' => :'String'
       }
     end
 
@@ -40,8 +40,8 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'msg')
-        self.msg = attributes[:'msg']
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
       end
 
     end
@@ -64,7 +64,7 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          msg == o.msg
+          id == o.id
     end
 
     # @see the `==` method
@@ -76,7 +76,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [msg].hash
+      [id].hash
     end
 
     # Builds the object from hash

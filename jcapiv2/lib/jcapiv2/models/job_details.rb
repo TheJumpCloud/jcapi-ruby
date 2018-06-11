@@ -15,32 +15,52 @@ require 'date'
 module JCAPIv2
 
   class JobDetails
+    attr_accessor :id
+
+    attr_accessor :admin_id
+
+    attr_accessor :work_units_count
+
+    attr_accessor :name
+
     attr_accessor :status
 
-    attr_accessor :total_work_count
-
-    attr_accessor :work_completed_count
-
     attr_accessor :meta
+
+    attr_accessor :created_at
+
+    attr_accessor :updated_at
+
+    attr_accessor :persisted_fields
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'id' => :'id',
+        :'admin_id' => :'adminId',
+        :'work_units_count' => :'workUnitsCount',
+        :'name' => :'name',
         :'status' => :'status',
-        :'total_work_count' => :'totalWorkCount',
-        :'work_completed_count' => :'workCompletedCount',
-        :'meta' => :'meta'
+        :'meta' => :'meta',
+        :'created_at' => :'createdAt',
+        :'updated_at' => :'updatedAt',
+        :'persisted_fields' => :'persistedFields'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'id' => :'String',
+        :'admin_id' => :'String',
+        :'work_units_count' => :'Integer',
+        :'name' => :'String',
         :'status' => :'String',
-        :'total_work_count' => :'Integer',
-        :'work_completed_count' => :'Integer',
-        :'meta' => :'Object'
+        :'meta' => :'Object',
+        :'created_at' => :'String',
+        :'updated_at' => :'String',
+        :'persisted_fields' => :'Array<String>'
       }
     end
 
@@ -52,20 +72,42 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+      if attributes.has_key?(:'adminId')
+        self.admin_id = attributes[:'adminId']
+      end
+
+      if attributes.has_key?(:'workUnitsCount')
+        self.work_units_count = attributes[:'workUnitsCount']
+      end
+
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
+      end
+
       if attributes.has_key?(:'status')
         self.status = attributes[:'status']
       end
 
-      if attributes.has_key?(:'totalWorkCount')
-        self.total_work_count = attributes[:'totalWorkCount']
-      end
-
-      if attributes.has_key?(:'workCompletedCount')
-        self.work_completed_count = attributes[:'workCompletedCount']
-      end
-
       if attributes.has_key?(:'meta')
         self.meta = attributes[:'meta']
+      end
+
+      if attributes.has_key?(:'createdAt')
+        self.created_at = attributes[:'createdAt']
+      end
+
+      if attributes.has_key?(:'updatedAt')
+        self.updated_at = attributes[:'updatedAt']
+      end
+
+      if attributes.has_key?(:'persistedFields')
+        if (value = attributes[:'persistedFields']).is_a?(Array)
+          self.persisted_fields = value
+        end
       end
 
     end
@@ -88,10 +130,15 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          id == o.id &&
+          admin_id == o.admin_id &&
+          work_units_count == o.work_units_count &&
+          name == o.name &&
           status == o.status &&
-          total_work_count == o.total_work_count &&
-          work_completed_count == o.work_completed_count &&
-          meta == o.meta
+          meta == o.meta &&
+          created_at == o.created_at &&
+          updated_at == o.updated_at &&
+          persisted_fields == o.persisted_fields
     end
 
     # @see the `==` method
@@ -103,7 +150,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [status, total_work_count, work_completed_count, meta].hash
+      [id, admin_id, work_units_count, name, status, meta, created_at, updated_at, persisted_fields].hash
     end
 
     # Builds the object from hash

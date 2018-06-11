@@ -40,7 +40,7 @@ describe 'SystemGroupMembersMembershipApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-  # @option opts [Integer] :limit The number of records to return at once.
+  # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
   # @return [Array<GraphObjectWithPaths>]
@@ -57,7 +57,7 @@ describe 'SystemGroupMembersMembershipApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :limit The number of records to return at once.
+  # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @return [Array<GraphConnection>]
   describe 'graph_system_group_members_list test' do
@@ -90,7 +90,7 @@ describe 'SystemGroupMembersMembershipApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :limit The number of records to return at once.
+  # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
   # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in

@@ -31,11 +31,3 @@ $ docker-compose run --rm swagger-codegen generate -i /swagger-api/yaml/index2.y
 This will generate the API v2 client files under `output/jcapiv2`
 
 Once you are satisfied with the generated API client, you can replace the existing files under the `jcapiv1` and `jcapiv2` folders with your generated files.
-
-
-There is apparently a bug in swagger-codegen when it comes to generating code for enum types in Ruby.
-After generating the code, run the following sed commands in order to fix this bug for the 2 files that use the enum type (graph_type and group_type):
-```
-$ sed -i '' 's/c.to_s/GraphType::const_get(c)/g' jcapiv2/lib/jcapiv2/models/graph_type.rb
-$ sed -i '' 's/c.to_s/GraphType::const_get(c)/g' jcapiv2/lib/jcapiv2/models/group_type.rb
-```

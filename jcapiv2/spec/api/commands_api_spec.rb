@@ -40,7 +40,7 @@ describe 'CommandsApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :limit The number of records to return at once.
+  # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @return [Array<GraphConnection>]
   describe 'graph_command_associations_list test' do
@@ -57,7 +57,7 @@ describe 'CommandsApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [GraphManagementReq] :body 
-  # @return [nil]
+  # @return [InlineResponse204]
   describe 'graph_command_associations_post test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -71,7 +71,7 @@ describe 'CommandsApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :limit The number of records to return at once.
+  # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_command_traverse_system test' do
@@ -87,7 +87,7 @@ describe 'CommandsApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :limit The number of records to return at once.
+  # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_command_traverse_system_group test' do

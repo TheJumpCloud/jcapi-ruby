@@ -40,7 +40,7 @@ describe 'SystemGroupAssociationsApi' do
   # @param accept 
   # @param targets 
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :limit The number of records to return at once.
+  # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @return [Array<GraphConnection>]
   describe 'graph_system_group_associations_list test' do
@@ -71,7 +71,7 @@ describe 'SystemGroupAssociationsApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :limit The number of records to return at once.
+  # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_system_group_traverse_command test' do
@@ -87,7 +87,7 @@ describe 'SystemGroupAssociationsApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :limit The number of records to return at once.
+  # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_system_group_traverse_policy test' do
@@ -103,7 +103,7 @@ describe 'SystemGroupAssociationsApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :limit The number of records to return at once.
+  # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_system_group_traverse_user test' do
@@ -119,7 +119,7 @@ describe 'SystemGroupAssociationsApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
-  # @option opts [Integer] :limit The number of records to return at once.
+  # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_system_group_traverse_user_group test' do

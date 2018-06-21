@@ -3,9 +3,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **String** |  | [optional] 
+**admin_id** | **String** |  | [optional] 
+**work_units_count** | **Integer** |  | [optional] 
+**name** | **String** |  | [optional] 
 **status** | **String** |  | [optional] 
-**total_work_count** | **Integer** |  | [optional] 
-**work_completed_count** | **Integer** |  | [optional] 
 **meta** | **Object** |  | [optional] 
+**created_at** | **String** |  | [optional] 
+**updated_at** | **String** |  | [optional] 
+**persisted_fields** | **Array&lt;String&gt;** |  | [optional] 
 
 

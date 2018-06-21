@@ -96,14 +96,17 @@ Class | Method | HTTP request | Description
 *JCAPIv1::CommandResultsApi* | [**command_results_get**](docs/CommandResultsApi.md#command_results_get) | **GET** /commandresults/{id} | List an individual Command result
 *JCAPIv1::CommandResultsApi* | [**command_results_list**](docs/CommandResultsApi.md#command_results_list) | **GET** /commandresults | List all Command Results
 *JCAPIv1::CommandTriggersApi* | [**command_trigger_webhook_post**](docs/CommandTriggersApi.md#command_trigger_webhook_post) | **POST** /command/trigger/{triggername} | Launch a command via a Trigger
+*JCAPIv1::CommandsApi* | [**command_file_get**](docs/CommandsApi.md#command_file_get) | **GET** /files/command/{id} | Get a Command File
 *JCAPIv1::CommandsApi* | [**commands_delete**](docs/CommandsApi.md#commands_delete) | **DELETE** /commands/{id} | Delete a Command
 *JCAPIv1::CommandsApi* | [**commands_get**](docs/CommandsApi.md#commands_get) | **GET** /commands/{id} | List an individual Command
 *JCAPIv1::CommandsApi* | [**commands_list**](docs/CommandsApi.md#commands_list) | **GET** /commands/ | List All Commands
 *JCAPIv1::CommandsApi* | [**commands_post**](docs/CommandsApi.md#commands_post) | **POST** /commands/ | Create A Command
 *JCAPIv1::CommandsApi* | [**commands_put**](docs/CommandsApi.md#commands_put) | **PUT** /commands/{id} | Update a Command
 *JCAPIv1::RadiusServersApi* | [**radius_servers_list**](docs/RadiusServersApi.md#radius_servers_list) | **GET** /radiusservers | List Radius Servers
+*JCAPIv1::RadiusServersApi* | [**radius_servers_post**](docs/RadiusServersApi.md#radius_servers_post) | **POST** /radiusservers | Create a Radius Server
 *JCAPIv1::RadiusServersApi* | [**radius_servers_put**](docs/RadiusServersApi.md#radius_servers_put) | **PUT** /radiusservers:id | Update Radius Servers
-*JCAPIv1::SearchApi* | [**search_systemusers_post**](docs/SearchApi.md#search_systemusers_post) | **POST** /search/systemusers | List System Users
+*JCAPIv1::SearchApi* | [**search_systems_post**](docs/SearchApi.md#search_systems_post) | **POST** /search/systems | Search Systems
+*JCAPIv1::SearchApi* | [**search_systemusers_post**](docs/SearchApi.md#search_systemusers_post) | **POST** /search/systemusers | Search System Users
 *JCAPIv1::SystemsApi* | [**systems_delete**](docs/SystemsApi.md#systems_delete) | **DELETE** /systems/{id} | Delete a System
 *JCAPIv1::SystemsApi* | [**systems_get**](docs/SystemsApi.md#systems_get) | **GET** /systems/{id} | List an individual system
 *JCAPIv1::SystemsApi* | [**systems_list**](docs/SystemsApi.md#systems_list) | **GET** /systems | List All Systems
@@ -115,6 +118,7 @@ Class | Method | HTTP request | Description
 *JCAPIv1::SystemusersApi* | [**systemusers_list**](docs/SystemusersApi.md#systemusers_list) | **GET** /systemusers | List all system users
 *JCAPIv1::SystemusersApi* | [**systemusers_post**](docs/SystemusersApi.md#systemusers_post) | **POST** /systemusers | Create a system user
 *JCAPIv1::SystemusersApi* | [**systemusers_put**](docs/SystemusersApi.md#systemusers_put) | **PUT** /systemusers/{id} | Update a system user
+*JCAPIv1::SystemusersApi* | [**systemusers_resetmfa**](docs/SystemusersApi.md#systemusers_resetmfa) | **POST** /systemusers/{id}/resetmfa | Reset a system user's MFA token
 *JCAPIv1::SystemusersApi* | [**systemusers_systems_binding_list**](docs/SystemusersApi.md#systemusers_systems_binding_list) | **GET** /systemusers/{id}/systems | List system user binding
 *JCAPIv1::SystemusersApi* | [**systemusers_systems_binding_put**](docs/SystemusersApi.md#systemusers_systems_binding_put) | **PUT** /systemusers/{id}/systems | Update a system user binding
 *JCAPIv1::TagsApi* | [**tags_delete**](docs/TagsApi.md#tags_delete) | **DELETE** /tags/{name} | Delete a Tag
@@ -137,12 +141,15 @@ Class | Method | HTTP request | Description
  - [JCAPIv1::Applicationslist](docs/Applicationslist.md)
  - [JCAPIv1::Body](docs/Body.md)
  - [JCAPIv1::Command](docs/Command.md)
+ - [JCAPIv1::Commandfilereturn](docs/Commandfilereturn.md)
  - [JCAPIv1::Commandresult](docs/Commandresult.md)
  - [JCAPIv1::CommandresultResponse](docs/CommandresultResponse.md)
  - [JCAPIv1::CommandresultResponseData](docs/CommandresultResponseData.md)
  - [JCAPIv1::Commandresultslist](docs/Commandresultslist.md)
  - [JCAPIv1::Commandslist](docs/Commandslist.md)
+ - [JCAPIv1::InlineResponse400](docs/InlineResponse400.md)
  - [JCAPIv1::Radiusserver](docs/Radiusserver.md)
+ - [JCAPIv1::Radiusserverpost](docs/Radiusserverpost.md)
  - [JCAPIv1::Radiusserverput](docs/Radiusserverput.md)
  - [JCAPIv1::Radiusserverslist](docs/Radiusserverslist.md)
  - [JCAPIv1::Search](docs/Search.md)
@@ -154,6 +161,7 @@ Class | Method | HTTP request | Description
  - [JCAPIv1::Systemuser](docs/Systemuser.md)
  - [JCAPIv1::Systemuserbinding](docs/Systemuserbinding.md)
  - [JCAPIv1::Systemuserbindingsput](docs/Systemuserbindingsput.md)
+ - [JCAPIv1::Systemuserput](docs/Systemuserput.md)
  - [JCAPIv1::Systemuserputpost](docs/Systemuserputpost.md)
  - [JCAPIv1::Systemuserreturn](docs/Systemuserreturn.md)
  - [JCAPIv1::Systemuserslist](docs/Systemuserslist.md)

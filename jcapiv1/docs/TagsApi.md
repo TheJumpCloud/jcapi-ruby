@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Delete a Tag
 
-Delete a Tag.
+Hidden as Tags is deprecated  Delete a Tag.
 
 ### Example
 ```ruby
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 List a Tag
 
-Returns a specific tag.
+Hidden as Tags is deprecated  Returns a specific tag.
 
 ### Example
 ```ruby
@@ -99,10 +99,10 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  fields: "", # String | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-  limit: 10, # Integer | The number of records to return at once.
+  fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: "" # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  sort: "" # String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
 }
 
 begin
@@ -121,10 +121,10 @@ Name | Type | Description  | Notes
  **name** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **fields** | **String**| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to ]
- **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
+ **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  | [optional] [default to ]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | **String**| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+ **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
 
 ### Return type
 
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 List All Tags
 
-Returns all Tags.
+Hidden as Tags is deprecated  Returns all Tags.
 
 ### Example
 ```ruby
@@ -167,10 +167,10 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  fields: "", # String | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-  limit: 10, # Integer | The number of records to return at once.
+  fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: "" # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  sort: "" # String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
 }
 
 begin
@@ -188,10 +188,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **fields** | **String**| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to ]
- **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
+ **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  | [optional] [default to ]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | **String**| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+ **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
 
 ### Return type
 
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 
 Create a Tag
 
-Create a tag.  ### Examples #### Create a new Tag  ``` curl \\   -d '{\"name\" : \"Developers\"}' \\   -X 'POST' \\   -H 'Content-Type: application/json' \\   -H 'Accept: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/tags\" ```
+Hidden as Tags is deprecated  Create a tag.  ### Examples #### Create a new Tag  ``` curl \\   -d '{\"name\" : \"Developers\"}' \\   -X 'POST' \\   -H 'Content-Type: application/json' \\   -H 'Accept: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/tags\" ```
 
 ### Example
 ```ruby
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 
 Update a Tag
 
-Update a specific tag.
+Hidden as Tags is deprecated  Update a specific tag.
 
 ### Example
 ```ruby

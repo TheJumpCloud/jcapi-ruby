@@ -27,8 +27,8 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
-    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @return [Array<Directory>]
     def directories_list(content_type, accept, opts = {})
       data, _status_code, _headers = directories_list_with_http_info(content_type, accept, opts)
@@ -42,8 +42,8 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Array<String>] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-    # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [Integer] :skip The offset into the records to return.
     # @return [Array<(Array<Directory>, Fixnum, Hash)>] Array<Directory> data, response status code and response headers
     def directories_list_with_http_info(content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -64,8 +64,8 @@ module JCAPIv2
       query_params = {}
       query_params[:'fields'] = @api_client.build_collection_param(opts[:'fields'], :csv) if !opts[:'fields'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
-      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
       query_params[:'sort'] = @api_client.build_collection_param(opts[:'sort'], :csv) if !opts[:'sort'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
 
       # header parameters
       header_params = {}

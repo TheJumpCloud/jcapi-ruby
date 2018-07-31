@@ -15,44 +15,20 @@ require 'date'
 module JCAPIv2
 
   class JobWorkresult
-    attr_accessor :id
-
-    attr_accessor :status
-
-    attr_accessor :status_msg
-
     attr_accessor :meta
-
-    attr_accessor :created_at
-
-    attr_accessor :updated_at
-
-    attr_accessor :persisted_fields
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'status' => :'status',
-        :'status_msg' => :'statusMsg',
-        :'meta' => :'meta',
-        :'created_at' => :'createdAt',
-        :'updated_at' => :'updatedAt',
-        :'persisted_fields' => :'persistedFields'
+        :'meta' => :'meta'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'String',
-        :'status' => :'String',
-        :'status_msg' => :'String',
-        :'meta' => :'Object',
-        :'created_at' => :'String',
-        :'updated_at' => :'String',
-        :'persisted_fields' => :'Object'
+        :'meta' => :'Object'
       }
     end
 
@@ -64,32 +40,8 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.has_key?(:'status')
-        self.status = attributes[:'status']
-      end
-
-      if attributes.has_key?(:'statusMsg')
-        self.status_msg = attributes[:'statusMsg']
-      end
-
       if attributes.has_key?(:'meta')
         self.meta = attributes[:'meta']
-      end
-
-      if attributes.has_key?(:'createdAt')
-        self.created_at = attributes[:'createdAt']
-      end
-
-      if attributes.has_key?(:'updatedAt')
-        self.updated_at = attributes[:'updatedAt']
-      end
-
-      if attributes.has_key?(:'persistedFields')
-        self.persisted_fields = attributes[:'persistedFields']
       end
 
     end
@@ -112,13 +64,7 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          status == o.status &&
-          status_msg == o.status_msg &&
-          meta == o.meta &&
-          created_at == o.created_at &&
-          updated_at == o.updated_at &&
-          persisted_fields == o.persisted_fields
+          meta == o.meta
     end
 
     # @see the `==` method
@@ -130,7 +76,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, status, status_msg, meta, created_at, updated_at, persisted_fields].hash
+      [meta].hash
     end
 
     # Builds the object from hash

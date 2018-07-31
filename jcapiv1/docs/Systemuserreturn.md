@@ -36,5 +36,6 @@ Name | Type | Description | Notes
 **phone_numbers** | **Array&lt;String&gt;** |  | [optional] 
 **relationships** | **Array&lt;Object&gt;** |  | [optional] 
 **bad_login_attempts** | **Integer** |  | [optional] 
+**password_never_expires** | **BOOLEAN** |  | [optional] 
 
 

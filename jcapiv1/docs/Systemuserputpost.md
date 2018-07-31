@@ -3,11 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**email** | **String** |  | [optional] 
-**username** | **String** |  | [optional] 
+**email** | **String** |  | 
+**username** | **String** |  | 
 **allow_public_key** | **BOOLEAN** |  | [optional] 
 **public_key** | **String** |  | [optional] 
-**ssh_keys** | **Array&lt;String&gt;** |  | [optional] 
 **sudo** | **BOOLEAN** |  | [optional] 
 **enable_managed_uid** | **BOOLEAN** |  | [optional] 
 **unix_uid** | **Integer** |  | [optional] 
@@ -31,5 +30,6 @@ Name | Type | Description | Notes
 **phone_numbers** | **Array&lt;String&gt;** |  | [optional] 
 **relationships** | **Array&lt;Object&gt;** |  | [optional] 
 **password** | **String** |  | [optional] 
+**password_never_expires** | **BOOLEAN** |  | [optional] 
 
 

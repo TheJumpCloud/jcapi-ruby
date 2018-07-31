@@ -5,8 +5,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **command** | **String** | The command that was executed on the system. | [optional] 
 **name** | **String** | The name of the command. | [optional] 
-**system** | **String** | The id of the system the command was executed on. | [optional] 
-**organization** | **String** | The id of the organization. | [optional] 
+**system** | **String** | The name of the system the command was executed on. | [optional] 
+**system_id** | **String** | The id of the system the command was executed on. | [optional] 
+**organization** | **String** | The ID of the organization. | [optional] 
 **workflow_id** | **String** |  | [optional] 
 **workflow_instance_id** | **String** |  | [optional] 
 **user** | **String** | The user the command ran as. | [optional] 
@@ -15,6 +16,6 @@ Name | Type | Description | Notes
 **request_time** | **Integer** | The time that the command was sent. | [optional] 
 **response_time** | **Integer** | The time that the command was completed. | [optional] 
 **response** | [**CommandresultResponse**](CommandresultResponse.md) |  | [optional] 
-**_id** | **String** |  | [optional] 
+**_id** | **String** | The ID of the command. | [optional] 
 
 

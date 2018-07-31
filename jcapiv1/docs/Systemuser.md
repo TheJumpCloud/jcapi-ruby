@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **attributes** | **Array&lt;Object&gt;** |  | [optional] 
 **created** | **String** |  | [optional] 
 **samba_service_user** | **BOOLEAN** |  | [optional] 
+**password_never_expires** | **BOOLEAN** |  | [optional] 
 **_id** | **String** |  | [optional] 
 
 

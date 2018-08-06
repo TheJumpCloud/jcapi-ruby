@@ -43,8 +43,8 @@ accept = "application/json" # String |
 targets = ["targets_example"] # Array<String> | 
 
 opts = { 
-  limit: 10 # Integer | The number of records to return at once.
-  skip: 0, # Integer | The offset into the records to return.
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  skip: 0 # Integer | The offset into the records to return.
   date: "date_example", # String | Current date header for the System Context API
   authorization: "authorization_example" # String | Authorization header for the System Context API
 }
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **targets** | [**Array&lt;String&gt;**](String.md)|  | 
- **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **date** | **String**| Current date header for the System Context API | [optional] 
  **authorization** | **String**| Authorization header for the System Context API | [optional] 
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 Manage associations of a System
 
-This endpoint allows you to manage the _direct_ associations of a System.  A direct association can be a non-homogenous relationship between 2 different objects. for example Systems and Users.   #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"op\": \"add\",     \"type\": \"user\",     \"id\": \"{User_ID}\" }'  ```
+This endpoint allows you to manage the _direct_ associations of a System.  A direct association can be a non-homogenous relationship between 2 different objects. for example Systems and Users.   #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{    \"attributes\": {       \"sudo\": {          \"enabled\": true,          \"withoutPassword\": false       }    },      \"op\": \"add\",     \"type\": \"user\",     \"id\": \"UserID\" }'  ```
 
 ### Example
 ```ruby
@@ -181,12 +181,12 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-  limit: 10 # Integer | The number of records to return at once.
-  skip: 0, # Integer | The offset into the records to return.
+  filter: ["filter_example"] # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  skip: 0 # Integer | The offset into the records to return.
   date: "date_example", # String | Current date header for the System Context API
   authorization: "authorization_example" # String | Authorization header for the System Context API
-  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  sort: ["sort_example"] # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 }
 
 begin
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
- **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **date** | **String**| Current date header for the System Context API | [optional] 
  **authorization** | **String**| Authorization header for the System Context API | [optional] 
@@ -255,8 +255,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  limit: 10 # Integer | The number of records to return at once.
-  skip: 0, # Integer | The offset into the records to return.
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  skip: 0 # Integer | The offset into the records to return.
 }
 
 begin
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
  **system_id** | **String**| ObjectID of the System. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
 
 ### Return type
@@ -321,8 +321,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  limit: 10 # Integer | The number of records to return at once.
-  skip: 0, # Integer | The offset into the records to return.
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  skip: 0 # Integer | The offset into the records to return.
 }
 
 begin
@@ -341,7 +341,7 @@ Name | Type | Description  | Notes
  **system_id** | **String**| ObjectID of the System. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
 
 ### Return type
@@ -387,8 +387,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  limit: 10 # Integer | The number of records to return at once.
-  skip: 0, # Integer | The offset into the records to return.
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  skip: 0 # Integer | The offset into the records to return.
   date: "date_example", # String | Current date header for the System Context API
   authorization: "authorization_example" # String | Authorization header for the System Context API
 }
@@ -409,7 +409,7 @@ Name | Type | Description  | Notes
  **system_id** | **String**| ObjectID of the System. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **date** | **String**| Current date header for the System Context API | [optional] 
  **authorization** | **String**| Authorization header for the System Context API | [optional] 
@@ -457,8 +457,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  limit: 10 # Integer | The number of records to return at once.
-  skip: 0, # Integer | The offset into the records to return.
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  skip: 0 # Integer | The offset into the records to return.
   date: "date_example", # String | Current date header for the System Context API
   authorization: "authorization_example" # String | Authorization header for the System Context API
 }
@@ -479,7 +479,7 @@ Name | Type | Description  | Notes
  **system_id** | **String**| ObjectID of the System. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **date** | **String**| Current date header for the System Context API | [optional] 
  **authorization** | **String**| Authorization header for the System Context API | [optional] 

@@ -40,8 +40,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  limit: 10 # Integer | The number of records to return at once.
-  skip: 0, # Integer | The offset into the records to return.
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  skip: 0 # Integer | The offset into the records to return.
 }
 
 begin
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
  **targets** | [**Array&lt;String&gt;**](String.md)|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
 
 ### Return type
@@ -164,8 +164,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  limit: 10 # Integer | The number of records to return at once.
-  skip: 0, # Integer | The offset into the records to return.
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  skip: 0 # Integer | The offset into the records to return.
 }
 
 begin
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
  **gsuite_id** | **String**| ObjectID of the G Suite instance. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
 
 ### Return type
@@ -230,8 +230,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  limit: 10 # Integer | The number of records to return at once.
-  skip: 0, # Integer | The offset into the records to return.
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  skip: 0 # Integer | The offset into the records to return.
 }
 
 begin
@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
  **gsuite_id** | **String**| ObjectID of the G Suite instance. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
 
 ### Return type

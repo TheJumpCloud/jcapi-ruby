@@ -40,8 +40,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  limit: 10 # Integer | The number of records to return at once.
-  skip: 0, # Integer | The offset into the records to return.
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  skip: 0 # Integer | The offset into the records to return.
 }
 
 begin
@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
  **targets** | [**Array&lt;String&gt;**](String.md)|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
 
 ### Return type
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 
 
 # **graph_command_associations_post**
-> graph_command_associations_post(command_id, content_type, accept, opts)
+> InlineResponse204 graph_command_associations_post(command_id, content_type, accept, opts)
 
 Manage the associations of a Command
 
@@ -112,7 +112,8 @@ opts = {
 
 begin
   #Manage the associations of a Command
-  api_instance.graph_command_associations_post(command_id, content_type, accept, opts)
+  result = api_instance.graph_command_associations_post(command_id, content_type, accept, opts)
+  p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling CommandsApi->graph_command_associations_post: #{e}"
 end
@@ -129,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-nil (empty response body)
+[**InlineResponse204**](InlineResponse204.md)
 
 ### Authorization
 
@@ -170,8 +171,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  limit: 10 # Integer | The number of records to return at once.
-  skip: 0, # Integer | The offset into the records to return.
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  skip: 0 # Integer | The offset into the records to return.
 }
 
 begin
@@ -190,7 +191,7 @@ Name | Type | Description  | Notes
  **command_id** | **String**| ObjectID of the Command. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
 
 ### Return type
@@ -236,8 +237,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  limit: 10 # Integer | The number of records to return at once.
-  skip: 0, # Integer | The offset into the records to return.
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  skip: 0 # Integer | The offset into the records to return.
 }
 
 begin
@@ -256,7 +257,7 @@ Name | Type | Description  | Notes
  **command_id** | **String**| ObjectID of the Command. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
 
 ### Return type

@@ -8,11 +8,12 @@ Method | HTTP request | Description
 [**workdays_deauthorize**](WorkdayImportApi.md#workdays_deauthorize) | **DELETE** /workdays/{workday_id}/auth | Deauthorize Workday
 [**workdays_delete**](WorkdayImportApi.md#workdays_delete) | **DELETE** /workdays/{id} | Delete Workday
 [**workdays_get**](WorkdayImportApi.md#workdays_get) | **GET** /workdays/{id} | Get Workday
-[**workdays_import**](WorkdayImportApi.md#workdays_import) | **POST** /workdays/{workday_id}/import/ | Workday Import
+[**workdays_import**](WorkdayImportApi.md#workdays_import) | **POST** /workdays/{workday_id}/import | Workday Import
+[**workdays_importresults**](WorkdayImportApi.md#workdays_importresults) | **GET** /workdays/{id}/import/{job_id}/results | List Import Results
 [**workdays_list**](WorkdayImportApi.md#workdays_list) | **GET** /workdays | List Workdays
 [**workdays_post**](WorkdayImportApi.md#workdays_post) | **POST** /workdays | Create new Workday
 [**workdays_put**](WorkdayImportApi.md#workdays_put) | **PUT** /workdays/{id} | Update Workday
-[**workdays_settings**](WorkdayImportApi.md#workdays_settings) | **GET** /workdays/settings | Get Workday Settings
+[**workdays_settings**](WorkdayImportApi.md#workdays_settings) | **GET** /workdays/settings | Get Workday Settings (incomplete)
 [**workdays_workers**](WorkdayImportApi.md#workdays_workers) | **GET** /workdays/{workday_id}/workers | List Workday Workers
 
 
@@ -21,7 +22,7 @@ Method | HTTP request | Description
 
 Authorize Workday
 
-Adds an authorization method to a workday instance
+This endpoint adds an authorization method to a workday instance.  You must supply a username and password for `Basic Authentication` that is the same as your WorkDay Integrator System User.  Failure to provide these credentials  will result in the request being rejected.  Currently `O-Auth` isn't a supported authentication protocol for WorkDay, but will be in the future.  #### Sample Request  ``` curl -X POST https://console.jumpcloud.com/api/v2/workdays/{WorkDayID}/auth \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{  \"auth\":{    \"basic\": {   \"username\": \"someDeveloper\",      \"password\": \"notTheRealPassword\"     }  } }'  ```
 
 ### Example
 ```ruby
@@ -84,7 +85,7 @@ nil (empty response body)
 
 Deauthorize Workday
 
-Removes any and all authorization methods from the workday instance
+Removes any and all authorization methods from the workday instance  ##### Sample Request ``` curl -X DELETE https://console.jumpcloud.com/api/v2/workdays/{WorkDayID}/auth \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
 
 ### Example
 ```ruby
@@ -143,7 +144,7 @@ nil (empty response body)
 
 Delete Workday
 
-This endpoint allows you to delete an instance of Workday.
+This endpoint allows you to delete an instance of Workday.   **This functionality is currently not enable for users.**
 
 ### Example
 ```ruby
@@ -203,7 +204,7 @@ Name | Type | Description  | Notes
 
 Get Workday
 
-This endpoint will return  all the available information about an instance of Workday.
+This endpoint will return  all the available information about an instance of Workday.  #### Sample Request  ``` curl -X GET https://console.jumpcloud.com/api/v2/workdays/ \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
 
 ### Example
 ```ruby
@@ -263,7 +264,7 @@ Name | Type | Description  | Notes
 
 Workday Import
 
-Still in development.
+The endpoint allows you to create a Workday Import request.  #### Sample Request  ``` curl -X POST https://console.jumpcloud.com/api/v2/workdays}/{WorkdayID/import \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '[  {   \"email\":\"{email}\",   \"firstname\":\"{firstname}\",   \"lastname\":\"{firstname}\",   \"username\":\"{username}\",   \"attributes\":[    {\"name\":\"EmployeeID\",\"value\":\"0000\"},    {\"name\":\"WorkdayID\",\"value\":\"name.name\"}    ]     } ] ```
 
 ### Example
 ```ruby
@@ -286,7 +287,7 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: [JCAPIv2::WorkdayWorker.new] # Array<WorkdayWorker> | 
+  body: [JCAPIv2::WorkdayWorkerImport.new] # Array<WorkdayWorkerImport> | 
 }
 
 begin
@@ -305,11 +306,80 @@ Name | Type | Description  | Notes
  **workday_id** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **body** | [**Array&lt;WorkdayWorker&gt;**](WorkdayWorker.md)|  | [optional] 
+ **body** | [**Array&lt;WorkdayWorkerImport&gt;**](WorkdayWorkerImport.md)|  | [optional] 
 
 ### Return type
 
 [**JobId**](JobId.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **workdays_importresults**
+> Array&lt;JobWorkresult&gt; workdays_importresults(id, job_id, content_type, accept, opts)
+
+List Import Results
+
+This endpoint provides a list of job results from the workday import and will contain all imported data from Workday.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/workdays/{WorkdayID}/import/{ImportJobID}/results \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv2'
+# setup authorization
+JCAPIv2.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = JCAPIv2::WorkdayImportApi.new
+
+id = "id_example" # String | 
+
+job_id = "job_id_example" # String | 
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  skip: 0 # Integer | The offset into the records to return.
+}
+
+begin
+  #List Import Results
+  result = api_instance.workdays_importresults(id, job_id, content_type, accept, opts)
+  p result
+rescue JCAPIv2::ApiError => e
+  puts "Exception when calling WorkdayImportApi->workdays_importresults: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  | 
+ **job_id** | **String**|  | 
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+
+### Return type
+
+[**Array&lt;JobWorkresult&gt;**](JobWorkresult.md)
 
 ### Authorization
 
@@ -327,7 +397,7 @@ Name | Type | Description  | Notes
 
 List Workdays
 
-This endpoint will return  all the available information about all your instances of Workday.
+This endpoint will return  all the available information about all your instances of Workday.  ##### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/workdays/ \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
 
 ### Example
 ```ruby
@@ -349,10 +419,10 @@ accept = "application/json" # String |
 
 opts = { 
   fields: ["fields_example"], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-  limit: 10 # Integer | The number of records to return at once.
-  skip: 0, # Integer | The offset into the records to return.
-  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  skip: 0 # Integer | The offset into the records to return.
+  sort: ["sort_example"] # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  filter: ["filter_example"] # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 }
 
 begin
@@ -371,10 +441,10 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] 
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
- **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
 
 ### Return type
 
@@ -392,11 +462,11 @@ Name | Type | Description  | Notes
 
 
 # **workdays_post**
-> WorkdayOutput workdays_post(content_type, accept, opts)
+> workdays_post(content_type, accept, opts)
 
 Create new Workday
 
-This endpoint allows you to create a new workday instance.  You must supply a username and password for Basic Authentication that is the same as your WorkDay Integrator System User.  Failure to provide these credentials  will result in the request being rejected.
+This endpoint allows you to create a new workday instance.  You must supply a username and password for `Basic Authentication` that is the same as your WorkDay Integrator System User.  Failure to provide these credentials  will result in the request being rejected.  Currently `O-Auth` isn't a supported authentication protocol for WorkDay, but will be in the future.  Currently, only one instance is allowed and it must be `Workday Import`.  #### Sample Request  ``` curl -X POST https://console.jumpcloud.com/api/v2/workdays/ \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{   \"name\": \"Workday2\",    \"reportUrl\":\"https://workday.com/ccx/service/customreport2/gms/user/reportname?format=json\",    \"auth\": {     \"basic\": {       \"username\": \"someDeveloper\",        \"password\": \"notTheRealPassword\"     }   } }' ```
 
 ### Example
 ```ruby
@@ -422,8 +492,7 @@ opts = {
 
 begin
   #Create new Workday
-  result = api_instance.workdays_post(content_type, accept, opts)
-  p result
+  api_instance.workdays_post(content_type, accept, opts)
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling WorkdayImportApi->workdays_post: #{e}"
 end
@@ -439,7 +508,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WorkdayOutput**](WorkdayOutput.md)
+nil (empty response body)
 
 ### Authorization
 
@@ -457,7 +526,7 @@ Name | Type | Description  | Notes
 
 Update Workday
 
-This endpoint allows you to update the name and Custom Report URL for a Workday Instance.
+This endpoint allows you to update the name and Custom Report URL for a Workday Instance.  Currently, the name can not be changed from the default of `Workday Import`.  ##### Sample Request ``` curl -X PUT https://console.jumpcloud.com/api/v2/workdays/{WorkdayID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{  \"reportUrl\":\"{Report_URL}\",  \"name\":\"{Name}\" } ' ```
 
 ### Example
 ```ruby
@@ -519,9 +588,9 @@ Name | Type | Description  | Notes
 # **workdays_settings**
 > workdays_settings(content_type, accept, opts)
 
-Get Workday Settings
+Get Workday Settings (incomplete)
 
-This endpoint allows you to obtain all settings needed for creating a workday instance, specifically the URL to initiate Basic Authentication with WorkDay.
+This endpoint allows you to obtain all settings needed for creating a workday instance, specifically the URL to initiate Basic Authentication with WorkDay.   **This functionality is currently not enable for users.**
 
 ### Example
 ```ruby
@@ -546,7 +615,7 @@ opts = {
 }
 
 begin
-  #Get Workday Settings
+  #Get Workday Settings (incomplete)
   api_instance.workdays_settings(content_type, accept, opts)
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling WorkdayImportApi->workdays_settings: #{e}"
@@ -581,7 +650,7 @@ nil (empty response body)
 
 List Workday Workers
 
-This endpoint will return all of the data available in your WorkDay Custom Report that has been associated with your WorkDay Instance.
+This endpoint will return all of the data in your WorkDay Custom Report that has been associated with your WorkDay Instance in JumpCloud.  ##### Sample Request   ``` curl -X GET https://console.jumpcloud.com/api/v2/workdays/{WorkDayID}/workers \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
 
 ### Example
 ```ruby
@@ -604,10 +673,9 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-  skip: 0, # Integer | The offset into the records to return.
-  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  limit: 10 # Integer | The number of records to return at once.
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  skip: 0 # Integer | The offset into the records to return.
+  sort: ["sort_example"] # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
 }
 
 begin
@@ -626,10 +694,9 @@ Name | Type | Description  | Notes
  **workday_id** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
- **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
 
 ### Return type
 

@@ -15,7 +15,7 @@ require 'date'
 module JCAPIv2
   # The shallow information about a Policy Template.
   class PolicyTemplate
-    # ObjectId uniquely indetifying a Policy Template.
+    # ObjectId uniquely identifying a Policy Template.
     attr_accessor :id
 
     # The unique name for the Policy Template.

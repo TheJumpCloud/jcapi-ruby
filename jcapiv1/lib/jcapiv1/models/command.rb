@@ -20,18 +20,6 @@ module JCAPIv1
     # The command to execute on the server.
     attr_accessor :command
 
-    # The Command OS
-    attr_accessor :command_type
-
-    # an array of IDs of the Command Runner Users that can execute this command.
-    attr_accessor :command_runners
-
-    # The ID of the system user to run the command as.
-    attr_accessor :user
-
-    # 
-    attr_accessor :sudo
-
     # An array of system IDs to run the command on. Not available if you are using Groups.
     attr_accessor :systems
 

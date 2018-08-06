@@ -371,7 +371,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [email, username, allow_public_key, public_key, sudo, enable_managed_uid, unix_uid, unix_guid, activated, tags, account_locked, passwordless_sudo, externally_managed, external_dn, external_source_type, firstname, lastname, ldap_binding_user, enable_user_portal_multifactor, attributes, samba_service_user, addresses, job_title, department, phone_numbers, relationships, password, password_never_expires].hash
+
     end
 
     # Builds the object from hash

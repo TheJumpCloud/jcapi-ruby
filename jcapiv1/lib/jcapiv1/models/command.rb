@@ -20,11 +20,17 @@ module JCAPIv1
     # The command to execute on the server.
     attr_accessor :command
 
-    # The ID of the system user to run the command as.
-    attr_accessor :user
-
     # An array of system IDs to run the command on. Not available if you are using Groups.
     attr_accessor :systems
+
+    # How the command will execute.
+    attr_accessor :launch_type
+
+    # 
+    attr_accessor :listens_to
+
+    # When the command will repeat.
+    attr_accessor :schedule_repeat_type
 
     # A crontab that consists of: [ (seconds) (minutes) (hours) (days of month) (months) (weekdays) ] or [ immediate ]. If you send this as an empty string, it will run immediately. 
     attr_accessor :schedule
@@ -32,11 +38,11 @@ module JCAPIv1
     # An array of file IDs to include with the command.
     attr_accessor :files
 
-    # An array of tag IDs to run the command on. Not available if you are using Groups.
-    attr_accessor :tags
-
     # The time in seconds to allow the command to run for.
     attr_accessor :timeout
+
+    # The ID of the organization.
+    attr_accessor :organization
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -44,12 +50,18 @@ module JCAPIv1
       {
         :'name' => :'name',
         :'command' => :'command',
+        :'command_type' => :'commandType',
+        :'command_runners' => :'commandRunners',
         :'user' => :'user',
+        :'sudo' => :'sudo',
         :'systems' => :'systems',
+        :'launch_type' => :'launchType',
+        :'listens_to' => :'listensTo',
+        :'schedule_repeat_type' => :'scheduleRepeatType',
         :'schedule' => :'schedule',
         :'files' => :'files',
-        :'tags' => :'tags',
-        :'timeout' => :'timeout'
+        :'timeout' => :'timeout',
+        :'organization' => :'organization'
       }
     end
 
@@ -58,12 +70,18 @@ module JCAPIv1
       {
         :'name' => :'String',
         :'command' => :'String',
+        :'command_type' => :'String',
+        :'command_runners' => :'Array<String>',
         :'user' => :'String',
+        :'sudo' => :'BOOLEAN',
         :'systems' => :'Array<String>',
+        :'launch_type' => :'String',
+        :'listens_to' => :'String',
+        :'schedule_repeat_type' => :'String',
         :'schedule' => :'String',
         :'files' => :'Array<String>',
-        :'tags' => :'Array<String>',
-        :'timeout' => :'String'
+        :'timeout' => :'String',
+        :'organization' => :'String'
       }
     end
 
@@ -83,14 +101,40 @@ module JCAPIv1
         self.command = attributes[:'command']
       end
 
+      if attributes.has_key?(:'commandType')
+        self.command_type = attributes[:'commandType']
+      end
+
+      if attributes.has_key?(:'commandRunners')
+        if (value = attributes[:'commandRunners']).is_a?(Array)
+          self.command_runners = value
+        end
+      end
+
       if attributes.has_key?(:'user')
         self.user = attributes[:'user']
+      end
+
+      if attributes.has_key?(:'sudo')
+        self.sudo = attributes[:'sudo']
       end
 
       if attributes.has_key?(:'systems')
         if (value = attributes[:'systems']).is_a?(Array)
           self.systems = value
         end
+      end
+
+      if attributes.has_key?(:'launchType')
+        self.launch_type = attributes[:'launchType']
+      end
+
+      if attributes.has_key?(:'listensTo')
+        self.listens_to = attributes[:'listensTo']
+      end
+
+      if attributes.has_key?(:'scheduleRepeatType')
+        self.schedule_repeat_type = attributes[:'scheduleRepeatType']
       end
 
       if attributes.has_key?(:'schedule')
@@ -103,14 +147,12 @@ module JCAPIv1
         end
       end
 
-      if attributes.has_key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
-        end
-      end
-
       if attributes.has_key?(:'timeout')
         self.timeout = attributes[:'timeout']
+      end
+
+      if attributes.has_key?(:'organization')
+        self.organization = attributes[:'organization']
       end
 
     end
@@ -145,12 +187,18 @@ module JCAPIv1
       self.class == o.class &&
           name == o.name &&
           command == o.command &&
+          command_type == o.command_type &&
+          command_runners == o.command_runners &&
           user == o.user &&
+          sudo == o.sudo &&
           systems == o.systems &&
+          launch_type == o.launch_type &&
+          listens_to == o.listens_to &&
+          schedule_repeat_type == o.schedule_repeat_type &&
           schedule == o.schedule &&
           files == o.files &&
-          tags == o.tags &&
-          timeout == o.timeout
+          timeout == o.timeout &&
+          organization == o.organization
     end
 
     # @see the `==` method
@@ -162,7 +210,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, command, user, systems, schedule, files, tags, timeout].hash
+      [name, command, command_type, command_runners, user, sudo, systems, launch_type, listens_to, schedule_repeat_type, schedule, files, timeout, organization].hash
     end
 
     # Builds the object from hash

@@ -96,9 +96,6 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (default to )
-    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
-    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
-    # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (default to )
     # @return [Systemuserreturn]
     def systemusers_get(id, content_type, accept, opts = {})
       data, _status_code, _headers = systemusers_get_with_http_info(id, content_type, accept, opts)
@@ -112,9 +109,6 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
-    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-    # @option opts [Integer] :skip The offset into the records to return.
-    # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending. 
     # @return [Array<(Systemuserreturn, Fixnum, Hash)>] Systemuserreturn data, response status code and response headers
     def systemusers_get_with_http_info(id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -138,9 +132,6 @@ module JCAPIv1
       # query parameters
       query_params = {}
       query_params[:'fields'] = opts[:'fields'] if !opts[:'fields'].nil?
-      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
-      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
-      query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
 
       # header parameters
       header_params = {}
@@ -172,8 +163,6 @@ module JCAPIv1
 
     # List all system users
     # This endpoint returns all systemusers.  #### Sample Request  ``` curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'  ```
-    # @param content_type 
-    # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
@@ -181,15 +170,13 @@ module JCAPIv1
     # @option opts [String] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (default to )
     # @option opts [String] :filter  (default to )
     # @return [Systemuserslist]
-    def systemusers_list(content_type, accept, opts = {})
-      data, _status_code, _headers = systemusers_list_with_http_info(content_type, accept, opts)
+    def systemusers_list(opts = {})
+      data, _status_code, _headers = systemusers_list_with_http_info(opts)
       return data
     end
 
     # List all system users
     # This endpoint returns all systemusers.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
-    # @param content_type 
-    # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once.
     # @option opts [Integer] :skip The offset into the records to return.
@@ -197,17 +184,9 @@ module JCAPIv1
     # @option opts [String] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
     # @option opts [String] :filter 
     # @return [Array<(Systemuserslist, Fixnum, Hash)>] Systemuserslist data, response status code and response headers
-    def systemusers_list_with_http_info(content_type, accept, opts = {})
+    def systemusers_list_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemusersApi.systemusers_list ..."
-      end
-      # verify the required parameter 'content_type' is set
-      if @api_client.config.client_side_validation && content_type.nil?
-        fail ArgumentError, "Missing the required parameter 'content_type' when calling SystemusersApi.systemusers_list"
-      end
-      # verify the required parameter 'accept' is set
-      if @api_client.config.client_side_validation && accept.nil?
-        fail ArgumentError, "Missing the required parameter 'accept' when calling SystemusersApi.systemusers_list"
       end
       # resource path
       local_var_path = "/systemusers"
@@ -226,8 +205,6 @@ module JCAPIv1
       header_params['Accept'] = @api_client.select_header_accept(['application/json; charset=utf-8'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
-      header_params[:'Content-Type'] = content_type
-      header_params[:'Accept'] = accept
 
       # form parameters
       form_params = {}

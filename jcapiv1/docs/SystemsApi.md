@@ -107,9 +107,6 @@ accept = "application/json" # String |
 
 opts = { 
   fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
-  limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0, # Integer | The offset into the records to return.
-  sort: "" # String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
   date: "date_example", # String | Current date header for the System Context API
   authorization: "authorization_example" # String | Authorization header for the System Context API
 }
@@ -131,9 +128,6 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  | [optional] [default to ]
- **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
  **date** | **String**| Current date header for the System Context API | [optional] 
  **authorization** | **String**| Authorization header for the System Context API | [optional] 
 

@@ -23,8 +23,6 @@ module JCAPIv1
 
     attr_accessor :public_key
 
-    attr_accessor :ssh_keys
-
     attr_accessor :sudo
 
     attr_accessor :enable_managed_uid
@@ -81,7 +79,6 @@ module JCAPIv1
         :'username' => :'username',
         :'allow_public_key' => :'allow_public_key',
         :'public_key' => :'public_key',
-        :'ssh_keys' => :'ssh_keys',
         :'sudo' => :'sudo',
         :'enable_managed_uid' => :'enable_managed_uid',
         :'unix_uid' => :'unix_uid',
@@ -116,7 +113,6 @@ module JCAPIv1
         :'username' => :'String',
         :'allow_public_key' => :'BOOLEAN',
         :'public_key' => :'String',
-        :'ssh_keys' => :'Array<String>',
         :'sudo' => :'BOOLEAN',
         :'enable_managed_uid' => :'BOOLEAN',
         :'unix_uid' => :'Integer',
@@ -166,12 +162,6 @@ module JCAPIv1
 
       if attributes.has_key?(:'public_key')
         self.public_key = attributes[:'public_key']
-      end
-
-      if attributes.has_key?(:'ssh_keys')
-        if (value = attributes[:'ssh_keys']).is_a?(Array)
-          self.ssh_keys = value
-        end
       end
 
       if attributes.has_key?(:'sudo')
@@ -346,7 +336,6 @@ module JCAPIv1
           username == o.username &&
           allow_public_key == o.allow_public_key &&
           public_key == o.public_key &&
-          ssh_keys == o.ssh_keys &&
           sudo == o.sudo &&
           enable_managed_uid == o.enable_managed_uid &&
           unix_uid == o.unix_uid &&
@@ -382,7 +371,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [email, username, allow_public_key, public_key, ssh_keys, sudo, enable_managed_uid, unix_uid, unix_guid, activated, tags, account_locked, passwordless_sudo, externally_managed, external_dn, external_source_type, firstname, lastname, ldap_binding_user, enable_user_portal_multifactor, attributes, samba_service_user, addresses, job_title, department, phone_numbers, relationships, password, password_never_expires].hash
+
     end
 
     # Builds the object from hash

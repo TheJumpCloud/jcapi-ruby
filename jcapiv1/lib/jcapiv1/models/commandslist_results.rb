@@ -14,26 +14,67 @@ require 'date'
 
 module JCAPIv1
 
-  class Commandfilereturn
-    # The total number of commands files
-    attr_accessor :total_count
+  class CommandslistResults
+    # The name of the Command.
+    attr_accessor :name
 
-    attr_accessor :results
+    # The Command to execute.
+    attr_accessor :command
+
+    # The Command OS.
+    attr_accessor :command_type
+
+    # How the Command is excecuted.
+    attr_accessor :launch_type
+
+    # 
+    attr_accessor :listens_to
+
+    # A crontab that consists of: [ (seconds) (minutes) (hours) (days of month) (months) (weekdays) ] or [ immediate ]. If you send this as an empty string, it will run immediately. 
+    attr_accessor :schedule
+
+    # trigger to execute command.
+    attr_accessor :trigger
+
+    # When the command will repeat.
+    attr_accessor :schedule_repeat_type
+
+    # The ID of the Organization.
+    attr_accessor :organization
+
+    # The ID of the command.
+    attr_accessor :_id
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'total_count' => :'totalCount',
-        :'results' => :'results'
+        :'name' => :'name',
+        :'command' => :'command',
+        :'command_type' => :'commandType',
+        :'launch_type' => :'launchType',
+        :'listens_to' => :'listensTo',
+        :'schedule' => :'schedule',
+        :'trigger' => :'trigger',
+        :'schedule_repeat_type' => :'scheduleRepeatType',
+        :'organization' => :'organization',
+        :'_id' => :'_id'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'total_count' => :'Integer',
-        :'results' => :'CommandfilereturnResults'
+        :'name' => :'String',
+        :'command' => :'String',
+        :'command_type' => :'String',
+        :'launch_type' => :'String',
+        :'listens_to' => :'String',
+        :'schedule' => :'String',
+        :'trigger' => :'String',
+        :'schedule_repeat_type' => :'String',
+        :'organization' => :'String',
+        :'_id' => :'String'
       }
     end
 
@@ -45,12 +86,44 @@ module JCAPIv1
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'totalCount')
-        self.total_count = attributes[:'totalCount']
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'results')
-        self.results = attributes[:'results']
+      if attributes.has_key?(:'command')
+        self.command = attributes[:'command']
+      end
+
+      if attributes.has_key?(:'commandType')
+        self.command_type = attributes[:'commandType']
+      end
+
+      if attributes.has_key?(:'launchType')
+        self.launch_type = attributes[:'launchType']
+      end
+
+      if attributes.has_key?(:'listensTo')
+        self.listens_to = attributes[:'listensTo']
+      end
+
+      if attributes.has_key?(:'schedule')
+        self.schedule = attributes[:'schedule']
+      end
+
+      if attributes.has_key?(:'trigger')
+        self.trigger = attributes[:'trigger']
+      end
+
+      if attributes.has_key?(:'scheduleRepeatType')
+        self.schedule_repeat_type = attributes[:'scheduleRepeatType']
+      end
+
+      if attributes.has_key?(:'organization')
+        self.organization = attributes[:'organization']
+      end
+
+      if attributes.has_key?(:'_id')
+        self._id = attributes[:'_id']
       end
 
     end
@@ -73,8 +146,16 @@ module JCAPIv1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          total_count == o.total_count &&
-          results == o.results
+          name == o.name &&
+          command == o.command &&
+          command_type == o.command_type &&
+          launch_type == o.launch_type &&
+          listens_to == o.listens_to &&
+          schedule == o.schedule &&
+          trigger == o.trigger &&
+          schedule_repeat_type == o.schedule_repeat_type &&
+          organization == o.organization &&
+          _id == o._id
     end
 
     # @see the `==` method
@@ -86,7 +167,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [total_count, results].hash
+      [name, command, command_type, launch_type, listens_to, schedule, trigger, schedule_repeat_type, organization, _id].hash
     end
 
     # Builds the object from hash

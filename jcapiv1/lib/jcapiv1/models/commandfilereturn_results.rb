@@ -14,26 +14,32 @@ require 'date'
 
 module JCAPIv1
 
-  class Commandfilereturn
-    # The total number of commands files
-    attr_accessor :total_count
+  class CommandfilereturnResults
+    # The file name.
+    attr_accessor :name
 
-    attr_accessor :results
+    # the location where the file willl be stored.
+    attr_accessor :destination
+
+    # The ID of the file.
+    attr_accessor :_id
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'total_count' => :'totalCount',
-        :'results' => :'results'
+        :'name' => :'name',
+        :'destination' => :'destination',
+        :'_id' => :'_id'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'total_count' => :'Integer',
-        :'results' => :'CommandfilereturnResults'
+        :'name' => :'String',
+        :'destination' => :'String',
+        :'_id' => :'String'
       }
     end
 
@@ -45,12 +51,16 @@ module JCAPIv1
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'totalCount')
-        self.total_count = attributes[:'totalCount']
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'results')
-        self.results = attributes[:'results']
+      if attributes.has_key?(:'destination')
+        self.destination = attributes[:'destination']
+      end
+
+      if attributes.has_key?(:'_id')
+        self._id = attributes[:'_id']
       end
 
     end
@@ -73,8 +83,9 @@ module JCAPIv1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          total_count == o.total_count &&
-          results == o.results
+          name == o.name &&
+          destination == o.destination &&
+          _id == o._id
     end
 
     # @see the `==` method
@@ -86,7 +97,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [total_count, results].hash
+      [name, destination, _id].hash
     end
 
     # Builds the object from hash

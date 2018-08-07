@@ -14,10 +14,11 @@ require 'date'
 
 module JCAPIv1
 
-  class Commandfilereturn
-    # The total number of commands files
+  class Organizationslist
+    # The total of organizations. 
     attr_accessor :total_count
 
+    # The list of organizations.
     attr_accessor :results
 
 
@@ -33,7 +34,7 @@ module JCAPIv1
     def self.swagger_types
       {
         :'total_count' => :'Integer',
-        :'results' => :'CommandfilereturnResults'
+        :'results' => :'Array<OrganizationslistResults>'
       }
     end
 
@@ -50,7 +51,9 @@ module JCAPIv1
       end
 
       if attributes.has_key?(:'results')
-        self.results = attributes[:'results']
+        if (value = attributes[:'results']).is_a?(Array)
+          self.results = value
+        end
       end
 
     end

@@ -15,10 +15,9 @@ require 'date'
 module JCAPIv1
 
   class Commandslist
-    # The total number of commands.
+    # The total number of commands
     attr_accessor :total_count
 
-    # The list of commands.
     attr_accessor :results
 
 
@@ -34,7 +33,7 @@ module JCAPIv1
     def self.swagger_types
       {
         :'total_count' => :'Integer',
-        :'results' => :'Array<Command>'
+        :'results' => :'CommandslistResults'
       }
     end
 
@@ -51,9 +50,7 @@ module JCAPIv1
       end
 
       if attributes.has_key?(:'results')
-        if (value = attributes[:'results']).is_a?(Array)
-          self.results = value
-        end
+        self.results = attributes[:'results']
       end
 
     end

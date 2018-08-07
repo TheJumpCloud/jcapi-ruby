@@ -14,26 +14,32 @@ require 'date'
 
 module JCAPIv1
 
-  class Commandfilereturn
-    # The total number of commands files
-    attr_accessor :total_count
+  class OrganizationslistResults
+    # the ID of the organization.
+    attr_accessor :_id
 
-    attr_accessor :results
+    # The name of the organization.
+    attr_accessor :display_name
+
+    # The organization logo image URL. 
+    attr_accessor :logo_url
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'total_count' => :'totalCount',
-        :'results' => :'results'
+        :'_id' => :'_id',
+        :'display_name' => :'displayName',
+        :'logo_url' => :'logoUrl'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'total_count' => :'Integer',
-        :'results' => :'CommandfilereturnResults'
+        :'_id' => :'String',
+        :'display_name' => :'String',
+        :'logo_url' => :'String'
       }
     end
 
@@ -45,12 +51,16 @@ module JCAPIv1
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'totalCount')
-        self.total_count = attributes[:'totalCount']
+      if attributes.has_key?(:'_id')
+        self._id = attributes[:'_id']
       end
 
-      if attributes.has_key?(:'results')
-        self.results = attributes[:'results']
+      if attributes.has_key?(:'displayName')
+        self.display_name = attributes[:'displayName']
+      end
+
+      if attributes.has_key?(:'logoUrl')
+        self.logo_url = attributes[:'logoUrl']
       end
 
     end
@@ -73,8 +83,9 @@ module JCAPIv1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          total_count == o.total_count &&
-          results == o.results
+          _id == o._id &&
+          display_name == o.display_name &&
+          logo_url == o.logo_url
     end
 
     # @see the `==` method
@@ -86,7 +97,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [total_count, results].hash
+      [_id, display_name, logo_url].hash
     end
 
     # Builds the object from hash

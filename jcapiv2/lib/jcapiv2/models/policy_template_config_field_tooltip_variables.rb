@@ -14,77 +14,25 @@ require 'date'
 
 module JCAPIv2
 
-  class PolicyTemplateConfigField
-    # ObjectId uniquely identifying a Policy Template Configuration Field
-    attr_accessor :id
+  class PolicyTemplateConfigFieldTooltipVariables
+    attr_accessor :icon
 
-    # The default rendering for this field.
-    attr_accessor :display_type
+    attr_accessor :message
 
-    # The default label for this field.
-    attr_accessor :label
-
-    # A unique name identifying this config field.
-    attr_accessor :name
-
-    # The default position to render this field.
-    attr_accessor :position
-
-    # If an admin is allowed to modify this field.
-    attr_accessor :read_only
-
-    # If this field is required for this field.
-    attr_accessor :required
-
-    attr_accessor :tooltip
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'display_type' => :'displayType',
-        :'label' => :'label',
-        :'name' => :'name',
-        :'position' => :'position',
-        :'read_only' => :'readOnly',
-        :'required' => :'required',
-        :'tooltip' => :'tooltip'
+        :'icon' => :'icon',
+        :'message' => :'message'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'String',
-        :'display_type' => :'String',
-        :'label' => :'String',
-        :'name' => :'String',
-        :'position' => :'Float',
-        :'read_only' => :'BOOLEAN',
-        :'required' => :'BOOLEAN',
-        :'tooltip' => :'PolicyTemplateConfigFieldTooltip'
+        :'icon' => :'String',
+        :'message' => :'String'
       }
     end
 
@@ -96,36 +44,12 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.has_key?(:'icon')
+        self.icon = attributes[:'icon']
       end
 
-      if attributes.has_key?(:'displayType')
-        self.display_type = attributes[:'displayType']
-      end
-
-      if attributes.has_key?(:'label')
-        self.label = attributes[:'label']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'position')
-        self.position = attributes[:'position']
-      end
-
-      if attributes.has_key?(:'readOnly')
-        self.read_only = attributes[:'readOnly']
-      end
-
-      if attributes.has_key?(:'required')
-        self.required = attributes[:'required']
-      end
-
-      if attributes.has_key?(:'tooltip')
-        self.tooltip = attributes[:'tooltip']
+      if attributes.has_key?(:'message')
+        self.message = attributes[:'message']
       end
 
     end
@@ -134,35 +58,13 @@ module JCAPIv2
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @id.nil?
-        invalid_properties.push("invalid value for 'id', id cannot be nil.")
-      end
-
-      if @name.nil?
-        invalid_properties.push("invalid value for 'name', name cannot be nil.")
-      end
-
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @id.nil?
-      display_type_validator = EnumAttributeValidator.new('String', ["checkbox", "date", "email", "number", "select", "text", "textarea"])
-      return false unless display_type_validator.valid?(@display_type)
-      return false if @name.nil?
       return true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] display_type Object to be assigned
-    def display_type=(display_type)
-      validator = EnumAttributeValidator.new('String', ["checkbox", "date", "email", "number", "select", "text", "textarea"])
-      unless validator.valid?(display_type)
-        fail ArgumentError, "invalid value for 'display_type', must be one of #{validator.allowable_values}."
-      end
-      @display_type = display_type
     end
 
     # Checks equality by comparing each attribute.
@@ -170,14 +72,8 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          display_type == o.display_type &&
-          label == o.label &&
-          name == o.name &&
-          position == o.position &&
-          read_only == o.read_only &&
-          required == o.required &&
-          tooltip == o.tooltip
+          icon == o.icon &&
+          message == o.message
     end
 
     # @see the `==` method
@@ -189,7 +85,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, display_type, label, name, position, read_only, required, tooltip].hash
+      [icon, message].hash
     end
 
     # Builds the object from hash

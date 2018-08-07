@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **name** | **String** |  | [optional] 
 **status** | **String** |  | [optional] 
 **meta** | **Object** |  | [optional] 
-**created_at** | **String** |  | [optional] 
 **updated_at** | **String** |  | [optional] 
 **persisted_fields** | **Array&lt;String&gt;** |  | [optional] 
 

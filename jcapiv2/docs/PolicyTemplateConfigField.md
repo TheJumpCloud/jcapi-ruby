@@ -10,5 +10,6 @@ Name | Type | Description | Notes
 **position** | **Float** | The default position to render this field. | [optional] 
 **read_only** | **BOOLEAN** | If an admin is allowed to modify this field. | [optional] 
 **required** | **BOOLEAN** | If this field is required for this field. | [optional] 
+**tooltip** | [**PolicyTemplateConfigFieldTooltip**](PolicyTemplateConfigFieldTooltip.md) |  | [optional] 
 
 

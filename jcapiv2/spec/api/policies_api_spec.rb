@@ -184,18 +184,17 @@ describe 'PoliciesApi' do
   end
 
   # unit tests for policyresults_list
-  # Lists all the policy results of a policy.
-  # This endpoint returns all policies results for a specific policy.   ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
-  # @param policy_id 
+  # Lists all the policy results for an organization.
+  # This endpoint returns all policies results for an Organization.   ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :aggregate 
   # @option opts [Array<String>] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
   # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
-  # @option opts [Array<String>] :aggregate 
   # @return [Array<PolicyResult>]
   describe 'policyresults_list test' do
     it "should work" do
@@ -204,8 +203,9 @@ describe 'PoliciesApi' do
   end
 
   # unit tests for policyresults_list_0
-  # Lists all the policy results for an organization.
-  # This endpoint returns all policies results for an Organization.   ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+  # Lists all the policy results of a policy.
+  # This endpoint returns all policies results for a specific policy.   ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+  # @param policy_id 
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
@@ -223,9 +223,9 @@ describe 'PoliciesApi' do
   end
 
   # unit tests for policystatuses_list
-  # List the policy statuses for a system
-  # This endpoint returns the policy results for a particular system.  ##### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systems/{System_ID}/policystatuses \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
-  # @param system_id ObjectID of the System.
+  # Lists the latest policy results of a policy.
+  # This endpoint returns the latest policies results for a specific policy.   ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/policystatuses \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+  # @param policy_id 
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
@@ -242,9 +242,9 @@ describe 'PoliciesApi' do
   end
 
   # unit tests for policystatuses_list_0
-  # Lists the latest policy results of a policy.
-  # This endpoint returns the latest policies results for a specific policy.   ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policies/{Policy_ID}/policystatuses \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
-  # @param policy_id 
+  # List the policy statuses for a system
+  # This endpoint returns the policy results for a particular system.  ##### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systems/{System_ID}/policystatuses \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+  # @param system_id ObjectID of the System.
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters

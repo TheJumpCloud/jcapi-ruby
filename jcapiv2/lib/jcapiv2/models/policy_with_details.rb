@@ -20,6 +20,8 @@ module JCAPIv2
 
     attr_accessor :template
 
+    attr_accessor :config_fields
+
     # The description for this specific Policy.
     attr_accessor :name
 
@@ -31,6 +33,7 @@ module JCAPIv2
       {
         :'id' => :'id',
         :'template' => :'template',
+        :'config_fields' => :'configFields',
         :'name' => :'name',
         :'values' => :'values'
       }
@@ -41,6 +44,7 @@ module JCAPIv2
       {
         :'id' => :'String',
         :'template' => :'PolicyTemplate',
+        :'config_fields' => :'Array<PolicyTemplateConfigField>',
         :'name' => :'String',
         :'values' => :'Array<PolicyValue>'
       }
@@ -60,6 +64,12 @@ module JCAPIv2
 
       if attributes.has_key?(:'template')
         self.template = attributes[:'template']
+      end
+
+      if attributes.has_key?(:'configFields')
+        if (value = attributes[:'configFields']).is_a?(Array)
+          self.config_fields = value
+        end
       end
 
       if attributes.has_key?(:'name')
@@ -94,6 +104,7 @@ module JCAPIv2
       self.class == o.class &&
           id == o.id &&
           template == o.template &&
+          config_fields == o.config_fields &&
           name == o.name &&
           values == o.values
     end
@@ -107,7 +118,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, template, name, values].hash
+      [id, template, config_fields, name, values].hash
     end
 
     # Builds the object from hash

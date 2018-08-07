@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
 
 Workday Import
 
-The endpoint allows you to create a Workday Import request.  #### Sample Request  ``` curl -X POST https://console.jumpcloud.com/api/v2/workdays}/{WorkdayID/import \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '[  {   \"email\":\"{email}\",   \"firstname\":\"{firstname}\",   \"lastname\":\"{firstname}\",   \"username\":\"{username}\",   \"attributes\":[    {\"name\":\"EmployeeID\",\"value\":\"0000\"},    {\"name\":\"WorkdayID\",\"value\":\"name.name\"}    ]     } ] ```
+The endpoint allows you to create a Workday Import request.  #### Sample Request  ``` curl -X POST https://console.jumpcloud.com/api/v2/workdays/{WorkdayID}/import \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '[  {   \"email\":\"{email}\",   \"firstname\":\"{firstname}\",   \"lastname\":\"{firstname}\",   \"username\":\"{username}\",   \"attributes\":[    {\"name\":\"EmployeeID\",\"value\":\"0000\"},    {\"name\":\"WorkdayID\",\"value\":\"name.name\"}    ]     } ] ```
 
 ### Example
 ```ruby
@@ -287,7 +287,7 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: [JCAPIv2::WorkdayWorkerImport.new] # Array<WorkdayWorkerImport> | 
+  body: [JCAPIv2::BulkUserCreate.new] # Array<BulkUserCreate> | 
 }
 
 begin
@@ -306,7 +306,7 @@ Name | Type | Description  | Notes
  **workday_id** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **body** | [**Array&lt;WorkdayWorkerImport&gt;**](WorkdayWorkerImport.md)|  | [optional] 
+ **body** | [**Array&lt;BulkUserCreate&gt;**](BulkUserCreate.md)|  | [optional] 
 
 ### Return type
 

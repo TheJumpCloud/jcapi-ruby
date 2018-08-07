@@ -1,4 +1,4 @@
-# JCAPIv2::WorkdayWorkerImport
+# JCAPIv2::BulkUserCreate
 
 ## Properties
 Name | Type | Description | Notes

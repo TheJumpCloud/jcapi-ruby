@@ -27,8 +27,6 @@ module JCAPIv2
 
     attr_accessor :meta
 
-    attr_accessor :created_at
-
     attr_accessor :updated_at
 
     attr_accessor :persisted_fields
@@ -43,7 +41,6 @@ module JCAPIv2
         :'name' => :'name',
         :'status' => :'status',
         :'meta' => :'meta',
-        :'created_at' => :'createdAt',
         :'updated_at' => :'updatedAt',
         :'persisted_fields' => :'persistedFields'
       }
@@ -58,7 +55,6 @@ module JCAPIv2
         :'name' => :'String',
         :'status' => :'String',
         :'meta' => :'Object',
-        :'created_at' => :'String',
         :'updated_at' => :'String',
         :'persisted_fields' => :'Array<String>'
       }
@@ -94,10 +90,6 @@ module JCAPIv2
 
       if attributes.has_key?(:'meta')
         self.meta = attributes[:'meta']
-      end
-
-      if attributes.has_key?(:'createdAt')
-        self.created_at = attributes[:'createdAt']
       end
 
       if attributes.has_key?(:'updatedAt')
@@ -136,7 +128,6 @@ module JCAPIv2
           name == o.name &&
           status == o.status &&
           meta == o.meta &&
-          created_at == o.created_at &&
           updated_at == o.updated_at &&
           persisted_fields == o.persisted_fields
     end
@@ -150,7 +141,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, admin_id, work_units_count, name, status, meta, created_at, updated_at, persisted_fields].hash
+      [id, admin_id, work_units_count, name, status, meta, updated_at, persisted_fields].hash
     end
 
     # Builds the object from hash

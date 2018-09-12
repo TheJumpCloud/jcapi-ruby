@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+# JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
 
 OpenAPI spec version: 1.0
 
@@ -32,6 +32,52 @@ describe 'SystemusersApi' do
     end
   end
 
+  # unit tests for sshkey_delete
+  # Delete a system user&#39;s Public SSH Keys
+  # This endpoint will delete a specific System User&#39;s SSH Key.
+  # @param id 
+  # @param content_type 
+  # @param accept 
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :x_org_id 
+  # @return [nil]
+  describe 'sshkey_delete test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for sshkey_list
+  # List a system user&#39;s public SSH keys
+  # This endpoint will return a specific System User&#39;s public SSH key.
+  # @param id 
+  # @param content_type 
+  # @param accept 
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :x_org_id 
+  # @return [Sshkeylist]
+  describe 'sshkey_list test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for sshkey_post
+  # Create a system user&#39;s Public SSH Key
+  # This endpoint will create a specific System User&#39;s Public SSH Key.
+  # @param id 
+  # @param content_type 
+  # @param accept 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Sshkeypost] :body 
+  # @option opts [String] :x_org_id 
+  # @return [Sshkeylist]
+  describe 'sshkey_post test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for systemusers_delete
   # Delete a system user
   # This endpoint allows you to delete a particular system user.  #### Sample Request &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/systemusers/{UserID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
@@ -39,6 +85,7 @@ describe 'SystemusersApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :x_org_id 
   # @return [Systemuserreturn]
   describe 'systemusers_delete test' do
     it "should work" do
@@ -54,6 +101,7 @@ describe 'SystemusersApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+  # @option opts [String] :x_org_id 
   # @return [Systemuserreturn]
   describe 'systemusers_get test' do
     it "should work" do
@@ -64,12 +112,15 @@ describe 'SystemusersApi' do
   # unit tests for systemusers_list
   # List all system users
   # This endpoint returns all systemusers.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+  # @param content_type 
+  # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
   # @option opts [String] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
   # @option opts [String] :filter 
+  # @option opts [String] :x_org_id 
   # @return [Systemuserslist]
   describe 'systemusers_list test' do
     it "should work" do
@@ -84,6 +135,7 @@ describe 'SystemusersApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Systemuserputpost] :body 
+  # @option opts [String] :x_org_id 
   # @return [Systemuserreturn]
   describe 'systemusers_post test' do
     it "should work" do
@@ -99,6 +151,7 @@ describe 'SystemusersApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Systemuserput] :body 
+  # @option opts [String] :x_org_id 
   # @return [Systemuserreturn]
   describe 'systemusers_put test' do
     it "should work" do
@@ -112,6 +165,7 @@ describe 'SystemusersApi' do
   # @param id 
   # @param x_api_key 
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :x_org_id 
   # @return [String]
   describe 'systemusers_resetmfa test' do
     it "should work" do
@@ -130,6 +184,7 @@ describe 'SystemusersApi' do
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending. 
+  # @option opts [String] :x_org_id 
   # @return [Object]
   describe 'systemusers_systems_binding_list test' do
     it "should work" do
@@ -145,6 +200,7 @@ describe 'SystemusersApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Usersystembindingsput] :body 
+  # @option opts [String] :x_org_id 
   # @return [Usersystembinding]
   describe 'systemusers_systems_binding_put test' do
     it "should work" do

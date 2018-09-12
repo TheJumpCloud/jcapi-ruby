@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+# JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
 
 OpenAPI spec version: 1.0
 
@@ -39,6 +39,7 @@ describe 'CommandResultsApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :x_org_id 
   # @return [Commandresult]
   describe 'command_results_delete test' do
     it "should work" do
@@ -54,6 +55,7 @@ describe 'CommandResultsApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+  # @option opts [String] :x_org_id 
   # @return [Commandresult]
   describe 'command_results_get test' do
     it "should work" do
@@ -71,6 +73,7 @@ describe 'CommandResultsApi' do
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending. 
+  # @option opts [String] :x_org_id 
   # @return [Commandresultslist]
   describe 'command_results_list test' do
     it "should work" do

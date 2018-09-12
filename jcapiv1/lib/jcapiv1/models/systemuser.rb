@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+# JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
 
 OpenAPI spec version: 1.0
 
@@ -73,6 +73,27 @@ module JCAPIv1
 
     attr_accessor :_id
 
+    attr_accessor :middlename
+
+    attr_accessor :displayname
+
+    attr_accessor :description
+
+    attr_accessor :location
+
+    attr_accessor :cost_center
+
+    attr_accessor :employee_type
+
+    attr_accessor :company
+
+    # Must be unique per user. 
+    attr_accessor :employee_identifier
+
+    attr_accessor :job_title
+
+    attr_accessor :department
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -105,7 +126,17 @@ module JCAPIv1
         :'created' => :'created',
         :'samba_service_user' => :'samba_service_user',
         :'password_never_expires' => :'password_never_expires',
-        :'_id' => :'_id'
+        :'_id' => :'_id',
+        :'middlename' => :'middlename',
+        :'displayname' => :'displayname',
+        :'description' => :'description',
+        :'location' => :'location',
+        :'cost_center' => :'costCenter',
+        :'employee_type' => :'employeeType',
+        :'company' => :'company',
+        :'employee_identifier' => :'employeeIdentifier',
+        :'job_title' => :'jobTitle',
+        :'department' => :'department'
       }
     end
 
@@ -116,7 +147,7 @@ module JCAPIv1
         :'username' => :'String',
         :'allow_public_key' => :'BOOLEAN',
         :'public_key' => :'String',
-        :'ssh_keys' => :'Array<String>',
+        :'ssh_keys' => :'Array<Sshkeylist>',
         :'sudo' => :'BOOLEAN',
         :'enable_managed_uid' => :'BOOLEAN',
         :'unix_uid' => :'Integer',
@@ -140,7 +171,17 @@ module JCAPIv1
         :'created' => :'String',
         :'samba_service_user' => :'BOOLEAN',
         :'password_never_expires' => :'BOOLEAN',
-        :'_id' => :'String'
+        :'_id' => :'String',
+        :'middlename' => :'String',
+        :'displayname' => :'String',
+        :'description' => :'String',
+        :'location' => :'String',
+        :'cost_center' => :'String',
+        :'employee_type' => :'String',
+        :'company' => :'String',
+        :'employee_identifier' => :'String',
+        :'job_title' => :'String',
+        :'department' => :'String'
       }
     end
 
@@ -274,6 +315,46 @@ module JCAPIv1
         self._id = attributes[:'_id']
       end
 
+      if attributes.has_key?(:'middlename')
+        self.middlename = attributes[:'middlename']
+      end
+
+      if attributes.has_key?(:'displayname')
+        self.displayname = attributes[:'displayname']
+      end
+
+      if attributes.has_key?(:'description')
+        self.description = attributes[:'description']
+      end
+
+      if attributes.has_key?(:'location')
+        self.location = attributes[:'location']
+      end
+
+      if attributes.has_key?(:'costCenter')
+        self.cost_center = attributes[:'costCenter']
+      end
+
+      if attributes.has_key?(:'employeeType')
+        self.employee_type = attributes[:'employeeType']
+      end
+
+      if attributes.has_key?(:'company')
+        self.company = attributes[:'company']
+      end
+
+      if attributes.has_key?(:'employeeIdentifier')
+        self.employee_identifier = attributes[:'employeeIdentifier']
+      end
+
+      if attributes.has_key?(:'jobTitle')
+        self.job_title = attributes[:'jobTitle']
+      end
+
+      if attributes.has_key?(:'department')
+        self.department = attributes[:'department']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -292,6 +373,14 @@ module JCAPIv1
         invalid_properties.push("invalid value for 'associated_tag_count', must be greater than or equal to 0.")
       end
 
+      if !@description.nil? && @description.to_s.length > 1024
+        invalid_properties.push("invalid value for 'description', the character length must be smaller than or equal to 1024.")
+      end
+
+      if !@employee_identifier.nil? && @employee_identifier.to_s.length > 256
+        invalid_properties.push("invalid value for 'employee_identifier', the character length must be smaller than or equal to 256.")
+      end
+
       return invalid_properties
     end
 
@@ -301,6 +390,8 @@ module JCAPIv1
       return false if !@unix_uid.nil? && @unix_uid < 0
       return false if !@unix_guid.nil? && @unix_guid < 0
       return false if !@associated_tag_count.nil? && @associated_tag_count < 0
+      return false if !@description.nil? && @description.to_s.length > 1024
+      return false if !@employee_identifier.nil? && @employee_identifier.to_s.length > 256
       return true
     end
 
@@ -337,6 +428,28 @@ module JCAPIv1
       @associated_tag_count = associated_tag_count
     end
 
+    # Custom attribute writer method with validation
+    # @param [Object] description Value to be assigned
+    def description=(description)
+
+      if !description.nil? && description.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'description', the character length must be smaller than or equal to 1024."
+      end
+
+      @description = description
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] employee_identifier Value to be assigned
+    def employee_identifier=(employee_identifier)
+
+      if !employee_identifier.nil? && employee_identifier.to_s.length > 256
+        fail ArgumentError, "invalid value for 'employee_identifier', the character length must be smaller than or equal to 256."
+      end
+
+      @employee_identifier = employee_identifier
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -370,7 +483,17 @@ module JCAPIv1
           created == o.created &&
           samba_service_user == o.samba_service_user &&
           password_never_expires == o.password_never_expires &&
-          _id == o._id
+          _id == o._id &&
+          middlename == o.middlename &&
+          displayname == o.displayname &&
+          description == o.description &&
+          location == o.location &&
+          cost_center == o.cost_center &&
+          employee_type == o.employee_type &&
+          company == o.company &&
+          employee_identifier == o.employee_identifier &&
+          job_title == o.job_title &&
+          department == o.department
     end
 
     # @see the `==` method
@@ -382,7 +505,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [email, username, allow_public_key, public_key, ssh_keys, sudo, enable_managed_uid, unix_uid, unix_guid, activated, tags, password_expired, account_locked, passwordless_sudo, externally_managed, external_dn, external_source_type, firstname, lastname, ldap_binding_user, enable_user_portal_multifactor, associated_tag_count, totp_enabled, password_expiration_date, attributes, created, samba_service_user, password_never_expires, _id].hash
+      [email, username, allow_public_key, public_key, ssh_keys, sudo, enable_managed_uid, unix_uid, unix_guid, activated, tags, password_expired, account_locked, passwordless_sudo, externally_managed, external_dn, external_source_type, firstname, lastname, ldap_binding_user, enable_user_portal_multifactor, associated_tag_count, totp_enabled, password_expiration_date, attributes, created, samba_service_user, password_never_expires, _id, middlename, displayname, description, location, cost_center, employee_type, company, employee_identifier, job_title, department].hash
     end
 
     # Builds the object from hash

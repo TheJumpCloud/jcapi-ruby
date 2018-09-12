@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+# JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
 
 OpenAPI spec version: 1.0
 
@@ -39,6 +39,7 @@ describe 'CommandTriggersApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :x_org_id 
   # @return [nil]
   describe 'command_trigger_webhook_post test' do
     it "should work" do

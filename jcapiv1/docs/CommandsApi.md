@@ -43,6 +43,7 @@ opts = {
   fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
+  x_org_id: "<<your org id>>" # String | 
 }
 
 begin
@@ -64,6 +65,7 @@ Name | Type | Description  | Notes
  **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  | [optional] [default to ]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -81,7 +83,7 @@ Name | Type | Description  | Notes
 
 
 # **commands_delete**
-> commands_delete(id, content_type, accept)
+> commands_delete(id, content_type, accept, opts)
 
 Delete a Command
 
@@ -107,10 +109,13 @@ content_type = "application/json" # String |
 
 accept = "application/json" # String | 
 
+opts = { 
+  x_org_id: "<<your org id>>" # String | 
+}
 
 begin
   #Delete a Command
-  api_instance.commands_delete(id, content_type, accept)
+  api_instance.commands_delete(id, content_type, accept, opts)
 rescue JCAPIv1::ApiError => e
   puts "Exception when calling CommandsApi->commands_delete: #{e}"
 end
@@ -123,6 +128,7 @@ Name | Type | Description  | Notes
  **id** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -168,6 +174,7 @@ accept = "application/json" # String |
 
 opts = { 
   fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+  x_org_id: "<<your org id>>" # String | 
 }
 
 begin
@@ -187,6 +194,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  | [optional] [default to ]
+ **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -233,6 +241,7 @@ opts = {
   fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   sort: "" # String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
+  x_org_id: "<<your org id>>" # String | 
 }
 
 begin
@@ -254,6 +263,7 @@ Name | Type | Description  | Notes
  **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  | [optional] [default to ]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+ **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -296,7 +306,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: JCAPIv1::Command.new # Command | 
+  body: JCAPIv1::Command.new, # Command | 
+  x_org_id: "<<your org id>>" # String | 
 }
 
 begin
@@ -315,6 +326,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Command**](Command.md)|  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -359,7 +371,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: JCAPIv1::Command.new # Command | 
+  body: JCAPIv1::Command.new, # Command | 
+  x_org_id: "<<your org id>>" # String | 
 }
 
 begin
@@ -379,6 +392,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Command**](Command.md)|  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 

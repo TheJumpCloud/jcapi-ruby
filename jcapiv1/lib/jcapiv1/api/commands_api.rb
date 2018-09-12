@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+# JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
 
 OpenAPI spec version: 1.0
 
@@ -29,6 +29,7 @@ module JCAPIv1
     # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (default to )
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Commandfilereturn]
     def command_file_get(id, content_type, accept, opts = {})
       data, _status_code, _headers = command_file_get_with_http_info(id, content_type, accept, opts)
@@ -44,6 +45,7 @@ module JCAPIv1
     # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Commandfilereturn, Fixnum, Hash)>] Commandfilereturn data, response status code and response headers
     def command_file_get_with_http_info(id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -78,6 +80,7 @@ module JCAPIv1
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -104,6 +107,7 @@ module JCAPIv1
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [nil]
     def commands_delete(id, content_type, accept, opts = {})
       commands_delete_with_http_info(id, content_type, accept, opts)
@@ -116,6 +120,7 @@ module JCAPIv1
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def commands_delete_with_http_info(id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -147,6 +152,7 @@ module JCAPIv1
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -173,6 +179,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (default to )
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Command]
     def commands_get(id, content_type, accept, opts = {})
       data, _status_code, _headers = commands_get_with_http_info(id, content_type, accept, opts)
@@ -186,6 +193,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+    # @option opts [String] :x_org_id 
     # @return [Array<(Command, Fixnum, Hash)>] Command data, response status code and response headers
     def commands_get_with_http_info(id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -218,6 +226,7 @@ module JCAPIv1
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -247,6 +256,7 @@ module JCAPIv1
     # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (default to )
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (default to )
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Commandslist]
     def commands_list(content_type, accept, opts = {})
       data, _status_code, _headers = commands_list_with_http_info(content_type, accept, opts)
@@ -262,6 +272,7 @@ module JCAPIv1
     # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id 
     # @return [Array<(Commandslist, Fixnum, Hash)>] Commandslist data, response status code and response headers
     def commands_list_with_http_info(content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -293,6 +304,7 @@ module JCAPIv1
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -319,6 +331,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Command] :body 
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Command]
     def commands_post(content_type, accept, opts = {})
       data, _status_code, _headers = commands_post_with_http_info(content_type, accept, opts)
@@ -331,6 +344,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Command] :body 
+    # @option opts [String] :x_org_id 
     # @return [Array<(Command, Fixnum, Hash)>] Command data, response status code and response headers
     def commands_post_with_http_info(content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -358,6 +372,7 @@ module JCAPIv1
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -385,6 +400,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Command] :body 
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Command]
     def commands_put(id, content_type, accept, opts = {})
       data, _status_code, _headers = commands_put_with_http_info(id, content_type, accept, opts)
@@ -398,6 +414,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Command] :body 
+    # @option opts [String] :x_org_id 
     # @return [Array<(Command, Fixnum, Hash)>] Command data, response status code and response headers
     def commands_put_with_http_info(id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -429,6 +446,7 @@ module JCAPIv1
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}

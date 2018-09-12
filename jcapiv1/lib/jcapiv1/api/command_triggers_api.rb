@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+# JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
 
 OpenAPI spec version: 1.0
 
@@ -26,6 +26,7 @@ module JCAPIv1
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [nil]
     def command_trigger_webhook_post(triggername, content_type, accept, opts = {})
       command_trigger_webhook_post_with_http_info(triggername, content_type, accept, opts)
@@ -38,6 +39,7 @@ module JCAPIv1
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def command_trigger_webhook_post_with_http_info(triggername, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -69,6 +71,7 @@ module JCAPIv1
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}

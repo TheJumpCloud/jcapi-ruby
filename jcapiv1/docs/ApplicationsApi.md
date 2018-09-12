@@ -36,7 +36,8 @@ opts = {
   fields: "fields_example", # String | The comma separated fileds included in the returned records. If omitted the default list of fields will be returned.
   limit: 56, # Integer | The number of records to return at once.
   skip: 56, # Integer | The offset into the records to return.
-  sort: "The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending." # String | 
+  sort: "The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending.", # String | 
+  x_org_id: "<<your org id>>" # String | 
 }
 
 begin
@@ -58,6 +59,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. | [optional] 
  **skip** | **Integer**| The offset into the records to return. | [optional] 
  **sort** | **String**|  | [optional] [default to The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending.]
+ **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 

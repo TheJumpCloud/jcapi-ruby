@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+# JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
 
 OpenAPI spec version: 2.0
 
@@ -29,6 +29,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphConnection>]
     def graph_active_directory_associations_list(activedirectory_id, targets, content_type, accept, opts = {})
       data, _status_code, _headers = graph_active_directory_associations_list_with_http_info(activedirectory_id, targets, content_type, accept, opts)
@@ -44,6 +45,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphConnection>, Fixnum, Hash)>] Array<GraphConnection> data, response status code and response headers
     def graph_active_directory_associations_list_with_http_info(activedirectory_id, targets, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -82,6 +84,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -109,6 +112,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [GraphManagementReq] :body 
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [nil]
     def graph_active_directory_associations_post(activedirectory_id, content_type, accept, opts = {})
       graph_active_directory_associations_post_with_http_info(activedirectory_id, content_type, accept, opts)
@@ -122,6 +126,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [GraphManagementReq] :body 
+    # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def graph_active_directory_associations_post_with_http_info(activedirectory_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -153,6 +158,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -180,6 +186,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_active_directory_traverse_user_group(activedirectory_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_active_directory_traverse_user_group_with_http_info(activedirectory_id, content_type, accept, opts)
@@ -194,6 +201,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_active_directory_traverse_user_group_with_http_info(activedirectory_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -227,6 +235,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -256,6 +265,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphConnection>]
     def graph_application_associations_list(application_id, targets, content_type, accept, opts = {})
       data, _status_code, _headers = graph_application_associations_list_with_http_info(application_id, targets, content_type, accept, opts)
@@ -271,6 +281,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphConnection>, Fixnum, Hash)>] Array<GraphConnection> data, response status code and response headers
     def graph_application_associations_list_with_http_info(application_id, targets, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -309,6 +320,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -336,6 +348,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [GraphManagementReq] :body 
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [nil]
     def graph_application_associations_post(application_id, content_type, accept, opts = {})
       graph_application_associations_post_with_http_info(application_id, content_type, accept, opts)
@@ -349,6 +362,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [GraphManagementReq] :body 
+    # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def graph_application_associations_post_with_http_info(application_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -380,6 +394,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -407,6 +422,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_application_traverse_user(application_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_application_traverse_user_with_http_info(application_id, content_type, accept, opts)
@@ -421,6 +437,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_application_traverse_user_with_http_info(application_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -454,6 +471,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -482,6 +500,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_application_traverse_user_group(application_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_application_traverse_user_group_with_http_info(application_id, content_type, accept, opts)
@@ -496,6 +515,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_application_traverse_user_group_with_http_info(application_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -529,6 +549,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -558,6 +579,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphConnection>]
     def graph_command_associations_list(command_id, targets, content_type, accept, opts = {})
       data, _status_code, _headers = graph_command_associations_list_with_http_info(command_id, targets, content_type, accept, opts)
@@ -573,6 +595,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphConnection>, Fixnum, Hash)>] Array<GraphConnection> data, response status code and response headers
     def graph_command_associations_list_with_http_info(command_id, targets, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -611,6 +634,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -638,6 +662,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [GraphManagementReq] :body 
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [InlineResponse204]
     def graph_command_associations_post(command_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_command_associations_post_with_http_info(command_id, content_type, accept, opts)
@@ -651,6 +676,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [GraphManagementReq] :body 
+    # @option opts [String] :x_org_id 
     # @return [Array<(InlineResponse204, Fixnum, Hash)>] InlineResponse204 data, response status code and response headers
     def graph_command_associations_post_with_http_info(command_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -682,6 +708,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -710,6 +737,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_command_traverse_system(command_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_command_traverse_system_with_http_info(command_id, content_type, accept, opts)
@@ -724,6 +752,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_command_traverse_system_with_http_info(command_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -757,6 +786,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -785,6 +815,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_command_traverse_system_group(command_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_command_traverse_system_group_with_http_info(command_id, content_type, accept, opts)
@@ -799,6 +830,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_command_traverse_system_group_with_http_info(command_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -832,6 +864,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -861,6 +894,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphConnection>]
     def graph_g_suite_associations_list(gsuite_id, targets, content_type, accept, opts = {})
       data, _status_code, _headers = graph_g_suite_associations_list_with_http_info(gsuite_id, targets, content_type, accept, opts)
@@ -876,6 +910,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphConnection>, Fixnum, Hash)>] Array<GraphConnection> data, response status code and response headers
     def graph_g_suite_associations_list_with_http_info(gsuite_id, targets, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -914,6 +949,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -939,6 +975,7 @@ module JCAPIv2
     # @param gsuite_id ObjectID of the G Suite instance.
     # @param [Hash] opts the optional parameters
     # @option opts [GraphManagementReq] :body 
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [nil]
     def graph_g_suite_associations_post(gsuite_id, opts = {})
       graph_g_suite_associations_post_with_http_info(gsuite_id, opts)
@@ -950,6 +987,7 @@ module JCAPIv2
     # @param gsuite_id ObjectID of the G Suite instance.
     # @param [Hash] opts the optional parameters
     # @option opts [GraphManagementReq] :body 
+    # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def graph_g_suite_associations_post_with_http_info(gsuite_id, opts = {})
       if @api_client.config.debugging
@@ -971,6 +1009,7 @@ module JCAPIv2
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -998,6 +1037,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_g_suite_traverse_user(gsuite_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_g_suite_traverse_user_with_http_info(gsuite_id, content_type, accept, opts)
@@ -1012,6 +1052,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_g_suite_traverse_user_with_http_info(gsuite_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -1045,6 +1086,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -1073,6 +1115,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_g_suite_traverse_user_group(gsuite_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_g_suite_traverse_user_group_with_http_info(gsuite_id, content_type, accept, opts)
@@ -1087,6 +1130,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_g_suite_traverse_user_group_with_http_info(gsuite_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -1120,6 +1164,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -1149,6 +1194,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphConnection>]
     def graph_ldap_server_associations_list(ldapserver_id, targets, content_type, accept, opts = {})
       data, _status_code, _headers = graph_ldap_server_associations_list_with_http_info(ldapserver_id, targets, content_type, accept, opts)
@@ -1164,6 +1210,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphConnection>, Fixnum, Hash)>] Array<GraphConnection> data, response status code and response headers
     def graph_ldap_server_associations_list_with_http_info(ldapserver_id, targets, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -1202,6 +1249,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -1229,6 +1277,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [GraphManagementReq] :body 
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [nil]
     def graph_ldap_server_associations_post(ldapserver_id, content_type, accept, opts = {})
       graph_ldap_server_associations_post_with_http_info(ldapserver_id, content_type, accept, opts)
@@ -1242,6 +1291,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [GraphManagementReq] :body 
+    # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def graph_ldap_server_associations_post_with_http_info(ldapserver_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -1273,6 +1323,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -1300,6 +1351,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_ldap_server_traverse_user(ldapserver_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_ldap_server_traverse_user_with_http_info(ldapserver_id, content_type, accept, opts)
@@ -1314,6 +1366,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_ldap_server_traverse_user_with_http_info(ldapserver_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -1347,6 +1400,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -1375,6 +1429,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_ldap_server_traverse_user_group(ldapserver_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_ldap_server_traverse_user_group_with_http_info(ldapserver_id, content_type, accept, opts)
@@ -1389,6 +1444,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_ldap_server_traverse_user_group_with_http_info(ldapserver_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -1422,6 +1478,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -1451,6 +1508,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphConnection>]
     def graph_office365_associations_list(office365_id, targets, content_type, accept, opts = {})
       data, _status_code, _headers = graph_office365_associations_list_with_http_info(office365_id, targets, content_type, accept, opts)
@@ -1466,6 +1524,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphConnection>, Fixnum, Hash)>] Array<GraphConnection> data, response status code and response headers
     def graph_office365_associations_list_with_http_info(office365_id, targets, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -1504,6 +1563,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -1531,6 +1591,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [GraphManagementReq] :body 
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [nil]
     def graph_office365_associations_post(office365_id, content_type, accept, opts = {})
       graph_office365_associations_post_with_http_info(office365_id, content_type, accept, opts)
@@ -1544,6 +1605,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [GraphManagementReq] :body 
+    # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def graph_office365_associations_post_with_http_info(office365_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -1575,6 +1637,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -1602,6 +1665,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_office365_traverse_user(office365_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_office365_traverse_user_with_http_info(office365_id, content_type, accept, opts)
@@ -1616,6 +1680,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_office365_traverse_user_with_http_info(office365_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -1649,6 +1714,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -1677,6 +1743,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_office365_traverse_user_group(office365_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_office365_traverse_user_group_with_http_info(office365_id, content_type, accept, opts)
@@ -1691,6 +1758,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_office365_traverse_user_group_with_http_info(office365_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -1724,6 +1792,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -1753,6 +1822,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphConnection>]
     def graph_policy_associations_list(policy_id, targets, content_type, accept, opts = {})
       data, _status_code, _headers = graph_policy_associations_list_with_http_info(policy_id, targets, content_type, accept, opts)
@@ -1768,6 +1838,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphConnection>, Fixnum, Hash)>] Array<GraphConnection> data, response status code and response headers
     def graph_policy_associations_list_with_http_info(policy_id, targets, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -1806,6 +1877,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -1833,6 +1905,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [GraphManagementReq] :body 
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [nil]
     def graph_policy_associations_post(policy_id, content_type, accept, opts = {})
       graph_policy_associations_post_with_http_info(policy_id, content_type, accept, opts)
@@ -1846,6 +1919,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [GraphManagementReq] :body 
+    # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def graph_policy_associations_post_with_http_info(policy_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -1877,6 +1951,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -1904,6 +1979,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_policy_traverse_system(policy_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_policy_traverse_system_with_http_info(policy_id, content_type, accept, opts)
@@ -1918,6 +1994,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_policy_traverse_system_with_http_info(policy_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -1951,6 +2028,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -1979,6 +2057,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_policy_traverse_system_group(policy_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_policy_traverse_system_group_with_http_info(policy_id, content_type, accept, opts)
@@ -1993,6 +2072,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_policy_traverse_system_group_with_http_info(policy_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -2026,6 +2106,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -2055,6 +2136,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphConnection>]
     def graph_radius_server_associations_list(radiusserver_id, targets, content_type, accept, opts = {})
       data, _status_code, _headers = graph_radius_server_associations_list_with_http_info(radiusserver_id, targets, content_type, accept, opts)
@@ -2070,6 +2152,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphConnection>, Fixnum, Hash)>] Array<GraphConnection> data, response status code and response headers
     def graph_radius_server_associations_list_with_http_info(radiusserver_id, targets, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -2108,6 +2191,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -2135,6 +2219,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [GraphManagementReq] :body 
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [nil]
     def graph_radius_server_associations_post(radiusserver_id, content_type, accept, opts = {})
       graph_radius_server_associations_post_with_http_info(radiusserver_id, content_type, accept, opts)
@@ -2148,6 +2233,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [GraphManagementReq] :body 
+    # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def graph_radius_server_associations_post_with_http_info(radiusserver_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -2179,6 +2265,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -2206,6 +2293,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_radius_server_traverse_user(radiusserver_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_radius_server_traverse_user_with_http_info(radiusserver_id, content_type, accept, opts)
@@ -2220,6 +2308,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_radius_server_traverse_user_with_http_info(radiusserver_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -2253,6 +2342,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -2281,6 +2371,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_radius_server_traverse_user_group(radiusserver_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_radius_server_traverse_user_group_with_http_info(radiusserver_id, content_type, accept, opts)
@@ -2295,6 +2386,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_radius_server_traverse_user_group_with_http_info(radiusserver_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -2328,6 +2420,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -2359,6 +2452,7 @@ module JCAPIv2
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphConnection>]
     def graph_system_associations_list(system_id, content_type, accept, targets, opts = {})
       data, _status_code, _headers = graph_system_associations_list_with_http_info(system_id, content_type, accept, targets, opts)
@@ -2376,6 +2470,7 @@ module JCAPIv2
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphConnection>, Fixnum, Hash)>] Array<GraphConnection> data, response status code and response headers
     def graph_system_associations_list_with_http_info(system_id, content_type, accept, targets, opts = {})
       if @api_client.config.debugging
@@ -2416,6 +2511,7 @@ module JCAPIv2
       header_params[:'Accept'] = accept
       header_params[:'Date'] = opts[:'date'] if !opts[:'date'].nil?
       header_params[:'Authorization'] = opts[:'authorization'] if !opts[:'authorization'].nil?
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -2445,6 +2541,7 @@ module JCAPIv2
     # @option opts [SystemGraphManagementReq] :body 
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [nil]
     def graph_system_associations_post(system_id, content_type, accept, opts = {})
       graph_system_associations_post_with_http_info(system_id, content_type, accept, opts)
@@ -2460,6 +2557,7 @@ module JCAPIv2
     # @option opts [SystemGraphManagementReq] :body 
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
+    # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def graph_system_associations_post_with_http_info(system_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -2493,6 +2591,7 @@ module JCAPIv2
       header_params[:'Accept'] = accept
       header_params[:'Date'] = opts[:'date'] if !opts[:'date'].nil?
       header_params[:'Authorization'] = opts[:'authorization'] if !opts[:'authorization'].nil?
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -2521,6 +2620,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphConnection>]
     def graph_system_group_associations_list(group_id, content_type, accept, targets, opts = {})
       data, _status_code, _headers = graph_system_group_associations_list_with_http_info(group_id, content_type, accept, targets, opts)
@@ -2536,6 +2636,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphConnection>, Fixnum, Hash)>] Array<GraphConnection> data, response status code and response headers
     def graph_system_group_associations_list_with_http_info(group_id, content_type, accept, targets, opts = {})
       if @api_client.config.debugging
@@ -2574,6 +2675,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -2601,6 +2703,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [SystemGroupGraphManagementReq] :body 
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [nil]
     def graph_system_group_associations_post(group_id, content_type, accept, opts = {})
       graph_system_group_associations_post_with_http_info(group_id, content_type, accept, opts)
@@ -2614,6 +2717,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [SystemGroupGraphManagementReq] :body 
+    # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def graph_system_group_associations_post_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -2645,6 +2749,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -2674,6 +2779,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_group_member_of(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_group_member_of_with_http_info(group_id, content_type, accept, opts)
@@ -2690,6 +2796,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_group_member_of_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -2725,6 +2832,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -2753,6 +2861,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphConnection>]
     def graph_system_group_members_list(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_group_members_list_with_http_info(group_id, content_type, accept, opts)
@@ -2767,6 +2876,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphConnection>, Fixnum, Hash)>] Array<GraphConnection> data, response status code and response headers
     def graph_system_group_members_list_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -2800,6 +2910,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -2829,6 +2940,7 @@ module JCAPIv2
     # @option opts [SystemGroupMembersReq] :body 
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [nil]
     def graph_system_group_members_post(group_id, content_type, accept, opts = {})
       graph_system_group_members_post_with_http_info(group_id, content_type, accept, opts)
@@ -2844,6 +2956,7 @@ module JCAPIv2
     # @option opts [SystemGroupMembersReq] :body 
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
+    # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def graph_system_group_members_post_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -2877,6 +2990,7 @@ module JCAPIv2
       header_params[:'Accept'] = accept
       header_params[:'Date'] = opts[:'date'] if !opts[:'date'].nil?
       header_params[:'Authorization'] = opts[:'authorization'] if !opts[:'authorization'].nil?
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -2906,6 +3020,7 @@ module JCAPIv2
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
     # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_group_membership(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_group_membership_with_http_info(group_id, content_type, accept, opts)
@@ -2922,6 +3037,7 @@ module JCAPIv2
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
     # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_group_membership_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -2957,6 +3073,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -2985,6 +3102,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_group_traverse_command(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_group_traverse_command_with_http_info(group_id, content_type, accept, opts)
@@ -2999,6 +3117,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_group_traverse_command_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -3032,6 +3151,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -3060,6 +3180,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_group_traverse_policy(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_group_traverse_policy_with_http_info(group_id, content_type, accept, opts)
@@ -3074,6 +3195,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_group_traverse_policy_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -3107,6 +3229,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -3135,6 +3258,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_group_traverse_user(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_group_traverse_user_with_http_info(group_id, content_type, accept, opts)
@@ -3149,6 +3273,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_group_traverse_user_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -3182,6 +3307,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -3210,6 +3336,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_group_traverse_user_group(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_group_traverse_user_group_with_http_info(group_id, content_type, accept, opts)
@@ -3224,6 +3351,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_group_traverse_user_group_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -3257,6 +3385,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -3289,6 +3418,7 @@ module JCAPIv2
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_member_of(system_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_member_of_with_http_info(system_id, content_type, accept, opts)
@@ -3307,6 +3437,7 @@ module JCAPIv2
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_member_of_with_http_info(system_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -3344,6 +3475,7 @@ module JCAPIv2
       header_params[:'Accept'] = accept
       header_params[:'Date'] = opts[:'date'] if !opts[:'date'].nil?
       header_params[:'Authorization'] = opts[:'authorization'] if !opts[:'authorization'].nil?
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -3372,6 +3504,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_traverse_command(system_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_traverse_command_with_http_info(system_id, content_type, accept, opts)
@@ -3386,6 +3519,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_traverse_command_with_http_info(system_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -3419,6 +3553,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -3447,6 +3582,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_traverse_policy(system_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_traverse_policy_with_http_info(system_id, content_type, accept, opts)
@@ -3461,6 +3597,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_traverse_policy_with_http_info(system_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -3494,6 +3631,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -3524,6 +3662,7 @@ module JCAPIv2
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_traverse_user(system_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_traverse_user_with_http_info(system_id, content_type, accept, opts)
@@ -3540,6 +3679,7 @@ module JCAPIv2
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_traverse_user_with_http_info(system_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -3575,6 +3715,7 @@ module JCAPIv2
       header_params[:'Accept'] = accept
       header_params[:'Date'] = opts[:'date'] if !opts[:'date'].nil?
       header_params[:'Authorization'] = opts[:'authorization'] if !opts[:'authorization'].nil?
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -3605,6 +3746,7 @@ module JCAPIv2
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_traverse_user_group(system_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_traverse_user_group_with_http_info(system_id, content_type, accept, opts)
@@ -3621,6 +3763,7 @@ module JCAPIv2
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_traverse_user_group_with_http_info(system_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -3656,6 +3799,7 @@ module JCAPIv2
       header_params[:'Accept'] = accept
       header_params[:'Date'] = opts[:'date'] if !opts[:'date'].nil?
       header_params[:'Authorization'] = opts[:'authorization'] if !opts[:'authorization'].nil?
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -3685,6 +3829,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphConnection>]
     def graph_user_associations_list(user_id, content_type, accept, targets, opts = {})
       data, _status_code, _headers = graph_user_associations_list_with_http_info(user_id, content_type, accept, targets, opts)
@@ -3700,6 +3845,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphConnection>, Fixnum, Hash)>] Array<GraphConnection> data, response status code and response headers
     def graph_user_associations_list_with_http_info(user_id, content_type, accept, targets, opts = {})
       if @api_client.config.debugging
@@ -3738,6 +3884,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -3765,6 +3912,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [UserGraphManagementReq] :body 
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [nil]
     def graph_user_associations_post(user_id, content_type, accept, opts = {})
       graph_user_associations_post_with_http_info(user_id, content_type, accept, opts)
@@ -3778,6 +3926,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [UserGraphManagementReq] :body 
+    # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def graph_user_associations_post_with_http_info(user_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -3809,6 +3958,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -3837,6 +3987,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphConnection>]
     def graph_user_group_associations_list(group_id, content_type, accept, targets, opts = {})
       data, _status_code, _headers = graph_user_group_associations_list_with_http_info(group_id, content_type, accept, targets, opts)
@@ -3852,6 +4003,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphConnection>, Fixnum, Hash)>] Array<GraphConnection> data, response status code and response headers
     def graph_user_group_associations_list_with_http_info(group_id, content_type, accept, targets, opts = {})
       if @api_client.config.debugging
@@ -3890,6 +4042,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -3917,6 +4070,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [UserGroupGraphManagementReq] :body 
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [nil]
     def graph_user_group_associations_post(group_id, content_type, accept, opts = {})
       graph_user_group_associations_post_with_http_info(group_id, content_type, accept, opts)
@@ -3930,6 +4084,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [UserGroupGraphManagementReq] :body 
+    # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def graph_user_group_associations_post_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -3961,6 +4116,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -3990,6 +4146,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_group_member_of(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_member_of_with_http_info(group_id, content_type, accept, opts)
@@ -4006,6 +4163,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_group_member_of_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -4041,6 +4199,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -4069,6 +4228,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphConnection>]
     def graph_user_group_members_list(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_members_list_with_http_info(group_id, content_type, accept, opts)
@@ -4083,6 +4243,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphConnection>, Fixnum, Hash)>] Array<GraphConnection> data, response status code and response headers
     def graph_user_group_members_list_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -4116,6 +4277,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -4143,6 +4305,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [UserGroupMembersReq] :body 
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [nil]
     def graph_user_group_members_post(group_id, content_type, accept, opts = {})
       graph_user_group_members_post_with_http_info(group_id, content_type, accept, opts)
@@ -4156,6 +4319,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [UserGroupMembersReq] :body 
+    # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def graph_user_group_members_post_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -4187,6 +4351,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -4216,6 +4381,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_group_membership(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_membership_with_http_info(group_id, content_type, accept, opts)
@@ -4232,6 +4398,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_group_membership_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -4267,6 +4434,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -4295,6 +4463,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_group_traverse_active_directory(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_traverse_active_directory_with_http_info(group_id, content_type, accept, opts)
@@ -4309,6 +4478,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_group_traverse_active_directory_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -4342,6 +4512,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -4370,6 +4541,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_group_traverse_application(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_traverse_application_with_http_info(group_id, content_type, accept, opts)
@@ -4384,6 +4556,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_group_traverse_application_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -4417,6 +4590,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -4445,6 +4619,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_group_traverse_directory(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_traverse_directory_with_http_info(group_id, content_type, accept, opts)
@@ -4459,6 +4634,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_group_traverse_directory_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -4492,6 +4668,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -4520,6 +4697,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_group_traverse_g_suite(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_traverse_g_suite_with_http_info(group_id, content_type, accept, opts)
@@ -4534,6 +4712,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_group_traverse_g_suite_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -4567,6 +4746,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -4595,6 +4775,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_group_traverse_ldap_server(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_traverse_ldap_server_with_http_info(group_id, content_type, accept, opts)
@@ -4609,6 +4790,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_group_traverse_ldap_server_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -4642,6 +4824,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -4670,6 +4853,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_group_traverse_office365(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_traverse_office365_with_http_info(group_id, content_type, accept, opts)
@@ -4684,6 +4868,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_group_traverse_office365_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -4717,6 +4902,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -4745,6 +4931,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_group_traverse_radius_server(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_traverse_radius_server_with_http_info(group_id, content_type, accept, opts)
@@ -4759,6 +4946,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_group_traverse_radius_server_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -4792,6 +4980,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -4820,6 +5009,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_group_traverse_system(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_traverse_system_with_http_info(group_id, content_type, accept, opts)
@@ -4834,6 +5024,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_group_traverse_system_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -4867,6 +5058,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -4895,6 +5087,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_group_traverse_system_group(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_traverse_system_group_with_http_info(group_id, content_type, accept, opts)
@@ -4909,6 +5102,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_group_traverse_system_group_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -4942,6 +5136,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -4972,6 +5167,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_member_of(user_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_member_of_with_http_info(user_id, content_type, accept, opts)
@@ -4988,6 +5184,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_member_of_with_http_info(user_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -5023,6 +5220,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -5051,6 +5249,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_traverse_application(user_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_traverse_application_with_http_info(user_id, content_type, accept, opts)
@@ -5065,6 +5264,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_traverse_application_with_http_info(user_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -5098,6 +5298,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -5126,6 +5327,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_traverse_directory(user_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_traverse_directory_with_http_info(user_id, content_type, accept, opts)
@@ -5140,6 +5342,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_traverse_directory_with_http_info(user_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -5173,6 +5376,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -5201,6 +5405,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_traverse_g_suite(user_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_traverse_g_suite_with_http_info(user_id, content_type, accept, opts)
@@ -5215,6 +5420,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_traverse_g_suite_with_http_info(user_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -5248,6 +5454,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -5276,6 +5483,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_traverse_ldap_server(user_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_traverse_ldap_server_with_http_info(user_id, content_type, accept, opts)
@@ -5290,6 +5498,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_traverse_ldap_server_with_http_info(user_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -5323,6 +5532,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -5351,6 +5561,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_traverse_office365(user_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_traverse_office365_with_http_info(user_id, content_type, accept, opts)
@@ -5365,6 +5576,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_traverse_office365_with_http_info(user_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -5398,6 +5610,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -5426,6 +5639,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_traverse_radius_server(user_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_traverse_radius_server_with_http_info(user_id, content_type, accept, opts)
@@ -5440,6 +5654,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_traverse_radius_server_with_http_info(user_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -5473,6 +5688,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -5501,6 +5717,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_traverse_system(user_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_traverse_system_with_http_info(user_id, content_type, accept, opts)
@@ -5515,6 +5732,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_traverse_system_with_http_info(user_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -5548,6 +5766,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -5576,6 +5795,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_traverse_system_group(user_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_traverse_system_group_with_http_info(user_id, content_type, accept, opts)
@@ -5590,6 +5810,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_traverse_system_group_with_http_info(user_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -5623,6 +5844,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -5654,6 +5876,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<PolicyResult>]
     def policystatuses_list(system_id, content_type, accept, opts = {})
       data, _status_code, _headers = policystatuses_list_with_http_info(system_id, content_type, accept, opts)
@@ -5671,6 +5894,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<PolicyResult>, Fixnum, Hash)>] Array<PolicyResult> data, response status code and response headers
     def policystatuses_list_with_http_info(system_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -5707,6 +5931,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}

@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+# JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
 
 OpenAPI spec version: 2.0
 
@@ -42,6 +42,7 @@ describe 'PoliciesApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [String] :x_org_id 
   # @return [Array<GraphConnection>]
   describe 'graph_policy_associations_list test' do
     it "should work" do
@@ -57,6 +58,7 @@ describe 'PoliciesApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [GraphManagementReq] :body 
+  # @option opts [String] :x_org_id 
   # @return [nil]
   describe 'graph_policy_associations_post test' do
     it "should work" do
@@ -73,6 +75,7 @@ describe 'PoliciesApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [String] :x_org_id 
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_policy_traverse_system test' do
     it "should work" do
@@ -89,6 +92,7 @@ describe 'PoliciesApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [String] :x_org_id 
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_policy_traverse_system_group test' do
     it "should work" do
@@ -103,6 +107,7 @@ describe 'PoliciesApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :x_org_id 
   # @return [nil]
   describe 'policies_delete test' do
     it "should work" do
@@ -117,6 +122,7 @@ describe 'PoliciesApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :x_org_id 
   # @return [PolicyWithDetails]
   describe 'policies_get test' do
     it "should work" do
@@ -135,6 +141,7 @@ describe 'PoliciesApi' do
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+  # @option opts [String] :x_org_id 
   # @return [Array<Policy>]
   describe 'policies_list test' do
     it "should work" do
@@ -149,6 +156,7 @@ describe 'PoliciesApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [PolicyRequest] :body 
+  # @option opts [String] :x_org_id 
   # @return [PolicyWithDetails]
   describe 'policies_post test' do
     it "should work" do
@@ -162,6 +170,7 @@ describe 'PoliciesApi' do
   # @param id ObjectID of the Policy object.
   # @param [Hash] opts the optional parameters
   # @option opts [PolicyRequest] :body 
+  # @option opts [String] :x_org_id 
   # @return [Policy]
   describe 'policies_put test' do
     it "should work" do
@@ -176,6 +185,7 @@ describe 'PoliciesApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :x_org_id 
   # @return [PolicyResult]
   describe 'policyresults_get test' do
     it "should work" do
@@ -195,6 +205,7 @@ describe 'PoliciesApi' do
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+  # @option opts [String] :x_org_id 
   # @return [Array<PolicyResult>]
   describe 'policyresults_list test' do
     it "should work" do
@@ -215,6 +226,7 @@ describe 'PoliciesApi' do
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
   # @option opts [Array<String>] :aggregate 
+  # @option opts [String] :x_org_id 
   # @return [Array<PolicyResult>]
   describe 'policyresults_list_0 test' do
     it "should work" do
@@ -234,6 +246,7 @@ describe 'PoliciesApi' do
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+  # @option opts [String] :x_org_id 
   # @return [Array<PolicyResult>]
   describe 'policystatuses_list test' do
     it "should work" do
@@ -253,6 +266,7 @@ describe 'PoliciesApi' do
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+  # @option opts [String] :x_org_id 
   # @return [Array<PolicyResult>]
   describe 'policystatuses_list_0 test' do
     it "should work" do
@@ -267,6 +281,7 @@ describe 'PoliciesApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :x_org_id 
   # @return [PolicyTemplateWithDetails]
   describe 'policytemplates_get test' do
     it "should work" do
@@ -285,6 +300,7 @@ describe 'PoliciesApi' do
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+  # @option opts [String] :x_org_id 
   # @return [Array<PolicyTemplate>]
   describe 'policytemplates_list test' do
     it "should work" do

@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+# JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
 
 OpenAPI spec version: 2.0
 
@@ -33,7 +33,9 @@ require 'jcapiv2/models/graph_object_with_paths'
 require 'jcapiv2/models/graph_type'
 require 'jcapiv2/models/group'
 require 'jcapiv2/models/group_type'
+require 'jcapiv2/models/inline_response_200'
 require 'jcapiv2/models/inline_response_204'
+require 'jcapiv2/models/inline_response_400'
 require 'jcapiv2/models/job_details'
 require 'jcapiv2/models/job_id'
 require 'jcapiv2/models/job_workresult'
@@ -83,6 +85,7 @@ require 'jcapiv2/api/applications_api'
 require 'jcapiv2/api/bulk_job_requests_api'
 require 'jcapiv2/api/commands_api'
 require 'jcapiv2/api/directories_api'
+require 'jcapiv2/api/fde_api'
 require 'jcapiv2/api/g_suite_api'
 require 'jcapiv2/api/graph_api'
 require 'jcapiv2/api/groups_api'

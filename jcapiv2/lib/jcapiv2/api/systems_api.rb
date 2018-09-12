@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+# JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
 
 OpenAPI spec version: 2.0
 
@@ -31,6 +31,7 @@ module JCAPIv2
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphConnection>]
     def graph_system_associations_list(system_id, content_type, accept, targets, opts = {})
       data, _status_code, _headers = graph_system_associations_list_with_http_info(system_id, content_type, accept, targets, opts)
@@ -48,6 +49,7 @@ module JCAPIv2
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphConnection>, Fixnum, Hash)>] Array<GraphConnection> data, response status code and response headers
     def graph_system_associations_list_with_http_info(system_id, content_type, accept, targets, opts = {})
       if @api_client.config.debugging
@@ -88,6 +90,7 @@ module JCAPIv2
       header_params[:'Accept'] = accept
       header_params[:'Date'] = opts[:'date'] if !opts[:'date'].nil?
       header_params[:'Authorization'] = opts[:'authorization'] if !opts[:'authorization'].nil?
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -117,6 +120,7 @@ module JCAPIv2
     # @option opts [SystemGraphManagementReq] :body 
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [nil]
     def graph_system_associations_post(system_id, content_type, accept, opts = {})
       graph_system_associations_post_with_http_info(system_id, content_type, accept, opts)
@@ -132,6 +136,7 @@ module JCAPIv2
     # @option opts [SystemGraphManagementReq] :body 
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
+    # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def graph_system_associations_post_with_http_info(system_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -165,6 +170,7 @@ module JCAPIv2
       header_params[:'Accept'] = accept
       header_params[:'Date'] = opts[:'date'] if !opts[:'date'].nil?
       header_params[:'Authorization'] = opts[:'authorization'] if !opts[:'authorization'].nil?
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -196,6 +202,7 @@ module JCAPIv2
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_member_of(system_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_member_of_with_http_info(system_id, content_type, accept, opts)
@@ -214,6 +221,7 @@ module JCAPIv2
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_member_of_with_http_info(system_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -251,6 +259,7 @@ module JCAPIv2
       header_params[:'Accept'] = accept
       header_params[:'Date'] = opts[:'date'] if !opts[:'date'].nil?
       header_params[:'Authorization'] = opts[:'authorization'] if !opts[:'authorization'].nil?
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -279,6 +288,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_traverse_command(system_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_traverse_command_with_http_info(system_id, content_type, accept, opts)
@@ -293,6 +303,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_traverse_command_with_http_info(system_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -326,6 +337,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -354,6 +366,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_traverse_policy(system_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_traverse_policy_with_http_info(system_id, content_type, accept, opts)
@@ -368,6 +381,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_traverse_policy_with_http_info(system_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -401,6 +415,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -431,6 +446,7 @@ module JCAPIv2
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_traverse_user(system_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_traverse_user_with_http_info(system_id, content_type, accept, opts)
@@ -447,6 +463,7 @@ module JCAPIv2
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_traverse_user_with_http_info(system_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -482,6 +499,7 @@ module JCAPIv2
       header_params[:'Accept'] = accept
       header_params[:'Date'] = opts[:'date'] if !opts[:'date'].nil?
       header_params[:'Authorization'] = opts[:'authorization'] if !opts[:'authorization'].nil?
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -512,6 +530,7 @@ module JCAPIv2
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
+    # @option opts [String] :x_org_id  (default to <<your org id>>)
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_traverse_user_group(system_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_traverse_user_group_with_http_info(system_id, content_type, accept, opts)
@@ -528,6 +547,7 @@ module JCAPIv2
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_traverse_user_group_with_http_info(system_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -563,6 +583,7 @@ module JCAPIv2
       header_params[:'Accept'] = accept
       header_params[:'Date'] = opts[:'date'] if !opts[:'date'].nil?
       header_params[:'Authorization'] = opts[:'authorization'] if !opts[:'authorization'].nil?
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -579,6 +600,61 @@ module JCAPIv2
         :return_type => 'Array<GraphObjectWithPaths>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SystemsApi#graph_system_traverse_user_group\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get System FDE Key
+    # Public is OFF on purpose, this is not intended to be published  Retrieve the current (latest) fde key saved for this system.
+    # @param system_id 
+    # @param [Hash] opts the optional parameters
+    # @return [InlineResponse200]
+    def systems_get_fde_key(system_id, opts = {})
+      data, _status_code, _headers = systems_get_fde_key_with_http_info(system_id, opts)
+      return data
+    end
+
+    # Get System FDE Key
+    # Public is OFF on purpose, this is not intended to be published  Retrieve the current (latest) fde key saved for this system.
+    # @param system_id 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(InlineResponse200, Fixnum, Hash)>] InlineResponse200 data, response status code and response headers
+    def systems_get_fde_key_with_http_info(system_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemsApi.systems_get_fde_key ..."
+      end
+      # verify the required parameter 'system_id' is set
+      if @api_client.config.client_side_validation && system_id.nil?
+        fail ArgumentError, "Missing the required parameter 'system_id' when calling SystemsApi.systems_get_fde_key"
+      end
+      # resource path
+      local_var_path = "/systems/{system_id}/fdekey".sub('{' + 'system_id' + '}', system_id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['x-api-key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'InlineResponse200')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemsApi#systems_get_fde_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

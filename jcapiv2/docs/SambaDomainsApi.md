@@ -38,7 +38,8 @@ id = "id_example" # String | Unique identifier of the samba domain.
 
 opts = { 
   content_type: "application/json", # String | 
-  accept: "application/json" # String | 
+  accept: "application/json", # String | 
+  x_org_id: "<<your org id>>" # String | 
 }
 
 begin
@@ -58,6 +59,7 @@ Name | Type | Description  | Notes
  **id** | **String**| Unique identifier of the samba domain. | 
  **content_type** | **String**|  | [optional] [default to application/json]
  **accept** | **String**|  | [optional] [default to application/json]
+ **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -101,7 +103,8 @@ id = "id_example" # String | Unique identifier of the samba domain.
 
 opts = { 
   content_type: "application/json", # String | 
-  accept: "application/json" # String | 
+  accept: "application/json", # String | 
+  x_org_id: "<<your org id>>" # String | 
 }
 
 begin
@@ -121,6 +124,7 @@ Name | Type | Description  | Notes
  **id** | **String**| Unique identifier of the samba domain. | 
  **content_type** | **String**|  | [optional] [default to application/json]
  **accept** | **String**|  | [optional] [default to application/json]
+ **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -164,10 +168,11 @@ opts = {
   content_type: "application/json", # String | 
   accept: "application/json", # String | 
   fields: ["fields_example"], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-  filter: ["filter_example"] # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
-  sort: ["sort_example"] # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  skip: 0, # Integer | The offset into the records to return.
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: "<<your org id>>" # String | 
 }
 
 begin
@@ -191,6 +196,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -233,7 +239,8 @@ ldapserver_id = "ldapserver_id_example" # String | Unique identifier of the LDAP
 opts = { 
   body: JCAPIv2::SambaDomainInput.new, # SambaDomainInput | 
   content_type: "application/json", # String | 
-  accept: "application/json" # String | 
+  accept: "application/json", # String | 
+  x_org_id: "<<your org id>>" # String | 
 }
 
 begin
@@ -253,6 +260,7 @@ Name | Type | Description  | Notes
  **body** | [**SambaDomainInput**](SambaDomainInput.md)|  | [optional] 
  **content_type** | **String**|  | [optional] [default to application/json]
  **accept** | **String**|  | [optional] [default to application/json]
+ **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 
@@ -297,7 +305,8 @@ id = "id_example" # String | Unique identifier of the samba domain.
 opts = { 
   body: JCAPIv2::SambaDomainInput.new, # SambaDomainInput | 
   content_type: "application/json", # String | 
-  accept: "application/json" # String | 
+  accept: "application/json", # String | 
+  x_org_id: "<<your org id>>" # String | 
 }
 
 begin
@@ -318,6 +327,7 @@ Name | Type | Description  | Notes
  **body** | [**SambaDomainInput**](SambaDomainInput.md)|  | [optional] 
  **content_type** | **String**|  | [optional] [default to application/json]
  **accept** | **String**|  | [optional] [default to application/json]
+ **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
 
 ### Return type
 

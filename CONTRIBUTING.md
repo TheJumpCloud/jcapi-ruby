@@ -32,8 +32,8 @@ This will generate the API v2 client files under `output/jcapiv2`
 
 Once you are satisfied with the generated API client, you can replace the existing files under the `jcapiv1` and `jcapiv2` folders with your generated files.
 ```
-rm -rf v1
-mv output/v1 .
-rm -rf v2
-mv output/v2 .
+rm -rf jcapiv1
+mv output/jcapiv1 .
+rm -rf jcapiv2
+mv output/jcapiv2 .
 ```

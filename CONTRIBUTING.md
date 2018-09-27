@@ -31,3 +31,9 @@ $ docker-compose run --rm swagger-codegen generate -i /swagger-api/yaml/index2.y
 This will generate the API v2 client files under `output/jcapiv2`
 
 Once you are satisfied with the generated API client, you can replace the existing files under the `jcapiv1` and `jcapiv2` folders with your generated files.
+```
+rm -rf jcapiv1
+mv output/jcapiv1 .
+rm -rf jcapiv2
+mv output/jcapiv2 .
+```

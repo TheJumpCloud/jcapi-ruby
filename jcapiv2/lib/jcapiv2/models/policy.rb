@@ -13,9 +13,9 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module JCAPIv2
-  # An instance of a policty template.
+  # An instance of a policy template.
   class Policy
-    # ObjectId uniquely indetifying a Policy.
+    # ObjectId uniquely identifying a Policy.
     attr_accessor :id
 
     attr_accessor :template

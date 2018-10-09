@@ -26,7 +26,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [PolicyTemplateWithDetails]
     def policytemplates_get(id, content_type, accept, opts = {})
       data, _status_code, _headers = policytemplates_get_with_http_info(id, content_type, accept, opts)
@@ -102,7 +102,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Array<PolicyTemplate>]
     def policytemplates_list(content_type, accept, opts = {})
       data, _status_code, _headers = policytemplates_list_with_http_info(content_type, accept, opts)

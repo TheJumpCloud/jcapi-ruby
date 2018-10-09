@@ -27,7 +27,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [AuthInputObject] :body 
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [nil]
     def workdays_authorize(workday_id, content_type, accept, opts = {})
       workdays_authorize_with_http_info(workday_id, content_type, accept, opts)
@@ -99,7 +99,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [nil]
     def workdays_deauthorize(workday_id, content_type, accept, opts = {})
       workdays_deauthorize_with_http_info(workday_id, content_type, accept, opts)
@@ -170,7 +170,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Object]
     def workdays_delete(id, content_type, accept, opts = {})
       data, _status_code, _headers = workdays_delete_with_http_info(id, content_type, accept, opts)
@@ -242,7 +242,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [WorkdayOutput]
     def workdays_get(id, content_type, accept, opts = {})
       data, _status_code, _headers = workdays_get_with_http_info(id, content_type, accept, opts)
@@ -315,7 +315,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Array<BulkUserCreate>] :body 
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [JobId]
     def workdays_import(workday_id, content_type, accept, opts = {})
       data, _status_code, _headers = workdays_import_with_http_info(workday_id, content_type, accept, opts)
@@ -391,7 +391,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Array<JobWorkresult>]
     def workdays_importresults(id, job_id, content_type, accept, opts = {})
       data, _status_code, _headers = workdays_importresults_with_http_info(id, job_id, content_type, accept, opts)
@@ -476,7 +476,7 @@ module JCAPIv2
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
     # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Array<WorkdayOutput>]
     def workdays_list(content_type, accept, opts = {})
       data, _status_code, _headers = workdays_list_with_http_info(content_type, accept, opts)
@@ -553,7 +553,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [WorkdayInput] :body 
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [nil]
     def workdays_post(content_type, accept, opts = {})
       workdays_post_with_http_info(content_type, accept, opts)
@@ -621,7 +621,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [WorkdayFields] :body 
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [WorkdayOutput]
     def workdays_put(id, content_type, accept, opts = {})
       data, _status_code, _headers = workdays_put_with_http_info(id, content_type, accept, opts)
@@ -694,7 +694,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :state 
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [nil]
     def workdays_settings(content_type, accept, opts = {})
       workdays_settings_with_http_info(content_type, accept, opts)
@@ -765,7 +765,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Array<WorkdayWorker>]
     def workdays_workers(workday_id, content_type, accept, opts = {})
       data, _status_code, _headers = workdays_workers_with_http_info(workday_id, content_type, accept, opts)

@@ -21,7 +21,7 @@ module JCAPIv2
     end
 
     # Get System FDE Key
-    # Public is OFF on purpose, this is not intended to be published  Retrieve the current (latest) fde key saved for this system.
+    # This endpoint will return the current (latest) fde key saved for a system.
     # @param system_id 
     # @param [Hash] opts the optional parameters
     # @return [InlineResponse200]
@@ -31,7 +31,7 @@ module JCAPIv2
     end
 
     # Get System FDE Key
-    # Public is OFF on purpose, this is not intended to be published  Retrieve the current (latest) fde key saved for this system.
+    # This endpoint will return the current (latest) fde key saved for a system.
     # @param system_id 
     # @param [Hash] opts the optional parameters
     # @return [Array<(InlineResponse200, Fixnum, Hash)>] InlineResponse200 data, response status code and response headers

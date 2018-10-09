@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 List the User Group's parents
 
-This endpoint returns all User Groups a User Group is a member of.  #### Sample Request ``` https://console.jumpcloud.com/api/v2/usergroups/{group_id}/membersof ```  Not public yet, as the code is not finished,
+This endpoint returns all User Groups a User Group is a member of.  #### Sample Request ``` https://console.jumpcloud.com/api/v2/usergroups/{group_id}/memberof ```  Not public yet, as the code is not finished,
 
 ### Example
 ```ruby
@@ -42,7 +42,7 @@ opts = {
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
   sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -112,7 +112,7 @@ accept = "application/json" # String |
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -179,7 +179,7 @@ accept = "application/json" # String |
 
 opts = { 
   body: JCAPIv2::UserGroupMembersReq.new, # UserGroupMembersReq | 
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**UserGroupMembersReq**](UserGroupMembersReq.md)|  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -247,7 +247,7 @@ opts = {
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
   sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 

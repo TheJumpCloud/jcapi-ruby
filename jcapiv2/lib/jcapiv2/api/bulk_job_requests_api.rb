@@ -26,7 +26,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Array<BulkUserCreate>] :body 
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [JobId]
     def bulk_users_create(content_type, accept, opts = {})
       data, _status_code, _headers = bulk_users_create_with_http_info(content_type, accept, opts)
@@ -96,7 +96,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Array<JobWorkresult>]
     def bulk_users_create_results(job_id, content_type, accept, opts = {})
       data, _status_code, _headers = bulk_users_create_results_with_http_info(job_id, content_type, accept, opts)
@@ -172,7 +172,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [JobDetails]
     def jobs_get(id, content_type, accept, opts = {})
       data, _status_code, _headers = jobs_get_with_http_info(id, content_type, accept, opts)
@@ -246,7 +246,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Array<JobWorkresult>]
     def jobs_results(id, content_type, accept, opts = {})
       data, _status_code, _headers = jobs_results_with_http_info(id, content_type, accept, opts)

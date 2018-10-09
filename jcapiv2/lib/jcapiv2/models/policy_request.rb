@@ -13,7 +13,7 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module JCAPIv2
-  # An instance of a policty template.
+  # An instance of a policy template.
   class PolicyRequest
     # The description for this specific Policy.
     attr_accessor :name

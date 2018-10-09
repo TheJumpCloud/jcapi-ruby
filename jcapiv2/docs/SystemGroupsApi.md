@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 List the associations of a System Group
 
-This endpoint returns the _direct_ associations of a System Group.  A direct association can be a non-homogenous relationship between 2 different objects. for example System Groups and Users.   #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations?targets=user \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
+This endpoint returns the _direct_ associations of a System Group.  A direct association can be a non-homogeneous relationship between 2 different objects, for example System Groups and Users.   #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations?targets=user \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
 
 ### Example
 ```ruby
@@ -53,7 +53,7 @@ targets = ["targets_example"] # Array<String> |
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
  **targets** | [**Array&lt;String&gt;**](String.md)|  | 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 
 Manage the associations of a System Group
 
-This endpoint allows you to manage the _direct_ associations of a System Group.  A direct association can be a non-homogenous relationship between 2 different objects. for example System Groups and Users.   #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"op\": \"add\",     \"type\": \"user\",     \"id\": \"{UserID}\" }'  ```
+This endpoint allows you to manage the _direct_ associations of a System Group.  A direct association can be a non-homogeneous relationship between 2 different objects, for example System Groups and Users.   #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"op\": \"add\",     \"type\": \"user\",     \"id\": \"{UserID}\" }'  ```
 
 ### Example
 ```ruby
@@ -121,7 +121,7 @@ accept = "application/json" # String |
 
 opts = { 
   body: JCAPIv2::SystemGroupGraphManagementReq.new, # SystemGroupGraphManagementReq | 
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -140,7 +140,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**SystemGroupGraphManagementReq**](SystemGroupGraphManagementReq.md)|  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -189,7 +189,7 @@ opts = {
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
   sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -212,7 +212,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -259,7 +259,7 @@ accept = "application/json" # String |
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -280,7 +280,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
 
 Manage the members of a System Group
 
-This endpoint allows you to manage the system members of a System Group.  #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID}/members \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY' \\   -d '{     \"op\": \"add\",     \"type\": \"system\",     \"id\": \"{System_ID\" }' ```
+This endpoint allows you to manage the system members of a System Group.  #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID}/members \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"op\": \"add\",     \"type\": \"system\",     \"id\": \"{System_ID}\" }' ```
 
 ### Example
 ```ruby
@@ -328,7 +328,7 @@ opts = {
   body: JCAPIv2::SystemGroupMembersReq.new, # SystemGroupMembersReq | 
   date: "date_example", # String | Current date header for the System Context API
   authorization: "authorization_example", # String | Authorization header for the System Context API
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -349,7 +349,7 @@ Name | Type | Description  | Notes
  **body** | [**SystemGroupMembersReq**](SystemGroupMembersReq.md)|  | [optional] 
  **date** | **String**| Current date header for the System Context API | [optional] 
  **authorization** | **String**| Authorization header for the System Context API | [optional] 
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -398,7 +398,7 @@ opts = {
   skip: 0, # Integer | The offset into the records to return.
   sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
   filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -421,7 +421,7 @@ Name | Type | Description  | Notes
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
  **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -468,7 +468,7 @@ accept = "application/json" # String |
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -489,7 +489,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -536,7 +536,7 @@ accept = "application/json" # String |
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -557,7 +557,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -604,7 +604,7 @@ accept = "application/json" # String |
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -625,7 +625,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -670,7 +670,7 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -688,7 +688,7 @@ Name | Type | Description  | Notes
  **id** | **String**| ObjectID of the System Group. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -710,7 +710,7 @@ nil (empty response body)
 
 View an individual System Group details
 
-This endpoint returns the details of a System Group.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'  ```
+This endpoint returns the details of a System Group.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
 
 ### Example
 ```ruby
@@ -733,7 +733,7 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -752,7 +752,7 @@ Name | Type | Description  | Notes
  **id** | **String**| ObjectID of the System Group. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -800,7 +800,7 @@ opts = {
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
   sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -823,7 +823,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -869,7 +869,7 @@ accept = "application/json" # String |
 
 opts = { 
   body: JCAPIv2::SystemGroupData.new, # SystemGroupData | 
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -889,7 +889,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**SystemGroupData**](SystemGroupData.md)|  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -933,7 +933,7 @@ accept = "application/json" # String |
 
 opts = { 
   body: JCAPIv2::SystemGroupData.new, # SystemGroupData | 
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -952,7 +952,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**SystemGroupData**](SystemGroupData.md)|  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -974,7 +974,7 @@ Name | Type | Description  | Notes
 
 Update a System Group
 
-This enpoint allows you to do a full update of the System Group.  #### Sample Request ``` curl -X PUT https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{  \"name\": \"Name_Update\" }' ```
+This endpoint allows you to do a full update of the System Group.  #### Sample Request ``` curl -X PUT https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{  \"name\": \"Name_Update\" }' ```
 
 ### Example
 ```ruby
@@ -998,7 +998,7 @@ accept = "application/json" # String |
 
 opts = { 
   body: JCAPIv2::SystemGroupData.new, # SystemGroupData | 
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -1018,7 +1018,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**SystemGroupData**](SystemGroupData.md)|  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 

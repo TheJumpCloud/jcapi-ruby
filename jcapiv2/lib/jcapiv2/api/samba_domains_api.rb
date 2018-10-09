@@ -27,7 +27,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [String] :content_type  (default to application/json)
     # @option opts [String] :accept  (default to application/json)
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [String]
     def ldapservers_samba_domains_delete(ldapserver_id, id, opts = {})
       data, _status_code, _headers = ldapservers_samba_domains_delete_with_http_info(ldapserver_id, id, opts)
@@ -97,7 +97,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [String] :content_type  (default to application/json)
     # @option opts [String] :accept  (default to application/json)
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [SambaDomainOutput]
     def ldapservers_samba_domains_get(ldapserver_id, id, opts = {})
       data, _status_code, _headers = ldapservers_samba_domains_get_with_http_info(ldapserver_id, id, opts)
@@ -171,7 +171,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Array<SambaDomainOutput>]
     def ldapservers_samba_domains_list(ldapserver_id, opts = {})
       data, _status_code, _headers = ldapservers_samba_domains_list_with_http_info(ldapserver_id, opts)
@@ -246,7 +246,7 @@ module JCAPIv2
     # @option opts [SambaDomainInput] :body 
     # @option opts [String] :content_type  (default to application/json)
     # @option opts [String] :accept  (default to application/json)
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [SambaDomainOutput]
     def ldapservers_samba_domains_post(ldapserver_id, opts = {})
       data, _status_code, _headers = ldapservers_samba_domains_post_with_http_info(ldapserver_id, opts)
@@ -313,7 +313,7 @@ module JCAPIv2
     # @option opts [SambaDomainInput] :body 
     # @option opts [String] :content_type  (default to application/json)
     # @option opts [String] :accept  (default to application/json)
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [SambaDomainOutput]
     def ldapservers_samba_domains_put(ldapserver_id, id, opts = {})
       data, _status_code, _headers = ldapservers_samba_domains_put_with_http_info(ldapserver_id, id, opts)

@@ -21,7 +21,7 @@ module JCAPIv2
     end
 
     # List the User Group's parents
-    # This endpoint returns all User Groups a User Group is a member of.  #### Sample Request ``` https://console.jumpcloud.com/api/v2/usergroups/{group_id}/membersof ```  Not public yet, as the code is not finished,
+    # This endpoint returns all User Groups a User Group is a member of.  #### Sample Request ``` https://console.jumpcloud.com/api/v2/usergroups/{group_id}/memberof ```  Not public yet, as the code is not finished,
     # @param group_id ObjectID of the User Group.
     # @param content_type 
     # @param accept 
@@ -30,7 +30,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_group_member_of(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_member_of_with_http_info(group_id, content_type, accept, opts)
@@ -38,7 +38,7 @@ module JCAPIv2
     end
 
     # List the User Group&#39;s parents
-    # This endpoint returns all User Groups a User Group is a member of.  #### Sample Request &#x60;&#x60;&#x60; https://console.jumpcloud.com/api/v2/usergroups/{group_id}/membersof &#x60;&#x60;&#x60;  Not public yet, as the code is not finished,
+    # This endpoint returns all User Groups a User Group is a member of.  #### Sample Request &#x60;&#x60;&#x60; https://console.jumpcloud.com/api/v2/usergroups/{group_id}/memberof &#x60;&#x60;&#x60;  Not public yet, as the code is not finished,
     # @param group_id ObjectID of the User Group.
     # @param content_type 
     # @param accept 
@@ -112,7 +112,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Array<GraphConnection>]
     def graph_user_group_members_list(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_members_list_with_http_info(group_id, content_type, accept, opts)
@@ -189,7 +189,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [UserGroupMembersReq] :body 
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [nil]
     def graph_user_group_members_post(group_id, content_type, accept, opts = {})
       graph_user_group_members_post_with_http_info(group_id, content_type, accept, opts)
@@ -265,7 +265,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_group_membership(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_membership_with_http_info(group_id, content_type, accept, opts)

@@ -34,7 +34,7 @@ describe 'FdeApi' do
 
   # unit tests for systems_get_fde_key
   # Get System FDE Key
-  # Public is OFF on purpose, this is not intended to be published  Retrieve the current (latest) fde key saved for this system.
+  # This endpoint will return the current (latest) fde key saved for a system.
   # @param system_id 
   # @param [Hash] opts the optional parameters
   # @return [InlineResponse200]

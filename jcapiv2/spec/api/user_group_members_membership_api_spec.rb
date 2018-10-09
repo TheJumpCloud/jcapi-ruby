@@ -34,7 +34,7 @@ describe 'UserGroupMembersMembershipApi' do
 
   # unit tests for graph_user_group_member_of
   # List the User Group&#39;s parents
-  # This endpoint returns all User Groups a User Group is a member of.  #### Sample Request &#x60;&#x60;&#x60; https://console.jumpcloud.com/api/v2/usergroups/{group_id}/membersof &#x60;&#x60;&#x60;  Not public yet, as the code is not finished,
+  # This endpoint returns all User Groups a User Group is a member of.  #### Sample Request &#x60;&#x60;&#x60; https://console.jumpcloud.com/api/v2/usergroups/{group_id}/memberof &#x60;&#x60;&#x60;  Not public yet, as the code is not finished,
   # @param group_id ObjectID of the User Group.
   # @param content_type 
   # @param accept 

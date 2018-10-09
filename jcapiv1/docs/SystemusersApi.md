@@ -38,7 +38,7 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
  **id** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -94,7 +94,7 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
  **id** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -152,7 +152,7 @@ accept = "application/json" # String |
 
 opts = { 
   body: JCAPIv1::Sshkeypost.new, # Sshkeypost | 
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Sshkeypost**](Sshkeypost.md)|  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -217,7 +217,7 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
  **id** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -282,7 +282,7 @@ accept = "application/json" # String |
 
 opts = { 
   fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -302,7 +302,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  | [optional] [default to ]
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -350,7 +350,7 @@ opts = {
   sort: "", # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
   fields: "", # String | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
   filter: "", # String | 
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -373,7 +373,7 @@ Name | Type | Description  | Notes
  **sort** | **String**| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
  **fields** | **String**| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to ]
  **filter** | **String**|  | [optional] [default to ]
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -417,7 +417,7 @@ accept = "application/json" # String |
 
 opts = { 
   body: JCAPIv1::Systemuserputpost.new, # Systemuserputpost | 
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -436,7 +436,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Systemuserputpost**](Systemuserputpost.md)|  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -482,7 +482,7 @@ accept = "application/json" # String |
 
 opts = { 
   body: JCAPIv1::Systemuserput.new, # Systemuserput | 
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -502,7 +502,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Systemuserput**](Systemuserput.md)|  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -545,7 +545,7 @@ id = "id_example" # String |
 x_api_key = "x_api_key_example" # String | 
 
 opts = { 
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -563,7 +563,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  | 
  **x_api_key** | **String**|  | 
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -612,7 +612,7 @@ opts = {
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
   sort: "" # String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -635,7 +635,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -681,7 +681,7 @@ accept = "application/json" # String |
 
 opts = { 
   body: JCAPIv1::Usersystembindingsput.new, # Usersystembindingsput | 
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -701,7 +701,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Usersystembindingsput**](Usersystembindingsput.md)|  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 

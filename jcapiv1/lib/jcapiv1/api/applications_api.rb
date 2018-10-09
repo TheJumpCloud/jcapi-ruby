@@ -25,11 +25,11 @@ module JCAPIv1
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :fields The comma separated fileds included in the returned records. If omitted the default list of fields will be returned.
+    # @option opts [String] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.
     # @option opts [Integer] :limit The number of records to return at once.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :sort  (default to The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending.)
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Applicationslist]
     def applications_list(content_type, accept, opts = {})
       data, _status_code, _headers = applications_list_with_http_info(content_type, accept, opts)
@@ -41,7 +41,7 @@ module JCAPIv1
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :fields The comma separated fileds included in the returned records. If omitted the default list of fields will be returned.
+    # @option opts [String] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.
     # @option opts [Integer] :limit The number of records to return at once.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :sort 

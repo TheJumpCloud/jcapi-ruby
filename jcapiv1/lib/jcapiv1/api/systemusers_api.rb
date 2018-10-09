@@ -26,7 +26,7 @@ module JCAPIv1
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [nil]
     def sshkey_delete(id, content_type, accept, opts = {})
       sshkey_delete_with_http_info(id, content_type, accept, opts)
@@ -97,7 +97,7 @@ module JCAPIv1
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Sshkeylist]
     def sshkey_list(id, content_type, accept, opts = {})
       data, _status_code, _headers = sshkey_list_with_http_info(id, content_type, accept, opts)
@@ -170,7 +170,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Sshkeypost] :body 
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Sshkeylist]
     def sshkey_post(id, content_type, accept, opts = {})
       data, _status_code, _headers = sshkey_post_with_http_info(id, content_type, accept, opts)
@@ -243,7 +243,7 @@ module JCAPIv1
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Systemuserreturn]
     def systemusers_delete(id, content_type, accept, opts = {})
       data, _status_code, _headers = systemusers_delete_with_http_info(id, content_type, accept, opts)
@@ -316,7 +316,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (default to )
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Systemuserreturn]
     def systemusers_get(id, content_type, accept, opts = {})
       data, _status_code, _headers = systemusers_get_with_http_info(id, content_type, accept, opts)
@@ -394,7 +394,7 @@ module JCAPIv1
     # @option opts [String] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (default to )
     # @option opts [String] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (default to )
     # @option opts [String] :filter  (default to )
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Systemuserslist]
     def systemusers_list(content_type, accept, opts = {})
       data, _status_code, _headers = systemusers_list_with_http_info(content_type, accept, opts)
@@ -471,7 +471,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Systemuserputpost] :body 
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Systemuserreturn]
     def systemusers_post(content_type, accept, opts = {})
       data, _status_code, _headers = systemusers_post_with_http_info(content_type, accept, opts)
@@ -540,7 +540,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Systemuserput] :body 
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Systemuserreturn]
     def systemusers_put(id, content_type, accept, opts = {})
       data, _status_code, _headers = systemusers_put_with_http_info(id, content_type, accept, opts)
@@ -612,7 +612,7 @@ module JCAPIv1
     # @param id 
     # @param x_api_key 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [String]
     def systemusers_resetmfa(id, x_api_key, opts = {})
       data, _status_code, _headers = systemusers_resetmfa_with_http_info(id, x_api_key, opts)
@@ -682,7 +682,7 @@ module JCAPIv1
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (default to )
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Object]
     def systemusers_systems_binding_list(id, content_type, accept, opts = {})
       data, _status_code, _headers = systemusers_systems_binding_list_with_http_info(id, content_type, accept, opts)
@@ -763,7 +763,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Usersystembindingsput] :body 
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Usersystembinding]
     def systemusers_systems_binding_put(id, content_type, accept, opts = {})
       data, _status_code, _headers = systemusers_systems_binding_put_with_http_info(id, content_type, accept, opts)

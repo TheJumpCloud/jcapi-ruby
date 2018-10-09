@@ -29,7 +29,7 @@ module JCAPIv1
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (default to )
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Radiusserverslist]
     def radius_servers_list(content_type, accept, opts = {})
       data, _status_code, _headers = radius_servers_list_with_http_info(content_type, accept, opts)
@@ -104,7 +104,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Radiusserverpost] :body 
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Radiusserverslist]
     def radius_servers_post(content_type, accept, opts = {})
       data, _status_code, _headers = radius_servers_post_with_http_info(content_type, accept, opts)
@@ -172,7 +172,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Body] :body 
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Radiusserverput]
     def radius_servers_put(content_type, accept, opts = {})
       data, _status_code, _headers = radius_servers_put_with_http_info(content_type, accept, opts)

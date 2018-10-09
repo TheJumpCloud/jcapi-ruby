@@ -29,7 +29,7 @@ module JCAPIv1
     # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (default to )
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Commandfilereturn]
     def command_file_get(id, content_type, accept, opts = {})
       data, _status_code, _headers = command_file_get_with_http_info(id, content_type, accept, opts)
@@ -107,7 +107,7 @@ module JCAPIv1
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [nil]
     def commands_delete(id, content_type, accept, opts = {})
       commands_delete_with_http_info(id, content_type, accept, opts)
@@ -179,7 +179,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (default to )
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Command]
     def commands_get(id, content_type, accept, opts = {})
       data, _status_code, _headers = commands_get_with_http_info(id, content_type, accept, opts)
@@ -256,7 +256,7 @@ module JCAPIv1
     # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (default to )
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (default to )
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Commandslist]
     def commands_list(content_type, accept, opts = {})
       data, _status_code, _headers = commands_list_with_http_info(content_type, accept, opts)
@@ -331,7 +331,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Command] :body 
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Command]
     def commands_post(content_type, accept, opts = {})
       data, _status_code, _headers = commands_post_with_http_info(content_type, accept, opts)
@@ -400,7 +400,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Command] :body 
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Command]
     def commands_put(id, content_type, accept, opts = {})
       data, _status_code, _headers = commands_put_with_http_info(id, content_type, accept, opts)

@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 **attributes** | **Array&lt;Object&gt;** |  | [optional] 
 **created** | **String** |  | [optional] 
 **samba_service_user** | **BOOLEAN** |  | [optional] 
-**id** | **String** |  | [optional] 
+**_id** | **String** |  | [optional] 
 **organization** | **String** |  | [optional] 
 **addresses** | [**Array&lt;SystemuserreturnAddresses&gt;**](SystemuserreturnAddresses.md) |  | [optional] 
 **job_title** | **String** |  | [optional] 

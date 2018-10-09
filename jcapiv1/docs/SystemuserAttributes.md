@@ -1,9 +1,8 @@
-# JCAPIv1::Search
+# JCAPIv1::SystemuserAttributes
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**filter** | **Object** |  | [optional] 
-**fields** | **String** |  | [optional] 
+**** | **String** |  | [optional] 
 
 

@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **associated_tag_count** | **Integer** |  | [optional] 
 **totp_enabled** | **BOOLEAN** |  | [optional] 
 **password_expiration_date** | **String** |  | [optional] 
-**attributes** | **Array&lt;Object&gt;** |  | [optional] 
+**attributes** | [**Array&lt;SystemuserAttributes&gt;**](SystemuserAttributes.md) |  | [optional] 
 **created** | **String** |  | [optional] 
 **samba_service_user** | **BOOLEAN** |  | [optional] 
 **password_never_expires** | **BOOLEAN** |  | [optional] 

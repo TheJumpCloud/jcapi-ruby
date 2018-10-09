@@ -15,7 +15,7 @@ require 'date'
 module JCAPIv1
 
   class Organizationslist
-    # The total of organizations. 
+    # The total number of organizations. 
     attr_accessor :total_count
 
     # The list of organizations.

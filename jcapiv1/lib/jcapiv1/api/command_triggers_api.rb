@@ -26,7 +26,7 @@ module JCAPIv1
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [nil]
     def command_trigger_webhook_post(triggername, content_type, accept, opts = {})
       command_trigger_webhook_post_with_http_info(triggername, content_type, accept, opts)

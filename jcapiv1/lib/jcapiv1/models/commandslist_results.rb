@@ -24,7 +24,7 @@ module JCAPIv1
     # The Command OS.
     attr_accessor :command_type
 
-    # How the Command is excecuted.
+    # How the Command is executed.
     attr_accessor :launch_type
 
     # 

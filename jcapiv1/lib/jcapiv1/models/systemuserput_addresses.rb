@@ -14,9 +14,7 @@ require 'date'
 
 module JCAPIv1
 
-  class SystemuserreturnAddresses
-    attr_accessor :id
-
+  class SystemuserputAddresses
     attr_accessor :type
 
     attr_accessor :po_box
@@ -37,7 +35,6 @@ module JCAPIv1
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
         :'type' => :'type',
         :'po_box' => :'poBox',
         :'extended_address' => :'extendedAddress',
@@ -52,7 +49,6 @@ module JCAPIv1
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'String',
         :'type' => :'String',
         :'po_box' => :'String',
         :'extended_address' => :'String',
@@ -71,10 +67,6 @@ module JCAPIv1
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
-
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
 
       if attributes.has_key?(:'type')
         self.type = attributes[:'type']
@@ -256,7 +248,6 @@ module JCAPIv1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
           type == o.type &&
           po_box == o.po_box &&
           extended_address == o.extended_address &&
@@ -276,7 +267,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, type, po_box, extended_address, street_address, locality, region, postal_code, country].hash
+      [type, po_box, extended_address, street_address, locality, region, postal_code, country].hash
     end
 
     # Builds the object from hash

@@ -31,7 +31,7 @@ module JCAPIv1
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'filter' => :'String',
+        :'filter' => :'Object',
         :'fields' => :'String'
       }
     end

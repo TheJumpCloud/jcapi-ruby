@@ -66,13 +66,45 @@ module JCAPIv1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@type.nil? && @type.to_s.length > 1024
+        invalid_properties.push("invalid value for 'type', the character length must be smaller than or equal to 1024.")
+      end
+
+      if !@number.nil? && @number.to_s.length > 1024
+        invalid_properties.push("invalid value for 'number', the character length must be smaller than or equal to 1024.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@type.nil? && @type.to_s.length > 1024
+      return false if !@number.nil? && @number.to_s.length > 1024
       return true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] type Value to be assigned
+    def type=(type)
+
+      if !type.nil? && type.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'type', the character length must be smaller than or equal to 1024."
+      end
+
+      @type = type
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] number Value to be assigned
+    def number=(number)
+
+      if !number.nil? && number.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'number', the character length must be smaller than or equal to 1024."
+      end
+
+      @number = number
     end
 
     # Checks equality by comparing each attribute.

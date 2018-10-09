@@ -347,6 +347,10 @@ module JCAPIv1
         invalid_properties.push("invalid value for 'email', email cannot be nil.")
       end
 
+      if @email.to_s.length > 1024
+        invalid_properties.push("invalid value for 'email', the character length must be smaller than or equal to 1024.")
+      end
+
       if @username.nil?
         invalid_properties.push("invalid value for 'username', username cannot be nil.")
       end
@@ -374,12 +378,27 @@ module JCAPIv1
     # @return true if the model is valid
     def valid?
       return false if @email.nil?
+      return false if @email.to_s.length > 1024
       return false if @username.nil?
       return false if !@unix_uid.nil? && @unix_uid < 0
       return false if !@unix_guid.nil? && @unix_guid < 0
       return false if !@description.nil? && @description.to_s.length > 1024
       return false if !@employee_identifier.nil? && @employee_identifier.to_s.length > 256
       return true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] email Value to be assigned
+    def email=(email)
+      if email.nil?
+        fail ArgumentError, "email cannot be nil"
+      end
+
+      if email.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'email', the character length must be smaller than or equal to 1024."
+      end
+
+      @email = email
     end
 
     # Custom attribute writer method with validation

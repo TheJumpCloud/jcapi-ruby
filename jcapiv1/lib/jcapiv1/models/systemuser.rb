@@ -167,7 +167,7 @@ module JCAPIv1
         :'associated_tag_count' => :'Integer',
         :'totp_enabled' => :'BOOLEAN',
         :'password_expiration_date' => :'String',
-        :'attributes' => :'Array<Object>',
+        :'attributes' => :'Array<SystemuserAttributes>',
         :'created' => :'String',
         :'samba_service_user' => :'BOOLEAN',
         :'password_never_expires' => :'BOOLEAN',
@@ -361,6 +361,14 @@ module JCAPIv1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@email.nil? && @email.to_s.length > 1024
+        invalid_properties.push("invalid value for 'email', the character length must be smaller than or equal to 1024.")
+      end
+
+      if !@username.nil? && @username.to_s.length > 1024
+        invalid_properties.push("invalid value for 'username', the character length must be smaller than or equal to 1024.")
+      end
+
       if !@unix_uid.nil? && @unix_uid < 0
         invalid_properties.push("invalid value for 'unix_uid', must be greater than or equal to 0.")
       end
@@ -369,16 +377,56 @@ module JCAPIv1
         invalid_properties.push("invalid value for 'unix_guid', must be greater than or equal to 0.")
       end
 
+      if !@firstname.nil? && @firstname.to_s.length > 1024
+        invalid_properties.push("invalid value for 'firstname', the character length must be smaller than or equal to 1024.")
+      end
+
+      if !@lastname.nil? && @lastname.to_s.length > 1024
+        invalid_properties.push("invalid value for 'lastname', the character length must be smaller than or equal to 1024.")
+      end
+
       if !@associated_tag_count.nil? && @associated_tag_count < 0
         invalid_properties.push("invalid value for 'associated_tag_count', must be greater than or equal to 0.")
+      end
+
+      if !@middlename.nil? && @middlename.to_s.length > 1024
+        invalid_properties.push("invalid value for 'middlename', the character length must be smaller than or equal to 1024.")
+      end
+
+      if !@displayname.nil? && @displayname.to_s.length > 1024
+        invalid_properties.push("invalid value for 'displayname', the character length must be smaller than or equal to 1024.")
       end
 
       if !@description.nil? && @description.to_s.length > 1024
         invalid_properties.push("invalid value for 'description', the character length must be smaller than or equal to 1024.")
       end
 
+      if !@location.nil? && @location.to_s.length > 1024
+        invalid_properties.push("invalid value for 'location', the character length must be smaller than or equal to 1024.")
+      end
+
+      if !@cost_center.nil? && @cost_center.to_s.length > 1024
+        invalid_properties.push("invalid value for 'cost_center', the character length must be smaller than or equal to 1024.")
+      end
+
+      if !@employee_type.nil? && @employee_type.to_s.length > 1024
+        invalid_properties.push("invalid value for 'employee_type', the character length must be smaller than or equal to 1024.")
+      end
+
+      if !@company.nil? && @company.to_s.length > 1024
+        invalid_properties.push("invalid value for 'company', the character length must be smaller than or equal to 1024.")
+      end
+
       if !@employee_identifier.nil? && @employee_identifier.to_s.length > 256
         invalid_properties.push("invalid value for 'employee_identifier', the character length must be smaller than or equal to 256.")
+      end
+
+      if !@job_title.nil? && @job_title.to_s.length > 1024
+        invalid_properties.push("invalid value for 'job_title', the character length must be smaller than or equal to 1024.")
+      end
+
+      if !@department.nil? && @department.to_s.length > 1024
+        invalid_properties.push("invalid value for 'department', the character length must be smaller than or equal to 1024.")
       end
 
       return invalid_properties
@@ -387,12 +435,46 @@ module JCAPIv1
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@email.nil? && @email.to_s.length > 1024
+      return false if !@username.nil? && @username.to_s.length > 1024
       return false if !@unix_uid.nil? && @unix_uid < 0
       return false if !@unix_guid.nil? && @unix_guid < 0
+      return false if !@firstname.nil? && @firstname.to_s.length > 1024
+      return false if !@lastname.nil? && @lastname.to_s.length > 1024
       return false if !@associated_tag_count.nil? && @associated_tag_count < 0
+      return false if !@middlename.nil? && @middlename.to_s.length > 1024
+      return false if !@displayname.nil? && @displayname.to_s.length > 1024
       return false if !@description.nil? && @description.to_s.length > 1024
+      return false if !@location.nil? && @location.to_s.length > 1024
+      return false if !@cost_center.nil? && @cost_center.to_s.length > 1024
+      return false if !@employee_type.nil? && @employee_type.to_s.length > 1024
+      return false if !@company.nil? && @company.to_s.length > 1024
       return false if !@employee_identifier.nil? && @employee_identifier.to_s.length > 256
+      return false if !@job_title.nil? && @job_title.to_s.length > 1024
+      return false if !@department.nil? && @department.to_s.length > 1024
       return true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] email Value to be assigned
+    def email=(email)
+
+      if !email.nil? && email.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'email', the character length must be smaller than or equal to 1024."
+      end
+
+      @email = email
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] username Value to be assigned
+    def username=(username)
+
+      if !username.nil? && username.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'username', the character length must be smaller than or equal to 1024."
+      end
+
+      @username = username
     end
 
     # Custom attribute writer method with validation
@@ -418,6 +500,28 @@ module JCAPIv1
     end
 
     # Custom attribute writer method with validation
+    # @param [Object] firstname Value to be assigned
+    def firstname=(firstname)
+
+      if !firstname.nil? && firstname.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'firstname', the character length must be smaller than or equal to 1024."
+      end
+
+      @firstname = firstname
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] lastname Value to be assigned
+    def lastname=(lastname)
+
+      if !lastname.nil? && lastname.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'lastname', the character length must be smaller than or equal to 1024."
+      end
+
+      @lastname = lastname
+    end
+
+    # Custom attribute writer method with validation
     # @param [Object] associated_tag_count Value to be assigned
     def associated_tag_count=(associated_tag_count)
 
@@ -426,6 +530,28 @@ module JCAPIv1
       end
 
       @associated_tag_count = associated_tag_count
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] middlename Value to be assigned
+    def middlename=(middlename)
+
+      if !middlename.nil? && middlename.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'middlename', the character length must be smaller than or equal to 1024."
+      end
+
+      @middlename = middlename
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] displayname Value to be assigned
+    def displayname=(displayname)
+
+      if !displayname.nil? && displayname.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'displayname', the character length must be smaller than or equal to 1024."
+      end
+
+      @displayname = displayname
     end
 
     # Custom attribute writer method with validation
@@ -440,6 +566,50 @@ module JCAPIv1
     end
 
     # Custom attribute writer method with validation
+    # @param [Object] location Value to be assigned
+    def location=(location)
+
+      if !location.nil? && location.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'location', the character length must be smaller than or equal to 1024."
+      end
+
+      @location = location
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] cost_center Value to be assigned
+    def cost_center=(cost_center)
+
+      if !cost_center.nil? && cost_center.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'cost_center', the character length must be smaller than or equal to 1024."
+      end
+
+      @cost_center = cost_center
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] employee_type Value to be assigned
+    def employee_type=(employee_type)
+
+      if !employee_type.nil? && employee_type.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'employee_type', the character length must be smaller than or equal to 1024."
+      end
+
+      @employee_type = employee_type
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] company Value to be assigned
+    def company=(company)
+
+      if !company.nil? && company.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'company', the character length must be smaller than or equal to 1024."
+      end
+
+      @company = company
+    end
+
+    # Custom attribute writer method with validation
     # @param [Object] employee_identifier Value to be assigned
     def employee_identifier=(employee_identifier)
 
@@ -448,6 +618,28 @@ module JCAPIv1
       end
 
       @employee_identifier = employee_identifier
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] job_title Value to be assigned
+    def job_title=(job_title)
+
+      if !job_title.nil? && job_title.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'job_title', the character length must be smaller than or equal to 1024."
+      end
+
+      @job_title = job_title
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] department Value to be assigned
+    def department=(department)
+
+      if !department.nil? && department.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'department', the character length must be smaller than or equal to 1024."
+      end
+
+      @department = department
     end
 
     # Checks equality by comparing each attribute.

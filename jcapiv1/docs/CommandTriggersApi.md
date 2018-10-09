@@ -35,7 +35,7 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  x_org_id: "<<your org id>>" # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
  **triggername** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to &lt;&lt;your org id&gt;&gt;]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 

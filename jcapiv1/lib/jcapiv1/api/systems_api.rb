@@ -28,7 +28,7 @@ module JCAPIv1
     # @param [Hash] opts the optional parameters
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [System]
     def systems_delete(id, content_type, accept, opts = {})
       data, _status_code, _headers = systems_delete_with_http_info(id, content_type, accept, opts)
@@ -107,7 +107,7 @@ module JCAPIv1
     # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (default to )
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [System]
     def systems_get(id, content_type, accept, opts = {})
       data, _status_code, _headers = systems_get_with_http_info(id, content_type, accept, opts)
@@ -188,7 +188,7 @@ module JCAPIv1
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (default to )
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Systemslist]
     def systems_list(content_type, accept, opts = {})
       data, _status_code, _headers = systems_list_with_http_info(content_type, accept, opts)
@@ -266,7 +266,7 @@ module JCAPIv1
     # @option opts [Systemput] :body 
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [nil]
     def systems_put(id, content_type, accept, opts = {})
       systems_put_with_http_info(id, content_type, accept, opts)
@@ -346,7 +346,7 @@ module JCAPIv1
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (default to )
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Systemuserbinding]
     def systems_systemusers_binding_list(id, content_type, accept, opts = {})
       data, _status_code, _headers = systems_systemusers_binding_list_with_http_info(id, content_type, accept, opts)
@@ -427,7 +427,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Systemuserbindingsput] :body 
-    # @option opts [String] :x_org_id  (default to <<your org id>>)
+    # @option opts [String] :x_org_id  (default to )
     # @return [nil]
     def systems_systemusers_binding_put(id, content_type, accept, opts = {})
       systems_systemusers_binding_put_with_http_info(id, content_type, accept, opts)

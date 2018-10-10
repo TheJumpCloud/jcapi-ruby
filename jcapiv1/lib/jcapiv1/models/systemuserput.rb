@@ -62,7 +62,6 @@ module JCAPIv1
 
     attr_accessor :department
 
-    # 
     attr_accessor :phone_numbers
 
     attr_accessor :relationships

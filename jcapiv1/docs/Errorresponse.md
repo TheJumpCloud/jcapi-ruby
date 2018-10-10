@@ -1,4 +1,4 @@
-# JCAPIv1::InlineResponse400
+# JCAPIv1::Errorresponse
 
 ## Properties
 Name | Type | Description | Notes

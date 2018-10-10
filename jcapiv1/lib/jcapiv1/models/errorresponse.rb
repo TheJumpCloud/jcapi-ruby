@@ -14,7 +14,7 @@ require 'date'
 
 module JCAPIv1
 
-  class InlineResponse400
+  class Errorresponse
     attr_accessor :message
 
 

@@ -57,14 +57,12 @@ module JCAPIv2
 
     attr_accessor :samba_service_user
 
-    # 
     attr_accessor :addresses
 
     attr_accessor :job_title
 
     attr_accessor :department
 
-    # 
     attr_accessor :phone_numbers
 
     attr_accessor :relationships

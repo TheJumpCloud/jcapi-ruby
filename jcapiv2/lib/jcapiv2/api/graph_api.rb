@@ -663,10 +663,10 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [GraphManagementReq] :body 
     # @option opts [String] :x_org_id  (default to )
-    # @return [InlineResponse204]
+    # @return [nil]
     def graph_command_associations_post(command_id, content_type, accept, opts = {})
-      data, _status_code, _headers = graph_command_associations_post_with_http_info(command_id, content_type, accept, opts)
-      return data
+      graph_command_associations_post_with_http_info(command_id, content_type, accept, opts)
+      return nil
     end
 
     # Manage the associations of a Command
@@ -677,7 +677,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [GraphManagementReq] :body 
     # @option opts [String] :x_org_id 
-    # @return [Array<(InlineResponse204, Fixnum, Hash)>] InlineResponse204 data, response status code and response headers
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def graph_command_associations_post_with_http_info(command_id, content_type, accept, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: GraphApi.graph_command_associations_post ..."
@@ -721,8 +721,7 @@ module JCAPIv2
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'InlineResponse204')
+        :auth_names => auth_names)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: GraphApi#graph_command_associations_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

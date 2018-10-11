@@ -1,8 +1,8 @@
-# JCAPIv2::InlineResponse400
+# JCAPIv2::Systemfdekey
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **String** |  | [optional] 
+**key** | **String** |  | 
 
 

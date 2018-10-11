@@ -1,8 +1,8 @@
-# JCAPIv2::InlineResponse204
+# JCAPIv2::Errorresponse
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] 
+**message** | **String** |  | [optional] 
 
 

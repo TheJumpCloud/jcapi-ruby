@@ -14,21 +14,21 @@ require 'date'
 
 module JCAPIv2
 
-  class InlineResponse200
-    attr_accessor :key
+  class Errorresponse
+    attr_accessor :message
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'key' => :'key'
+        :'message' => :'message'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'key' => :'String'
+        :'message' => :'String'
       }
     end
 
@@ -40,8 +40,8 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'key')
-        self.key = attributes[:'key']
+      if attributes.has_key?(:'message')
+        self.message = attributes[:'message']
       end
 
     end
@@ -50,17 +50,12 @@ module JCAPIv2
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @key.nil?
-        invalid_properties.push("invalid value for 'key', key cannot be nil.")
-      end
-
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @key.nil?
       return true
     end
 
@@ -69,7 +64,7 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          key == o.key
+          message == o.message
     end
 
     # @see the `==` method
@@ -81,7 +76,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [key].hash
+      [message].hash
     end
 
     # Builds the object from hash

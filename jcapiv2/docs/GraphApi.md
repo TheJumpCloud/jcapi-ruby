@@ -629,7 +629,7 @@ Name | Type | Description  | Notes
 
 
 # **graph_command_associations_post**
-> InlineResponse204 graph_command_associations_post(command_id, content_type, accept, opts)
+> graph_command_associations_post(command_id, content_type, accept, opts)
 
 Manage the associations of a Command
 
@@ -662,8 +662,7 @@ opts = {
 
 begin
   #Manage the associations of a Command
-  result = api_instance.graph_command_associations_post(command_id, content_type, accept, opts)
-  p result
+  api_instance.graph_command_associations_post(command_id, content_type, accept, opts)
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling GraphApi->graph_command_associations_post: #{e}"
 end
@@ -681,7 +680,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse204**](InlineResponse204.md)
+nil (empty response body)
 
 ### Authorization
 

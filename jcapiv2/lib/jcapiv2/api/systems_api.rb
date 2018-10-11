@@ -608,7 +608,7 @@ module JCAPIv2
     # This endpoint will return the current (latest) fde key saved for a system.
     # @param system_id 
     # @param [Hash] opts the optional parameters
-    # @return [InlineResponse200]
+    # @return [Systemfdekey]
     def systems_get_fde_key(system_id, opts = {})
       data, _status_code, _headers = systems_get_fde_key_with_http_info(system_id, opts)
       return data
@@ -618,7 +618,7 @@ module JCAPIv2
     # This endpoint will return the current (latest) fde key saved for a system.
     # @param system_id 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(InlineResponse200, Fixnum, Hash)>] InlineResponse200 data, response status code and response headers
+    # @return [Array<(Systemfdekey, Fixnum, Hash)>] Systemfdekey data, response status code and response headers
     def systems_get_fde_key_with_http_info(system_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemsApi.systems_get_fde_key ..."
@@ -652,7 +652,7 @@ module JCAPIv2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse200')
+        :return_type => 'Systemfdekey')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SystemsApi#systems_get_fde_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

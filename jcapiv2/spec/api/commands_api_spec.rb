@@ -59,7 +59,7 @@ describe 'CommandsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [GraphManagementReq] :body 
   # @option opts [String] :x_org_id 
-  # @return [InlineResponse204]
+  # @return [nil]
   describe 'graph_command_associations_post test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

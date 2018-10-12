@@ -39,6 +39,7 @@ opts = {
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
   sort: "" # String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -60,6 +61,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -102,7 +104,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: JCAPIv1::Radiusserverpost.new # Radiusserverpost | 
+  body: JCAPIv1::Radiusserverpost.new, # Radiusserverpost | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -121,6 +124,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Radiusserverpost**](Radiusserverpost.md)|  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -163,7 +167,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: JCAPIv1::Body.new # Body | 
+  body: JCAPIv1::Body.new, # Body | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -182,6 +187,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Body**](Body.md)|  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 

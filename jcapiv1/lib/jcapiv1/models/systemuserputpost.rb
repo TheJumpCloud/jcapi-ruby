@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+# JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
 
 OpenAPI spec version: 1.0
 
@@ -71,6 +71,23 @@ module JCAPIv1
 
     attr_accessor :password_never_expires
 
+    attr_accessor :middlename
+
+    attr_accessor :displayname
+
+    attr_accessor :description
+
+    attr_accessor :location
+
+    attr_accessor :cost_center
+
+    attr_accessor :employee_type
+
+    attr_accessor :company
+
+    # Must be unique per user. 
+    attr_accessor :employee_identifier
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -102,7 +119,15 @@ module JCAPIv1
         :'phone_numbers' => :'phoneNumbers',
         :'relationships' => :'relationships',
         :'password' => :'password',
-        :'password_never_expires' => :'password_never_expires'
+        :'password_never_expires' => :'password_never_expires',
+        :'middlename' => :'middlename',
+        :'displayname' => :'displayname',
+        :'description' => :'description',
+        :'location' => :'location',
+        :'cost_center' => :'costCenter',
+        :'employee_type' => :'employeeType',
+        :'company' => :'company',
+        :'employee_identifier' => :'employeeIdentifier'
       }
     end
 
@@ -130,13 +155,21 @@ module JCAPIv1
         :'enable_user_portal_multifactor' => :'BOOLEAN',
         :'attributes' => :'Array<Object>',
         :'samba_service_user' => :'BOOLEAN',
-        :'addresses' => :'Array<String>',
+        :'addresses' => :'Array<SystemuserputpostAddresses>',
         :'job_title' => :'String',
         :'department' => :'String',
-        :'phone_numbers' => :'Array<String>',
+        :'phone_numbers' => :'Array<SystemuserputpostPhoneNumbers>',
         :'relationships' => :'Array<Object>',
         :'password' => :'String',
-        :'password_never_expires' => :'BOOLEAN'
+        :'password_never_expires' => :'BOOLEAN',
+        :'middlename' => :'String',
+        :'displayname' => :'String',
+        :'description' => :'String',
+        :'location' => :'String',
+        :'cost_center' => :'String',
+        :'employee_type' => :'String',
+        :'company' => :'String',
+        :'employee_identifier' => :'String'
       }
     end
 
@@ -270,6 +303,38 @@ module JCAPIv1
         self.password_never_expires = attributes[:'password_never_expires']
       end
 
+      if attributes.has_key?(:'middlename')
+        self.middlename = attributes[:'middlename']
+      end
+
+      if attributes.has_key?(:'displayname')
+        self.displayname = attributes[:'displayname']
+      end
+
+      if attributes.has_key?(:'description')
+        self.description = attributes[:'description']
+      end
+
+      if attributes.has_key?(:'location')
+        self.location = attributes[:'location']
+      end
+
+      if attributes.has_key?(:'costCenter')
+        self.cost_center = attributes[:'costCenter']
+      end
+
+      if attributes.has_key?(:'employeeType')
+        self.employee_type = attributes[:'employeeType']
+      end
+
+      if attributes.has_key?(:'company')
+        self.company = attributes[:'company']
+      end
+
+      if attributes.has_key?(:'employeeIdentifier')
+        self.employee_identifier = attributes[:'employeeIdentifier']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -278,6 +343,10 @@ module JCAPIv1
       invalid_properties = Array.new
       if @email.nil?
         invalid_properties.push("invalid value for 'email', email cannot be nil.")
+      end
+
+      if @email.to_s.length > 1024
+        invalid_properties.push("invalid value for 'email', the character length must be smaller than or equal to 1024.")
       end
 
       if @username.nil?
@@ -292,6 +361,14 @@ module JCAPIv1
         invalid_properties.push("invalid value for 'unix_guid', must be greater than or equal to 0.")
       end
 
+      if !@description.nil? && @description.to_s.length > 1024
+        invalid_properties.push("invalid value for 'description', the character length must be smaller than or equal to 1024.")
+      end
+
+      if !@employee_identifier.nil? && @employee_identifier.to_s.length > 256
+        invalid_properties.push("invalid value for 'employee_identifier', the character length must be smaller than or equal to 256.")
+      end
+
       return invalid_properties
     end
 
@@ -299,10 +376,27 @@ module JCAPIv1
     # @return true if the model is valid
     def valid?
       return false if @email.nil?
+      return false if @email.to_s.length > 1024
       return false if @username.nil?
       return false if !@unix_uid.nil? && @unix_uid < 0
       return false if !@unix_guid.nil? && @unix_guid < 0
+      return false if !@description.nil? && @description.to_s.length > 1024
+      return false if !@employee_identifier.nil? && @employee_identifier.to_s.length > 256
       return true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] email Value to be assigned
+    def email=(email)
+      if email.nil?
+        fail ArgumentError, "email cannot be nil"
+      end
+
+      if email.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'email', the character length must be smaller than or equal to 1024."
+      end
+
+      @email = email
     end
 
     # Custom attribute writer method with validation
@@ -325,6 +419,28 @@ module JCAPIv1
       end
 
       @unix_guid = unix_guid
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] description Value to be assigned
+    def description=(description)
+
+      if !description.nil? && description.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'description', the character length must be smaller than or equal to 1024."
+      end
+
+      @description = description
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] employee_identifier Value to be assigned
+    def employee_identifier=(employee_identifier)
+
+      if !employee_identifier.nil? && employee_identifier.to_s.length > 256
+        fail ArgumentError, "invalid value for 'employee_identifier', the character length must be smaller than or equal to 256."
+      end
+
+      @employee_identifier = employee_identifier
     end
 
     # Checks equality by comparing each attribute.
@@ -359,7 +475,15 @@ module JCAPIv1
           phone_numbers == o.phone_numbers &&
           relationships == o.relationships &&
           password == o.password &&
-          password_never_expires == o.password_never_expires
+          password_never_expires == o.password_never_expires &&
+          middlename == o.middlename &&
+          displayname == o.displayname &&
+          description == o.description &&
+          location == o.location &&
+          cost_center == o.cost_center &&
+          employee_type == o.employee_type &&
+          company == o.company &&
+          employee_identifier == o.employee_identifier
     end
 
     # @see the `==` method
@@ -371,7 +495,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [email, username, allow_public_key, public_key, sudo, enable_managed_uid, unix_uid, unix_guid, activated, tags, account_locked, passwordless_sudo, externally_managed, external_dn, external_source_type, firstname, lastname, ldap_binding_user, enable_user_portal_multifactor, attributes, samba_service_user, addresses, job_title, department, phone_numbers, relationships, password, password_never_expires].hash
+      [email, username, allow_public_key, public_key, sudo, enable_managed_uid, unix_uid, unix_guid, activated, tags, account_locked, passwordless_sudo, externally_managed, external_dn, external_source_type, firstname, lastname, ldap_binding_user, enable_user_portal_multifactor, attributes, samba_service_user, addresses, job_title, department, phone_numbers, relationships, password, password_never_expires, middlename, displayname, description, location, cost_center, employee_type, company, employee_identifier].hash
     end
 
     # Builds the object from hash

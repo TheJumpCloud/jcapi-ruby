@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+# JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
 
 OpenAPI spec version: 1.0
 
@@ -65,7 +65,7 @@ module JCAPIv1
 
     attr_accessor :samba_service_user
 
-    attr_accessor :id
+    attr_accessor :_id
 
     attr_accessor :organization
 
@@ -82,6 +82,23 @@ module JCAPIv1
     attr_accessor :bad_login_attempts
 
     attr_accessor :password_never_expires
+
+    attr_accessor :middlename
+
+    attr_accessor :displayname
+
+    attr_accessor :description
+
+    attr_accessor :location
+
+    attr_accessor :cost_center
+
+    attr_accessor :employee_type
+
+    attr_accessor :company
+
+    # Must be unique per user. 
+    attr_accessor :employee_identifier
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -112,7 +129,7 @@ module JCAPIv1
         :'attributes' => :'attributes',
         :'created' => :'created',
         :'samba_service_user' => :'samba_service_user',
-        :'id' => :'id',
+        :'_id' => :'_id',
         :'organization' => :'organization',
         :'addresses' => :'addresses',
         :'job_title' => :'jobTitle',
@@ -120,7 +137,15 @@ module JCAPIv1
         :'phone_numbers' => :'phoneNumbers',
         :'relationships' => :'relationships',
         :'bad_login_attempts' => :'badLoginAttempts',
-        :'password_never_expires' => :'password_never_expires'
+        :'password_never_expires' => :'password_never_expires',
+        :'middlename' => :'middlename',
+        :'displayname' => :'displayname',
+        :'description' => :'description',
+        :'location' => :'location',
+        :'cost_center' => :'costCenter',
+        :'employee_type' => :'employeeType',
+        :'company' => :'company',
+        :'employee_identifier' => :'employeeIdentifier'
       }
     end
 
@@ -131,7 +156,7 @@ module JCAPIv1
         :'username' => :'String',
         :'allow_public_key' => :'BOOLEAN',
         :'public_key' => :'String',
-        :'ssh_keys' => :'Array<String>',
+        :'ssh_keys' => :'Array<Sshkeylist>',
         :'sudo' => :'BOOLEAN',
         :'enable_managed_uid' => :'BOOLEAN',
         :'unix_uid' => :'Integer',
@@ -152,15 +177,23 @@ module JCAPIv1
         :'attributes' => :'Array<Object>',
         :'created' => :'String',
         :'samba_service_user' => :'BOOLEAN',
-        :'id' => :'String',
+        :'_id' => :'String',
         :'organization' => :'String',
-        :'addresses' => :'Array<String>',
+        :'addresses' => :'Array<SystemuserreturnAddresses>',
         :'job_title' => :'String',
         :'department' => :'String',
-        :'phone_numbers' => :'Array<String>',
+        :'phone_numbers' => :'Array<SystemuserreturnPhoneNumbers>',
         :'relationships' => :'Array<Object>',
         :'bad_login_attempts' => :'Integer',
-        :'password_never_expires' => :'BOOLEAN'
+        :'password_never_expires' => :'BOOLEAN',
+        :'middlename' => :'String',
+        :'displayname' => :'String',
+        :'description' => :'String',
+        :'location' => :'String',
+        :'cost_center' => :'String',
+        :'employee_type' => :'String',
+        :'company' => :'String',
+        :'employee_identifier' => :'String'
       }
     end
 
@@ -278,8 +311,8 @@ module JCAPIv1
         self.samba_service_user = attributes[:'samba_service_user']
       end
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.has_key?(:'_id')
+        self._id = attributes[:'_id']
       end
 
       if attributes.has_key?(:'organization')
@@ -320,12 +353,52 @@ module JCAPIv1
         self.password_never_expires = attributes[:'password_never_expires']
       end
 
+      if attributes.has_key?(:'middlename')
+        self.middlename = attributes[:'middlename']
+      end
+
+      if attributes.has_key?(:'displayname')
+        self.displayname = attributes[:'displayname']
+      end
+
+      if attributes.has_key?(:'description')
+        self.description = attributes[:'description']
+      end
+
+      if attributes.has_key?(:'location')
+        self.location = attributes[:'location']
+      end
+
+      if attributes.has_key?(:'costCenter')
+        self.cost_center = attributes[:'costCenter']
+      end
+
+      if attributes.has_key?(:'employeeType')
+        self.employee_type = attributes[:'employeeType']
+      end
+
+      if attributes.has_key?(:'company')
+        self.company = attributes[:'company']
+      end
+
+      if attributes.has_key?(:'employeeIdentifier')
+        self.employee_identifier = attributes[:'employeeIdentifier']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@email.nil? && @email.to_s.length > 1024
+        invalid_properties.push("invalid value for 'email', the character length must be smaller than or equal to 1024.")
+      end
+
+      if !@username.nil? && @username.to_s.length > 1024
+        invalid_properties.push("invalid value for 'username', the character length must be smaller than or equal to 1024.")
+      end
+
       if !@unix_uid.nil? && @unix_uid < 0
         invalid_properties.push("invalid value for 'unix_uid', must be greater than or equal to 0.")
       end
@@ -334,8 +407,56 @@ module JCAPIv1
         invalid_properties.push("invalid value for 'unix_guid', must be greater than or equal to 0.")
       end
 
+      if !@firstname.nil? && @firstname.to_s.length > 1024
+        invalid_properties.push("invalid value for 'firstname', the character length must be smaller than or equal to 1024.")
+      end
+
+      if !@lastname.nil? && @lastname.to_s.length > 1024
+        invalid_properties.push("invalid value for 'lastname', the character length must be smaller than or equal to 1024.")
+      end
+
+      if !@job_title.nil? && @job_title.to_s.length > 1024
+        invalid_properties.push("invalid value for 'job_title', the character length must be smaller than or equal to 1024.")
+      end
+
+      if !@department.nil? && @department.to_s.length > 1024
+        invalid_properties.push("invalid value for 'department', the character length must be smaller than or equal to 1024.")
+      end
+
       if !@bad_login_attempts.nil? && @bad_login_attempts < 1
         invalid_properties.push("invalid value for 'bad_login_attempts', must be greater than or equal to 1.")
+      end
+
+      if !@middlename.nil? && @middlename.to_s.length > 1024
+        invalid_properties.push("invalid value for 'middlename', the character length must be smaller than or equal to 1024.")
+      end
+
+      if !@displayname.nil? && @displayname.to_s.length > 1024
+        invalid_properties.push("invalid value for 'displayname', the character length must be smaller than or equal to 1024.")
+      end
+
+      if !@description.nil? && @description.to_s.length > 1024
+        invalid_properties.push("invalid value for 'description', the character length must be smaller than or equal to 1024.")
+      end
+
+      if !@location.nil? && @location.to_s.length > 1024
+        invalid_properties.push("invalid value for 'location', the character length must be smaller than or equal to 1024.")
+      end
+
+      if !@cost_center.nil? && @cost_center.to_s.length > 1024
+        invalid_properties.push("invalid value for 'cost_center', the character length must be smaller than or equal to 1024.")
+      end
+
+      if !@employee_type.nil? && @employee_type.to_s.length > 1024
+        invalid_properties.push("invalid value for 'employee_type', the character length must be smaller than or equal to 1024.")
+      end
+
+      if !@company.nil? && @company.to_s.length > 1024
+        invalid_properties.push("invalid value for 'company', the character length must be smaller than or equal to 1024.")
+      end
+
+      if !@employee_identifier.nil? && @employee_identifier.to_s.length > 256
+        invalid_properties.push("invalid value for 'employee_identifier', the character length must be smaller than or equal to 256.")
       end
 
       return invalid_properties
@@ -344,10 +465,46 @@ module JCAPIv1
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@email.nil? && @email.to_s.length > 1024
+      return false if !@username.nil? && @username.to_s.length > 1024
       return false if !@unix_uid.nil? && @unix_uid < 0
       return false if !@unix_guid.nil? && @unix_guid < 0
+      return false if !@firstname.nil? && @firstname.to_s.length > 1024
+      return false if !@lastname.nil? && @lastname.to_s.length > 1024
+      return false if !@job_title.nil? && @job_title.to_s.length > 1024
+      return false if !@department.nil? && @department.to_s.length > 1024
       return false if !@bad_login_attempts.nil? && @bad_login_attempts < 1
+      return false if !@middlename.nil? && @middlename.to_s.length > 1024
+      return false if !@displayname.nil? && @displayname.to_s.length > 1024
+      return false if !@description.nil? && @description.to_s.length > 1024
+      return false if !@location.nil? && @location.to_s.length > 1024
+      return false if !@cost_center.nil? && @cost_center.to_s.length > 1024
+      return false if !@employee_type.nil? && @employee_type.to_s.length > 1024
+      return false if !@company.nil? && @company.to_s.length > 1024
+      return false if !@employee_identifier.nil? && @employee_identifier.to_s.length > 256
       return true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] email Value to be assigned
+    def email=(email)
+
+      if !email.nil? && email.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'email', the character length must be smaller than or equal to 1024."
+      end
+
+      @email = email
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] username Value to be assigned
+    def username=(username)
+
+      if !username.nil? && username.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'username', the character length must be smaller than or equal to 1024."
+      end
+
+      @username = username
     end
 
     # Custom attribute writer method with validation
@@ -373,6 +530,50 @@ module JCAPIv1
     end
 
     # Custom attribute writer method with validation
+    # @param [Object] firstname Value to be assigned
+    def firstname=(firstname)
+
+      if !firstname.nil? && firstname.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'firstname', the character length must be smaller than or equal to 1024."
+      end
+
+      @firstname = firstname
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] lastname Value to be assigned
+    def lastname=(lastname)
+
+      if !lastname.nil? && lastname.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'lastname', the character length must be smaller than or equal to 1024."
+      end
+
+      @lastname = lastname
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] job_title Value to be assigned
+    def job_title=(job_title)
+
+      if !job_title.nil? && job_title.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'job_title', the character length must be smaller than or equal to 1024."
+      end
+
+      @job_title = job_title
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] department Value to be assigned
+    def department=(department)
+
+      if !department.nil? && department.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'department', the character length must be smaller than or equal to 1024."
+      end
+
+      @department = department
+    end
+
+    # Custom attribute writer method with validation
     # @param [Object] bad_login_attempts Value to be assigned
     def bad_login_attempts=(bad_login_attempts)
 
@@ -381,6 +582,94 @@ module JCAPIv1
       end
 
       @bad_login_attempts = bad_login_attempts
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] middlename Value to be assigned
+    def middlename=(middlename)
+
+      if !middlename.nil? && middlename.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'middlename', the character length must be smaller than or equal to 1024."
+      end
+
+      @middlename = middlename
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] displayname Value to be assigned
+    def displayname=(displayname)
+
+      if !displayname.nil? && displayname.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'displayname', the character length must be smaller than or equal to 1024."
+      end
+
+      @displayname = displayname
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] description Value to be assigned
+    def description=(description)
+
+      if !description.nil? && description.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'description', the character length must be smaller than or equal to 1024."
+      end
+
+      @description = description
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] location Value to be assigned
+    def location=(location)
+
+      if !location.nil? && location.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'location', the character length must be smaller than or equal to 1024."
+      end
+
+      @location = location
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] cost_center Value to be assigned
+    def cost_center=(cost_center)
+
+      if !cost_center.nil? && cost_center.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'cost_center', the character length must be smaller than or equal to 1024."
+      end
+
+      @cost_center = cost_center
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] employee_type Value to be assigned
+    def employee_type=(employee_type)
+
+      if !employee_type.nil? && employee_type.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'employee_type', the character length must be smaller than or equal to 1024."
+      end
+
+      @employee_type = employee_type
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] company Value to be assigned
+    def company=(company)
+
+      if !company.nil? && company.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'company', the character length must be smaller than or equal to 1024."
+      end
+
+      @company = company
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] employee_identifier Value to be assigned
+    def employee_identifier=(employee_identifier)
+
+      if !employee_identifier.nil? && employee_identifier.to_s.length > 256
+        fail ArgumentError, "invalid value for 'employee_identifier', the character length must be smaller than or equal to 256."
+      end
+
+      @employee_identifier = employee_identifier
     end
 
     # Checks equality by comparing each attribute.
@@ -413,7 +702,7 @@ module JCAPIv1
           attributes == o.attributes &&
           created == o.created &&
           samba_service_user == o.samba_service_user &&
-          id == o.id &&
+          _id == o._id &&
           organization == o.organization &&
           addresses == o.addresses &&
           job_title == o.job_title &&
@@ -421,7 +710,15 @@ module JCAPIv1
           phone_numbers == o.phone_numbers &&
           relationships == o.relationships &&
           bad_login_attempts == o.bad_login_attempts &&
-          password_never_expires == o.password_never_expires
+          password_never_expires == o.password_never_expires &&
+          middlename == o.middlename &&
+          displayname == o.displayname &&
+          description == o.description &&
+          location == o.location &&
+          cost_center == o.cost_center &&
+          employee_type == o.employee_type &&
+          company == o.company &&
+          employee_identifier == o.employee_identifier
     end
 
     # @see the `==` method
@@ -433,7 +730,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [email, username, allow_public_key, public_key, ssh_keys, sudo, enable_managed_uid, unix_uid, unix_guid, activated, tags, password_expired, account_locked, passwordless_sudo, externally_managed, external_dn, external_source_type, firstname, lastname, ldap_binding_user, enable_user_portal_multifactor, totp_enabled, attributes, created, samba_service_user, id, organization, addresses, job_title, department, phone_numbers, relationships, bad_login_attempts, password_never_expires].hash
+      [email, username, allow_public_key, public_key, ssh_keys, sudo, enable_managed_uid, unix_uid, unix_guid, activated, tags, password_expired, account_locked, passwordless_sudo, externally_managed, external_dn, external_source_type, firstname, lastname, ldap_binding_user, enable_user_portal_multifactor, totp_enabled, attributes, created, samba_service_user, _id, organization, addresses, job_title, department, phone_numbers, relationships, bad_login_attempts, password_never_expires, middlename, displayname, description, location, cost_center, employee_type, company, employee_identifier].hash
     end
 
     # Builds the object from hash

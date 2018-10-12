@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**filter** | **String** |  | [optional] 
+**filter** | **Object** |  | [optional] 
 **fields** | **String** |  | [optional] 
 
 

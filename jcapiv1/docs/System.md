@@ -25,8 +25,8 @@ Name | Type | Description | Notes
 **agent_version** | **String** |  | [optional] 
 **connection_history** | **Array&lt;Object&gt;** |  | [optional] 
 **ssh_root_enabled** | **BOOLEAN** |  | [optional] 
-**id** | **String** |  | [optional] 
 **tags** | **Array&lt;String&gt;** |  | [optional] 
 **_id** | **String** |  | [optional] 
+**fde** | [**Fde**](Fde.md) |  | [optional] 
 
 

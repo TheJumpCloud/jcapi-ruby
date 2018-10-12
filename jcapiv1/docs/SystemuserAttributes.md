@@ -1,8 +1,8 @@
-# JCAPIv1::InlineResponse400
+# JCAPIv1::SystemuserAttributes
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **String** |  | [optional] 
+**** | **String** |  | [optional] 
 
 

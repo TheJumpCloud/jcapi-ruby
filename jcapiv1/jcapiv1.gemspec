@@ -3,7 +3,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+# JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
 
 OpenAPI spec version: 1.0
 
@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.email       = [""]
   s.homepage    = "https://github.com/swagger-api/swagger-codegen"
   s.summary     = "JumpCloud APIs Ruby Gem"
-  s.description = "V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users."
+  s.description = " JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users."
   # TODO uncommnet and update below with a proper license 
   #s.license     = "Apache 2.0"
   s.required_ruby_version = ">= 1.9"

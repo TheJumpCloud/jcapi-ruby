@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+# JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
 
 OpenAPI spec version: 1.0
 
@@ -36,7 +36,8 @@ require 'jcapiv1/models/commandresult_response_data'
 require 'jcapiv1/models/commandresultslist'
 require 'jcapiv1/models/commandslist'
 require 'jcapiv1/models/commandslist_results'
-require 'jcapiv1/models/inline_response_400'
+require 'jcapiv1/models/errorresponse'
+require 'jcapiv1/models/fde'
 require 'jcapiv1/models/organizationslist'
 require 'jcapiv1/models/organizationslist_results'
 require 'jcapiv1/models/radiusserver'
@@ -44,17 +45,26 @@ require 'jcapiv1/models/radiusserverpost'
 require 'jcapiv1/models/radiusserverput'
 require 'jcapiv1/models/radiusserverslist'
 require 'jcapiv1/models/search'
+require 'jcapiv1/models/sshkeylist'
+require 'jcapiv1/models/sshkeypost'
 require 'jcapiv1/models/system'
 require 'jcapiv1/models/system_network_interfaces'
 require 'jcapiv1/models/systemput'
 require 'jcapiv1/models/systemput_agent_bound_messages'
 require 'jcapiv1/models/systemslist'
 require 'jcapiv1/models/systemuser'
+require 'jcapiv1/models/systemuser_attributes'
 require 'jcapiv1/models/systemuserbinding'
 require 'jcapiv1/models/systemuserbindingsput'
 require 'jcapiv1/models/systemuserput'
+require 'jcapiv1/models/systemuserput_addresses'
+require 'jcapiv1/models/systemuserput_phone_numbers'
 require 'jcapiv1/models/systemuserputpost'
+require 'jcapiv1/models/systemuserputpost_addresses'
+require 'jcapiv1/models/systemuserputpost_phone_numbers'
 require 'jcapiv1/models/systemuserreturn'
+require 'jcapiv1/models/systemuserreturn_addresses'
+require 'jcapiv1/models/systemuserreturn_phone_numbers'
 require 'jcapiv1/models/systemuserslist'
 require 'jcapiv1/models/tag'
 require 'jcapiv1/models/tagpost'

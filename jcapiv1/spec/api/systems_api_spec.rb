@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+# JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
 
 OpenAPI spec version: 1.0
 
@@ -41,6 +41,7 @@ describe 'SystemsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [String] :date Current date header for the System Context API
   # @option opts [String] :authorization Authorization header for the System Context API
+  # @option opts [String] :x_org_id 
   # @return [System]
   describe 'systems_delete test' do
     it "should work" do
@@ -58,6 +59,7 @@ describe 'SystemsApi' do
   # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
   # @option opts [String] :date Current date header for the System Context API
   # @option opts [String] :authorization Authorization header for the System Context API
+  # @option opts [String] :x_org_id 
   # @return [System]
   describe 'systems_get test' do
     it "should work" do
@@ -75,6 +77,7 @@ describe 'SystemsApi' do
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending. 
+  # @option opts [String] :x_org_id 
   # @return [Systemslist]
   describe 'systems_list test' do
     it "should work" do
@@ -92,6 +95,7 @@ describe 'SystemsApi' do
   # @option opts [Systemput] :body 
   # @option opts [String] :date Current date header for the System Context API
   # @option opts [String] :authorization Authorization header for the System Context API
+  # @option opts [String] :x_org_id 
   # @return [nil]
   describe 'systems_put test' do
     it "should work" do
@@ -110,6 +114,7 @@ describe 'SystemsApi' do
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending. 
+  # @option opts [String] :x_org_id 
   # @return [Systemuserbinding]
   describe 'systems_systemusers_binding_list test' do
     it "should work" do
@@ -125,6 +130,7 @@ describe 'SystemsApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Systemuserbindingsput] :body 
+  # @option opts [String] :x_org_id 
   # @return [nil]
   describe 'systems_systemusers_binding_put test' do
     it "should work" do

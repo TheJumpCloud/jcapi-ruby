@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+# JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
 
 OpenAPI spec version: 1.0
 
@@ -24,7 +24,7 @@ module JCAPIv1
     # The Command OS.
     attr_accessor :command_type
 
-    # How the Command is excecuted.
+    # How the Command is executed.
     attr_accessor :launch_type
 
     # 

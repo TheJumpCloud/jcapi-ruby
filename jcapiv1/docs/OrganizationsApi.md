@@ -12,6 +12,8 @@ Method | HTTP request | Description
 
 Get Organization Details
 
+This endpoint returns Organization Details.  #### Sample Request   ``` curl -X GET \\   https://console.jumpcloud.com/api/organizations \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
+
 ### Example
 ```ruby
 # load the gem
@@ -35,6 +37,7 @@ opts = {
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
   sort: "" # String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
+  search: "search_example" # String | 
 }
 
 begin
@@ -56,6 +59,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+ **search** | **String**|  | [optional] 
 
 ### Return type
 

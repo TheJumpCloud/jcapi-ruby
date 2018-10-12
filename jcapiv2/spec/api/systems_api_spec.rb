@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+# JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
 
 OpenAPI spec version: 2.0
 
@@ -34,7 +34,7 @@ describe 'SystemsApi' do
 
   # unit tests for graph_system_associations_list
   # List the associations of a System
-  # This endpoint returns the _direct_ associations of a System.  A direct association can be a non-homogenous relationship between 2 different objects. for example Systems and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations?targets&#x3D;user \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+  # This endpoint returns the _direct_ associations of a System.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Systems and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations?targets&#x3D;user \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
   # @param system_id ObjectID of the System.
   # @param content_type 
   # @param accept 
@@ -44,6 +44,7 @@ describe 'SystemsApi' do
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :date Current date header for the System Context API
   # @option opts [String] :authorization Authorization header for the System Context API
+  # @option opts [String] :x_org_id 
   # @return [Array<GraphConnection>]
   describe 'graph_system_associations_list test' do
     it "should work" do
@@ -53,7 +54,7 @@ describe 'SystemsApi' do
 
   # unit tests for graph_system_associations_post
   # Manage associations of a System
-  # This endpoint allows you to manage the _direct_ associations of a System.  A direct association can be a non-homogenous relationship between 2 different objects. for example Systems and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{    \&quot;attributes\&quot;: {       \&quot;sudo\&quot;: {          \&quot;enabled\&quot;: true,          \&quot;withoutPassword\&quot;: false       }    },      \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;UserID\&quot; }&#39;  &#x60;&#x60;&#x60;
+  # This endpoint allows you to manage the _direct_ associations of a System.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Systems and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systems/{System_ID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{    \&quot;attributes\&quot;: {       \&quot;sudo\&quot;: {          \&quot;enabled\&quot;: true,          \&quot;withoutPassword\&quot;: false       }    },      \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;UserID\&quot; }&#39;  &#x60;&#x60;&#x60;
   # @param system_id ObjectID of the System.
   # @param content_type 
   # @param accept 
@@ -61,6 +62,7 @@ describe 'SystemsApi' do
   # @option opts [SystemGraphManagementReq] :body 
   # @option opts [String] :date Current date header for the System Context API
   # @option opts [String] :authorization Authorization header for the System Context API
+  # @option opts [String] :x_org_id 
   # @return [nil]
   describe 'graph_system_associations_post test' do
     it "should work" do
@@ -81,6 +83,7 @@ describe 'SystemsApi' do
   # @option opts [String] :date Current date header for the System Context API
   # @option opts [String] :authorization Authorization header for the System Context API
   # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+  # @option opts [String] :x_org_id 
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_system_member_of test' do
     it "should work" do
@@ -97,6 +100,7 @@ describe 'SystemsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [String] :x_org_id 
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_system_traverse_command test' do
     it "should work" do
@@ -113,6 +117,7 @@ describe 'SystemsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [String] :x_org_id 
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_system_traverse_policy test' do
     it "should work" do
@@ -131,6 +136,7 @@ describe 'SystemsApi' do
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :date Current date header for the System Context API
   # @option opts [String] :authorization Authorization header for the System Context API
+  # @option opts [String] :x_org_id 
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_system_traverse_user test' do
     it "should work" do
@@ -149,8 +155,22 @@ describe 'SystemsApi' do
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :date Current date header for the System Context API
   # @option opts [String] :authorization Authorization header for the System Context API
+  # @option opts [String] :x_org_id 
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_system_traverse_user_group test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for systems_get_fde_key
+  # Get System FDE Key
+  # This endpoint will return the current (latest) fde key saved for a system.
+  # @param system_id 
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :x_org_id 
+  # @return [Systemfdekey]
+  describe 'systems_get_fde_key test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

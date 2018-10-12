@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 List the associations of a LDAP Server
 
-This endpoint returns the _direct_ associations of this LDAP Server.  A direct association can be a non-homogenous relationship between 2 different objects. for example LDAP and Users.  #### Sample Request  ```  curl -X GET 'https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/associations?targets=user_group \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
+This endpoint returns the _direct_ associations of this LDAP Server.  A direct association can be a non-homogeneous relationship between 2 different objects, for example LDAP and Users.  #### Sample Request  ```  curl -X GET 'https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/associations?targets=user_group \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
 
 ### Example
 ```ruby
@@ -43,7 +43,8 @@ accept = "application/json" # String |
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
+  skip: 0, # Integer | The offset into the records to return.
+  x_org_id: "" # String | 
 }
 
 begin
@@ -65,6 +66,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -86,7 +88,7 @@ Name | Type | Description  | Notes
 
 Manage the associations of a LDAP Server
 
-This endpoint allows you to manage the _direct_ associations of a LDAP Server.  A direct association can be a non-homogenous relationship between 2 different objects. for example LDAP and Users.  #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/associations \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"op\": \"add\",     \"type\": \"user\",     \"id\": \"{User_ID}\" }' ```
+This endpoint allows you to manage the _direct_ associations of a LDAP Server.  A direct association can be a non-homogeneous relationship between 2 different objects, for example LDAP and Users.  #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/associations \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"op\": \"add\",     \"type\": \"user\",     \"id\": \"{User_ID}\" }' ```
 
 ### Example
 ```ruby
@@ -109,7 +111,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: JCAPIv2::GraphManagementReq.new # GraphManagementReq | 
+  body: JCAPIv2::GraphManagementReq.new, # GraphManagementReq | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -128,6 +131,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**GraphManagementReq**](GraphManagementReq.md)|  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -173,7 +177,8 @@ accept = "application/json" # String |
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
+  skip: 0, # Integer | The offset into the records to return.
+  x_org_id: "" # String | 
 }
 
 begin
@@ -194,6 +199,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -239,7 +245,8 @@ accept = "application/json" # String |
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
+  skip: 0, # Integer | The offset into the records to return.
+  x_org_id: "" # String | 
 }
 
 begin
@@ -260,6 +267,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -277,7 +285,7 @@ Name | Type | Description  | Notes
 
 
 # **ldapservers_get**
-> LdapServerOutput ldapservers_get(id, content_type, accept)
+> LdapServerOutput ldapservers_get(id, content_type, accept, opts)
 
 Get LDAP Server
 
@@ -303,10 +311,13 @@ content_type = "application/json" # String |
 
 accept = "application/json" # String | 
 
+opts = { 
+  x_org_id: "" # String | 
+}
 
 begin
   #Get LDAP Server
-  result = api_instance.ldapservers_get(id, content_type, accept)
+  result = api_instance.ldapservers_get(id, content_type, accept, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling LDAPServersApi->ldapservers_get: #{e}"
@@ -320,6 +331,7 @@ Name | Type | Description  | Notes
  **id** | **String**| Unique identifier of the LDAP server. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -363,10 +375,11 @@ accept = "application/json" # String |
 
 opts = { 
   fields: ["fields_example"], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-  filter: ["filter_example"] # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
-  sort: ["sort_example"] # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  skip: 0, # Integer | The offset into the records to return.
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -389,6 +402,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 

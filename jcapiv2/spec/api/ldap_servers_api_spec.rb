@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+# JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
 
 OpenAPI spec version: 2.0
 
@@ -34,7 +34,7 @@ describe 'LDAPServersApi' do
 
   # unit tests for graph_ldap_server_associations_list
   # List the associations of a LDAP Server
-  # This endpoint returns the _direct_ associations of this LDAP Server.  A direct association can be a non-homogenous relationship between 2 different objects. for example LDAP and Users.  #### Sample Request  &#x60;&#x60;&#x60;  curl -X GET &#39;https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/associations?targets&#x3D;user_group \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+  # This endpoint returns the _direct_ associations of this LDAP Server.  A direct association can be a non-homogeneous relationship between 2 different objects, for example LDAP and Users.  #### Sample Request  &#x60;&#x60;&#x60;  curl -X GET &#39;https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/associations?targets&#x3D;user_group \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
   # @param ldapserver_id ObjectID of the LDAP Server.
   # @param targets 
   # @param content_type 
@@ -42,6 +42,7 @@ describe 'LDAPServersApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [String] :x_org_id 
   # @return [Array<GraphConnection>]
   describe 'graph_ldap_server_associations_list test' do
     it "should work" do
@@ -51,12 +52,13 @@ describe 'LDAPServersApi' do
 
   # unit tests for graph_ldap_server_associations_post
   # Manage the associations of a LDAP Server
-  # This endpoint allows you to manage the _direct_ associations of a LDAP Server.  A direct association can be a non-homogenous relationship between 2 different objects. for example LDAP and Users.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;{User_ID}\&quot; }&#39; &#x60;&#x60;&#x60;
+  # This endpoint allows you to manage the _direct_ associations of a LDAP Server.  A direct association can be a non-homogeneous relationship between 2 different objects, for example LDAP and Users.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;{User_ID}\&quot; }&#39; &#x60;&#x60;&#x60;
   # @param ldapserver_id ObjectID of the LDAP Server.
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [GraphManagementReq] :body 
+  # @option opts [String] :x_org_id 
   # @return [nil]
   describe 'graph_ldap_server_associations_post test' do
     it "should work" do
@@ -73,6 +75,7 @@ describe 'LDAPServersApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [String] :x_org_id 
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_ldap_server_traverse_user test' do
     it "should work" do
@@ -89,6 +92,7 @@ describe 'LDAPServersApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [String] :x_org_id 
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_ldap_server_traverse_user_group test' do
     it "should work" do
@@ -103,6 +107,7 @@ describe 'LDAPServersApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :x_org_id 
   # @return [LdapServerOutput]
   describe 'ldapservers_get test' do
     it "should work" do
@@ -121,6 +126,7 @@ describe 'LDAPServersApi' do
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+  # @option opts [String] :x_org_id 
   # @return [Array<LdapServerOutput>]
   describe 'ldapservers_list test' do
     it "should work" do

@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+# JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
 
 OpenAPI spec version: 2.0
 
@@ -13,9 +13,9 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module JCAPIv2
-  # An instance of a policty template.
+  # An instance of a policy template.
   class Policy
-    # ObjectId uniquely indetifying a Policy.
+    # ObjectId uniquely identifying a Policy.
     attr_accessor :id
 
     attr_accessor :template

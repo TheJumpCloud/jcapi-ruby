@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+# JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
 
 OpenAPI spec version: 2.0
 
@@ -14,21 +14,37 @@ require 'date'
 
 module JCAPIv2
 
-  class InlineResponse204
-    attr_accessor :id
+  class Sshkeylist
+    # The date the SSH key was created.
+    attr_accessor :create_date
+
+    # The ID of the SSH key.
+    attr_accessor :_id
+
+    # The Public SSH key.
+    attr_accessor :public_key
+
+    # The name of the SSH key.
+    attr_accessor :name
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id'
+        :'create_date' => :'create_date',
+        :'_id' => :'_id',
+        :'public_key' => :'public_key',
+        :'name' => :'name'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'String'
+        :'create_date' => :'String',
+        :'_id' => :'String',
+        :'public_key' => :'String',
+        :'name' => :'String'
       }
     end
 
@@ -40,8 +56,20 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.has_key?(:'create_date')
+        self.create_date = attributes[:'create_date']
+      end
+
+      if attributes.has_key?(:'_id')
+        self._id = attributes[:'_id']
+      end
+
+      if attributes.has_key?(:'public_key')
+        self.public_key = attributes[:'public_key']
+      end
+
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
       end
 
     end
@@ -64,7 +92,10 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id
+          create_date == o.create_date &&
+          _id == o._id &&
+          public_key == o.public_key &&
+          name == o.name
     end
 
     # @see the `==` method
@@ -76,7 +107,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id].hash
+      [create_date, _id, public_key, name].hash
     end
 
     # Builds the object from hash

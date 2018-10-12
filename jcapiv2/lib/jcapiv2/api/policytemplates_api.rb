@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+# JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
 
 OpenAPI spec version: 2.0
 
@@ -26,6 +26,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_org_id  (default to )
     # @return [PolicyTemplateWithDetails]
     def policytemplates_get(id, content_type, accept, opts = {})
       data, _status_code, _headers = policytemplates_get_with_http_info(id, content_type, accept, opts)
@@ -38,6 +39,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_org_id 
     # @return [Array<(PolicyTemplateWithDetails, Fixnum, Hash)>] PolicyTemplateWithDetails data, response status code and response headers
     def policytemplates_get_with_http_info(id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -69,6 +71,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -99,6 +102,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id  (default to )
     # @return [Array<PolicyTemplate>]
     def policytemplates_list(content_type, accept, opts = {})
       data, _status_code, _headers = policytemplates_list_with_http_info(content_type, accept, opts)
@@ -115,6 +119,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<PolicyTemplate>, Fixnum, Hash)>] Array<PolicyTemplate> data, response status code and response headers
     def policytemplates_list_with_http_info(content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -147,6 +152,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}

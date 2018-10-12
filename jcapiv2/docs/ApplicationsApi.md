@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 List the associations of an Application
 
-This endpoint will return the _direct_ associations of an Application. A direct association can be a non-homogenous relationship between 2 different objects. for example Applications and User Groups.   #### Sample Request ``` curl -X GET 'https://console.jumpcloud.com/api/v2/applications/{Application_ID}/associations?targets=user_group \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
+This endpoint will return the _direct_ associations of an Application. A direct association can be a non-homogeneous relationship between 2 different objects, for example Applications and User Groups.   #### Sample Request ``` curl -X GET 'https://console.jumpcloud.com/api/v2/applications/{Application_ID}/associations?targets=user_group \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
 
 ### Example
 ```ruby
@@ -41,7 +41,8 @@ accept = "application/json" # String |
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
+  skip: 0, # Integer | The offset into the records to return.
+  x_org_id: "" # String | 
 }
 
 begin
@@ -63,6 +64,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -84,7 +86,7 @@ Name | Type | Description  | Notes
 
 Manage the associations of an Application
 
-This endpoint allows you to manage the _direct_ associations of an Application. A direct association can be a non-homogenous relationship between 2 different objects. for example Application and User Groups.  #### Sample Request ``` curl -X POST 'https://console.jumpcloud.com/api/v2/applications/{Application_ID}/associations' \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"op\": \"add\",     \"type\": \"user_group\",     \"id\": \"{Group_ID}\" }' ```
+This endpoint allows you to manage the _direct_ associations of an Application. A direct association can be a non-homogeneous relationship between 2 different objects, for example Application and User Groups.  #### Sample Request ``` curl -X POST 'https://console.jumpcloud.com/api/v2/applications/{Application_ID}/associations' \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"op\": \"add\",     \"type\": \"user_group\",     \"id\": \"{Group_ID}\" }' ```
 
 ### Example
 ```ruby
@@ -107,7 +109,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: JCAPIv2::GraphManagementReq.new # GraphManagementReq | 
+  body: JCAPIv2::GraphManagementReq.new, # GraphManagementReq | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -126,6 +129,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**GraphManagementReq**](GraphManagementReq.md)|  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -171,7 +175,8 @@ accept = "application/json" # String |
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
+  skip: 0, # Integer | The offset into the records to return.
+  x_org_id: "" # String | 
 }
 
 begin
@@ -192,6 +197,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -237,7 +243,8 @@ accept = "application/json" # String |
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
+  skip: 0, # Integer | The offset into the records to return.
+  x_org_id: "" # String | 
 }
 
 begin
@@ -258,6 +265,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 

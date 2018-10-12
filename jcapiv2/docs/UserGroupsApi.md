@@ -20,7 +20,7 @@ Method | HTTP request | Description
 [**graph_user_group_traverse_system**](UserGroupsApi.md#graph_user_group_traverse_system) | **GET** /usergroups/{group_id}/systems | List the Systems bound to a User Group
 [**graph_user_group_traverse_system_group**](UserGroupsApi.md#graph_user_group_traverse_system_group) | **GET** /usergroups/{group_id}/systemgroups | List the System Groups bound to User Groups
 [**groups_user_delete**](UserGroupsApi.md#groups_user_delete) | **DELETE** /usergroups/{id} | Delete a User Group
-[**groups_user_get**](UserGroupsApi.md#groups_user_get) | **GET** /usergroups/{id} | View an indvidual User Group details
+[**groups_user_get**](UserGroupsApi.md#groups_user_get) | **GET** /usergroups/{id} | View an individual User Group details
 [**groups_user_list**](UserGroupsApi.md#groups_user_list) | **GET** /usergroups | List all User Groups
 [**groups_user_patch**](UserGroupsApi.md#groups_user_patch) | **PATCH** /usergroups/{id} | Partial update a User Group
 [**groups_user_post**](UserGroupsApi.md#groups_user_post) | **POST** /usergroups | Create a new User Group
@@ -32,7 +32,7 @@ Method | HTTP request | Description
 
 List the associations of a User Group.
 
-This endpoint returns the _direct_ associations of this User Group.  A direct association can be a non-homogenous relationship between 2 different objects. for example User Groups and Users.   #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/usergroups/{GroupID}/associations?targets=system \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
+This endpoint returns the _direct_ associations of this User Group.  A direct association can be a non-homogeneous relationship between 2 different objects, for example User Groups and Users.   #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/usergroups/{GroupID}/associations?targets=system \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
 
 ### Example
 ```ruby
@@ -58,7 +58,8 @@ targets = ["targets_example"] # Array<String> |
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
+  skip: 0, # Integer | The offset into the records to return.
+  x_org_id: "" # String | 
 }
 
 begin
@@ -80,6 +81,7 @@ Name | Type | Description  | Notes
  **targets** | [**Array&lt;String&gt;**](String.md)|  | 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -101,7 +103,7 @@ Name | Type | Description  | Notes
 
 Manage the associations of a User Group
 
-This endpoint manages the _direct_ associations of this User Group.  A direct association can be a non-homogenous relationship between 2 different objects. for example User Groups and Users.   #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/usergroups/{GroupID}/associations \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"op\": \"add\",     \"type\": \"system\",     \"id\": \"{SystemID}\" }'  ```
+This endpoint manages the _direct_ associations of this User Group.  A direct association can be a non-homogeneous relationship between 2 different objects, for example User Groups and Users.   #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/usergroups/{GroupID}/associations \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"op\": \"add\",     \"type\": \"system\",     \"id\": \"{SystemID}\" }'  ```
 
 ### Example
 ```ruby
@@ -124,7 +126,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: JCAPIv2::UserGroupGraphManagementReq.new # UserGroupGraphManagementReq | 
+  body: JCAPIv2::UserGroupGraphManagementReq.new, # UserGroupGraphManagementReq | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -143,6 +146,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**UserGroupGraphManagementReq**](UserGroupGraphManagementReq.md)|  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -164,7 +168,7 @@ nil (empty response body)
 
 List the User Group's parents
 
-This endpoint returns all User Groups a User Group is a member of.  #### Sample Request ``` https://console.jumpcloud.com/api/v2/usergroups/{group_id}/membersof ```  Not public yet, as the code is not finished,
+This endpoint returns all User Groups a User Group is a member of.  #### Sample Request ``` https://console.jumpcloud.com/api/v2/usergroups/{group_id}/memberof ```  Not public yet, as the code is not finished,
 
 ### Example
 ```ruby
@@ -187,10 +191,11 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  filter: ["filter_example"] # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
-  sort: ["sort_example"] # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  skip: 0, # Integer | The offset into the records to return.
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -213,6 +218,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -258,7 +264,8 @@ accept = "application/json" # String |
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
+  skip: 0, # Integer | The offset into the records to return.
+  x_org_id: "" # String | 
 }
 
 begin
@@ -279,6 +286,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -323,7 +331,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: JCAPIv2::UserGroupMembersReq.new # UserGroupMembersReq | 
+  body: JCAPIv2::UserGroupMembersReq.new, # UserGroupMembersReq | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -342,6 +351,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**UserGroupMembersReq**](UserGroupMembersReq.md)|  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -386,10 +396,11 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  filter: ["filter_example"] # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
-  sort: ["sort_example"] # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  skip: 0, # Integer | The offset into the records to return.
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -412,6 +423,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -457,7 +469,8 @@ accept = "application/json" # String |
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
+  skip: 0, # Integer | The offset into the records to return.
+  x_org_id: "" # String | 
 }
 
 begin
@@ -478,6 +491,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -523,7 +537,8 @@ accept = "application/json" # String |
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
+  skip: 0, # Integer | The offset into the records to return.
+  x_org_id: "" # String | 
 }
 
 begin
@@ -544,6 +559,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -589,7 +605,8 @@ accept = "application/json" # String |
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
+  skip: 0, # Integer | The offset into the records to return.
+  x_org_id: "" # String | 
 }
 
 begin
@@ -610,6 +627,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -631,7 +649,7 @@ Name | Type | Description  | Notes
 
 List the G Suite instances bound to a User Group
 
-This endpoint will return all Gsuite Instances bound to a User Group, either directly or indirectly, essentially traversing the JumpCloud Graph for your Organization.  Each element will contain the type, id, attributes and paths  The `attributes` object is a key/value hash of compiled graph attributes for all paths followed.  The `paths` array enumerates each path from this User Group to the corresponding G Suite instance; this array represents all grouping and/or associations that would have to be removed to deprovision the G Suite instance from this User Group.  See `/members` and `/associations` endpoints to manage those collections.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/usergroups/{GroupID/gsuites \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'  ```
+This endpoint will return all G Suite Instances bound to a User Group, either directly or indirectly, essentially traversing the JumpCloud Graph for your Organization.  Each element will contain the type, id, attributes and paths  The `attributes` object is a key/value hash of compiled graph attributes for all paths followed.  The `paths` array enumerates each path from this User Group to the corresponding G Suite instance; this array represents all grouping and/or associations that would have to be removed to deprovision the G Suite instance from this User Group.  See `/members` and `/associations` endpoints to manage those collections.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/usergroups/{GroupID/gsuites \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'  ```
 
 ### Example
 ```ruby
@@ -655,7 +673,8 @@ accept = "application/json" # String |
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
+  skip: 0, # Integer | The offset into the records to return.
+  x_org_id: "" # String | 
 }
 
 begin
@@ -676,6 +695,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -721,7 +741,8 @@ accept = "application/json" # String |
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
+  skip: 0, # Integer | The offset into the records to return.
+  x_org_id: "" # String | 
 }
 
 begin
@@ -742,6 +763,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -787,7 +809,8 @@ accept = "application/json" # String |
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
+  skip: 0, # Integer | The offset into the records to return.
+  x_org_id: "" # String | 
 }
 
 begin
@@ -808,6 +831,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -853,7 +877,8 @@ accept = "application/json" # String |
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
+  skip: 0, # Integer | The offset into the records to return.
+  x_org_id: "" # String | 
 }
 
 begin
@@ -874,6 +899,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -919,7 +945,8 @@ accept = "application/json" # String |
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
+  skip: 0, # Integer | The offset into the records to return.
+  x_org_id: "" # String | 
 }
 
 begin
@@ -940,6 +967,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -985,7 +1013,8 @@ accept = "application/json" # String |
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
+  skip: 0, # Integer | The offset into the records to return.
+  x_org_id: "" # String | 
 }
 
 begin
@@ -1006,6 +1035,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -1023,7 +1053,7 @@ Name | Type | Description  | Notes
 
 
 # **groups_user_delete**
-> groups_user_delete(id, content_type, accept)
+> groups_user_delete(id, content_type, accept, opts)
 
 Delete a User Group
 
@@ -1049,10 +1079,13 @@ content_type = "application/json" # String |
 
 accept = "application/json" # String | 
 
+opts = { 
+  x_org_id: "" # String | 
+}
 
 begin
   #Delete a User Group
-  api_instance.groups_user_delete(id, content_type, accept)
+  api_instance.groups_user_delete(id, content_type, accept, opts)
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling UserGroupsApi->groups_user_delete: #{e}"
 end
@@ -1065,6 +1098,7 @@ Name | Type | Description  | Notes
  **id** | **String**| ObjectID of the User Group. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -1082,11 +1116,11 @@ nil (empty response body)
 
 
 # **groups_user_get**
-> UserGroup groups_user_get(id, content_type, accept)
+> UserGroup groups_user_get(id, content_type, accept, opts)
 
-View an indvidual User Group details
+View an individual User Group details
 
-This endpoint allows you to view the details of a User Group.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/usergroups/{GroupID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
+This endpoint returns the details of a User Group.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/usergroups/{GroupID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
 
 ### Example
 ```ruby
@@ -1108,10 +1142,13 @@ content_type = "application/json" # String |
 
 accept = "application/json" # String | 
 
+opts = { 
+  x_org_id: "" # String | 
+}
 
 begin
-  #View an indvidual User Group details
-  result = api_instance.groups_user_get(id, content_type, accept)
+  #View an individual User Group details
+  result = api_instance.groups_user_get(id, content_type, accept, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling UserGroupsApi->groups_user_get: #{e}"
@@ -1125,6 +1162,7 @@ Name | Type | Description  | Notes
  **id** | **String**| ObjectID of the User Group. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -1168,10 +1206,11 @@ accept = "application/json" # String |
 
 opts = { 
   fields: ["fields_example"], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-  filter: ["filter_example"] # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
-  sort: ["sort_example"] # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  skip: 0, # Integer | The offset into the records to return.
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -1194,6 +1233,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -1238,7 +1278,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: JCAPIv2::UserGroupPost.new # UserGroupPost | 
+  body: JCAPIv2::UserGroupPost.new, # UserGroupPost | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -1258,6 +1299,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**UserGroupPost**](UserGroupPost.md)|  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -1300,7 +1342,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: JCAPIv2::UserGroupPost.new # UserGroupPost | 
+  body: JCAPIv2::UserGroupPost.new, # UserGroupPost | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -1319,6 +1362,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**UserGroupPost**](UserGroupPost.md)|  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -1340,7 +1384,7 @@ Name | Type | Description  | Notes
 
 Update a User Group
 
-This enpoint allows you to do a full update of the User Group.  #### Sample Request ``` curl -X PUT https://console.jumpcloud.com/api/v2/usergroups/{Group_ID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY' \\   -d '{   \"name\": \"group_update\" }'  ```
+This endpoint allows you to do a full update of the User Group.  #### Sample Request ``` curl -X PUT https://console.jumpcloud.com/api/v2/usergroups/{Group_ID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY' \\   -d '{   \"name\": \"group_update\" }'  ```
 
 ### Example
 ```ruby
@@ -1363,7 +1407,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: JCAPIv2::UserGroupPut.new # UserGroupPut | 
+  body: JCAPIv2::UserGroupPut.new, # UserGroupPut | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -1383,6 +1428,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**UserGroupPut**](UserGroupPut.md)|  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 

@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+# JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
 
 OpenAPI spec version: 2.0
 
@@ -43,6 +43,7 @@ describe 'SystemGroupMembersMembershipApi' do
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+  # @option opts [String] :x_org_id 
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_system_group_member_of test' do
     it "should work" do
@@ -59,6 +60,7 @@ describe 'SystemGroupMembersMembershipApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [String] :x_org_id 
   # @return [Array<GraphConnection>]
   describe 'graph_system_group_members_list test' do
     it "should work" do
@@ -68,7 +70,7 @@ describe 'SystemGroupMembersMembershipApi' do
 
   # unit tests for graph_system_group_members_post
   # Manage the members of a System Group
-  # This endpoint allows you to manage the system members of a System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID}/members \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;system\&quot;,     \&quot;id\&quot;: \&quot;{System_ID\&quot; }&#39; &#x60;&#x60;&#x60;
+  # This endpoint allows you to manage the system members of a System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID}/members \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;system\&quot;,     \&quot;id\&quot;: \&quot;{System_ID}\&quot; }&#39; &#x60;&#x60;&#x60;
   # @param group_id ObjectID of the System Group.
   # @param content_type 
   # @param accept 
@@ -76,6 +78,7 @@ describe 'SystemGroupMembersMembershipApi' do
   # @option opts [SystemGroupMembersReq] :body 
   # @option opts [String] :date Current date header for the System Context API
   # @option opts [String] :authorization Authorization header for the System Context API
+  # @option opts [String] :x_org_id 
   # @return [nil]
   describe 'graph_system_group_members_post test' do
     it "should work" do
@@ -94,6 +97,7 @@ describe 'SystemGroupMembersMembershipApi' do
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
   # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  # @option opts [String] :x_org_id 
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_system_group_membership test' do
     it "should work" do

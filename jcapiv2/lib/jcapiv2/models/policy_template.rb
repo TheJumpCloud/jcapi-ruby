@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+# JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
 
 OpenAPI spec version: 2.0
 
@@ -35,6 +35,9 @@ module JCAPIv2
     # Specifics about the behavior of the policy.
     attr_accessor :behavior
 
+    # String describing the release status of the policy template.
+    attr_accessor :state
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -66,7 +69,8 @@ module JCAPIv2
         :'display_name' => :'displayName',
         :'os_meta_family' => :'osMetaFamily',
         :'activation' => :'activation',
-        :'behavior' => :'behavior'
+        :'behavior' => :'behavior',
+        :'state' => :'state'
       }
     end
 
@@ -79,7 +83,8 @@ module JCAPIv2
         :'display_name' => :'String',
         :'os_meta_family' => :'String',
         :'activation' => :'String',
-        :'behavior' => :'String'
+        :'behavior' => :'String',
+        :'state' => :'String'
       }
     end
 
@@ -117,6 +122,12 @@ module JCAPIv2
 
       if attributes.has_key?(:'behavior')
         self.behavior = attributes[:'behavior']
+      end
+
+      if attributes.has_key?(:'state')
+        self.state = attributes[:'state']
+      else
+        self.state = ""
       end
 
     end
@@ -157,7 +168,8 @@ module JCAPIv2
           display_name == o.display_name &&
           os_meta_family == o.os_meta_family &&
           activation == o.activation &&
-          behavior == o.behavior
+          behavior == o.behavior &&
+          state == o.state
     end
 
     # @see the `==` method
@@ -169,7 +181,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, description, display_name, os_meta_family, activation, behavior].hash
+      [id, name, description, display_name, os_meta_family, activation, behavior, state].hash
     end
 
     # Builds the object from hash

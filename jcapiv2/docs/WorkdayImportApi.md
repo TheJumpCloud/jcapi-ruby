@@ -45,7 +45,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: JCAPIv2::AuthInputObject.new # AuthInputObject | 
+  body: JCAPIv2::AuthInputObject.new, # AuthInputObject | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -64,6 +65,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**AuthInputObject**](AuthInputObject.md)|  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -81,7 +83,7 @@ nil (empty response body)
 
 
 # **workdays_deauthorize**
-> workdays_deauthorize(workday_id, content_type, accept)
+> workdays_deauthorize(workday_id, content_type, accept, opts)
 
 Deauthorize Workday
 
@@ -107,10 +109,13 @@ content_type = "application/json" # String |
 
 accept = "application/json" # String | 
 
+opts = { 
+  x_org_id: "" # String | 
+}
 
 begin
   #Deauthorize Workday
-  api_instance.workdays_deauthorize(workday_id, content_type, accept)
+  api_instance.workdays_deauthorize(workday_id, content_type, accept, opts)
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling WorkdayImportApi->workdays_deauthorize: #{e}"
 end
@@ -123,6 +128,7 @@ Name | Type | Description  | Notes
  **workday_id** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -140,7 +146,7 @@ nil (empty response body)
 
 
 # **workdays_delete**
-> Object workdays_delete(id, content_type, accept)
+> Object workdays_delete(id, content_type, accept, opts)
 
 Delete Workday
 
@@ -166,10 +172,13 @@ content_type = "application/json" # String |
 
 accept = "application/json" # String | 
 
+opts = { 
+  x_org_id: "" # String | 
+}
 
 begin
   #Delete Workday
-  result = api_instance.workdays_delete(id, content_type, accept)
+  result = api_instance.workdays_delete(id, content_type, accept, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling WorkdayImportApi->workdays_delete: #{e}"
@@ -183,6 +192,7 @@ Name | Type | Description  | Notes
  **id** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -200,7 +210,7 @@ Name | Type | Description  | Notes
 
 
 # **workdays_get**
-> WorkdayOutput workdays_get(id, content_type, accept)
+> WorkdayOutput workdays_get(id, content_type, accept, opts)
 
 Get Workday
 
@@ -226,10 +236,13 @@ content_type = "application/json" # String |
 
 accept = "application/json" # String | 
 
+opts = { 
+  x_org_id: "" # String | 
+}
 
 begin
   #Get Workday
-  result = api_instance.workdays_get(id, content_type, accept)
+  result = api_instance.workdays_get(id, content_type, accept, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling WorkdayImportApi->workdays_get: #{e}"
@@ -243,6 +256,7 @@ Name | Type | Description  | Notes
  **id** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -287,7 +301,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: [JCAPIv2::BulkUserCreate.new] # Array<BulkUserCreate> | 
+  body: [JCAPIv2::BulkUserCreate.new], # Array<BulkUserCreate> | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -307,6 +322,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Array&lt;BulkUserCreate&gt;**](BulkUserCreate.md)|  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -354,7 +370,8 @@ accept = "application/json" # String |
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
+  skip: 0, # Integer | The offset into the records to return.
+  x_org_id: "" # String | 
 }
 
 begin
@@ -376,6 +393,7 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -420,9 +438,10 @@ accept = "application/json" # String |
 opts = { 
   fields: ["fields_example"], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
-  sort: ["sort_example"] # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  filter: ["filter_example"] # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  skip: 0, # Integer | The offset into the records to return.
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  x_org_id: "" # String | 
 }
 
 begin
@@ -445,6 +464,7 @@ Name | Type | Description  | Notes
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
  **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -487,7 +507,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: JCAPIv2::WorkdayInput.new # WorkdayInput | 
+  body: JCAPIv2::WorkdayInput.new, # WorkdayInput | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -505,6 +526,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**WorkdayInput**](WorkdayInput.md)|  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -549,7 +571,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: JCAPIv2::WorkdayFields.new # WorkdayFields | 
+  body: JCAPIv2::WorkdayFields.new, # WorkdayFields | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -569,6 +592,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**WorkdayFields**](WorkdayFields.md)|  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -611,7 +635,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  state: "state_example" # String | 
+  state: "state_example", # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -629,6 +654,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **state** | **String**|  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -674,8 +700,9 @@ accept = "application/json" # String |
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0 # Integer | The offset into the records to return.
-  sort: ["sort_example"] # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  skip: 0, # Integer | The offset into the records to return.
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -697,6 +724,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 

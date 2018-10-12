@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+# JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
 
 OpenAPI spec version: 2.0
 
@@ -21,7 +21,7 @@ module JCAPIv2
     end
 
     # List the associations of a System Group
-    # This endpoint returns the _direct_ associations of a System Group.  A direct association can be a non-homogenous relationship between 2 different objects. for example System Groups and Users.   #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations?targets=user \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
+    # This endpoint returns the _direct_ associations of a System Group.  A direct association can be a non-homogeneous relationship between 2 different objects, for example System Groups and Users.   #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations?targets=user \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
     # @param group_id ObjectID of the System Group.
     # @param content_type 
     # @param accept 
@@ -29,6 +29,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Array<GraphConnection>]
     def graph_system_group_associations_list(group_id, content_type, accept, targets, opts = {})
       data, _status_code, _headers = graph_system_group_associations_list_with_http_info(group_id, content_type, accept, targets, opts)
@@ -36,7 +37,7 @@ module JCAPIv2
     end
 
     # List the associations of a System Group
-    # This endpoint returns the _direct_ associations of a System Group.  A direct association can be a non-homogenous relationship between 2 different objects. for example System Groups and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations?targets&#x3D;user \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+    # This endpoint returns the _direct_ associations of a System Group.  A direct association can be a non-homogeneous relationship between 2 different objects, for example System Groups and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations?targets&#x3D;user \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
     # @param group_id ObjectID of the System Group.
     # @param content_type 
     # @param accept 
@@ -44,6 +45,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphConnection>, Fixnum, Hash)>] Array<GraphConnection> data, response status code and response headers
     def graph_system_group_associations_list_with_http_info(group_id, content_type, accept, targets, opts = {})
       if @api_client.config.debugging
@@ -82,6 +84,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -103,12 +106,13 @@ module JCAPIv2
     end
 
     # Manage the associations of a System Group
-    # This endpoint allows you to manage the _direct_ associations of a System Group.  A direct association can be a non-homogenous relationship between 2 different objects. for example System Groups and Users.   #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"op\": \"add\",     \"type\": \"user\",     \"id\": \"{UserID}\" }'  ```
+    # This endpoint allows you to manage the _direct_ associations of a System Group.  A direct association can be a non-homogeneous relationship between 2 different objects, for example System Groups and Users.   #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"op\": \"add\",     \"type\": \"user\",     \"id\": \"{UserID}\" }'  ```
     # @param group_id ObjectID of the System Group.
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [SystemGroupGraphManagementReq] :body 
+    # @option opts [String] :x_org_id  (default to )
     # @return [nil]
     def graph_system_group_associations_post(group_id, content_type, accept, opts = {})
       graph_system_group_associations_post_with_http_info(group_id, content_type, accept, opts)
@@ -116,12 +120,13 @@ module JCAPIv2
     end
 
     # Manage the associations of a System Group
-    # This endpoint allows you to manage the _direct_ associations of a System Group.  A direct association can be a non-homogenous relationship between 2 different objects. for example System Groups and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;{UserID}\&quot; }&#39;  &#x60;&#x60;&#x60;
+    # This endpoint allows you to manage the _direct_ associations of a System Group.  A direct association can be a non-homogeneous relationship between 2 different objects, for example System Groups and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;{UserID}\&quot; }&#39;  &#x60;&#x60;&#x60;
     # @param group_id ObjectID of the System Group.
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [SystemGroupGraphManagementReq] :body 
+    # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def graph_system_group_associations_post_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -153,6 +158,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -182,6 +188,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id  (default to )
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_group_member_of(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_group_member_of_with_http_info(group_id, content_type, accept, opts)
@@ -198,6 +205,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_group_member_of_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -233,6 +241,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -261,6 +270,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Array<GraphConnection>]
     def graph_system_group_members_list(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_group_members_list_with_http_info(group_id, content_type, accept, opts)
@@ -275,6 +285,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphConnection>, Fixnum, Hash)>] Array<GraphConnection> data, response status code and response headers
     def graph_system_group_members_list_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -308,6 +319,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -329,7 +341,7 @@ module JCAPIv2
     end
 
     # Manage the members of a System Group
-    # This endpoint allows you to manage the system members of a System Group.  #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID}/members \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY' \\   -d '{     \"op\": \"add\",     \"type\": \"system\",     \"id\": \"{System_ID\" }' ```
+    # This endpoint allows you to manage the system members of a System Group.  #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID}/members \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"op\": \"add\",     \"type\": \"system\",     \"id\": \"{System_ID}\" }' ```
     # @param group_id ObjectID of the System Group.
     # @param content_type 
     # @param accept 
@@ -337,6 +349,7 @@ module JCAPIv2
     # @option opts [SystemGroupMembersReq] :body 
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
+    # @option opts [String] :x_org_id  (default to )
     # @return [nil]
     def graph_system_group_members_post(group_id, content_type, accept, opts = {})
       graph_system_group_members_post_with_http_info(group_id, content_type, accept, opts)
@@ -344,7 +357,7 @@ module JCAPIv2
     end
 
     # Manage the members of a System Group
-    # This endpoint allows you to manage the system members of a System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID}/members \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;system\&quot;,     \&quot;id\&quot;: \&quot;{System_ID\&quot; }&#39; &#x60;&#x60;&#x60;
+    # This endpoint allows you to manage the system members of a System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID}/members \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;system\&quot;,     \&quot;id\&quot;: \&quot;{System_ID}\&quot; }&#39; &#x60;&#x60;&#x60;
     # @param group_id ObjectID of the System Group.
     # @param content_type 
     # @param accept 
@@ -352,6 +365,7 @@ module JCAPIv2
     # @option opts [SystemGroupMembersReq] :body 
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
+    # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def graph_system_group_members_post_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -385,6 +399,7 @@ module JCAPIv2
       header_params[:'Accept'] = accept
       header_params[:'Date'] = opts[:'date'] if !opts[:'date'].nil?
       header_params[:'Authorization'] = opts[:'authorization'] if !opts[:'authorization'].nil?
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -414,6 +429,7 @@ module JCAPIv2
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
     # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+    # @option opts [String] :x_org_id  (default to )
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_group_membership(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_group_membership_with_http_info(group_id, content_type, accept, opts)
@@ -430,6 +446,7 @@ module JCAPIv2
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
     # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_group_membership_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -465,6 +482,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -493,6 +511,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_group_traverse_policy(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_group_traverse_policy_with_http_info(group_id, content_type, accept, opts)
@@ -507,6 +526,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_group_traverse_policy_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -540,6 +560,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -568,6 +589,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_group_traverse_user(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_group_traverse_user_with_http_info(group_id, content_type, accept, opts)
@@ -582,6 +604,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_group_traverse_user_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -615,6 +638,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -643,6 +667,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_group_traverse_user_group(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_group_traverse_user_group_with_http_info(group_id, content_type, accept, opts)
@@ -657,6 +682,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_group_traverse_user_group_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -690,6 +716,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -716,6 +743,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_org_id  (default to )
     # @return [nil]
     def groups_system_delete(id, content_type, accept, opts = {})
       groups_system_delete_with_http_info(id, content_type, accept, opts)
@@ -728,6 +756,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def groups_system_delete_with_http_info(id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -759,6 +788,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -779,11 +809,12 @@ module JCAPIv2
     end
 
     # View an individual System Group details
-    # This endpoint returns the details of a System Group.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'  ```
+    # This endpoint returns the details of a System Group.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
     # @param id ObjectID of the System Group.
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_org_id  (default to )
     # @return [SystemGroup]
     def groups_system_get(id, content_type, accept, opts = {})
       data, _status_code, _headers = groups_system_get_with_http_info(id, content_type, accept, opts)
@@ -791,11 +822,12 @@ module JCAPIv2
     end
 
     # View an individual System Group details
-    # This endpoint returns the details of a System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+    # This endpoint returns the details of a System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
     # @param id ObjectID of the System Group.
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_org_id 
     # @return [Array<(SystemGroup, Fixnum, Hash)>] SystemGroup data, response status code and response headers
     def groups_system_get_with_http_info(id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -827,6 +859,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -857,6 +890,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id  (default to )
     # @return [Array<SystemGroup>]
     def groups_system_list(content_type, accept, opts = {})
       data, _status_code, _headers = groups_system_list_with_http_info(content_type, accept, opts)
@@ -873,6 +907,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<SystemGroup>, Fixnum, Hash)>] Array<SystemGroup> data, response status code and response headers
     def groups_system_list_with_http_info(content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -905,6 +940,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -932,6 +968,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [SystemGroupData] :body 
+    # @option opts [String] :x_org_id  (default to )
     # @return [SystemGroup]
     def groups_system_patch(id, content_type, accept, opts = {})
       data, _status_code, _headers = groups_system_patch_with_http_info(id, content_type, accept, opts)
@@ -945,6 +982,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [SystemGroupData] :body 
+    # @option opts [String] :x_org_id 
     # @return [Array<(SystemGroup, Fixnum, Hash)>] SystemGroup data, response status code and response headers
     def groups_system_patch_with_http_info(id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -976,6 +1014,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -1002,6 +1041,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [SystemGroupData] :body 
+    # @option opts [String] :x_org_id  (default to )
     # @return [SystemGroup]
     def groups_system_post(content_type, accept, opts = {})
       data, _status_code, _headers = groups_system_post_with_http_info(content_type, accept, opts)
@@ -1014,6 +1054,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [SystemGroupData] :body 
+    # @option opts [String] :x_org_id 
     # @return [Array<(SystemGroup, Fixnum, Hash)>] SystemGroup data, response status code and response headers
     def groups_system_post_with_http_info(content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -1041,6 +1082,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -1062,12 +1104,13 @@ module JCAPIv2
     end
 
     # Update a System Group
-    # This enpoint allows you to do a full update of the System Group.  #### Sample Request ``` curl -X PUT https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{  \"name\": \"Name_Update\" }' ```
+    # This endpoint allows you to do a full update of the System Group.  #### Sample Request ``` curl -X PUT https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{  \"name\": \"Name_Update\" }' ```
     # @param id ObjectID of the System Group.
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [SystemGroupData] :body 
+    # @option opts [String] :x_org_id  (default to )
     # @return [SystemGroup]
     def groups_system_put(id, content_type, accept, opts = {})
       data, _status_code, _headers = groups_system_put_with_http_info(id, content_type, accept, opts)
@@ -1075,12 +1118,13 @@ module JCAPIv2
     end
 
     # Update a System Group
-    # This enpoint allows you to do a full update of the System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{  \&quot;name\&quot;: \&quot;Name_Update\&quot; }&#39; &#x60;&#x60;&#x60;
+    # This endpoint allows you to do a full update of the System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{  \&quot;name\&quot;: \&quot;Name_Update\&quot; }&#39; &#x60;&#x60;&#x60;
     # @param id ObjectID of the System Group.
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [SystemGroupData] :body 
+    # @option opts [String] :x_org_id 
     # @return [Array<(SystemGroup, Fixnum, Hash)>] SystemGroup data, response status code and response headers
     def groups_system_put_with_http_info(id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -1112,6 +1156,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}

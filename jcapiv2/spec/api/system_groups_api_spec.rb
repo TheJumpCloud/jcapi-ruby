@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+# JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
 
 OpenAPI spec version: 2.0
 
@@ -34,7 +34,7 @@ describe 'SystemGroupsApi' do
 
   # unit tests for graph_system_group_associations_list
   # List the associations of a System Group
-  # This endpoint returns the _direct_ associations of a System Group.  A direct association can be a non-homogenous relationship between 2 different objects. for example System Groups and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations?targets&#x3D;user \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+  # This endpoint returns the _direct_ associations of a System Group.  A direct association can be a non-homogeneous relationship between 2 different objects, for example System Groups and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations?targets&#x3D;user \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
   # @param group_id ObjectID of the System Group.
   # @param content_type 
   # @param accept 
@@ -42,6 +42,7 @@ describe 'SystemGroupsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [String] :x_org_id 
   # @return [Array<GraphConnection>]
   describe 'graph_system_group_associations_list test' do
     it "should work" do
@@ -51,12 +52,13 @@ describe 'SystemGroupsApi' do
 
   # unit tests for graph_system_group_associations_post
   # Manage the associations of a System Group
-  # This endpoint allows you to manage the _direct_ associations of a System Group.  A direct association can be a non-homogenous relationship between 2 different objects. for example System Groups and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;{UserID}\&quot; }&#39;  &#x60;&#x60;&#x60;
+  # This endpoint allows you to manage the _direct_ associations of a System Group.  A direct association can be a non-homogeneous relationship between 2 different objects, for example System Groups and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{GroupID}/associations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;user\&quot;,     \&quot;id\&quot;: \&quot;{UserID}\&quot; }&#39;  &#x60;&#x60;&#x60;
   # @param group_id ObjectID of the System Group.
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [SystemGroupGraphManagementReq] :body 
+  # @option opts [String] :x_org_id 
   # @return [nil]
   describe 'graph_system_group_associations_post test' do
     it "should work" do
@@ -75,6 +77,7 @@ describe 'SystemGroupsApi' do
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+  # @option opts [String] :x_org_id 
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_system_group_member_of test' do
     it "should work" do
@@ -91,6 +94,7 @@ describe 'SystemGroupsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [String] :x_org_id 
   # @return [Array<GraphConnection>]
   describe 'graph_system_group_members_list test' do
     it "should work" do
@@ -100,7 +104,7 @@ describe 'SystemGroupsApi' do
 
   # unit tests for graph_system_group_members_post
   # Manage the members of a System Group
-  # This endpoint allows you to manage the system members of a System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID}/members \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;system\&quot;,     \&quot;id\&quot;: \&quot;{System_ID\&quot; }&#39; &#x60;&#x60;&#x60;
+  # This endpoint allows you to manage the system members of a System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID}/members \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;op\&quot;: \&quot;add\&quot;,     \&quot;type\&quot;: \&quot;system\&quot;,     \&quot;id\&quot;: \&quot;{System_ID}\&quot; }&#39; &#x60;&#x60;&#x60;
   # @param group_id ObjectID of the System Group.
   # @param content_type 
   # @param accept 
@@ -108,6 +112,7 @@ describe 'SystemGroupsApi' do
   # @option opts [SystemGroupMembersReq] :body 
   # @option opts [String] :date Current date header for the System Context API
   # @option opts [String] :authorization Authorization header for the System Context API
+  # @option opts [String] :x_org_id 
   # @return [nil]
   describe 'graph_system_group_members_post test' do
     it "should work" do
@@ -126,6 +131,7 @@ describe 'SystemGroupsApi' do
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
   # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  # @option opts [String] :x_org_id 
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_system_group_membership test' do
     it "should work" do
@@ -142,6 +148,7 @@ describe 'SystemGroupsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [String] :x_org_id 
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_system_group_traverse_policy test' do
     it "should work" do
@@ -158,6 +165,7 @@ describe 'SystemGroupsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [String] :x_org_id 
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_system_group_traverse_user test' do
     it "should work" do
@@ -174,6 +182,7 @@ describe 'SystemGroupsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [String] :x_org_id 
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_system_group_traverse_user_group test' do
     it "should work" do
@@ -188,6 +197,7 @@ describe 'SystemGroupsApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :x_org_id 
   # @return [nil]
   describe 'groups_system_delete test' do
     it "should work" do
@@ -197,11 +207,12 @@ describe 'SystemGroupsApi' do
 
   # unit tests for groups_system_get
   # View an individual System Group details
-  # This endpoint returns the details of a System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+  # This endpoint returns the details of a System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
   # @param id ObjectID of the System Group.
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :x_org_id 
   # @return [SystemGroup]
   describe 'groups_system_get test' do
     it "should work" do
@@ -220,6 +231,7 @@ describe 'SystemGroupsApi' do
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+  # @option opts [String] :x_org_id 
   # @return [Array<SystemGroup>]
   describe 'groups_system_list test' do
     it "should work" do
@@ -235,6 +247,7 @@ describe 'SystemGroupsApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [SystemGroupData] :body 
+  # @option opts [String] :x_org_id 
   # @return [SystemGroup]
   describe 'groups_system_patch test' do
     it "should work" do
@@ -249,6 +262,7 @@ describe 'SystemGroupsApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [SystemGroupData] :body 
+  # @option opts [String] :x_org_id 
   # @return [SystemGroup]
   describe 'groups_system_post test' do
     it "should work" do
@@ -258,12 +272,13 @@ describe 'SystemGroupsApi' do
 
   # unit tests for groups_system_put
   # Update a System Group
-  # This enpoint allows you to do a full update of the System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{  \&quot;name\&quot;: \&quot;Name_Update\&quot; }&#39; &#x60;&#x60;&#x60;
+  # This endpoint allows you to do a full update of the System Group.  #### Sample Request &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/v2/systemgroups/{Group_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{  \&quot;name\&quot;: \&quot;Name_Update\&quot; }&#39; &#x60;&#x60;&#x60;
   # @param id ObjectID of the System Group.
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [SystemGroupData] :body 
+  # @option opts [String] :x_org_id 
   # @return [SystemGroup]
   describe 'groups_system_put test' do
     it "should work" do

@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The next version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings. The most recent version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings.
+# JumpCloud's V2 API. This set of endpoints allows JumpCloud customers to manage objects, groupings and mappings and interact with the JumpCloud Graph.
 
 OpenAPI spec version: 2.0
 
@@ -26,6 +26,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_org_id  (default to )
     # @return [nil]
     def activedirectories_delete(id, content_type, accept, opts = {})
       activedirectories_delete_with_http_info(id, content_type, accept, opts)
@@ -38,6 +39,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def activedirectories_delete_with_http_info(id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -69,6 +71,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -94,6 +97,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_org_id  (default to )
     # @return [ActiveDirectoryOutput]
     def activedirectories_get(id, content_type, accept, opts = {})
       data, _status_code, _headers = activedirectories_get_with_http_info(id, content_type, accept, opts)
@@ -106,6 +110,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_org_id 
     # @return [Array<(ActiveDirectoryOutput, Fixnum, Hash)>] ActiveDirectoryOutput data, response status code and response headers
     def activedirectories_get_with_http_info(id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -137,6 +142,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -167,6 +173,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id  (default to )
     # @return [Array<ActiveDirectoryOutput>]
     def activedirectories_list(content_type, accept, opts = {})
       data, _status_code, _headers = activedirectories_list_with_http_info(content_type, accept, opts)
@@ -183,6 +190,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<ActiveDirectoryOutput>, Fixnum, Hash)>] Array<ActiveDirectoryOutput> data, response status code and response headers
     def activedirectories_list_with_http_info(content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -215,6 +223,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -241,6 +250,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [ActiveDirectoryInput] :body 
+    # @option opts [String] :x_org_id  (default to )
     # @return [ActiveDirectoryOutput]
     def activedirectories_post(content_type, accept, opts = {})
       data, _status_code, _headers = activedirectories_post_with_http_info(content_type, accept, opts)
@@ -253,6 +263,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [ActiveDirectoryInput] :body 
+    # @option opts [String] :x_org_id 
     # @return [Array<(ActiveDirectoryOutput, Fixnum, Hash)>] ActiveDirectoryOutput data, response status code and response headers
     def activedirectories_post_with_http_info(content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -280,6 +291,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -301,7 +313,7 @@ module JCAPIv2
     end
 
     # List the associations of an Active Directory instance
-    # This endpoint returns the direct associations of this Active Directory instance.  A direct association can be a non-homogenous relationship between 2 different objects. For example Active Directory and Users.   #### Sample Request ``` curl -X GET 'https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/associations?targets=user \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
+    # This endpoint returns the direct associations of this Active Directory instance.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Active Directory and Users.   #### Sample Request ``` curl -X GET 'https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/associations?targets=user \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
     # @param activedirectory_id 
     # @param targets 
     # @param content_type 
@@ -309,6 +321,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Array<GraphConnection>]
     def graph_active_directory_associations_list(activedirectory_id, targets, content_type, accept, opts = {})
       data, _status_code, _headers = graph_active_directory_associations_list_with_http_info(activedirectory_id, targets, content_type, accept, opts)
@@ -316,7 +329,7 @@ module JCAPIv2
     end
 
     # List the associations of an Active Directory instance
-    # This endpoint returns the direct associations of this Active Directory instance.  A direct association can be a non-homogenous relationship between 2 different objects. For example Active Directory and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/associations?targets&#x3D;user \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+    # This endpoint returns the direct associations of this Active Directory instance.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Active Directory and Users.   #### Sample Request &#x60;&#x60;&#x60; curl -X GET &#39;https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/associations?targets&#x3D;user \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
     # @param activedirectory_id 
     # @param targets 
     # @param content_type 
@@ -324,6 +337,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphConnection>, Fixnum, Hash)>] Array<GraphConnection> data, response status code and response headers
     def graph_active_directory_associations_list_with_http_info(activedirectory_id, targets, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -362,6 +376,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -383,12 +398,13 @@ module JCAPIv2
     end
 
     # Manage the associations of an Active Directory instance
-    # This endpoint allows you to manage the _direct_ associations of an Active Directory instance.  A direct association can be a non-homogenous relationship between 2 different objects. For example Active Directory and Users.  #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{AD_Instance_ID}/associations \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{         \"op\": \"add\",         \"type\": \"user\",         \"id\": \"{User_ID}\" } ' ```
+    # This endpoint allows you to manage the _direct_ associations of an Active Directory instance.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Active Directory and Users.  #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{AD_Instance_ID}/associations \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{         \"op\": \"add\",         \"type\": \"user\",         \"id\": \"{User_ID}\" } ' ```
     # @param activedirectory_id 
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [GraphManagementReq] :body 
+    # @option opts [String] :x_org_id  (default to )
     # @return [nil]
     def graph_active_directory_associations_post(activedirectory_id, content_type, accept, opts = {})
       graph_active_directory_associations_post_with_http_info(activedirectory_id, content_type, accept, opts)
@@ -396,12 +412,13 @@ module JCAPIv2
     end
 
     # Manage the associations of an Active Directory instance
-    # This endpoint allows you to manage the _direct_ associations of an Active Directory instance.  A direct association can be a non-homogenous relationship between 2 different objects. For example Active Directory and Users.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{AD_Instance_ID}/associations \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{         \&quot;op\&quot;: \&quot;add\&quot;,         \&quot;type\&quot;: \&quot;user\&quot;,         \&quot;id\&quot;: \&quot;{User_ID}\&quot; } &#39; &#x60;&#x60;&#x60;
+    # This endpoint allows you to manage the _direct_ associations of an Active Directory instance.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Active Directory and Users.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{AD_Instance_ID}/associations \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{         \&quot;op\&quot;: \&quot;add\&quot;,         \&quot;type\&quot;: \&quot;user\&quot;,         \&quot;id\&quot;: \&quot;{User_ID}\&quot; } &#39; &#x60;&#x60;&#x60;
     # @param activedirectory_id 
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [GraphManagementReq] :body 
+    # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def graph_active_directory_associations_post_with_http_info(activedirectory_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -433,6 +450,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}
@@ -460,6 +478,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Array<GraphObjectWithPaths>]
     def graph_active_directory_traverse_user_group(activedirectory_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_active_directory_traverse_user_group_with_http_info(activedirectory_id, content_type, accept, opts)
@@ -474,6 +493,7 @@ module JCAPIv2
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [String] :x_org_id 
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_active_directory_traverse_user_group_with_http_info(activedirectory_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -507,6 +527,7 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}

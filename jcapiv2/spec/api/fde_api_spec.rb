@@ -37,6 +37,7 @@ describe 'FdeApi' do
   # This endpoint will return the current (latest) fde key saved for a system.
   # @param system_id 
   # @param [Hash] opts the optional parameters
+  # @option opts [String] :x_org_id 
   # @return [Systemfdekey]
   describe 'systems_get_fde_key test' do
     it "should work" do

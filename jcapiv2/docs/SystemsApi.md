@@ -515,7 +515,7 @@ Name | Type | Description  | Notes
 
 
 # **systems_get_fde_key**
-> Systemfdekey systems_get_fde_key(system_id)
+> Systemfdekey systems_get_fde_key(system_id, opts)
 
 Get System FDE Key
 
@@ -537,10 +537,13 @@ api_instance = JCAPIv2::SystemsApi.new
 
 system_id = "system_id_example" # String | 
 
+opts = { 
+  x_org_id: "" # String | 
+}
 
 begin
   #Get System FDE Key
-  result = api_instance.systems_get_fde_key(system_id)
+  result = api_instance.systems_get_fde_key(system_id, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling SystemsApi->systems_get_fde_key: #{e}"
@@ -552,6 +555,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **system_id** | **String**|  | 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 

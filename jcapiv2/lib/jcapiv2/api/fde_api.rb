@@ -24,6 +24,7 @@ module JCAPIv2
     # This endpoint will return the current (latest) fde key saved for a system.
     # @param system_id 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_org_id  (default to )
     # @return [Systemfdekey]
     def systems_get_fde_key(system_id, opts = {})
       data, _status_code, _headers = systems_get_fde_key_with_http_info(system_id, opts)
@@ -34,6 +35,7 @@ module JCAPIv2
     # This endpoint will return the current (latest) fde key saved for a system.
     # @param system_id 
     # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_org_id 
     # @return [Array<(Systemfdekey, Fixnum, Hash)>] Systemfdekey data, response status code and response headers
     def systems_get_fde_key_with_http_info(system_id, opts = {})
       if @api_client.config.debugging
@@ -55,6 +57,7 @@ module JCAPIv2
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}

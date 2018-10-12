@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+# JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
 
 OpenAPI spec version: 1.0
 
@@ -59,11 +59,11 @@ module JCAPIv1
 
     attr_accessor :ssh_root_enabled
 
-    attr_accessor :id
-
     attr_accessor :tags
 
     attr_accessor :_id
+
+    attr_accessor :fde
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -91,9 +91,9 @@ module JCAPIv1
         :'agent_version' => :'agentVersion',
         :'connection_history' => :'connectionHistory',
         :'ssh_root_enabled' => :'sshRootEnabled',
-        :'id' => :'id',
         :'tags' => :'tags',
-        :'_id' => :'_id'
+        :'_id' => :'_id',
+        :'fde' => :'fde'
       }
     end
 
@@ -122,9 +122,9 @@ module JCAPIv1
         :'agent_version' => :'String',
         :'connection_history' => :'Array<Object>',
         :'ssh_root_enabled' => :'BOOLEAN',
-        :'id' => :'String',
         :'tags' => :'Array<String>',
-        :'_id' => :'String'
+        :'_id' => :'String',
+        :'fde' => :'Fde'
       }
     end
 
@@ -230,10 +230,6 @@ module JCAPIv1
         self.ssh_root_enabled = attributes[:'sshRootEnabled']
       end
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
-
       if attributes.has_key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
@@ -242,6 +238,10 @@ module JCAPIv1
 
       if attributes.has_key?(:'_id')
         self._id = attributes[:'_id']
+      end
+
+      if attributes.has_key?(:'fde')
+        self.fde = attributes[:'fde']
       end
 
     end
@@ -286,9 +286,9 @@ module JCAPIv1
           agent_version == o.agent_version &&
           connection_history == o.connection_history &&
           ssh_root_enabled == o.ssh_root_enabled &&
-          id == o.id &&
           tags == o.tags &&
-          _id == o._id
+          _id == o._id &&
+          fde == o.fde
     end
 
     # @see the `==` method
@@ -300,7 +300,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [organization, created, last_contact, os, version, arch, network_interfaces, hostname, display_name, system_timezone, template_name, remote_ip, active, sshd_params, allow_ssh_password_authentication, allow_ssh_root_login, allow_multi_factor_authentication, allow_public_key_authentication, modify_sshd_config, agent_version, connection_history, ssh_root_enabled, id, tags, _id].hash
+      [organization, created, last_contact, os, version, arch, network_interfaces, hostname, display_name, system_timezone, template_name, remote_ip, active, sshd_params, allow_ssh_password_authentication, allow_ssh_root_login, allow_multi_factor_authentication, allow_public_key_authentication, modify_sshd_config, agent_version, connection_history, ssh_root_enabled, tags, _id, fde].hash
     end
 
     # Builds the object from hash

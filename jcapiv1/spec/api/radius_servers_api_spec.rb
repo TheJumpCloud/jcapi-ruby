@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+# JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
 
 OpenAPI spec version: 1.0
 
@@ -42,6 +42,7 @@ describe 'RadiusServersApi' do
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending. 
+  # @option opts [String] :x_org_id 
   # @return [Radiusserverslist]
   describe 'radius_servers_list test' do
     it "should work" do
@@ -56,6 +57,7 @@ describe 'RadiusServersApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Radiusserverpost] :body 
+  # @option opts [String] :x_org_id 
   # @return [Radiusserverslist]
   describe 'radius_servers_post test' do
     it "should work" do
@@ -70,6 +72,7 @@ describe 'RadiusServersApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Body] :body 
+  # @option opts [String] :x_org_id 
   # @return [Radiusserverput]
   describe 'radius_servers_put test' do
     it "should work" do

@@ -1,7 +1,7 @@
 =begin
 #JumpCloud APIs
 
-#V1 & V2 versions of JumpCloud's API. The previous version of JumpCloud's API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+# JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
 
 OpenAPI spec version: 1.0
 
@@ -25,10 +25,11 @@ module JCAPIv1
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :fields The comma separated fileds included in the returned records. If omitted the default list of fields will be returned.
+    # @option opts [String] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.
     # @option opts [Integer] :limit The number of records to return at once.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :sort  (default to The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending.)
+    # @option opts [String] :x_org_id  (default to )
     # @return [Applicationslist]
     def applications_list(content_type, accept, opts = {})
       data, _status_code, _headers = applications_list_with_http_info(content_type, accept, opts)
@@ -40,10 +41,11 @@ module JCAPIv1
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :fields The comma separated fileds included in the returned records. If omitted the default list of fields will be returned.
+    # @option opts [String] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.
     # @option opts [Integer] :limit The number of records to return at once.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :sort 
+    # @option opts [String] :x_org_id 
     # @return [Array<(Applicationslist, Fixnum, Hash)>] Applicationslist data, response status code and response headers
     def applications_list_with_http_info(content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -75,6 +77,7 @@ module JCAPIv1
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}

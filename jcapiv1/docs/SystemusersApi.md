@@ -4,6 +4,9 @@ All URIs are relative to *https://console.jumpcloud.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**sshkey_delete**](SystemusersApi.md#sshkey_delete) | **DELETE** /systemusers/{id}/sshkeys/{id} | Delete a system user&#39;s Public SSH Keys
+[**sshkey_list**](SystemusersApi.md#sshkey_list) | **GET** /systemusers/{id}/sshkeys | List a system user&#39;s public SSH keys
+[**sshkey_post**](SystemusersApi.md#sshkey_post) | **POST** /systemusers/{id}/sshkeys | Create a system user&#39;s Public SSH Key
 [**systemusers_delete**](SystemusersApi.md#systemusers_delete) | **DELETE** /systemusers/{id} | Delete a system user
 [**systemusers_get**](SystemusersApi.md#systemusers_get) | **GET** /systemusers/{id} | List a system user
 [**systemusers_list**](SystemusersApi.md#systemusers_list) | **GET** /systemusers | List all system users
@@ -14,8 +17,201 @@ Method | HTTP request | Description
 [**systemusers_systems_binding_put**](SystemusersApi.md#systemusers_systems_binding_put) | **PUT** /systemusers/{id}/systems | Update a system user binding
 
 
+# **sshkey_delete**
+> sshkey_delete(id, content_type, accept, opts)
+
+Delete a system user's Public SSH Keys
+
+This endpoint will delete a specific System User's SSH Key.
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv1'
+# setup authorization
+JCAPIv1.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = JCAPIv1::SystemusersApi.new
+
+id = "id_example" # String | 
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  x_org_id: "" # String | 
+}
+
+begin
+  #Delete a system user's Public SSH Keys
+  api_instance.sshkey_delete(id, content_type, accept, opts)
+rescue JCAPIv1::ApiError => e
+  puts "Exception when calling SystemusersApi->sshkey_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  | 
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **x_org_id** | **String**|  | [optional] [default to ]
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json; charset=utf-8
+
+
+
+# **sshkey_list**
+> Sshkeylist sshkey_list(id, content_type, accept, opts)
+
+List a system user's public SSH keys
+
+This endpoint will return a specific System User's public SSH key.
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv1'
+# setup authorization
+JCAPIv1.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = JCAPIv1::SystemusersApi.new
+
+id = "id_example" # String | 
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  x_org_id: "" # String | 
+}
+
+begin
+  #List a system user's public SSH keys
+  result = api_instance.sshkey_list(id, content_type, accept, opts)
+  p result
+rescue JCAPIv1::ApiError => e
+  puts "Exception when calling SystemusersApi->sshkey_list: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  | 
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **x_org_id** | **String**|  | [optional] [default to ]
+
+### Return type
+
+[**Sshkeylist**](Sshkeylist.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json; charset=utf-8
+
+
+
+# **sshkey_post**
+> Sshkeylist sshkey_post(id, content_type, accept, opts)
+
+Create a system user's Public SSH Key
+
+This endpoint will create a specific System User's Public SSH Key.
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv1'
+# setup authorization
+JCAPIv1.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = JCAPIv1::SystemusersApi.new
+
+id = "id_example" # String | 
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  body: JCAPIv1::Sshkeypost.new, # Sshkeypost | 
+  x_org_id: "" # String | 
+}
+
+begin
+  #Create a system user's Public SSH Key
+  result = api_instance.sshkey_post(id, content_type, accept, opts)
+  p result
+rescue JCAPIv1::ApiError => e
+  puts "Exception when calling SystemusersApi->sshkey_post: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  | 
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **body** | [**Sshkeypost**](Sshkeypost.md)|  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
+
+### Return type
+
+[**Sshkeylist**](Sshkeylist.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json; charset=utf-8
+
+
+
 # **systemusers_delete**
-> Systemuserreturn systemusers_delete(id, content_type, accept)
+> Systemuserreturn systemusers_delete(id, content_type, accept, opts)
 
 Delete a system user
 
@@ -41,10 +237,13 @@ content_type = "application/json" # String |
 
 accept = "application/json" # String | 
 
+opts = { 
+  x_org_id: "" # String | 
+}
 
 begin
   #Delete a system user
-  result = api_instance.systemusers_delete(id, content_type, accept)
+  result = api_instance.systemusers_delete(id, content_type, accept, opts)
   p result
 rescue JCAPIv1::ApiError => e
   puts "Exception when calling SystemusersApi->systemusers_delete: #{e}"
@@ -58,6 +257,7 @@ Name | Type | Description  | Notes
  **id** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -103,6 +303,7 @@ accept = "application/json" # String |
 
 opts = { 
   fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -122,6 +323,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  | [optional] [default to ]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -139,7 +341,7 @@ Name | Type | Description  | Notes
 
 
 # **systemusers_list**
-> Systemuserslist systemusers_list(opts)
+> Systemuserslist systemusers_list(content_type, accept, opts)
 
 List all system users
 
@@ -159,17 +361,22 @@ end
 
 api_instance = JCAPIv1::SystemusersApi.new
 
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
 opts = { 
   limit: 10, # Integer | The number of records to return at once.
   skip: 0, # Integer | The offset into the records to return.
   sort: "", # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
   fields: "", # String | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-  filter: "" # String | 
+  filter: "", # String | 
+  x_org_id: "" # String | 
 }
 
 begin
   #List all system users
-  result = api_instance.systemusers_list(opts)
+  result = api_instance.systemusers_list(content_type, accept, opts)
   p result
 rescue JCAPIv1::ApiError => e
   puts "Exception when calling SystemusersApi->systemusers_list: #{e}"
@@ -180,11 +387,14 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | **String**| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
  **fields** | **String**| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to ]
  **filter** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -227,7 +437,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: JCAPIv1::Systemuserputpost.new # Systemuserputpost | 
+  body: JCAPIv1::Systemuserputpost.new, # Systemuserputpost | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -246,6 +457,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Systemuserputpost**](Systemuserputpost.md)|  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -290,7 +502,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: JCAPIv1::Systemuserput.new # Systemuserput | 
+  body: JCAPIv1::Systemuserput.new, # Systemuserput | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -310,6 +523,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Systemuserput**](Systemuserput.md)|  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -327,7 +541,7 @@ Name | Type | Description  | Notes
 
 
 # **systemusers_resetmfa**
-> String systemusers_resetmfa(id, x_api_key)
+> String systemusers_resetmfa(id, x_api_key, opts)
 
 Reset a system user's MFA token
 
@@ -351,10 +565,13 @@ id = "id_example" # String |
 
 x_api_key = "x_api_key_example" # String | 
 
+opts = { 
+  x_org_id: "" # String | 
+}
 
 begin
   #Reset a system user's MFA token
-  result = api_instance.systemusers_resetmfa(id, x_api_key)
+  result = api_instance.systemusers_resetmfa(id, x_api_key, opts)
   p result
 rescue JCAPIv1::ApiError => e
   puts "Exception when calling SystemusersApi->systemusers_resetmfa: #{e}"
@@ -367,6 +584,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  | 
  **x_api_key** | **String**|  | 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -415,6 +633,7 @@ opts = {
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
   sort: "" # String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -437,6 +656,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -481,7 +701,8 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: JCAPIv1::Usersystembindingsput.new # Usersystembindingsput | 
+  body: JCAPIv1::Usersystembindingsput.new, # Usersystembindingsput | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -501,6 +722,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Usersystembindingsput**](Usersystembindingsput.md)|  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 

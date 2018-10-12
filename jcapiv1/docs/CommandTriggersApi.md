@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **command_trigger_webhook_post**
-> command_trigger_webhook_post(triggername, content_type, accept)
+> command_trigger_webhook_post(triggername, content_type, accept, opts)
 
 Launch a command via a Trigger
 
@@ -34,10 +34,13 @@ content_type = "application/json" # String |
 
 accept = "application/json" # String | 
 
+opts = { 
+  x_org_id: "" # String | 
+}
 
 begin
   #Launch a command via a Trigger
-  api_instance.command_trigger_webhook_post(triggername, content_type, accept)
+  api_instance.command_trigger_webhook_post(triggername, content_type, accept, opts)
 rescue JCAPIv1::ApiError => e
   puts "Exception when calling CommandTriggersApi->command_trigger_webhook_post: #{e}"
 end
@@ -50,6 +53,7 @@ Name | Type | Description  | Notes
  **triggername** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
+ **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 

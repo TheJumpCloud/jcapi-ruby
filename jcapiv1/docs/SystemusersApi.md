@@ -28,6 +28,13 @@ This endpoint will delete a specific System User's SSH Key.
 ```ruby
 # load the gem
 require 'jcapiv1'
+# setup authorization
+JCAPIv1.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
 
 api_instance = JCAPIv1::SystemusersApi.new
 
@@ -64,7 +71,7 @@ nil (empty response body)
 
 ### Authorization
 
-No authorization required
+[x-api-key](../README.md#x-api-key)
 
 ### HTTP request headers
 
@@ -84,6 +91,13 @@ This endpoint will return a specific System User's public SSH key.
 ```ruby
 # load the gem
 require 'jcapiv1'
+# setup authorization
+JCAPIv1.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
 
 api_instance = JCAPIv1::SystemusersApi.new
 
@@ -121,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[x-api-key](../README.md#x-api-key)
 
 ### HTTP request headers
 
@@ -141,6 +155,13 @@ This endpoint will create a specific System User's Public SSH Key.
 ```ruby
 # load the gem
 require 'jcapiv1'
+# setup authorization
+JCAPIv1.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
 
 api_instance = JCAPIv1::SystemusersApi.new
 
@@ -180,7 +201,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[x-api-key](../README.md#x-api-key)
 
 ### HTTP request headers
 

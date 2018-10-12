@@ -28,7 +28,6 @@ module JCAPIv1
     # @option opts [Search] :body 
     # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (default to )
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
-    # @option opts [String] :x_org_id  (default to )
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @return [Organizationslist]
     def search_organizations_post(content_type, accept, opts = {})
@@ -44,7 +43,6 @@ module JCAPIv1
     # @option opts [Search] :body 
     # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-    # @option opts [String] :x_org_id 
     # @option opts [Integer] :skip The offset into the records to return.
     # @return [Array<(Organizationslist, Fixnum, Hash)>] Organizationslist data, response status code and response headers
     def search_organizations_post_with_http_info(content_type, accept, opts = {})
@@ -76,7 +74,6 @@ module JCAPIv1
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
-      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}

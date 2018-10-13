@@ -423,8 +423,8 @@ module JCAPIv1
         invalid_properties.push("invalid value for 'department', the character length must be smaller than or equal to 1024.")
       end
 
-      if !@bad_login_attempts.nil? && @bad_login_attempts < 1
-        invalid_properties.push("invalid value for 'bad_login_attempts', must be greater than or equal to 1.")
+      if !@bad_login_attempts.nil? && @bad_login_attempts < 0
+        invalid_properties.push("invalid value for 'bad_login_attempts', must be greater than or equal to 0.")
       end
 
       if !@middlename.nil? && @middlename.to_s.length > 1024
@@ -473,7 +473,7 @@ module JCAPIv1
       return false if !@lastname.nil? && @lastname.to_s.length > 1024
       return false if !@job_title.nil? && @job_title.to_s.length > 1024
       return false if !@department.nil? && @department.to_s.length > 1024
-      return false if !@bad_login_attempts.nil? && @bad_login_attempts < 1
+      return false if !@bad_login_attempts.nil? && @bad_login_attempts < 0
       return false if !@middlename.nil? && @middlename.to_s.length > 1024
       return false if !@displayname.nil? && @displayname.to_s.length > 1024
       return false if !@description.nil? && @description.to_s.length > 1024
@@ -577,8 +577,8 @@ module JCAPIv1
     # @param [Object] bad_login_attempts Value to be assigned
     def bad_login_attempts=(bad_login_attempts)
 
-      if !bad_login_attempts.nil? && bad_login_attempts < 1
-        fail ArgumentError, "invalid value for 'bad_login_attempts', must be greater than or equal to 1."
+      if !bad_login_attempts.nil? && bad_login_attempts < 0
+        fail ArgumentError, "invalid value for 'bad_login_attempts', must be greater than or equal to 0."
       end
 
       @bad_login_attempts = bad_login_attempts

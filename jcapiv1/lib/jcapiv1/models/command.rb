@@ -23,7 +23,7 @@ module JCAPIv1
     # The Command OS
     attr_accessor :command_type
 
-    # an array of IDs of the Command Runner Users that can execute this command.
+    # An array of IDs of the Command Runner Users that can execute this command.
     attr_accessor :command_runners
 
     # The ID of the system user to run the command as.

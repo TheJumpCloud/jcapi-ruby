@@ -167,7 +167,7 @@ module JCAPIv1
         :'associated_tag_count' => :'Integer',
         :'totp_enabled' => :'BOOLEAN',
         :'password_expiration_date' => :'String',
-        :'attributes' => :'Array<SystemuserAttributes>',
+        :'attributes' => :'Array<Object>',
         :'created' => :'String',
         :'samba_service_user' => :'BOOLEAN',
         :'password_never_expires' => :'BOOLEAN',

@@ -15,7 +15,7 @@ require 'date'
 module JCAPIv1
 
   class OrganizationslistResults
-    # the ID of the organization.
+    # The ID of the organization.
     attr_accessor :_id
 
     # The name of the organization.

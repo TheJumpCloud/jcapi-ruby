@@ -33,7 +33,7 @@ module JCAPIv1
     # A crontab that consists of: [ (seconds) (minutes) (hours) (days of month) (months) (weekdays) ] or [ immediate ]. If you send this as an empty string, it will run immediately. 
     attr_accessor :schedule
 
-    # trigger to execute command.
+    # Trigger to execute command.
     attr_accessor :trigger
 
     # When the command will repeat.

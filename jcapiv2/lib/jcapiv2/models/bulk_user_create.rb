@@ -13,7 +13,7 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module JCAPIv2
-
+  # See [V1 system user creation](https://docs.jumpcloud.com/1.0/systemusers/create-a-system-user) for full list of attributes.
   class BulkUserCreate
     attr_accessor :username
 
@@ -23,6 +23,7 @@ module JCAPIv2
 
     attr_accessor :email
 
+    # Map of additional attributes.
     attr_accessor :attributes
 
 

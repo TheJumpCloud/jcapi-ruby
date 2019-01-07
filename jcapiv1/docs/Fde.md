@@ -4,5 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **key_present** | **BOOLEAN** |  | [optional] 
+**active** | **BOOLEAN** |  | [optional] 
 
 

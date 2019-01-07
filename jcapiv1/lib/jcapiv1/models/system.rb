@@ -65,6 +65,8 @@ module JCAPIv1
 
     attr_accessor :fde
 
+    attr_accessor :amazon_instance_id
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -93,7 +95,8 @@ module JCAPIv1
         :'ssh_root_enabled' => :'sshRootEnabled',
         :'tags' => :'tags',
         :'_id' => :'_id',
-        :'fde' => :'fde'
+        :'fde' => :'fde',
+        :'amazon_instance_id' => :'amazonInstanceID'
       }
     end
 
@@ -113,7 +116,7 @@ module JCAPIv1
         :'template_name' => :'String',
         :'remote_ip' => :'String',
         :'active' => :'BOOLEAN',
-        :'sshd_params' => :'Array<String>',
+        :'sshd_params' => :'Array<SystemSshdParams>',
         :'allow_ssh_password_authentication' => :'BOOLEAN',
         :'allow_ssh_root_login' => :'BOOLEAN',
         :'allow_multi_factor_authentication' => :'BOOLEAN',
@@ -124,7 +127,8 @@ module JCAPIv1
         :'ssh_root_enabled' => :'BOOLEAN',
         :'tags' => :'Array<String>',
         :'_id' => :'String',
-        :'fde' => :'Fde'
+        :'fde' => :'Fde',
+        :'amazon_instance_id' => :'String'
       }
     end
 
@@ -244,6 +248,10 @@ module JCAPIv1
         self.fde = attributes[:'fde']
       end
 
+      if attributes.has_key?(:'amazonInstanceID')
+        self.amazon_instance_id = attributes[:'amazonInstanceID']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -288,7 +296,8 @@ module JCAPIv1
           ssh_root_enabled == o.ssh_root_enabled &&
           tags == o.tags &&
           _id == o._id &&
-          fde == o.fde
+          fde == o.fde &&
+          amazon_instance_id == o.amazon_instance_id
     end
 
     # @see the `==` method
@@ -300,7 +309,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [organization, created, last_contact, os, version, arch, network_interfaces, hostname, display_name, system_timezone, template_name, remote_ip, active, sshd_params, allow_ssh_password_authentication, allow_ssh_root_login, allow_multi_factor_authentication, allow_public_key_authentication, modify_sshd_config, agent_version, connection_history, ssh_root_enabled, tags, _id, fde].hash
+      [organization, created, last_contact, os, version, arch, network_interfaces, hostname, display_name, system_timezone, template_name, remote_ip, active, sshd_params, allow_ssh_password_authentication, allow_ssh_root_login, allow_multi_factor_authentication, allow_public_key_authentication, modify_sshd_config, agent_version, connection_history, ssh_root_enabled, tags, _id, fde, amazon_instance_id].hash
     end
 
     # Builds the object from hash

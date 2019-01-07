@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **user** | **String** | The user the command ran as. | [optional] 
 **sudo** | **BOOLEAN** | If the user had sudo rights | [optional] 
 **files** | **Array&lt;String&gt;** | An array of file ids that were included in the command | [optional] 
-**request_time** | **Integer** | The time that the command was sent. | [optional] 
-**response_time** | **Integer** | The time that the command was completed. | [optional] 
+**request_time** | **String** | The time that the command was sent. | [optional] 
+**response_time** | **String** | The time that the command was completed. | [optional] 
 **response** | [**CommandresultResponse**](CommandresultResponse.md) |  | [optional] 
 **_id** | **String** | The ID of the command. | [optional] 
 

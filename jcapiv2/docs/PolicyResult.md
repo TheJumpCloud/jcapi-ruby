@@ -12,5 +12,7 @@ Name | Type | Description | Notes
 **exit_status** | **Integer** | The 32-bit unsigned exit status from the applying the policy. | [optional] 
 **std_err** | **String** | The STDERR output from applying the policy. | [optional] 
 **std_out** | **String** | The STDOUT output from applying the policy. | [optional] 
+**state** | **String** | Enumeration describing the state of the policy. Success, failed, or pending. | [optional] 
+**detail** | **String** | Details pertaining to the policy result. | [optional] 
 
 

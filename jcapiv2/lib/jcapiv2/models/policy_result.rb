@@ -42,6 +42,12 @@ module JCAPIv2
     # The STDOUT output from applying the policy.
     attr_accessor :std_out
 
+    # Enumeration describing the state of the policy. Success, failed, or pending.
+    attr_accessor :state
+
+    # Details pertaining to the policy result.
+    attr_accessor :detail
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -54,7 +60,9 @@ module JCAPIv2
         :'success' => :'success',
         :'exit_status' => :'exitStatus',
         :'std_err' => :'stdErr',
-        :'std_out' => :'stdOut'
+        :'std_out' => :'stdOut',
+        :'state' => :'state',
+        :'detail' => :'detail'
       }
     end
 
@@ -69,7 +77,9 @@ module JCAPIv2
         :'success' => :'BOOLEAN',
         :'exit_status' => :'Integer',
         :'std_err' => :'String',
-        :'std_out' => :'String'
+        :'std_out' => :'String',
+        :'state' => :'String',
+        :'detail' => :'String'
       }
     end
 
@@ -117,6 +127,14 @@ module JCAPIv2
         self.std_out = attributes[:'stdOut']
       end
 
+      if attributes.has_key?(:'state')
+        self.state = attributes[:'state']
+      end
+
+      if attributes.has_key?(:'detail')
+        self.detail = attributes[:'detail']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -145,7 +163,9 @@ module JCAPIv2
           success == o.success &&
           exit_status == o.exit_status &&
           std_err == o.std_err &&
-          std_out == o.std_out
+          std_out == o.std_out &&
+          state == o.state &&
+          detail == o.detail
     end
 
     # @see the `==` method
@@ -157,7 +177,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [policy_id, system_id, id, started_at, ended_at, success, exit_status, std_err, std_out].hash
+      [policy_id, system_id, id, started_at, ended_at, success, exit_status, std_err, std_out, state, detail].hash
     end
 
     # Builds the object from hash

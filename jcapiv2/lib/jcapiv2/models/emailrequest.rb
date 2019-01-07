@@ -17,6 +17,27 @@ module JCAPIv2
   class Emailrequest
     attr_accessor :email_type
 
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -56,7 +77,19 @@ module JCAPIv2
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      email_type_validator = EnumAttributeValidator.new('String', ["activation"])
+      return false unless email_type_validator.valid?(@email_type)
       return true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] email_type Object to be assigned
+    def email_type=(email_type)
+      validator = EnumAttributeValidator.new('String', ["activation"])
+      unless validator.valid?(email_type)
+        fail ArgumentError, "invalid value for 'email_type', must be one of #{validator.allowable_values}."
+      end
+      @email_type = email_type
     end
 
     # Checks equality by comparing each attribute.

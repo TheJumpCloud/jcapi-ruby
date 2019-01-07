@@ -353,12 +353,12 @@ module JCAPIv2
         invalid_properties.push("invalid value for 'username', username cannot be nil.")
       end
 
-      if !@unix_uid.nil? && @unix_uid < 0
-        invalid_properties.push("invalid value for 'unix_uid', must be greater than or equal to 0.")
+      if !@unix_uid.nil? && @unix_uid < 1
+        invalid_properties.push("invalid value for 'unix_uid', must be greater than or equal to 1.")
       end
 
-      if !@unix_guid.nil? && @unix_guid < 0
-        invalid_properties.push("invalid value for 'unix_guid', must be greater than or equal to 0.")
+      if !@unix_guid.nil? && @unix_guid < 1
+        invalid_properties.push("invalid value for 'unix_guid', must be greater than or equal to 1.")
       end
 
       if !@description.nil? && @description.to_s.length > 1024
@@ -378,8 +378,8 @@ module JCAPIv2
       return false if @email.nil?
       return false if @email.to_s.length > 1024
       return false if @username.nil?
-      return false if !@unix_uid.nil? && @unix_uid < 0
-      return false if !@unix_guid.nil? && @unix_guid < 0
+      return false if !@unix_uid.nil? && @unix_uid < 1
+      return false if !@unix_guid.nil? && @unix_guid < 1
       return false if !@description.nil? && @description.to_s.length > 1024
       return false if !@employee_identifier.nil? && @employee_identifier.to_s.length > 256
       return true
@@ -403,8 +403,8 @@ module JCAPIv2
     # @param [Object] unix_uid Value to be assigned
     def unix_uid=(unix_uid)
 
-      if !unix_uid.nil? && unix_uid < 0
-        fail ArgumentError, "invalid value for 'unix_uid', must be greater than or equal to 0."
+      if !unix_uid.nil? && unix_uid < 1
+        fail ArgumentError, "invalid value for 'unix_uid', must be greater than or equal to 1."
       end
 
       @unix_uid = unix_uid
@@ -414,8 +414,8 @@ module JCAPIv2
     # @param [Object] unix_guid Value to be assigned
     def unix_guid=(unix_guid)
 
-      if !unix_guid.nil? && unix_guid < 0
-        fail ArgumentError, "invalid value for 'unix_guid', must be greater than or equal to 0."
+      if !unix_guid.nil? && unix_guid < 1
+        fail ArgumentError, "invalid value for 'unix_guid', must be greater than or equal to 1."
       end
 
       @unix_guid = unix_guid

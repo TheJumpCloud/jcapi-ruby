@@ -155,7 +155,7 @@ describe 'GSuiteApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [GSuiteTranslationRuleRequest] :body 
-  # @return [InlineResponse201]
+  # @return [GSuiteTranslationRule]
   describe 'translation_rules_g_suite_post test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

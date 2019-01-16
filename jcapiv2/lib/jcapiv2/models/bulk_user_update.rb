@@ -18,6 +18,14 @@ module JCAPIv2
     # Object ID of the systemuser being updated
     attr_accessor :id
 
+    attr_accessor :username
+
+    attr_accessor :firstname
+
+    attr_accessor :lastname
+
+    attr_accessor :email
+
     # Map of additional attributes.
     attr_accessor :attributes
 
@@ -26,6 +34,10 @@ module JCAPIv2
     def self.attribute_map
       {
         :'id' => :'id',
+        :'username' => :'username',
+        :'firstname' => :'firstname',
+        :'lastname' => :'lastname',
+        :'email' => :'email',
         :'attributes' => :'attributes'
       }
     end
@@ -34,6 +46,10 @@ module JCAPIv2
     def self.swagger_types
       {
         :'id' => :'String',
+        :'username' => :'String',
+        :'firstname' => :'String',
+        :'lastname' => :'String',
+        :'email' => :'String',
         :'attributes' => :'Array<Object>'
       }
     end
@@ -48,6 +64,22 @@ module JCAPIv2
 
       if attributes.has_key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.has_key?(:'username')
+        self.username = attributes[:'username']
+      end
+
+      if attributes.has_key?(:'firstname')
+        self.firstname = attributes[:'firstname']
+      end
+
+      if attributes.has_key?(:'lastname')
+        self.lastname = attributes[:'lastname']
+      end
+
+      if attributes.has_key?(:'email')
+        self.email = attributes[:'email']
       end
 
       if attributes.has_key?(:'attributes')
@@ -77,6 +109,10 @@ module JCAPIv2
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
+          username == o.username &&
+          firstname == o.firstname &&
+          lastname == o.lastname &&
+          email == o.email &&
           attributes == o.attributes
     end
 
@@ -89,7 +125,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, attributes].hash
+      [id, username, firstname, lastname, email, attributes].hash
     end
 
     # Builds the object from hash

@@ -354,8 +354,6 @@ Class | Method | HTTP request | Description
  - [JCAPIv2::GraphType](docs/GraphType.md)
  - [JCAPIv2::Group](docs/Group.md)
  - [JCAPIv2::GroupType](docs/GroupType.md)
- - [JCAPIv2::InlineResponse201](docs/InlineResponse201.md)
- - [JCAPIv2::InlineResponse2011](docs/InlineResponse2011.md)
  - [JCAPIv2::JobDetails](docs/JobDetails.md)
  - [JCAPIv2::JobId](docs/JobId.md)
  - [JCAPIv2::JobWorkresult](docs/JobWorkresult.md)

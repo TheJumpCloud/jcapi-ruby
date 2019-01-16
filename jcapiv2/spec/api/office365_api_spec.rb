@@ -157,7 +157,7 @@ describe 'Office365Api' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Office365TranslationRuleRequest] :body 
-  # @return [InlineResponse2011]
+  # @return [Office365TranslationRule]
   describe 'translation_rules_office365_post test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

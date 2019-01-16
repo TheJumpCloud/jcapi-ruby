@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 
 
 # **translation_rules_office365_post**
-> InlineResponse2011 translation_rules_office365_post(office365_id, content_type, accept, opts)
+> Office365TranslationRule translation_rules_office365_post(office365_id, content_type, accept, opts)
 
 Create a new Office 365 Translation Rule
 
@@ -534,7 +534,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2011**](InlineResponse2011.md)
+[**Office365TranslationRule**](Office365TranslationRule.md)
 
 ### Authorization
 

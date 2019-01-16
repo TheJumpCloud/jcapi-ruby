@@ -574,7 +574,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Office365TranslationRuleRequest] :body 
-    # @return [InlineResponse2011]
+    # @return [Office365TranslationRule]
     def translation_rules_office365_post(office365_id, content_type, accept, opts = {})
       data, _status_code, _headers = translation_rules_office365_post_with_http_info(office365_id, content_type, accept, opts)
       return data
@@ -587,7 +587,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Office365TranslationRuleRequest] :body 
-    # @return [Array<(InlineResponse2011, Fixnum, Hash)>] InlineResponse2011 data, response status code and response headers
+    # @return [Array<(Office365TranslationRule, Fixnum, Hash)>] Office365TranslationRule data, response status code and response headers
     def translation_rules_office365_post_with_http_info(office365_id, content_type, accept, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: Office365Api.translation_rules_office365_post ..."
@@ -631,7 +631,7 @@ module JCAPIv2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse2011')
+        :return_type => 'Office365TranslationRule')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: Office365Api#translation_rules_office365_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

@@ -560,7 +560,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [GSuiteTranslationRuleRequest] :body 
-    # @return [InlineResponse201]
+    # @return [GSuiteTranslationRule]
     def translation_rules_g_suite_post(gsuite_id, content_type, accept, opts = {})
       data, _status_code, _headers = translation_rules_g_suite_post_with_http_info(gsuite_id, content_type, accept, opts)
       return data
@@ -573,7 +573,7 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [GSuiteTranslationRuleRequest] :body 
-    # @return [Array<(InlineResponse201, Fixnum, Hash)>] InlineResponse201 data, response status code and response headers
+    # @return [Array<(GSuiteTranslationRule, Fixnum, Hash)>] GSuiteTranslationRule data, response status code and response headers
     def translation_rules_g_suite_post_with_http_info(gsuite_id, content_type, accept, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: GSuiteApi.translation_rules_g_suite_post ..."
@@ -617,7 +617,7 @@ module JCAPIv2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse201')
+        :return_type => 'GSuiteTranslationRule')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: GSuiteApi#translation_rules_g_suite_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

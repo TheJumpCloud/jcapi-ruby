@@ -478,7 +478,7 @@ Name | Type | Description  | Notes
 
 
 # **translation_rules_g_suite_post**
-> InlineResponse201 translation_rules_g_suite_post(gsuite_id, content_type, accept, opts)
+> GSuiteTranslationRule translation_rules_g_suite_post(gsuite_id, content_type, accept, opts)
 
 Create a new G Suite Translation Rule
 
@@ -528,7 +528,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse201**](InlineResponse201.md)
+[**GSuiteTranslationRule**](GSuiteTranslationRule.md)
 
 ### Authorization
 

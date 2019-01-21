@@ -88,8 +88,8 @@ module JCAPIv1
         :'user' => :'String',
         :'sudo' => :'BOOLEAN',
         :'files' => :'Array<String>',
-        :'request_time' => :'Integer',
-        :'response_time' => :'Integer',
+        :'request_time' => :'String',
+        :'response_time' => :'String',
         :'response' => :'CommandresultResponse',
         :'_id' => :'String'
       }

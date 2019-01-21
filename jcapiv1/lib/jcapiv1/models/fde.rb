@@ -17,18 +17,22 @@ module JCAPIv1
   class Fde
     attr_accessor :key_present
 
+    attr_accessor :active
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'key_present' => :'keyPresent'
+        :'key_present' => :'keyPresent',
+        :'active' => :'active'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'key_present' => :'BOOLEAN'
+        :'key_present' => :'BOOLEAN',
+        :'active' => :'BOOLEAN'
       }
     end
 
@@ -42,6 +46,10 @@ module JCAPIv1
 
       if attributes.has_key?(:'keyPresent')
         self.key_present = attributes[:'keyPresent']
+      end
+
+      if attributes.has_key?(:'active')
+        self.active = attributes[:'active']
       end
 
     end
@@ -64,7 +72,8 @@ module JCAPIv1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          key_present == o.key_present
+          key_present == o.key_present &&
+          active == o.active
     end
 
     # @see the `==` method
@@ -76,7 +85,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [key_present].hash
+      [key_present, active].hash
     end
 
     # Builds the object from hash

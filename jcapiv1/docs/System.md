@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **template_name** | **String** |  | [optional] 
 **remote_ip** | **String** |  | [optional] 
 **active** | **BOOLEAN** |  | [optional] 
-**sshd_params** | **Array&lt;String&gt;** |  | [optional] 
+**sshd_params** | [**Array&lt;SystemSshdParams&gt;**](SystemSshdParams.md) |  | [optional] 
 **allow_ssh_password_authentication** | **BOOLEAN** |  | [optional] 
 **allow_ssh_root_login** | **BOOLEAN** |  | [optional] 
 **allow_multi_factor_authentication** | **BOOLEAN** |  | [optional] 
@@ -28,5 +28,6 @@ Name | Type | Description | Notes
 **tags** | **Array&lt;String&gt;** |  | [optional] 
 **_id** | **String** |  | [optional] 
 **fde** | [**Fde**](Fde.md) |  | [optional] 
+**amazon_instance_id** | **String** |  | [optional] 
 
 

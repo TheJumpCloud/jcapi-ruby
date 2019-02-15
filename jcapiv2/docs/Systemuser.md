@@ -42,5 +42,6 @@ Name | Type | Description | Notes
 **employee_identifier** | **String** | Must be unique per user.  | [optional] 
 **job_title** | **String** |  | [optional] 
 **department** | **String** |  | [optional] 
+**mfa** | [**Mfa**](Mfa.md) |  | [optional] 
 
 

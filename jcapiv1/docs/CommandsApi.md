@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 Get a Command File
 
-This endpoint returns the uploaded file(s) associated with a specific command.  #### Sample Request  ``` curl -X GET https://console.jumpcloud.com/api/files/command/{commandID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
+This endpoint returns the uploaded file(s) associated with a specific command.  #### Sample Request  ``` curl -X GET https://console.jumpcloud.com/api/files/command/{commandID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'    ```
 
 ### Example
 ```ruby
@@ -150,7 +150,7 @@ nil (empty response body)
 
 List an individual Command
 
-This endpoint returns a specific command based on the command ID.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/commands/{CommandID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
+This endpoint returns a specific command based on the command ID.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/commands/{CommandID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'  ```
 
 ### Example
 ```ruby
@@ -174,6 +174,7 @@ accept = "application/json" # String |
 
 opts = { 
   fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+  filter: "filter_example" # String | A filter to apply to the query.
   x_org_id: "" # String | 
 }
 
@@ -194,6 +195,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  | [optional] [default to ]
+ **filter** | **String**| A filter to apply to the query. | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -240,7 +242,8 @@ opts = {
   skip: 0, # Integer | The offset into the records to return.
   fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  sort: "" # String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
+  sort: "", # String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
+  filter: "filter_example" # String | A filter to apply to the query.
   x_org_id: "" # String | 
 }
 
@@ -263,6 +266,7 @@ Name | Type | Description  | Notes
  **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  | [optional] [default to ]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+ **filter** | **String**| A filter to apply to the query. | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type

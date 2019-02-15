@@ -38,5 +38,6 @@ Name | Type | Description | Notes
 **employee_type** | **String** |  | [optional] 
 **company** | **String** |  | [optional] 
 **employee_identifier** | **String** | Must be unique per user.  | [optional] 
+**mfa** | [**Mfa**](Mfa.md) |  | [optional] 
 
 

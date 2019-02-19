@@ -35,20 +35,20 @@ end
 
 api_instance = JCAPIv2::SystemsApi.new
 
-system_id = "system_id_example" # String | ObjectID of the System.
+system_id = 'system_id_example' # String | ObjectID of the System.
 
-content_type = "application/json" # String | 
+content_type = 'application/json' # String | 
 
-accept = "application/json" # String | 
+accept = 'application/json' # String | 
 
-targets = ["targets_example"] # Array<String> | 
+targets = ['targets_example'] # Array<String> | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  date: "date_example", # String | Current date header for the System Context API
-  authorization: "authorization_example", # String | Authorization header for the System Context API
-  x_org_id: "" # String | 
+  date: 'date_example', # String | Current date header for the System Context API
+  authorization: 'authorization_example', # String | Authorization header for the System Context API
+  x_org_id: '' # String | 
 }
 
 begin
@@ -110,17 +110,17 @@ end
 
 api_instance = JCAPIv2::SystemsApi.new
 
-system_id = "system_id_example" # String | ObjectID of the System.
+system_id = 'system_id_example' # String | ObjectID of the System.
 
-content_type = "application/json" # String | 
+content_type = 'application/json' # String | 
 
-accept = "application/json" # String | 
+accept = 'application/json' # String | 
 
 opts = { 
   body: JCAPIv2::SystemGraphManagementReq.new, # SystemGraphManagementReq | 
-  date: "date_example", # String | Current date header for the System Context API
-  authorization: "authorization_example", # String | Authorization header for the System Context API
-  x_org_id: "" # String | 
+  date: 'date_example', # String | Current date header for the System Context API
+  authorization: 'authorization_example', # String | Authorization header for the System Context API
+  x_org_id: '' # String | 
 }
 
 begin
@@ -179,20 +179,20 @@ end
 
 api_instance = JCAPIv2::SystemsApi.new
 
-system_id = "system_id_example" # String | ObjectID of the System.
+system_id = 'system_id_example' # String | ObjectID of the System.
 
-content_type = "application/json" # String | 
+content_type = 'application/json' # String | 
 
-accept = "application/json" # String | 
+accept = 'application/json' # String | 
 
 opts = { 
-  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  filter: ['[]'], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  date: "date_example", # String | Current date header for the System Context API
-  authorization: "authorization_example", # String | Authorization header for the System Context API
-  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: "" # String | 
+  date: 'date_example', # String | Current date header for the System Context API
+  authorization: 'authorization_example', # String | Authorization header for the System Context API
+  sort: ['[]'], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: '' # String | 
 }
 
 begin
@@ -211,12 +211,12 @@ Name | Type | Description  | Notes
  **system_id** | **String**| ObjectID of the System. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **date** | **String**| Current date header for the System Context API | [optional] 
  **authorization** | **String**| Authorization header for the System Context API | [optional] 
- **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -255,16 +255,16 @@ end
 
 api_instance = JCAPIv2::SystemsApi.new
 
-system_id = "system_id_example" # String | ObjectID of the System.
+system_id = 'system_id_example' # String | ObjectID of the System.
 
-content_type = "application/json" # String | 
+content_type = 'application/json' # String | 
 
-accept = "application/json" # String | 
+accept = 'application/json' # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: "" # String | 
+  x_org_id: '' # String | 
 }
 
 begin
@@ -323,16 +323,16 @@ end
 
 api_instance = JCAPIv2::SystemsApi.new
 
-system_id = "system_id_example" # String | ObjectID of the System.
+system_id = 'system_id_example' # String | ObjectID of the System.
 
-content_type = "application/json" # String | 
+content_type = 'application/json' # String | 
 
-accept = "application/json" # String | 
+accept = 'application/json' # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: "" # String | 
+  x_org_id: '' # String | 
 }
 
 begin
@@ -391,19 +391,19 @@ end
 
 api_instance = JCAPIv2::SystemsApi.new
 
-system_id = "system_id_example" # String | ObjectID of the System.
+system_id = 'system_id_example' # String | ObjectID of the System.
 
-content_type = "application/json" # String | 
+content_type = 'application/json' # String | 
 
-accept = "application/json" # String | 
+accept = 'application/json' # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  x_org_id: "" # String | 
+  x_org_id: '' # String | 
   skip: 0, # Integer | The offset into the records to return.
-  date: "date_example", # String | Current date header for the System Context API
-  authorization: "authorization_example", # String | Authorization header for the System Context API
-  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  date: 'date_example', # String | Current date header for the System Context API
+  authorization: 'authorization_example', # String | Authorization header for the System Context API
+  filter: ['[]'], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 }
 
 begin
@@ -427,7 +427,7 @@ Name | Type | Description  | Notes
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **date** | **String**| Current date header for the System Context API | [optional] 
  **authorization** | **String**| Authorization header for the System Context API | [optional] 
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
 
 ### Return type
 
@@ -465,18 +465,18 @@ end
 
 api_instance = JCAPIv2::SystemsApi.new
 
-system_id = "system_id_example" # String | ObjectID of the System.
+system_id = 'system_id_example' # String | ObjectID of the System.
 
-content_type = "application/json" # String | 
+content_type = 'application/json' # String | 
 
-accept = "application/json" # String | 
+accept = 'application/json' # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  date: "date_example", # String | Current date header for the System Context API
-  authorization: "authorization_example", # String | Authorization header for the System Context API
-  x_org_id: "" # String | 
+  date: 'date_example', # String | Current date header for the System Context API
+  authorization: 'authorization_example', # String | Authorization header for the System Context API
+  x_org_id: '' # String | 
 }
 
 begin
@@ -537,10 +537,10 @@ end
 
 api_instance = JCAPIv2::SystemsApi.new
 
-system_id = "system_id_example" # String | 
+system_id = 'system_id_example' # String | 
 
 opts = { 
-  x_org_id: "" # String | 
+  x_org_id: '' # String | 
 }
 
 begin

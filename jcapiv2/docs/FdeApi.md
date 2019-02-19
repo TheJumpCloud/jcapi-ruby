@@ -28,10 +28,10 @@ end
 
 api_instance = JCAPIv2::FdeApi.new
 
-system_id = "system_id_example" # String | 
+system_id = 'system_id_example' # String | 
 
 opts = { 
-  x_org_id: "" # String | 
+  x_org_id: '' # String | 
 }
 
 begin

@@ -33,16 +33,16 @@ end
 
 api_instance = JCAPIv1::SystemsApi.new
 
-id = "id_example" # String | 
+id = 'id_example' # String | 
 
-content_type = "application/json" # String | 
+content_type = 'application/json' # String | 
 
-accept = "application/json" # String | 
+accept = 'application/json' # String | 
 
 opts = { 
-  date: "date_example", # String | Current date header for the System Context API
-  authorization: "authorization_example", # String | Authorization header for the System Context API
-  x_org_id: "" # String | 
+  date: 'date_example', # String | Current date header for the System Context API
+  authorization: 'authorization_example', # String | Authorization header for the System Context API
+  x_org_id: '' # String | 
 }
 
 begin
@@ -101,18 +101,18 @@ end
 
 api_instance = JCAPIv1::SystemsApi.new
 
-id = "id_example" # String | 
+id = 'id_example' # String | 
 
-content_type = "application/json" # String | 
+content_type = 'application/json' # String | 
 
-accept = "application/json" # String | 
+accept = 'application/json' # String | 
 
 opts = { 
-  fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
-  filter: "filter_example" # String | A filter to apply to the query.
-  date: "date_example", # String | Current date header for the System Context API
-  authorization: "authorization_example", # String | Authorization header for the System Context API
-  x_org_id: "" # String | 
+  fields: '', # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+  filter: 'filter_example' # String | A filter to apply to the query.
+  date: 'date_example', # String | Current date header for the System Context API
+  authorization: 'authorization_example', # String | Authorization header for the System Context API
+  x_org_id: '' # String | 
 }
 
 begin
@@ -173,18 +173,18 @@ end
 
 api_instance = JCAPIv1::SystemsApi.new
 
-content_type = "application/json" # String | 
+content_type = 'application/json' # String | 
 
-accept = "application/json" # String | 
+accept = 'application/json' # String | 
 
 opts = { 
-  fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+  fields: '', # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  x_org_id: "" # String | 
-  search: "search_example", # String | A nested object containing a string `searchTerm` and a list of `fields` to search on.
+  x_org_id: '' # String | 
+  search: 'search_example', # String | A nested object containing a string `searchTerm` and a list of `fields` to search on.
   skip: 0, # Integer | The offset into the records to return.
-  sort: "", # String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
-  filter: "filter_example" # String | A filter to apply to the query.
+  sort: '', # String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
+  filter: 'filter_example' # String | A filter to apply to the query.
 }
 
 begin
@@ -246,17 +246,17 @@ end
 
 api_instance = JCAPIv1::SystemsApi.new
 
-id = "id_example" # String | 
+id = 'id_example' # String | 
 
-content_type = "application/json" # String | 
+content_type = 'application/json' # String | 
 
-accept = "application/json" # String | 
+accept = 'application/json' # String | 
 
 opts = { 
   body: JCAPIv1::Systemput.new, # Systemput | 
-  date: "date_example", # String | Current date header for the System Context API
-  authorization: "authorization_example", # String | Authorization header for the System Context API
-  x_org_id: "" # String | 
+  date: 'date_example', # String | Current date header for the System Context API
+  authorization: 'authorization_example', # String | Authorization header for the System Context API
+  x_org_id: '' # String | 
 }
 
 begin
@@ -315,19 +315,19 @@ end
 
 api_instance = JCAPIv1::SystemsApi.new
 
-id = "id_example" # String | 
+id = 'id_example' # String | 
 
-content_type = "application/json" # String | 
+content_type = 'application/json' # String | 
 
-accept = "application/json" # String | 
+accept = 'application/json' # String | 
 
 opts = { 
-  fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+  fields: '', # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: "", # String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
-  filter: "filter_example" # String | A filter to apply to the query.
-  x_org_id: "" # String | 
+  sort: '', # String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
+  filter: 'filter_example' # String | A filter to apply to the query.
+  x_org_id: '' # String | 
 }
 
 begin
@@ -389,15 +389,15 @@ end
 
 api_instance = JCAPIv1::SystemsApi.new
 
-id = "id_example" # String | 
+id = 'id_example' # String | 
 
-content_type = "application/json" # String | 
+content_type = 'application/json' # String | 
 
-accept = "application/json" # String | 
+accept = 'application/json' # String | 
 
 opts = { 
   body: JCAPIv1::Systemuserbindingsput.new, # Systemuserbindingsput | 
-  x_org_id: "" # String | 
+  x_org_id: '' # String | 
 }
 
 begin

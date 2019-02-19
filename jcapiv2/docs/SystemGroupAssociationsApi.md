@@ -33,18 +33,18 @@ end
 
 api_instance = JCAPIv2::SystemGroupAssociationsApi.new
 
-group_id = "group_id_example" # String | ObjectID of the System Group.
+group_id = 'group_id_example' # String | ObjectID of the System Group.
 
-content_type = "application/json" # String | 
+content_type = 'application/json' # String | 
 
-accept = "application/json" # String | 
+accept = 'application/json' # String | 
 
-targets = ["targets_example"] # Array<String> | 
+targets = ['targets_example'] # Array<String> | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: "" # String | 
+  x_org_id: '' # String | 
 }
 
 begin
@@ -104,15 +104,15 @@ end
 
 api_instance = JCAPIv2::SystemGroupAssociationsApi.new
 
-group_id = "group_id_example" # String | ObjectID of the System Group.
+group_id = 'group_id_example' # String | ObjectID of the System Group.
 
-content_type = "application/json" # String | 
+content_type = 'application/json' # String | 
 
-accept = "application/json" # String | 
+accept = 'application/json' # String | 
 
 opts = { 
   body: JCAPIv2::SystemGroupGraphManagementReq.new, # SystemGroupGraphManagementReq | 
-  x_org_id: "" # String | 
+  x_org_id: '' # String | 
 }
 
 begin
@@ -169,16 +169,16 @@ end
 
 api_instance = JCAPIv2::SystemGroupAssociationsApi.new
 
-group_id = "group_id_example" # String | ObjectID of the System Group.
+group_id = 'group_id_example' # String | ObjectID of the System Group.
 
-content_type = "application/json" # String | 
+content_type = 'application/json' # String | 
 
-accept = "application/json" # String | 
+accept = 'application/json' # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: "" # String | 
+  x_org_id: '' # String | 
 }
 
 begin
@@ -237,16 +237,16 @@ end
 
 api_instance = JCAPIv2::SystemGroupAssociationsApi.new
 
-group_id = "group_id_example" # String | ObjectID of the System Group.
+group_id = 'group_id_example' # String | ObjectID of the System Group.
 
-content_type = "application/json" # String | 
+content_type = 'application/json' # String | 
 
-accept = "application/json" # String | 
+accept = 'application/json' # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: "" # String | 
+  x_org_id: '' # String | 
 }
 
 begin
@@ -305,16 +305,16 @@ end
 
 api_instance = JCAPIv2::SystemGroupAssociationsApi.new
 
-group_id = "group_id_example" # String | ObjectID of the System Group.
+group_id = 'group_id_example' # String | ObjectID of the System Group.
 
-content_type = "application/json" # String | 
+content_type = 'application/json' # String | 
 
-accept = "application/json" # String | 
+accept = 'application/json' # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: "" # String | 
+  x_org_id: '' # String | 
 }
 
 begin
@@ -373,16 +373,16 @@ end
 
 api_instance = JCAPIv2::SystemGroupAssociationsApi.new
 
-group_id = "group_id_example" # String | ObjectID of the System Group.
+group_id = 'group_id_example' # String | ObjectID of the System Group.
 
-content_type = "application/json" # String | 
+content_type = 'application/json' # String | 
 
-accept = "application/json" # String | 
+accept = 'application/json' # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: "" # String | 
+  x_org_id: '' # String | 
 }
 
 begin

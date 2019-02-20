@@ -227,7 +227,6 @@ Class | Method | HTTP request | Description
 *JCAPIv2::PoliciesApi* | [**policytemplates_list**](docs/PoliciesApi.md#policytemplates_list) | **GET** /policytemplates | Lists all of the Policy Templates
 *JCAPIv2::PolicytemplatesApi* | [**policytemplates_get**](docs/PolicytemplatesApi.md#policytemplates_get) | **GET** /policytemplates/{id} | Get a specific Policy Template
 *JCAPIv2::PolicytemplatesApi* | [**policytemplates_list**](docs/PolicytemplatesApi.md#policytemplates_list) | **GET** /policytemplates | Lists all of the Policy Templates
-*JCAPIv2::ProvidersApi* | [**providers_list_administrators**](docs/ProvidersApi.md#providers_list_administrators) | **GET** /providers/{provider_id}/administrators | providersadministrators
 *JCAPIv2::RADIUSServersApi* | [**graph_radius_server_associations_list**](docs/RADIUSServersApi.md#graph_radius_server_associations_list) | **GET** /radiusservers/{radiusserver_id}/associations | List the associations of a RADIUS  Server
 *JCAPIv2::RADIUSServersApi* | [**graph_radius_server_associations_post**](docs/RADIUSServersApi.md#graph_radius_server_associations_post) | **POST** /radiusservers/{radiusserver_id}/associations | Manage the associations of a RADIUS Server
 *JCAPIv2::RADIUSServersApi* | [**graph_radius_server_traverse_user**](docs/RADIUSServersApi.md#graph_radius_server_traverse_user) | **GET** /radiusservers/{radiusserver_id}/users | List the Users bound to a RADIUS  Server
@@ -356,8 +355,6 @@ Class | Method | HTTP request | Description
  - [JCAPIv2::GraphType](docs/GraphType.md)
  - [JCAPIv2::Group](docs/Group.md)
  - [JCAPIv2::GroupType](docs/GroupType.md)
- - [JCAPIv2::InlineResponse200](docs/InlineResponse200.md)
- - [JCAPIv2::InlineResponse401](docs/InlineResponse401.md)
  - [JCAPIv2::JobDetails](docs/JobDetails.md)
  - [JCAPIv2::JobId](docs/JobId.md)
  - [JCAPIv2::JobWorkresult](docs/JobWorkresult.md)
@@ -378,8 +375,6 @@ Class | Method | HTTP request | Description
  - [JCAPIv2::PolicyTemplateWithDetails](docs/PolicyTemplateWithDetails.md)
  - [JCAPIv2::PolicyValue](docs/PolicyValue.md)
  - [JCAPIv2::PolicyWithDetails](docs/PolicyWithDetails.md)
- - [JCAPIv2::Provider](docs/Provider.md)
- - [JCAPIv2::ProviderContact](docs/ProviderContact.md)
  - [JCAPIv2::SambaDomainInput](docs/SambaDomainInput.md)
  - [JCAPIv2::Sshkeylist](docs/Sshkeylist.md)
  - [JCAPIv2::SystemGraphManagementReq](docs/SystemGraphManagementReq.md)

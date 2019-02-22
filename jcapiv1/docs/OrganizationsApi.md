@@ -28,17 +28,17 @@ end
 
 api_instance = JCAPIv1::OrganizationsApi.new
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
-  fields: '', # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
-  filter: 'filter_example' # String | A filter to apply to the query.
+  fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+  filter: "filter_example" # String | A filter to apply to the query.
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: '', # String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
-  search: 'search_example', # String | A nested object containing a string `searchTerm` and a list of `fields` to search on.
+  sort: "", # String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
+  search: "search_example", # String | A nested object containing a string `searchTerm` and a list of `fields` to search on.
 }
 
 begin

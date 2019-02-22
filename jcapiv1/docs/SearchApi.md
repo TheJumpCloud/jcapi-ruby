@@ -30,14 +30,14 @@ end
 
 api_instance = JCAPIv1::SearchApi.new
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   body: JCAPIv1::Search.new, # Search | 
-  fields: '', # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
-  filter: 'filter_example' # String | A filter to apply to the query.
+  fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+  filter: "filter_example" # String | A filter to apply to the query.
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
 }
@@ -99,17 +99,17 @@ end
 
 api_instance = JCAPIv1::SearchApi.new
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   body: JCAPIv1::Search.new, # Search | 
-  fields: '', # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+  fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
   skip: 0, # Integer | The offset into the records to return.
-  filter: 'filter_example' # String | A filter to apply to the query.
+  filter: "filter_example" # String | A filter to apply to the query.
 }
 
 begin
@@ -170,17 +170,17 @@ end
 
 api_instance = JCAPIv1::SearchApi.new
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   body: JCAPIv1::Search.new, # Search | 
-  fields: '', # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
-  filter: 'filter_example' # String | A filter to apply to the query.
+  fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+  filter: "filter_example" # String | A filter to apply to the query.
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin

@@ -43,18 +43,18 @@ end
 
 api_instance = JCAPIv2::PoliciesApi.new
 
-policy_id = 'policy_id_example' # String | ObjectID of the Policy.
+policy_id = "policy_id_example" # String | ObjectID of the Policy.
 
-targets = ['targets_example'] # Array<String> | 
+targets = ["targets_example"] # Array<String> | 
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -114,15 +114,15 @@ end
 
 api_instance = JCAPIv2::PoliciesApi.new
 
-policy_id = 'policy_id_example' # String | ObjectID of the Policy.
+policy_id = "policy_id_example" # String | ObjectID of the Policy.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   body: JCAPIv2::GraphManagementReq.new, # GraphManagementReq | 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -179,16 +179,16 @@ end
 
 api_instance = JCAPIv2::PoliciesApi.new
 
-policy_id = 'policy_id_example' # String | ObjectID of the Command.
+policy_id = "policy_id_example" # String | ObjectID of the Command.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -247,16 +247,16 @@ end
 
 api_instance = JCAPIv2::PoliciesApi.new
 
-policy_id = 'policy_id_example' # String | ObjectID of the Command.
+policy_id = "policy_id_example" # String | ObjectID of the Command.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -315,14 +315,14 @@ end
 
 api_instance = JCAPIv2::PoliciesApi.new
 
-id = 'id_example' # String | ObjectID of the Policy object.
+id = "id_example" # String | ObjectID of the Policy object.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -378,14 +378,14 @@ end
 
 api_instance = JCAPIv2::PoliciesApi.new
 
-id = 'id_example' # String | ObjectID of the Policy object.
+id = "id_example" # String | ObjectID of the Policy object.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -442,17 +442,17 @@ end
 
 api_instance = JCAPIv2::PoliciesApi.new
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
-  fields: ['[]'], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-  filter: ['[]'], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  fields: ["fields_example"], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: ['[]'], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: '' # String | 
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -470,11 +470,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to []]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] 
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -513,13 +513,13 @@ end
 
 api_instance = JCAPIv2::PoliciesApi.new
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   body: JCAPIv2::PolicyRequest.new, # PolicyRequest | 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -576,11 +576,11 @@ end
 
 api_instance = JCAPIv2::PoliciesApi.new
 
-id = 'id_example' # String | ObjectID of the Policy object.
+id = "id_example" # String | ObjectID of the Policy object.
 
 opts = { 
   body: JCAPIv2::PolicyRequest.new, # PolicyRequest | 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -636,14 +636,14 @@ end
 
 api_instance = JCAPIv2::PoliciesApi.new
 
-id = 'id_example' # String | ObjectID of the Policy Result.
+id = "id_example" # String | ObjectID of the Policy Result.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -700,20 +700,20 @@ end
 
 api_instance = JCAPIv2::PoliciesApi.new
 
-policy_id = 'policy_id_example' # String | 
+policy_id = "policy_id_example" # String | 
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
-  fields: ['[]'], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-  filter: ['[]'], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  fields: ["fields_example"], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: ['[]'], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  aggregate: ['[]'], # Array<String> | 
-  x_org_id: '' # String | 
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  aggregate: ["aggregate_example"], # Array<String> | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -732,12 +732,12 @@ Name | Type | Description  | Notes
  **policy_id** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to []]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] 
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
- **aggregate** | [**Array&lt;String&gt;**](String.md)|  | [optional] [default to []]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
+ **aggregate** | [**Array&lt;String&gt;**](String.md)|  | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -776,18 +776,18 @@ end
 
 api_instance = JCAPIv2::PoliciesApi.new
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
-  aggregate: ['[]'], # Array<String> | 
-  fields: ['[]'], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-  filter: ['[]'], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  aggregate: ["aggregate_example"], # Array<String> | 
+  fields: ["fields_example"], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: ['[]'], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: '' # String | 
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -805,12 +805,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **aggregate** | [**Array&lt;String&gt;**](String.md)|  | [optional] [default to []]
- **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to []]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **aggregate** | [**Array&lt;String&gt;**](String.md)|  | [optional] 
+ **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] 
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -849,19 +849,19 @@ end
 
 api_instance = JCAPIv2::PoliciesApi.new
 
-system_id = 'system_id_example' # String | ObjectID of the System.
+system_id = "system_id_example" # String | ObjectID of the System.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
-  fields: ['[]'], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-  filter: ['[]'], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  fields: ["fields_example"], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: ['[]'], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: '' # String | 
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -880,11 +880,11 @@ Name | Type | Description  | Notes
  **system_id** | **String**| ObjectID of the System. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to []]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] 
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -923,19 +923,19 @@ end
 
 api_instance = JCAPIv2::PoliciesApi.new
 
-policy_id = 'policy_id_example' # String | 
+policy_id = "policy_id_example" # String | 
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
-  fields: ['[]'], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-  filter: ['[]'], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  fields: ["fields_example"], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: ['[]'], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: '' # String | 
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -954,11 +954,11 @@ Name | Type | Description  | Notes
  **policy_id** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to []]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] 
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -997,14 +997,14 @@ end
 
 api_instance = JCAPIv2::PoliciesApi.new
 
-id = 'id_example' # String | ObjectID of the Policy Template.
+id = "id_example" # String | ObjectID of the Policy Template.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -1061,17 +1061,17 @@ end
 
 api_instance = JCAPIv2::PoliciesApi.new
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
-  fields: ['[]'], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-  filter: ['[]'], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  fields: ["fields_example"], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: ['[]'], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: '' # String | 
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -1089,11 +1089,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to []]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] 
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type

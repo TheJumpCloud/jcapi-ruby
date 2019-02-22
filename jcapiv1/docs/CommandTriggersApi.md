@@ -28,14 +28,14 @@ end
 
 api_instance = JCAPIv1::CommandTriggersApi.new
 
-triggername = 'triggername_example' # String | 
+triggername = "triggername_example" # String | 
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin

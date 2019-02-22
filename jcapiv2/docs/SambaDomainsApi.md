@@ -32,14 +32,14 @@ end
 
 api_instance = JCAPIv2::SambaDomainsApi.new
 
-ldapserver_id = 'ldapserver_id_example' # String | Unique identifier of the LDAP server.
+ldapserver_id = "ldapserver_id_example" # String | Unique identifier of the LDAP server.
 
-id = 'id_example' # String | Unique identifier of the samba domain.
+id = "id_example" # String | Unique identifier of the samba domain.
 
 opts = { 
-  content_type: 'application/json', # String | 
-  accept: 'application/json', # String | 
-  x_org_id: '' # String | 
+  content_type: "application/json", # String | 
+  accept: "application/json", # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -97,14 +97,14 @@ end
 
 api_instance = JCAPIv2::SambaDomainsApi.new
 
-ldapserver_id = 'ldapserver_id_example' # String | Unique identifier of the LDAP server.
+ldapserver_id = "ldapserver_id_example" # String | Unique identifier of the LDAP server.
 
-id = 'id_example' # String | Unique identifier of the samba domain.
+id = "id_example" # String | Unique identifier of the samba domain.
 
 opts = { 
-  content_type: 'application/json', # String | 
-  accept: 'application/json', # String | 
-  x_org_id: '' # String | 
+  content_type: "application/json", # String | 
+  accept: "application/json", # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -162,17 +162,17 @@ end
 
 api_instance = JCAPIv2::SambaDomainsApi.new
 
-ldapserver_id = 'ldapserver_id_example' # String | Unique identifier of the LDAP server.
+ldapserver_id = "ldapserver_id_example" # String | Unique identifier of the LDAP server.
 
 opts = { 
-  content_type: 'application/json', # String | 
-  accept: 'application/json', # String | 
-  fields: ['[]'], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-  filter: ['[]'], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  content_type: "application/json", # String | 
+  accept: "application/json", # String | 
+  fields: ["fields_example"], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: ['[]'], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: '' # String | 
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -191,11 +191,11 @@ Name | Type | Description  | Notes
  **ldapserver_id** | **String**| Unique identifier of the LDAP server. | 
  **content_type** | **String**|  | [optional] [default to application/json]
  **accept** | **String**|  | [optional] [default to application/json]
- **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to []]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] 
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -234,13 +234,13 @@ end
 
 api_instance = JCAPIv2::SambaDomainsApi.new
 
-ldapserver_id = 'ldapserver_id_example' # String | Unique identifier of the LDAP server.
+ldapserver_id = "ldapserver_id_example" # String | Unique identifier of the LDAP server.
 
 opts = { 
   body: JCAPIv2::SambaDomainInput.new, # SambaDomainInput | 
-  content_type: 'application/json', # String | 
-  accept: 'application/json', # String | 
-  x_org_id: '' # String | 
+  content_type: "application/json", # String | 
+  accept: "application/json", # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -298,15 +298,15 @@ end
 
 api_instance = JCAPIv2::SambaDomainsApi.new
 
-ldapserver_id = 'ldapserver_id_example' # String | Unique identifier of the LDAP server.
+ldapserver_id = "ldapserver_id_example" # String | Unique identifier of the LDAP server.
 
-id = 'id_example' # String | Unique identifier of the samba domain.
+id = "id_example" # String | Unique identifier of the samba domain.
 
 opts = { 
   body: JCAPIv2::SambaDomainInput.new, # SambaDomainInput | 
-  content_type: 'application/json', # String | 
-  accept: 'application/json', # String | 
-  x_org_id: '' # String | 
+  content_type: "application/json", # String | 
+  accept: "application/json", # String | 
+  x_org_id: "" # String | 
 }
 
 begin

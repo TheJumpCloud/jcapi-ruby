@@ -32,13 +32,13 @@ end
 
 api_instance = JCAPIv2::BulkJobRequestsApi.new
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   body: [JCAPIv2::BulkUserCreate.new], # Array<BulkUserCreate> | 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -95,16 +95,16 @@ end
 
 api_instance = JCAPIv2::BulkJobRequestsApi.new
 
-job_id = 'job_id_example' # String | 
+job_id = "job_id_example" # String | 
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -163,13 +163,13 @@ end
 
 api_instance = JCAPIv2::BulkJobRequestsApi.new
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   body: [JCAPIv2::BulkUserUpdate.new], # Array<BulkUserUpdate> | 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -226,14 +226,14 @@ end
 
 api_instance = JCAPIv2::BulkJobRequestsApi.new
 
-id = 'id_example' # String | 
+id = "id_example" # String | 
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -290,16 +290,16 @@ end
 
 api_instance = JCAPIv2::BulkJobRequestsApi.new
 
-id = 'id_example' # String | 
+id = "id_example" # String | 
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin

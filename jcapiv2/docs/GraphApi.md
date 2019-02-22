@@ -102,18 +102,18 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-activedirectory_id = 'activedirectory_id_example' # String | 
+activedirectory_id = "activedirectory_id_example" # String | 
 
-targets = ['targets_example'] # Array<String> | 
+targets = ["targets_example"] # Array<String> | 
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -173,15 +173,15 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-activedirectory_id = 'activedirectory_id_example' # String | 
+activedirectory_id = "activedirectory_id_example" # String | 
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   body: JCAPIv2::GraphManagementReq.new, # GraphManagementReq | 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -238,16 +238,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-activedirectory_id = 'activedirectory_id_example' # String | ObjectID of the Active Directory instance.
+activedirectory_id = "activedirectory_id_example" # String | ObjectID of the Active Directory instance.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -306,18 +306,18 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-application_id = 'application_id_example' # String | ObjectID of the Application.
+application_id = "application_id_example" # String | ObjectID of the Application.
 
-targets = ['targets_example'] # Array<String> | 
+targets = ["targets_example"] # Array<String> | 
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -377,15 +377,15 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-application_id = 'application_id_example' # String | ObjectID of the Application.
+application_id = "application_id_example" # String | ObjectID of the Application.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   body: JCAPIv2::GraphManagementReq.new, # GraphManagementReq | 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -442,16 +442,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-application_id = 'application_id_example' # String | ObjectID of the Application.
+application_id = "application_id_example" # String | ObjectID of the Application.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -510,16 +510,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-application_id = 'application_id_example' # String | ObjectID of the Application.
+application_id = "application_id_example" # String | ObjectID of the Application.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -578,18 +578,18 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-command_id = 'command_id_example' # String | ObjectID of the Command.
+command_id = "command_id_example" # String | ObjectID of the Command.
 
-targets = ['targets_example'] # Array<String> | 
+targets = ["targets_example"] # Array<String> | 
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -649,15 +649,15 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-command_id = 'command_id_example' # String | ObjectID of the Command.
+command_id = "command_id_example" # String | ObjectID of the Command.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   body: JCAPIv2::GraphManagementReq.new, # GraphManagementReq | 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -714,16 +714,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-command_id = 'command_id_example' # String | ObjectID of the Command.
+command_id = "command_id_example" # String | ObjectID of the Command.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -782,16 +782,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-command_id = 'command_id_example' # String | ObjectID of the Command.
+command_id = "command_id_example" # String | ObjectID of the Command.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -850,18 +850,18 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-gsuite_id = 'gsuite_id_example' # String | ObjectID of the G Suite instance.
+gsuite_id = "gsuite_id_example" # String | ObjectID of the G Suite instance.
 
-targets = ['targets_example'] # Array<String> | 
+targets = ["targets_example"] # Array<String> | 
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -921,11 +921,11 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-gsuite_id = 'gsuite_id_example' # String | ObjectID of the G Suite instance.
+gsuite_id = "gsuite_id_example" # String | ObjectID of the G Suite instance.
 
 opts = { 
   body: JCAPIv2::GraphManagementReq.new, # GraphManagementReq | 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -980,16 +980,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-gsuite_id = 'gsuite_id_example' # String | ObjectID of the G Suite instance.
+gsuite_id = "gsuite_id_example" # String | ObjectID of the G Suite instance.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -1048,16 +1048,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-gsuite_id = 'gsuite_id_example' # String | ObjectID of the G Suite instance.
+gsuite_id = "gsuite_id_example" # String | ObjectID of the G Suite instance.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -1116,18 +1116,18 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-ldapserver_id = 'ldapserver_id_example' # String | ObjectID of the LDAP Server.
+ldapserver_id = "ldapserver_id_example" # String | ObjectID of the LDAP Server.
 
-targets = ['targets_example'] # Array<String> | 
+targets = ["targets_example"] # Array<String> | 
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -1187,15 +1187,15 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-ldapserver_id = 'ldapserver_id_example' # String | ObjectID of the LDAP Server.
+ldapserver_id = "ldapserver_id_example" # String | ObjectID of the LDAP Server.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   body: JCAPIv2::GraphManagementReq.new, # GraphManagementReq | 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -1252,16 +1252,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-ldapserver_id = 'ldapserver_id_example' # String | ObjectID of the LDAP Server.
+ldapserver_id = "ldapserver_id_example" # String | ObjectID of the LDAP Server.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -1320,16 +1320,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-ldapserver_id = 'ldapserver_id_example' # String | ObjectID of the LDAP Server.
+ldapserver_id = "ldapserver_id_example" # String | ObjectID of the LDAP Server.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -1388,18 +1388,18 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-office365_id = 'office365_id_example' # String | ObjectID of the Office 365 instance.
+office365_id = "office365_id_example" # String | ObjectID of the Office 365 instance.
 
-targets = ['targets_example'] # Array<String> | 
+targets = ["targets_example"] # Array<String> | 
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -1459,15 +1459,15 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-office365_id = 'office365_id_example' # String | ObjectID of the Office 365 instance.
+office365_id = "office365_id_example" # String | ObjectID of the Office 365 instance.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   body: JCAPIv2::GraphManagementReq.new, # GraphManagementReq | 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -1524,16 +1524,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-office365_id = 'office365_id_example' # String | ObjectID of the Office 365 suite.
+office365_id = "office365_id_example" # String | ObjectID of the Office 365 suite.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -1592,16 +1592,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-office365_id = 'office365_id_example' # String | ObjectID of the Office 365 suite.
+office365_id = "office365_id_example" # String | ObjectID of the Office 365 suite.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -1660,18 +1660,18 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-policy_id = 'policy_id_example' # String | ObjectID of the Policy.
+policy_id = "policy_id_example" # String | ObjectID of the Policy.
 
-targets = ['targets_example'] # Array<String> | 
+targets = ["targets_example"] # Array<String> | 
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -1731,15 +1731,15 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-policy_id = 'policy_id_example' # String | ObjectID of the Policy.
+policy_id = "policy_id_example" # String | ObjectID of the Policy.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   body: JCAPIv2::GraphManagementReq.new, # GraphManagementReq | 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -1796,16 +1796,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-policy_id = 'policy_id_example' # String | ObjectID of the Command.
+policy_id = "policy_id_example" # String | ObjectID of the Command.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -1864,16 +1864,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-policy_id = 'policy_id_example' # String | ObjectID of the Command.
+policy_id = "policy_id_example" # String | ObjectID of the Command.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -1932,18 +1932,18 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-radiusserver_id = 'radiusserver_id_example' # String | ObjectID of the Radius Server.
+radiusserver_id = "radiusserver_id_example" # String | ObjectID of the Radius Server.
 
-targets = ['targets_example'] # Array<String> | 
+targets = ["targets_example"] # Array<String> | 
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -2003,15 +2003,15 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-radiusserver_id = 'radiusserver_id_example' # String | ObjectID of the Radius Server.
+radiusserver_id = "radiusserver_id_example" # String | ObjectID of the Radius Server.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   body: JCAPIv2::GraphManagementReq.new, # GraphManagementReq | 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -2068,16 +2068,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-radiusserver_id = 'radiusserver_id_example' # String | ObjectID of the Radius Server.
+radiusserver_id = "radiusserver_id_example" # String | ObjectID of the Radius Server.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -2136,16 +2136,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-radiusserver_id = 'radiusserver_id_example' # String | ObjectID of the Radius Server.
+radiusserver_id = "radiusserver_id_example" # String | ObjectID of the Radius Server.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -2204,20 +2204,20 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-system_id = 'system_id_example' # String | ObjectID of the System.
+system_id = "system_id_example" # String | ObjectID of the System.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
-targets = ['targets_example'] # Array<String> | 
+targets = ["targets_example"] # Array<String> | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  date: 'date_example', # String | Current date header for the System Context API
-  authorization: 'authorization_example', # String | Authorization header for the System Context API
-  x_org_id: '' # String | 
+  date: "date_example", # String | Current date header for the System Context API
+  authorization: "authorization_example", # String | Authorization header for the System Context API
+  x_org_id: "" # String | 
 }
 
 begin
@@ -2279,17 +2279,17 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-system_id = 'system_id_example' # String | ObjectID of the System.
+system_id = "system_id_example" # String | ObjectID of the System.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   body: JCAPIv2::SystemGraphManagementReq.new, # SystemGraphManagementReq | 
-  date: 'date_example', # String | Current date header for the System Context API
-  authorization: 'authorization_example', # String | Authorization header for the System Context API
-  x_org_id: '' # String | 
+  date: "date_example", # String | Current date header for the System Context API
+  authorization: "authorization_example", # String | Authorization header for the System Context API
+  x_org_id: "" # String | 
 }
 
 begin
@@ -2348,18 +2348,18 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the System Group.
+group_id = "group_id_example" # String | ObjectID of the System Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
-targets = ['targets_example'] # Array<String> | 
+targets = ["targets_example"] # Array<String> | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -2419,15 +2419,15 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the System Group.
+group_id = "group_id_example" # String | ObjectID of the System Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   body: JCAPIv2::SystemGroupGraphManagementReq.new, # SystemGroupGraphManagementReq | 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -2484,18 +2484,18 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the System Group.
+group_id = "group_id_example" # String | ObjectID of the System Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
-  filter: ['[]'], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: ['[]'], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: '' # String | 
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -2514,10 +2514,10 @@ Name | Type | Description  | Notes
  **group_id** | **String**| ObjectID of the System Group. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -2556,16 +2556,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the System Group.
+group_id = "group_id_example" # String | ObjectID of the System Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -2624,17 +2624,17 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the System Group.
+group_id = "group_id_example" # String | ObjectID of the System Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   body: JCAPIv2::SystemGroupMembersReq.new, # SystemGroupMembersReq | 
-  date: 'date_example', # String | Current date header for the System Context API
-  authorization: 'authorization_example', # String | Authorization header for the System Context API
-  x_org_id: '' # String | 
+  date: "date_example", # String | Current date header for the System Context API
+  authorization: "authorization_example", # String | Authorization header for the System Context API
+  x_org_id: "" # String | 
 }
 
 begin
@@ -2693,18 +2693,18 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the System Group.
+group_id = "group_id_example" # String | ObjectID of the System Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: ['[]'], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  filter: ['[]'], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-  x_org_id: '' # String | 
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  x_org_id: "" # String | 
 }
 
 begin
@@ -2725,8 +2725,8 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -2765,16 +2765,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the System Group.
+group_id = "group_id_example" # String | ObjectID of the System Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -2833,16 +2833,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the System Group.
+group_id = "group_id_example" # String | ObjectID of the System Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -2901,16 +2901,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the System Group.
+group_id = "group_id_example" # String | ObjectID of the System Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -2969,16 +2969,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the System Group.
+group_id = "group_id_example" # String | ObjectID of the System Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -3037,20 +3037,20 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-system_id = 'system_id_example' # String | ObjectID of the System.
+system_id = "system_id_example" # String | ObjectID of the System.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
-  filter: ['[]'], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  date: 'date_example', # String | Current date header for the System Context API
-  authorization: 'authorization_example', # String | Authorization header for the System Context API
-  sort: ['[]'], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: '' # String | 
+  date: "date_example", # String | Current date header for the System Context API
+  authorization: "authorization_example", # String | Authorization header for the System Context API
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -3069,12 +3069,12 @@ Name | Type | Description  | Notes
  **system_id** | **String**| ObjectID of the System. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **date** | **String**| Current date header for the System Context API | [optional] 
  **authorization** | **String**| Authorization header for the System Context API | [optional] 
- **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -3113,16 +3113,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-system_id = 'system_id_example' # String | ObjectID of the System.
+system_id = "system_id_example" # String | ObjectID of the System.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -3181,16 +3181,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-system_id = 'system_id_example' # String | ObjectID of the System.
+system_id = "system_id_example" # String | ObjectID of the System.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -3249,19 +3249,19 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-system_id = 'system_id_example' # String | ObjectID of the System.
+system_id = "system_id_example" # String | ObjectID of the System.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
   skip: 0, # Integer | The offset into the records to return.
-  date: 'date_example', # String | Current date header for the System Context API
-  authorization: 'authorization_example', # String | Authorization header for the System Context API
-  filter: ['[]'], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  date: "date_example", # String | Current date header for the System Context API
+  authorization: "authorization_example", # String | Authorization header for the System Context API
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 }
 
 begin
@@ -3285,7 +3285,7 @@ Name | Type | Description  | Notes
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **date** | **String**| Current date header for the System Context API | [optional] 
  **authorization** | **String**| Authorization header for the System Context API | [optional] 
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
 
 ### Return type
 
@@ -3323,18 +3323,18 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-system_id = 'system_id_example' # String | ObjectID of the System.
+system_id = "system_id_example" # String | ObjectID of the System.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  date: 'date_example', # String | Current date header for the System Context API
-  authorization: 'authorization_example', # String | Authorization header for the System Context API
-  x_org_id: '' # String | 
+  date: "date_example", # String | Current date header for the System Context API
+  authorization: "authorization_example", # String | Authorization header for the System Context API
+  x_org_id: "" # String | 
 }
 
 begin
@@ -3395,18 +3395,18 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-user_id = 'user_id_example' # String | ObjectID of the User.
+user_id = "user_id_example" # String | ObjectID of the User.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
-targets = ['targets_example'] # Array<String> | 
+targets = ["targets_example"] # Array<String> | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -3466,15 +3466,15 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-user_id = 'user_id_example' # String | ObjectID of the User.
+user_id = "user_id_example" # String | ObjectID of the User.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   body: JCAPIv2::UserGraphManagementReq.new, # UserGraphManagementReq | 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -3531,18 +3531,18 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the User Group.
+group_id = "group_id_example" # String | ObjectID of the User Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
-targets = ['targets_example'] # Array<String> | 
+targets = ["targets_example"] # Array<String> | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -3602,15 +3602,15 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the User Group.
+group_id = "group_id_example" # String | ObjectID of the User Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   body: JCAPIv2::UserGroupGraphManagementReq.new, # UserGroupGraphManagementReq | 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -3667,18 +3667,18 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the User Group.
+group_id = "group_id_example" # String | ObjectID of the User Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
-  filter: ['[]'], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: ['[]'], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: '' # String | 
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -3697,10 +3697,10 @@ Name | Type | Description  | Notes
  **group_id** | **String**| ObjectID of the User Group. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -3739,16 +3739,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the User Group.
+group_id = "group_id_example" # String | ObjectID of the User Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -3807,15 +3807,15 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the User Group.
+group_id = "group_id_example" # String | ObjectID of the User Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   body: JCAPIv2::UserGroupMembersReq.new, # UserGroupMembersReq | 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -3872,18 +3872,18 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the User Group.
+group_id = "group_id_example" # String | ObjectID of the User Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
-  filter: ['[]'], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: ['[]'], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: '' # String | 
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -3902,10 +3902,10 @@ Name | Type | Description  | Notes
  **group_id** | **String**| ObjectID of the User Group. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -3944,16 +3944,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the User Group.
+group_id = "group_id_example" # String | ObjectID of the User Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -4012,16 +4012,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the User Group.
+group_id = "group_id_example" # String | ObjectID of the User Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -4080,16 +4080,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the User Group.
+group_id = "group_id_example" # String | ObjectID of the User Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -4148,16 +4148,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the User Group.
+group_id = "group_id_example" # String | ObjectID of the User Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -4216,16 +4216,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the User Group.
+group_id = "group_id_example" # String | ObjectID of the User Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -4284,16 +4284,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the User Group.
+group_id = "group_id_example" # String | ObjectID of the User Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -4352,16 +4352,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the User Group.
+group_id = "group_id_example" # String | ObjectID of the User Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -4420,16 +4420,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the User Group.
+group_id = "group_id_example" # String | ObjectID of the User Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -4488,16 +4488,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the User Group.
+group_id = "group_id_example" # String | ObjectID of the User Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -4556,18 +4556,18 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-user_id = 'user_id_example' # String | ObjectID of the User.
+user_id = "user_id_example" # String | ObjectID of the User.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
-  filter: ['[]'], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: ['[]'], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: '' # String | 
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -4586,10 +4586,10 @@ Name | Type | Description  | Notes
  **user_id** | **String**| ObjectID of the User. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -4628,16 +4628,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-user_id = 'user_id_example' # String | ObjectID of the User.
+user_id = "user_id_example" # String | ObjectID of the User.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -4696,16 +4696,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-user_id = 'user_id_example' # String | ObjectID of the User.
+user_id = "user_id_example" # String | ObjectID of the User.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -4764,16 +4764,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-user_id = 'user_id_example' # String | ObjectID of the User.
+user_id = "user_id_example" # String | ObjectID of the User.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -4832,16 +4832,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-user_id = 'user_id_example' # String | ObjectID of the User.
+user_id = "user_id_example" # String | ObjectID of the User.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -4900,16 +4900,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-user_id = 'user_id_example' # String | ObjectID of the User.
+user_id = "user_id_example" # String | ObjectID of the User.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -4968,16 +4968,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-user_id = 'user_id_example' # String | ObjectID of the User.
+user_id = "user_id_example" # String | ObjectID of the User.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -5036,17 +5036,17 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-user_id = 'user_id_example' # String | ObjectID of the User.
+user_id = "user_id_example" # String | ObjectID of the User.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
   skip: 0, # Integer | The offset into the records to return.
-  filter: ['[]'], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 }
 
 begin
@@ -5068,7 +5068,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **x_org_id** | **String**|  | [optional] [default to ]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
 
 ### Return type
 
@@ -5106,16 +5106,16 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-user_id = 'user_id_example' # String | ObjectID of the User.
+user_id = "user_id_example" # String | ObjectID of the User.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -5174,19 +5174,19 @@ end
 
 api_instance = JCAPIv2::GraphApi.new
 
-system_id = 'system_id_example' # String | ObjectID of the System.
+system_id = "system_id_example" # String | ObjectID of the System.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
-  fields: ['[]'], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-  filter: ['[]'], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  fields: ["fields_example"], # Array<String> | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: ['[]'], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: '' # String | 
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -5205,11 +5205,11 @@ Name | Type | Description  | Notes
  **system_id** | **String**| ObjectID of the System. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to []]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] 
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type

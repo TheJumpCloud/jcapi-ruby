@@ -64,14 +64,14 @@ end
 
 api_instance = JCAPIv2::ActiveDirectoryApi.new
 
-id = 'id_example' # String | ObjectID of this Active Directory instance.
+id = "id_example" # String | ObjectID of this Active Directory instance.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin

@@ -31,18 +31,18 @@ end
 
 api_instance = JCAPIv2::SystemGroupMembersMembershipApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the System Group.
+group_id = "group_id_example" # String | ObjectID of the System Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
-  filter: ['[]'], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: ['[]'], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: '' # String | 
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -61,10 +61,10 @@ Name | Type | Description  | Notes
  **group_id** | **String**| ObjectID of the System Group. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -103,16 +103,16 @@ end
 
 api_instance = JCAPIv2::SystemGroupMembersMembershipApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the System Group.
+group_id = "group_id_example" # String | ObjectID of the System Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -171,17 +171,17 @@ end
 
 api_instance = JCAPIv2::SystemGroupMembersMembershipApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the System Group.
+group_id = "group_id_example" # String | ObjectID of the System Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   body: JCAPIv2::SystemGroupMembersReq.new, # SystemGroupMembersReq | 
-  date: 'date_example', # String | Current date header for the System Context API
-  authorization: 'authorization_example', # String | Authorization header for the System Context API
-  x_org_id: '' # String | 
+  date: "date_example", # String | Current date header for the System Context API
+  authorization: "authorization_example", # String | Authorization header for the System Context API
+  x_org_id: "" # String | 
 }
 
 begin
@@ -240,18 +240,18 @@ end
 
 api_instance = JCAPIv2::SystemGroupMembersMembershipApi.new
 
-group_id = 'group_id_example' # String | ObjectID of the System Group.
+group_id = "group_id_example" # String | ObjectID of the System Group.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: ['[]'], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  filter: ['[]'], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-  x_org_id: '' # String | 
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  x_org_id: "" # String | 
 }
 
 begin
@@ -272,8 +272,8 @@ Name | Type | Description  | Notes
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type

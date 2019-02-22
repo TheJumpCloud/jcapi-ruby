@@ -64,17 +64,17 @@ end
 
 api_instance = JCAPIv1::ApplicationsApi.new
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
-  fields: 'fields_example', # String | The comma separated fields included in the returned records. If omitted the default list of fields will be returned.
+  fields: "fields_example", # String | The comma separated fields included in the returned records. If omitted the default list of fields will be returned.
   limit: 56, # Integer | The number of records to return at once.
   skip: 56, # Integer | The offset into the records to return.
-  sort: 'The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending.', # String | 
-  filter: 'filter_example' # String | A filter to apply to the query.
-  x_org_id: '' # String | 
+  sort: "The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending.", # String | 
+  filter: "filter_example" # String | A filter to apply to the query.
+  x_org_id: "" # String | 
 }
 
 begin

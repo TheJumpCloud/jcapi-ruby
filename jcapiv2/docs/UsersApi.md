@@ -39,18 +39,18 @@ end
 
 api_instance = JCAPIv2::UsersApi.new
 
-user_id = 'user_id_example' # String | ObjectID of the User.
+user_id = "user_id_example" # String | ObjectID of the User.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
-targets = ['targets_example'] # Array<String> | 
+targets = ["targets_example"] # Array<String> | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -110,15 +110,15 @@ end
 
 api_instance = JCAPIv2::UsersApi.new
 
-user_id = 'user_id_example' # String | ObjectID of the User.
+user_id = "user_id_example" # String | ObjectID of the User.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   body: JCAPIv2::UserGraphManagementReq.new, # UserGraphManagementReq | 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -175,18 +175,18 @@ end
 
 api_instance = JCAPIv2::UsersApi.new
 
-user_id = 'user_id_example' # String | ObjectID of the User.
+user_id = "user_id_example" # String | ObjectID of the User.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
-  filter: ['[]'], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: ['[]'], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: '' # String | 
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -205,10 +205,10 @@ Name | Type | Description  | Notes
  **user_id** | **String**| ObjectID of the User. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to []]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -247,16 +247,16 @@ end
 
 api_instance = JCAPIv2::UsersApi.new
 
-user_id = 'user_id_example' # String | ObjectID of the User.
+user_id = "user_id_example" # String | ObjectID of the User.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -315,16 +315,16 @@ end
 
 api_instance = JCAPIv2::UsersApi.new
 
-user_id = 'user_id_example' # String | ObjectID of the User.
+user_id = "user_id_example" # String | ObjectID of the User.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -383,16 +383,16 @@ end
 
 api_instance = JCAPIv2::UsersApi.new
 
-user_id = 'user_id_example' # String | ObjectID of the User.
+user_id = "user_id_example" # String | ObjectID of the User.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -451,16 +451,16 @@ end
 
 api_instance = JCAPIv2::UsersApi.new
 
-user_id = 'user_id_example' # String | ObjectID of the User.
+user_id = "user_id_example" # String | ObjectID of the User.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -519,16 +519,16 @@ end
 
 api_instance = JCAPIv2::UsersApi.new
 
-user_id = 'user_id_example' # String | ObjectID of the User.
+user_id = "user_id_example" # String | ObjectID of the User.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -587,16 +587,16 @@ end
 
 api_instance = JCAPIv2::UsersApi.new
 
-user_id = 'user_id_example' # String | ObjectID of the User.
+user_id = "user_id_example" # String | ObjectID of the User.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -655,17 +655,17 @@ end
 
 api_instance = JCAPIv2::UsersApi.new
 
-user_id = 'user_id_example' # String | ObjectID of the User.
+user_id = "user_id_example" # String | ObjectID of the User.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
   skip: 0, # Integer | The offset into the records to return.
-  filter: ['[]'], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 }
 
 begin
@@ -687,7 +687,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **x_org_id** | **String**|  | [optional] [default to ]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] [default to []]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
 
 ### Return type
 
@@ -725,16 +725,16 @@ end
 
 api_instance = JCAPIv2::UsersApi.new
 
-user_id = 'user_id_example' # String | ObjectID of the User.
+user_id = "user_id_example" # String | ObjectID of the User.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin
@@ -793,15 +793,15 @@ end
 
 api_instance = JCAPIv2::UsersApi.new
 
-user_id = 'user_id_example' # String | ObjectID of the User.
+user_id = "user_id_example" # String | ObjectID of the User.
 
-content_type = 'application/json' # String | 
+content_type = "application/json" # String | 
 
-accept = 'application/json' # String | 
+accept = "application/json" # String | 
 
 opts = { 
   body: JCAPIv2::Emailrequest.new, # Emailrequest | 
-  x_org_id: '' # String | 
+  x_org_id: "" # String | 
 }
 
 begin

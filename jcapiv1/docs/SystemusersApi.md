@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**systemusers_resetmfa**](SystemusersApi.md#systemusers_resetmfa) | **POST** /systemusers/{id}/resetmfa | Reset a system user&#39;s MFA token
 [**systemusers_systems_binding_list**](SystemusersApi.md#systemusers_systems_binding_list) | **GET** /systemusers/{id}/systems | List system user binding
 [**systemusers_systems_binding_put**](SystemusersApi.md#systemusers_systems_binding_put) | **PUT** /systemusers/{id}/systems | Update a system user binding
+[**systemusers_unlock**](SystemusersApi.md#systemusers_unlock) | **POST** /systemusers/{id}/unlock | Unlock a system user
 
 
 # **sshkey_delete**
@@ -303,6 +304,7 @@ accept = "application/json" # String |
 
 opts = { 
   fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+  filter: "filter_example" # String | A filter to apply to the query.
   x_org_id: "" # String | 
 }
 
@@ -323,6 +325,7 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  | [optional] [default to ]
+ **filter** | **String**| A filter to apply to the query. | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -370,8 +373,9 @@ opts = {
   skip: 0, # Integer | The offset into the records to return.
   sort: "", # String | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
   fields: "", # String | The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-  filter: "", # String | 
   x_org_id: "" # String | 
+  search: "search_example", # String | A nested object containing a string `searchTerm` and a list of `fields` to search on.
+  filter: "filter_example" # String | A filter to apply to the query.
 }
 
 begin
@@ -393,8 +397,9 @@ Name | Type | Description  | Notes
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | **String**| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
  **fields** | **String**| The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  | [optional] [default to ]
- **filter** | **String**|  | [optional] [default to ]
  **x_org_id** | **String**|  | [optional] [default to ]
+ **search** | **String**| A nested object containing a string &#x60;searchTerm&#x60; and a list of &#x60;fields&#x60; to search on. | [optional] 
+ **filter** | **String**| A filter to apply to the query. | [optional] 
 
 ### Return type
 
@@ -634,7 +639,8 @@ opts = {
   fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: "" # String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
+  sort: "", # String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
+  filter: "filter_example" # String | A filter to apply to the query.
   x_org_id: "" # String | 
 }
 
@@ -658,6 +664,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
+ **filter** | **String**| A filter to apply to the query. | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
@@ -729,6 +736,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Usersystembinding**](Usersystembinding.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json; charset=utf-8
+
+
+
+# **systemusers_unlock**
+> systemusers_unlock(id, opts)
+
+Unlock a system user
+
+This endpoint allows you to unlock a user's account.
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv1'
+# setup authorization
+JCAPIv1.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = JCAPIv1::SystemusersApi.new
+
+id = "id_example" # String | 
+
+opts = { 
+  x_org_id: "" # String | 
+}
+
+begin
+  #Unlock a system user
+  api_instance.systemusers_unlock(id, opts)
+rescue JCAPIv1::ApiError => e
+  puts "Exception when calling SystemusersApi->systemusers_unlock: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  | 
+ **x_org_id** | **String**|  | [optional] [default to ]
+
+### Return type
+
+nil (empty response body)
 
 ### Authorization
 

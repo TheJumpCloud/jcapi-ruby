@@ -101,6 +101,7 @@ describe 'SystemusersApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+  # @option opts [String] :filter A filter to apply to the query.
   # @option opts [String] :x_org_id 
   # @return [Systemuserreturn]
   describe 'systemusers_get test' do
@@ -119,8 +120,9 @@ describe 'SystemusersApi' do
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
   # @option opts [String] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-  # @option opts [String] :filter 
   # @option opts [String] :x_org_id 
+  # @option opts [String] :search A nested object containing a string &#x60;searchTerm&#x60; and a list of &#x60;fields&#x60; to search on.
+  # @option opts [String] :filter A filter to apply to the query.
   # @return [Systemuserslist]
   describe 'systemusers_list test' do
     it "should work" do
@@ -185,6 +187,7 @@ describe 'SystemusersApi' do
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending. 
+  # @option opts [String] :filter A filter to apply to the query.
   # @option opts [String] :x_org_id 
   # @return [Object]
   describe 'systemusers_systems_binding_list test' do
@@ -204,6 +207,19 @@ describe 'SystemusersApi' do
   # @option opts [String] :x_org_id 
   # @return [Usersystembinding]
   describe 'systemusers_systems_binding_put test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for systemusers_unlock
+  # Unlock a system user
+  # This endpoint allows you to unlock a user&#39;s account.
+  # @param id 
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :x_org_id 
+  # @return [nil]
+  describe 'systemusers_unlock test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

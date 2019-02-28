@@ -99,6 +99,7 @@ module JCAPIv1
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (default to )
+    # @option opts [String] :filter A filter to apply to the query.
     # @return [Tag]
     def tags_get(name, content_type, accept, opts = {})
       data, _status_code, _headers = tags_get_with_http_info(name, content_type, accept, opts)
@@ -115,6 +116,7 @@ module JCAPIv1
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :filter A filter to apply to the query.
     # @return [Array<(Tag, Fixnum, Hash)>] Tag data, response status code and response headers
     def tags_get_with_http_info(name, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -141,6 +143,7 @@ module JCAPIv1
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
 
       # header parameters
       header_params = {}
@@ -179,6 +182,7 @@ module JCAPIv1
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (default to )
+    # @option opts [String] :filter A filter to apply to the query.
     # @return [Tagslist]
     def tags_list(content_type, accept, opts = {})
       data, _status_code, _headers = tags_list_with_http_info(content_type, accept, opts)
@@ -194,6 +198,7 @@ module JCAPIv1
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :filter A filter to apply to the query.
     # @return [Array<(Tagslist, Fixnum, Hash)>] Tagslist data, response status code and response headers
     def tags_list_with_http_info(content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -216,6 +221,7 @@ module JCAPIv1
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
 
       # header parameters
       header_params = {}

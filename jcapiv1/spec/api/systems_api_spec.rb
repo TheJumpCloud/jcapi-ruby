@@ -57,6 +57,7 @@ describe 'SystemsApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+  # @option opts [String] :filter A filter to apply to the query.
   # @option opts [String] :date Current date header for the System Context API
   # @option opts [String] :authorization Authorization header for the System Context API
   # @option opts [String] :x_org_id 
@@ -75,9 +76,11 @@ describe 'SystemsApi' do
   # @param [Hash] opts the optional parameters
   # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
+  # @option opts [String] :x_org_id 
+  # @option opts [String] :search A nested object containing a string &#x60;searchTerm&#x60; and a list of &#x60;fields&#x60; to search on.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending. 
-  # @option opts [String] :x_org_id 
+  # @option opts [String] :filter A filter to apply to the query.
   # @return [Systemslist]
   describe 'systems_list test' do
     it "should work" do
@@ -114,6 +117,7 @@ describe 'SystemsApi' do
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending. 
+  # @option opts [String] :filter A filter to apply to the query.
   # @option opts [String] :x_org_id 
   # @return [Systemuserbinding]
   describe 'systems_systemusers_binding_list test' do

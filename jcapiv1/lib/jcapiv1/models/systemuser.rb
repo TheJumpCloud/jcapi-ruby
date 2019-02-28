@@ -94,6 +94,8 @@ module JCAPIv1
 
     attr_accessor :department
 
+    attr_accessor :mfa
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -136,7 +138,8 @@ module JCAPIv1
         :'company' => :'company',
         :'employee_identifier' => :'employeeIdentifier',
         :'job_title' => :'jobTitle',
-        :'department' => :'department'
+        :'department' => :'department',
+        :'mfa' => :'mfa'
       }
     end
 
@@ -181,7 +184,8 @@ module JCAPIv1
         :'company' => :'String',
         :'employee_identifier' => :'String',
         :'job_title' => :'String',
-        :'department' => :'String'
+        :'department' => :'String',
+        :'mfa' => :'Mfa'
       }
     end
 
@@ -353,6 +357,10 @@ module JCAPIv1
 
       if attributes.has_key?(:'department')
         self.department = attributes[:'department']
+      end
+
+      if attributes.has_key?(:'mfa')
+        self.mfa = attributes[:'mfa']
       end
 
     end
@@ -685,7 +693,8 @@ module JCAPIv1
           company == o.company &&
           employee_identifier == o.employee_identifier &&
           job_title == o.job_title &&
-          department == o.department
+          department == o.department &&
+          mfa == o.mfa
     end
 
     # @see the `==` method
@@ -697,7 +706,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [email, username, allow_public_key, public_key, ssh_keys, sudo, enable_managed_uid, unix_uid, unix_guid, activated, tags, password_expired, account_locked, passwordless_sudo, externally_managed, external_dn, external_source_type, firstname, lastname, ldap_binding_user, enable_user_portal_multifactor, associated_tag_count, totp_enabled, password_expiration_date, attributes, created, samba_service_user, password_never_expires, _id, middlename, displayname, description, location, cost_center, employee_type, company, employee_identifier, job_title, department].hash
+      [email, username, allow_public_key, public_key, ssh_keys, sudo, enable_managed_uid, unix_uid, unix_guid, activated, tags, password_expired, account_locked, passwordless_sudo, externally_managed, external_dn, external_source_type, firstname, lastname, ldap_binding_user, enable_user_portal_multifactor, associated_tag_count, totp_enabled, password_expiration_date, attributes, created, samba_service_user, password_never_expires, _id, middlename, displayname, description, location, cost_center, employee_type, company, employee_identifier, job_title, department, mfa].hash
     end
 
     # Builds the object from hash

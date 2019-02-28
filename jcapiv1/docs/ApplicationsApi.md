@@ -37,6 +37,7 @@ opts = {
   limit: 56, # Integer | The number of records to return at once.
   skip: 56, # Integer | The offset into the records to return.
   sort: "The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending.", # String | 
+  filter: "filter_example" # String | A filter to apply to the query.
   x_org_id: "" # String | 
 }
 
@@ -59,6 +60,7 @@ Name | Type | Description  | Notes
  **limit** | **Integer**| The number of records to return at once. | [optional] 
  **skip** | **Integer**| The offset into the records to return. | [optional] 
  **sort** | **String**|  | [optional] [default to The comma separated fields used to sort the collection. Default sort is ascending, prefix with - to sort descending.]
+ **filter** | **String**| A filter to apply to the query. | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type

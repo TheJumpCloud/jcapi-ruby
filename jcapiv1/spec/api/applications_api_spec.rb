@@ -42,6 +42,7 @@ describe 'ApplicationsApi' do
   # @option opts [Integer] :limit The number of records to return at once.
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :sort 
+  # @option opts [String] :filter A filter to apply to the query.
   # @option opts [String] :x_org_id 
   # @return [Applicationslist]
   describe 'applications_list test' do

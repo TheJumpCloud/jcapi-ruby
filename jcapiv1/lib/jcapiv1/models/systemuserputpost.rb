@@ -88,6 +88,8 @@ module JCAPIv1
     # Must be unique per user. 
     attr_accessor :employee_identifier
 
+    attr_accessor :mfa
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -127,7 +129,8 @@ module JCAPIv1
         :'cost_center' => :'costCenter',
         :'employee_type' => :'employeeType',
         :'company' => :'company',
-        :'employee_identifier' => :'employeeIdentifier'
+        :'employee_identifier' => :'employeeIdentifier',
+        :'mfa' => :'mfa'
       }
     end
 
@@ -169,7 +172,8 @@ module JCAPIv1
         :'cost_center' => :'String',
         :'employee_type' => :'String',
         :'company' => :'String',
-        :'employee_identifier' => :'String'
+        :'employee_identifier' => :'String',
+        :'mfa' => :'Mfa'
       }
     end
 
@@ -335,6 +339,10 @@ module JCAPIv1
         self.employee_identifier = attributes[:'employeeIdentifier']
       end
 
+      if attributes.has_key?(:'mfa')
+        self.mfa = attributes[:'mfa']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -483,7 +491,8 @@ module JCAPIv1
           cost_center == o.cost_center &&
           employee_type == o.employee_type &&
           company == o.company &&
-          employee_identifier == o.employee_identifier
+          employee_identifier == o.employee_identifier &&
+          mfa == o.mfa
     end
 
     # @see the `==` method
@@ -495,7 +504,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [email, username, allow_public_key, public_key, sudo, enable_managed_uid, unix_uid, unix_guid, activated, tags, account_locked, passwordless_sudo, externally_managed, external_dn, external_source_type, firstname, lastname, ldap_binding_user, enable_user_portal_multifactor, attributes, samba_service_user, addresses, job_title, department, phone_numbers, relationships, password, password_never_expires, middlename, displayname, description, location, cost_center, employee_type, company, employee_identifier].hash
+      [email, username, allow_public_key, public_key, sudo, enable_managed_uid, unix_uid, unix_guid, activated, tags, account_locked, passwordless_sudo, externally_managed, external_dn, external_source_type, firstname, lastname, ldap_binding_user, enable_user_portal_multifactor, attributes, samba_service_user, addresses, job_title, department, phone_numbers, relationships, password, password_never_expires, middlename, displayname, description, location, cost_center, employee_type, company, employee_identifier, mfa].hash
     end
 
     # Builds the object from hash

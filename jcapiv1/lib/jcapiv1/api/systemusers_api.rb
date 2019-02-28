@@ -316,6 +316,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (default to )
+    # @option opts [String] :filter A filter to apply to the query.
     # @option opts [String] :x_org_id  (default to )
     # @return [Systemuserreturn]
     def systemusers_get(id, content_type, accept, opts = {})
@@ -330,6 +331,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+    # @option opts [String] :filter A filter to apply to the query.
     # @option opts [String] :x_org_id 
     # @return [Array<(Systemuserreturn, Fixnum, Hash)>] Systemuserreturn data, response status code and response headers
     def systemusers_get_with_http_info(id, content_type, accept, opts = {})
@@ -354,6 +356,7 @@ module JCAPIv1
       # query parameters
       query_params = {}
       query_params[:'fields'] = opts[:'fields'] if !opts[:'fields'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
 
       # header parameters
       header_params = {}
@@ -393,8 +396,9 @@ module JCAPIv1
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  (default to )
     # @option opts [String] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned.  (default to )
-    # @option opts [String] :filter  (default to )
     # @option opts [String] :x_org_id  (default to )
+    # @option opts [String] :search A nested object containing a string &#x60;searchTerm&#x60; and a list of &#x60;fields&#x60; to search on.
+    # @option opts [String] :filter A filter to apply to the query.
     # @return [Systemuserslist]
     def systemusers_list(content_type, accept, opts = {})
       data, _status_code, _headers = systemusers_list_with_http_info(content_type, accept, opts)
@@ -410,8 +414,9 @@ module JCAPIv1
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
     # @option opts [String] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
-    # @option opts [String] :filter 
     # @option opts [String] :x_org_id 
+    # @option opts [String] :search A nested object containing a string &#x60;searchTerm&#x60; and a list of &#x60;fields&#x60; to search on.
+    # @option opts [String] :filter A filter to apply to the query.
     # @return [Array<(Systemuserslist, Fixnum, Hash)>] Systemuserslist data, response status code and response headers
     def systemusers_list_with_http_info(content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -434,6 +439,7 @@ module JCAPIv1
       query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'fields'] = opts[:'fields'] if !opts[:'fields'].nil?
+      query_params[:'search'] = opts[:'search'] if !opts[:'search'].nil?
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
 
       # header parameters
@@ -684,6 +690,7 @@ module JCAPIv1
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (default to )
+    # @option opts [String] :filter A filter to apply to the query.
     # @option opts [String] :x_org_id  (default to )
     # @return [Object]
     def systemusers_systems_binding_list(id, content_type, accept, opts = {})
@@ -701,6 +708,7 @@ module JCAPIv1
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :filter A filter to apply to the query.
     # @option opts [String] :x_org_id 
     # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
     def systemusers_systems_binding_list_with_http_info(id, content_type, accept, opts = {})
@@ -728,6 +736,7 @@ module JCAPIv1
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
 
       # header parameters
       header_params = {}
@@ -828,6 +837,63 @@ module JCAPIv1
         :return_type => 'Usersystembinding')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SystemusersApi#systemusers_systems_binding_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Unlock a system user
+    # This endpoint allows you to unlock a user's account.
+    # @param id 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_org_id  (default to )
+    # @return [nil]
+    def systemusers_unlock(id, opts = {})
+      systemusers_unlock_with_http_info(id, opts)
+      return nil
+    end
+
+    # Unlock a system user
+    # This endpoint allows you to unlock a user&#39;s account.
+    # @param id 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_org_id 
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def systemusers_unlock_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemusersApi.systemusers_unlock ..."
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling SystemusersApi.systemusers_unlock"
+      end
+      # resource path
+      local_var_path = "/systemusers/{id}/unlock".sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json; charset=utf-8'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['x-api-key']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemusersApi#systemusers_unlock\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

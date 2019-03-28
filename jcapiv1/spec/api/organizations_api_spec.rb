@@ -38,7 +38,7 @@ describe 'OrganizationsApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+  # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned. 
   # @option opts [String] :filter A filter to apply to the query.
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.

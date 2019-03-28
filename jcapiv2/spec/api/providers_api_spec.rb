@@ -39,7 +39,7 @@ describe 'ProvidersApi' do
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
-  # @option opts [Array<String>] :fields The comma separated fields included in the returned records. If omitted the default list of fields will be returned. 
+  # @option opts [Array<String>] :fields The comma separated fields included in the returned records. If omitted, the default list of fields will be returned. 
   # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
   # @option opts [Integer] :skip The offset into the records to return.
@@ -53,7 +53,7 @@ describe 'ProvidersApi' do
 
   # unit tests for providers_post_admins
   # Create a new Provider Administrator
-  # This endpoint allows you to create a provider administrator. You must be associated to given provider to use this route.  **Sample Request**  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/providers/{ProviderID}/administrators \\     -H &#39;Accept: application/json&#39; \\     -H &#39;Context-Type: application/json&#39; \\     -H &#39;x-api-key: {API_KEY}&#39; \\     -d &#39;{       \&quot;email\&quot;:\&quot;{ADMIN_EMAIL}\&quot;     }&#39; &#x60;&#x60;&#x60;
+  # This endpoint allows you to create a provider administrator. You must be associated to the provider to use this route.  **Sample Request**  &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/providers/{ProviderID}/administrators \\     -H &#39;Accept: application/json&#39; \\     -H &#39;Context-Type: application/json&#39; \\     -H &#39;x-api-key: {API_KEY}&#39; \\     -d &#39;{       \&quot;email\&quot;:\&quot;{ADMIN_EMAIL}\&quot;     }&#39; &#x60;&#x60;&#x60;
   # @param provider_id 
   # @param content_type 
   # @param accept 

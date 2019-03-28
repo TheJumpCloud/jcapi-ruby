@@ -315,7 +315,7 @@ module JCAPIv1
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (default to )
+    # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (default to )
     # @option opts [String] :filter A filter to apply to the query.
     # @option opts [String] :x_org_id  (default to )
     # @return [Systemuserreturn]
@@ -330,7 +330,7 @@ module JCAPIv1
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+    # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned. 
     # @option opts [String] :filter A filter to apply to the query.
     # @option opts [String] :x_org_id 
     # @return [Array<(Systemuserreturn, Fixnum, Hash)>] Systemuserreturn data, response status code and response headers
@@ -685,7 +685,7 @@ module JCAPIv1
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (default to )
+    # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (default to )
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  (default to )
@@ -703,7 +703,7 @@ module JCAPIv1
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+    # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned. 
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :sort Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending. 

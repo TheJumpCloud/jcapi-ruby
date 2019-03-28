@@ -26,7 +26,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Search] :body 
-    # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (default to )
+    # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (default to )
     # @option opts [String] :filter A filter to apply to the query.
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
@@ -42,7 +42,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Search] :body 
-    # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+    # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned. 
     # @option opts [String] :filter A filter to apply to the query.
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
@@ -103,7 +103,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Search] :body 
-    # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (default to )
+    # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (default to )
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [String] :x_org_id  (default to )
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
@@ -120,7 +120,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Search] :body 
-    # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+    # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned. 
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [String] :x_org_id 
     # @option opts [Integer] :skip The offset into the records to return.
@@ -183,7 +183,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Search] :body 
-    # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned.  (default to )
+    # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (default to )
     # @option opts [String] :filter A filter to apply to the query.
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
@@ -200,7 +200,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Search] :body 
-    # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted the default list of fields will be returned. 
+    # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned. 
     # @option opts [String] :filter A filter to apply to the query.
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.

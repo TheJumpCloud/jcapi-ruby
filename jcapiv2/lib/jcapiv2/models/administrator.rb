@@ -15,7 +15,7 @@ require 'date'
 module JCAPIv2
 
   class Administrator
-    attr_accessor :_id
+    attr_accessor :id
 
     attr_accessor :email
 
@@ -31,7 +31,7 @@ module JCAPIv2
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'_id' => :'_id',
+        :'id' => :'id',
         :'email' => :'email',
         :'firstname' => :'firstname',
         :'lastname' => :'lastname',
@@ -43,7 +43,7 @@ module JCAPIv2
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'_id' => :'String',
+        :'id' => :'String',
         :'email' => :'String',
         :'firstname' => :'String',
         :'lastname' => :'String',
@@ -60,8 +60,8 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'_id')
-        self._id = attributes[:'_id']
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
       end
 
       if attributes.has_key?(:'email')
@@ -104,7 +104,7 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          _id == o._id &&
+          id == o.id &&
           email == o.email &&
           firstname == o.firstname &&
           lastname == o.lastname &&
@@ -121,7 +121,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [_id, email, firstname, lastname, enable_multi_factor, registered].hash
+      [id, email, firstname, lastname, enable_multi_factor, registered].hash
     end
 
     # Builds the object from hash

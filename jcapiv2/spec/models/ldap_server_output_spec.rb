@@ -38,6 +38,26 @@ describe 'LdapServerOutput' do
     end
   end
 
+  describe 'test attribute "user_lockout_action"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+       #validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["disable", "remove"])
+       #validator.allowable_values.each do |value|
+       #  expect { @instance.user_lockout_action = value }.not_to raise_error
+       #end
+    end
+  end
+
+  describe 'test attribute "user_password_expiration_action"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+       #validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["disable", "remove"])
+       #validator.allowable_values.each do |value|
+       #  expect { @instance.user_password_expiration_action = value }.not_to raise_error
+       #end
+    end
+  end
+
   describe 'test attribute "id"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

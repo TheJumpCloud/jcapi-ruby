@@ -74,8 +74,9 @@ describe 'PoliciesApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-  # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :x_org_id 
+  # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_policy_traverse_system test' do
     it "should work" do
@@ -91,8 +92,9 @@ describe 'PoliciesApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-  # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :x_org_id 
+  # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_policy_traverse_system_group test' do
     it "should work" do
@@ -216,7 +218,7 @@ describe 'PoliciesApi' do
 
   # unit tests for policyresults_list_0
   # Lists all the policy results for an organization.
-  # This endpoint returns all policies results for an Organization.  ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+  # This endpoint returns all policies results for an organization.  ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters

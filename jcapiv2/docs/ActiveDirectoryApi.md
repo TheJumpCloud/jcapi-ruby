@@ -4,6 +4,10 @@ All URIs are relative to *https://console.jumpcloud.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**activedirectories_agents_delete**](ActiveDirectoryApi.md#activedirectories_agents_delete) | **DELETE** /activedirectories/{activedirectory_id}/agents/{agent_id} | Delete Active Directory Agent
+[**activedirectories_agents_get**](ActiveDirectoryApi.md#activedirectories_agents_get) | **GET** /activedirectories/{activedirectory_id}/agents/{agent_id} | Get Active Directory Agent
+[**activedirectories_agents_list**](ActiveDirectoryApi.md#activedirectories_agents_list) | **GET** /activedirectories/{activedirectory_id}/agents | List Active Directory Agents
+[**activedirectories_agents_post**](ActiveDirectoryApi.md#activedirectories_agents_post) | **POST** /activedirectories/{activedirectory_id}/agents | Create a new Active Directory Agent
 [**activedirectories_delete**](ActiveDirectoryApi.md#activedirectories_delete) | **DELETE** /activedirectories/{id} | Delete an Active Directory
 [**activedirectories_get**](ActiveDirectoryApi.md#activedirectories_get) | **GET** /activedirectories/{id} | Get an Active Directory
 [**activedirectories_list**](ActiveDirectoryApi.md#activedirectories_list) | **GET** /activedirectories | List Active Directories
@@ -11,6 +15,259 @@ Method | HTTP request | Description
 [**graph_active_directory_associations_list**](ActiveDirectoryApi.md#graph_active_directory_associations_list) | **GET** /activedirectories/{activedirectory_id}/associations | List the associations of an Active Directory instance
 [**graph_active_directory_associations_post**](ActiveDirectoryApi.md#graph_active_directory_associations_post) | **POST** /activedirectories/{activedirectory_id}/associations | Manage the associations of an Active Directory instance
 [**graph_active_directory_traverse_user_group**](ActiveDirectoryApi.md#graph_active_directory_traverse_user_group) | **GET** /activedirectories/{activedirectory_id}/usergroups | List the User Groups bound to an Active Directory instance
+
+
+# **activedirectories_agents_delete**
+> activedirectories_agents_delete(activedirectory_id, agent_id, content_type, accept, opts)
+
+Delete Active Directory Agent
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv2'
+
+api_instance = JCAPIv2::ActiveDirectoryApi.new
+
+activedirectory_id = "activedirectory_id_example" # String | 
+
+agent_id = "agent_id_example" # String | 
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  x_org_id: "" # String | 
+}
+
+begin
+  #Delete Active Directory Agent
+  api_instance.activedirectories_agents_delete(activedirectory_id, agent_id, content_type, accept, opts)
+rescue JCAPIv2::ApiError => e
+  puts "Exception when calling ActiveDirectoryApi->activedirectories_agents_delete: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **activedirectory_id** | **String**|  | 
+ **agent_id** | **String**|  | 
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **x_org_id** | **String**|  | [optional] [default to ]
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **activedirectories_agents_get**
+> ActiveDirectoryAgentListOutput activedirectories_agents_get(activedirectory_id, agent_id, content_type, accept, opts)
+
+Get Active Directory Agent
+
+This endpoint returns a specific active directory agent.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/activedirectories/{activedirectory_id}/agents/{agent_id} \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv2'
+
+api_instance = JCAPIv2::ActiveDirectoryApi.new
+
+activedirectory_id = "activedirectory_id_example" # String | 
+
+agent_id = "agent_id_example" # String | 
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  x_org_id: "" # String | 
+}
+
+begin
+  #Get Active Directory Agent
+  result = api_instance.activedirectories_agents_get(activedirectory_id, agent_id, content_type, accept, opts)
+  p result
+rescue JCAPIv2::ApiError => e
+  puts "Exception when calling ActiveDirectoryApi->activedirectories_agents_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **activedirectory_id** | **String**|  | 
+ **agent_id** | **String**|  | 
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **x_org_id** | **String**|  | [optional] [default to ]
+
+### Return type
+
+[**ActiveDirectoryAgentListOutput**](ActiveDirectoryAgentListOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **activedirectories_agents_list**
+> Array&lt;ActiveDirectoryAgentListOutput&gt; activedirectories_agents_list(activedirectory_id, content_type, accept, opts)
+
+List Active Directory Agents
+
+This endpoint allows you to list all your Active Directory Agents for a given Instance.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/activedirectories/{activedirectory_id}/agents \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv2'
+# setup authorization
+JCAPIv2.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = JCAPIv2::ActiveDirectoryApi.new
+
+activedirectory_id = "activedirectory_id_example" # String | 
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  skip: 0, # Integer | The offset into the records to return.
+  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: "" # String | 
+}
+
+begin
+  #List Active Directory Agents
+  result = api_instance.activedirectories_agents_list(activedirectory_id, content_type, accept, opts)
+  p result
+rescue JCAPIv2::ApiError => e
+  puts "Exception when calling ActiveDirectoryApi->activedirectories_agents_list: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **activedirectory_id** | **String**|  | 
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
+
+### Return type
+
+[**Array&lt;ActiveDirectoryAgentListOutput&gt;**](ActiveDirectoryAgentListOutput.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **activedirectories_agents_post**
+> ActiveDirectoryAgentGetOutput activedirectories_agents_post(activedirectory_id, content_type, accept, opts)
+
+Create a new Active Directory Agent
+
+This endpoint allows you to create a new Active Directory Agent.   #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{activedirectory_id}/agents \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{}' ```
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv2'
+# setup authorization
+JCAPIv2.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = JCAPIv2::ActiveDirectoryApi.new
+
+activedirectory_id = "activedirectory_id_example" # String | 
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  body: JCAPIv2::ActiveDirectoryAgentInput.new, # ActiveDirectoryAgentInput | 
+  x_org_id: "" # String | 
+}
+
+begin
+  #Create a new Active Directory Agent
+  result = api_instance.activedirectories_agents_post(activedirectory_id, content_type, accept, opts)
+  p result
+rescue JCAPIv2::ApiError => e
+  puts "Exception when calling ActiveDirectoryApi->activedirectories_agents_post: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **activedirectory_id** | **String**|  | 
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **body** | [**ActiveDirectoryAgentInput**](ActiveDirectoryAgentInput.md)|  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
+
+### Return type
+
+[**ActiveDirectoryAgentGetOutput**](ActiveDirectoryAgentGetOutput.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 
 # **activedirectories_delete**
@@ -439,8 +696,9 @@ accept = "application/json" # String |
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0, # Integer | The offset into the records to return.
   x_org_id: "" # String | 
+  skip: 0, # Integer | The offset into the records to return.
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 }
 
 begin
@@ -460,8 +718,9 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **x_org_id** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
 
 ### Return type
 

@@ -24,6 +24,33 @@ module JCAPIv1
     # RADIUS shared secret between the server and client.
     attr_accessor :shared_secret
 
+    attr_accessor :user_lockout_action
+
+    attr_accessor :user_password_expiration_action
+
+    attr_accessor :mfa
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -31,7 +58,10 @@ module JCAPIv1
         :'network_source_ip' => :'networkSourceIp',
         :'name' => :'name',
         :'tag_names' => :'tagNames',
-        :'shared_secret' => :'sharedSecret'
+        :'shared_secret' => :'sharedSecret',
+        :'user_lockout_action' => :'userLockoutAction',
+        :'user_password_expiration_action' => :'userPasswordExpirationAction',
+        :'mfa' => :'mfa'
       }
     end
 
@@ -41,7 +71,10 @@ module JCAPIv1
         :'network_source_ip' => :'String',
         :'name' => :'String',
         :'tag_names' => :'Array<String>',
-        :'shared_secret' => :'String'
+        :'shared_secret' => :'String',
+        :'user_lockout_action' => :'String',
+        :'user_password_expiration_action' => :'String',
+        :'mfa' => :'String'
       }
     end
 
@@ -71,6 +104,18 @@ module JCAPIv1
         self.shared_secret = attributes[:'sharedSecret']
       end
 
+      if attributes.has_key?(:'userLockoutAction')
+        self.user_lockout_action = attributes[:'userLockoutAction']
+      end
+
+      if attributes.has_key?(:'userPasswordExpirationAction')
+        self.user_password_expiration_action = attributes[:'userPasswordExpirationAction']
+      end
+
+      if attributes.has_key?(:'mfa')
+        self.mfa = attributes[:'mfa']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -98,7 +143,19 @@ module JCAPIv1
       return false if @network_source_ip.nil?
       return false if @name.nil?
       return false if @shared_secret.nil?
+      mfa_validator = EnumAttributeValidator.new('String', ["DISABLED", "ENABLED", "REQUIRED", "ALWAYS"])
+      return false unless mfa_validator.valid?(@mfa)
       return true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] mfa Object to be assigned
+    def mfa=(mfa)
+      validator = EnumAttributeValidator.new('String', ["DISABLED", "ENABLED", "REQUIRED", "ALWAYS"])
+      unless validator.valid?(mfa)
+        fail ArgumentError, "invalid value for 'mfa', must be one of #{validator.allowable_values}."
+      end
+      @mfa = mfa
     end
 
     # Checks equality by comparing each attribute.
@@ -109,7 +166,10 @@ module JCAPIv1
           network_source_ip == o.network_source_ip &&
           name == o.name &&
           tag_names == o.tag_names &&
-          shared_secret == o.shared_secret
+          shared_secret == o.shared_secret &&
+          user_lockout_action == o.user_lockout_action &&
+          user_password_expiration_action == o.user_password_expiration_action &&
+          mfa == o.mfa
     end
 
     # @see the `==` method
@@ -121,7 +181,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [network_source_ip, name, tag_names, shared_secret].hash
+      [network_source_ip, name, tag_names, shared_secret, user_lockout_action, user_password_expiration_action, mfa].hash
     end
 
     # Builds the object from hash

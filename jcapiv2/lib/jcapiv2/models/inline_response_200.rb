@@ -15,24 +15,32 @@ require 'date'
 module JCAPIv2
 
   class InlineResponse200
-    attr_accessor :total_count
+    attr_accessor :id
 
-    attr_accessor :results
+    attr_accessor :name
+
+    attr_accessor :user_lockout_action
+
+    attr_accessor :user_password_expiration_action
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'total_count' => :'totalCount',
-        :'results' => :'results'
+        :'id' => :'id',
+        :'name' => :'name',
+        :'user_lockout_action' => :'userLockoutAction',
+        :'user_password_expiration_action' => :'userPasswordExpirationAction'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'total_count' => :'Integer',
-        :'results' => :'Array<Administrator>'
+        :'id' => :'String',
+        :'name' => :'String',
+        :'user_lockout_action' => :'LdapServerAction',
+        :'user_password_expiration_action' => :'LdapServerAction'
       }
     end
 
@@ -44,14 +52,20 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'totalCount')
-        self.total_count = attributes[:'totalCount']
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.has_key?(:'results')
-        if (value = attributes[:'results']).is_a?(Array)
-          self.results = value
-        end
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.has_key?(:'userLockoutAction')
+        self.user_lockout_action = attributes[:'userLockoutAction']
+      end
+
+      if attributes.has_key?(:'userPasswordExpirationAction')
+        self.user_password_expiration_action = attributes[:'userPasswordExpirationAction']
       end
 
     end
@@ -74,8 +88,10 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          total_count == o.total_count &&
-          results == o.results
+          id == o.id &&
+          name == o.name &&
+          user_lockout_action == o.user_lockout_action &&
+          user_password_expiration_action == o.user_password_expiration_action
     end
 
     # @see the `==` method
@@ -87,7 +103,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [total_count, results].hash
+      [id, name, user_lockout_action, user_password_expiration_action].hash
     end
 
     # Builds the object from hash

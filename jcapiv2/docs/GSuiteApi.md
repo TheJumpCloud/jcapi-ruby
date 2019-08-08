@@ -8,8 +8,10 @@ Method | HTTP request | Description
 [**graph_g_suite_associations_post**](GSuiteApi.md#graph_g_suite_associations_post) | **POST** /gsuites/{gsuite_id}/associations | Manage the associations of a G Suite instance
 [**graph_g_suite_traverse_user**](GSuiteApi.md#graph_g_suite_traverse_user) | **GET** /gsuites/{gsuite_id}/users | List the Users bound to a G Suite instance
 [**graph_g_suite_traverse_user_group**](GSuiteApi.md#graph_g_suite_traverse_user_group) | **GET** /gsuites/{gsuite_id}/usergroups | List the User Groups bound to a G Suite instance
+[**gsuites_get**](GSuiteApi.md#gsuites_get) | **GET** /gsuites/{id} | Get G Suite
+[**gsuites_patch**](GSuiteApi.md#gsuites_patch) | **PATCH** /gsuites/{id} | Update existing G Suite
 [**translation_rules_g_suite_delete**](GSuiteApi.md#translation_rules_g_suite_delete) | **DELETE** /gsuites/{gsuite_id}/translationrules/{id} | Deletes a G Suite translation rule
-[**translation_rules_g_suite_get**](GSuiteApi.md#translation_rules_g_suite_get) | **GET** /gsuites/{gsuite_id}/translationrules/{id} | Gets a specific g suite translation rule
+[**translation_rules_g_suite_get**](GSuiteApi.md#translation_rules_g_suite_get) | **GET** /gsuites/{gsuite_id}/translationrules/{id} | Gets a specific G Suite translation rule
 [**translation_rules_g_suite_list**](GSuiteApi.md#translation_rules_g_suite_list) | **GET** /gsuites/{gsuite_id}/translationrules | List all the G Suite Translation Rules
 [**translation_rules_g_suite_post**](GSuiteApi.md#translation_rules_g_suite_post) | **POST** /gsuites/{gsuite_id}/translationrules | Create a new G Suite Translation Rule
 
@@ -173,8 +175,9 @@ accept = "application/json" # String |
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0, # Integer | The offset into the records to return.
   x_org_id: "" # String | 
+  skip: 0, # Integer | The offset into the records to return.
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 }
 
 begin
@@ -194,8 +197,9 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **x_org_id** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
 
 ### Return type
 
@@ -241,8 +245,9 @@ accept = "application/json" # String |
 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0, # Integer | The offset into the records to return.
   x_org_id: "" # String | 
+  skip: 0, # Integer | The offset into the records to return.
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
 }
 
 begin
@@ -262,8 +267,9 @@ Name | Type | Description  | Notes
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **x_org_id** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
 
 ### Return type
 
@@ -272,6 +278,122 @@ Name | Type | Description  | Notes
 ### Authorization
 
 [x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **gsuites_get**
+> GsuiteOutput gsuites_get(id, content_type, accept, opts)
+
+Get G Suite
+
+This endpoint returns a specific G Suite.  ##### Sample Request  ```  curl -X GET https://console.jumpcloud.com/api/v2/gsuites/{GSUITE_ID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv2'
+
+api_instance = JCAPIv2::GSuiteApi.new
+
+id = "id_example" # String | Unique identifier of the GSuite.
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  x_org_id: "" # String | 
+}
+
+begin
+  #Get G Suite
+  result = api_instance.gsuites_get(id, content_type, accept, opts)
+  p result
+rescue JCAPIv2::ApiError => e
+  puts "Exception when calling GSuiteApi->gsuites_get: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Unique identifier of the GSuite. | 
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **x_org_id** | **String**|  | [optional] [default to ]
+
+### Return type
+
+[**GsuiteOutput**](GsuiteOutput.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **gsuites_patch**
+> GsuiteOutput gsuites_patch(id, content_type, accept, opts)
+
+Update existing G Suite
+
+This endpoint allows updating some attributes of a G Suite.  ##### Sample Request  ``` curl -X PATCH https://console.jumpcloud.com/api/v2/gsuites/{GSUITE_ID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"userLockoutAction\": \"remove\",     \"userPasswordExpirationAction\": \"disable\"   }' ```
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv2'
+
+api_instance = JCAPIv2::GSuiteApi.new
+
+id = "id_example" # String | Unique identifier of the GSuite.
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  body: JCAPIv2::GsuitePatchInput.new, # GsuitePatchInput | 
+  x_org_id: "" # String | 
+}
+
+begin
+  #Update existing G Suite
+  result = api_instance.gsuites_patch(id, content_type, accept, opts)
+  p result
+rescue JCAPIv2::ApiError => e
+  puts "Exception when calling GSuiteApi->gsuites_patch: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| Unique identifier of the GSuite. | 
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **body** | [**GsuitePatchInput**](GsuitePatchInput.md)|  | [optional] 
+ **x_org_id** | **String**|  | [optional] [default to ]
+
+### Return type
+
+[**GsuiteOutput**](GsuiteOutput.md)
+
+### Authorization
+
+No authorization required
 
 ### HTTP request headers
 
@@ -345,7 +467,7 @@ nil (empty response body)
 # **translation_rules_g_suite_get**
 > GSuiteTranslationRule translation_rules_g_suite_get(gsuite_id, id, content_type, accept)
 
-Gets a specific g suite translation rule
+Gets a specific G Suite translation rule
 
 This endpoint returns a specific translation rule for a specific G Suite instance. These rules specify how JumpCloud attributes translate to [G Suite Admin SDK](https://developers.google.com/admin-sdk/directory/) attributes.  ###### Sample Request  ```   curl -X GET https://console.jumpcloud.com/api/v2/gsuites/{gsuite_id}/translationrules/{id} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
 
@@ -373,7 +495,7 @@ accept = "application/json" # String |
 
 
 begin
-  #Gets a specific g suite translation rule
+  #Gets a specific G Suite translation rule
   result = api_instance.translation_rules_g_suite_get(gsuite_id, id, content_type, accept)
   p result
 rescue JCAPIv2::ApiError => e

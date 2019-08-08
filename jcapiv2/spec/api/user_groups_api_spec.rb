@@ -145,8 +145,9 @@ describe 'UserGroupsApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-  # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :x_org_id 
+  # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_user_group_traverse_active_directory test' do
     it "should work" do
@@ -162,8 +163,9 @@ describe 'UserGroupsApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-  # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :x_org_id 
+  # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_user_group_traverse_application test' do
     it "should work" do
@@ -179,8 +181,9 @@ describe 'UserGroupsApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-  # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :x_org_id 
+  # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_user_group_traverse_directory test' do
     it "should work" do
@@ -196,8 +199,9 @@ describe 'UserGroupsApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-  # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :x_org_id 
+  # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_user_group_traverse_g_suite test' do
     it "should work" do
@@ -213,8 +217,9 @@ describe 'UserGroupsApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-  # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :x_org_id 
+  # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_user_group_traverse_ldap_server test' do
     it "should work" do
@@ -230,8 +235,9 @@ describe 'UserGroupsApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-  # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :x_org_id 
+  # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_user_group_traverse_office365 test' do
     it "should work" do
@@ -247,8 +253,9 @@ describe 'UserGroupsApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-  # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :x_org_id 
+  # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_user_group_traverse_radius_server test' do
     it "should work" do
@@ -264,8 +271,9 @@ describe 'UserGroupsApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-  # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :x_org_id 
+  # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_user_group_traverse_system test' do
     it "should work" do
@@ -281,8 +289,9 @@ describe 'UserGroupsApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-  # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :x_org_id 
+  # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_user_group_traverse_system_group test' do
     it "should work" do

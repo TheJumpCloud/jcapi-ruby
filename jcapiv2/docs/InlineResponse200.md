@@ -3,7 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total_count** | **Integer** |  | [optional] 
-**results** | [**Array&lt;Administrator&gt;**](Administrator.md) |  | [optional] 
+**id** | **String** |  | [optional] 
+**name** | **String** |  | [optional] 
+**user_lockout_action** | [**LdapServerAction**](LdapServerAction.md) |  | [optional] 
+**user_password_expiration_action** | [**LdapServerAction**](LdapServerAction.md) |  | [optional] 
 
 

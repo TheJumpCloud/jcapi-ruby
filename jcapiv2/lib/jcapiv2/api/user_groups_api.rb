@@ -67,6 +67,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && targets.nil?
         fail ArgumentError, "Missing the required parameter 'targets' when calling UserGroupsApi.graph_user_group_associations_list"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling UserGroupsApi.graph_user_group_associations_list, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/usergroups/{group_id}/associations".sub('{' + 'group_id' + '}', group_id.to_s)
 
@@ -223,6 +227,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling UserGroupsApi.graph_user_group_member_of"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling UserGroupsApi.graph_user_group_member_of, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/usergroups/{group_id}/memberof".sub('{' + 'group_id' + '}', group_id.to_s)
 
@@ -303,6 +311,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling UserGroupsApi.graph_user_group_members_list"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling UserGroupsApi.graph_user_group_members_list, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/usergroups/{group_id}/members".sub('{' + 'group_id' + '}', group_id.to_s)
 
@@ -458,6 +470,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling UserGroupsApi.graph_user_group_membership"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling UserGroupsApi.graph_user_group_membership, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/usergroups/{group_id}/membership".sub('{' + 'group_id' + '}', group_id.to_s)
 
@@ -504,8 +520,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
-    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :x_org_id  (default to )
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_group_traverse_active_directory(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_traverse_active_directory_with_http_info(group_id, content_type, accept, opts)
@@ -519,8 +536,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-    # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :x_org_id 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_group_traverse_active_directory_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -538,6 +556,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling UserGroupsApi.graph_user_group_traverse_active_directory"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling UserGroupsApi.graph_user_group_traverse_active_directory, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/usergroups/{group_id}/activedirectories".sub('{' + 'group_id' + '}', group_id.to_s)
 
@@ -545,6 +567,7 @@ module JCAPIv2
       query_params = {}
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
 
       # header parameters
       header_params = {}
@@ -582,8 +605,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
-    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :x_org_id  (default to )
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_group_traverse_application(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_traverse_application_with_http_info(group_id, content_type, accept, opts)
@@ -597,8 +621,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-    # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :x_org_id 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_group_traverse_application_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -616,6 +641,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling UserGroupsApi.graph_user_group_traverse_application"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling UserGroupsApi.graph_user_group_traverse_application, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/usergroups/{group_id}/applications".sub('{' + 'group_id' + '}', group_id.to_s)
 
@@ -623,6 +652,7 @@ module JCAPIv2
       query_params = {}
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
 
       # header parameters
       header_params = {}
@@ -660,8 +690,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
-    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :x_org_id  (default to )
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_group_traverse_directory(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_traverse_directory_with_http_info(group_id, content_type, accept, opts)
@@ -675,8 +706,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-    # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :x_org_id 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_group_traverse_directory_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -694,6 +726,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling UserGroupsApi.graph_user_group_traverse_directory"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling UserGroupsApi.graph_user_group_traverse_directory, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/usergroups/{group_id}/directories".sub('{' + 'group_id' + '}', group_id.to_s)
 
@@ -701,6 +737,7 @@ module JCAPIv2
       query_params = {}
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
 
       # header parameters
       header_params = {}
@@ -738,8 +775,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
-    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :x_org_id  (default to )
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_group_traverse_g_suite(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_traverse_g_suite_with_http_info(group_id, content_type, accept, opts)
@@ -753,8 +791,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-    # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :x_org_id 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_group_traverse_g_suite_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -772,6 +811,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling UserGroupsApi.graph_user_group_traverse_g_suite"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling UserGroupsApi.graph_user_group_traverse_g_suite, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/usergroups/{group_id}/gsuites".sub('{' + 'group_id' + '}', group_id.to_s)
 
@@ -779,6 +822,7 @@ module JCAPIv2
       query_params = {}
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
 
       # header parameters
       header_params = {}
@@ -816,8 +860,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
-    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :x_org_id  (default to )
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_group_traverse_ldap_server(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_traverse_ldap_server_with_http_info(group_id, content_type, accept, opts)
@@ -831,8 +876,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-    # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :x_org_id 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_group_traverse_ldap_server_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -850,6 +896,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling UserGroupsApi.graph_user_group_traverse_ldap_server"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling UserGroupsApi.graph_user_group_traverse_ldap_server, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/usergroups/{group_id}/ldapservers".sub('{' + 'group_id' + '}', group_id.to_s)
 
@@ -857,6 +907,7 @@ module JCAPIv2
       query_params = {}
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
 
       # header parameters
       header_params = {}
@@ -894,8 +945,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
-    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :x_org_id  (default to )
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_group_traverse_office365(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_traverse_office365_with_http_info(group_id, content_type, accept, opts)
@@ -909,8 +961,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-    # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :x_org_id 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_group_traverse_office365_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -928,6 +981,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling UserGroupsApi.graph_user_group_traverse_office365"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling UserGroupsApi.graph_user_group_traverse_office365, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/usergroups/{group_id}/office365s".sub('{' + 'group_id' + '}', group_id.to_s)
 
@@ -935,6 +992,7 @@ module JCAPIv2
       query_params = {}
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
 
       # header parameters
       header_params = {}
@@ -972,8 +1030,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
-    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :x_org_id  (default to )
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_group_traverse_radius_server(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_traverse_radius_server_with_http_info(group_id, content_type, accept, opts)
@@ -987,8 +1046,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-    # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :x_org_id 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_group_traverse_radius_server_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -1006,6 +1066,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling UserGroupsApi.graph_user_group_traverse_radius_server"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling UserGroupsApi.graph_user_group_traverse_radius_server, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/usergroups/{group_id}/radiusservers".sub('{' + 'group_id' + '}', group_id.to_s)
 
@@ -1013,6 +1077,7 @@ module JCAPIv2
       query_params = {}
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
 
       # header parameters
       header_params = {}
@@ -1050,8 +1115,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
-    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :x_org_id  (default to )
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_group_traverse_system(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_traverse_system_with_http_info(group_id, content_type, accept, opts)
@@ -1065,8 +1131,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-    # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :x_org_id 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_group_traverse_system_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -1084,6 +1151,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling UserGroupsApi.graph_user_group_traverse_system"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling UserGroupsApi.graph_user_group_traverse_system, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/usergroups/{group_id}/systems".sub('{' + 'group_id' + '}', group_id.to_s)
 
@@ -1091,6 +1162,7 @@ module JCAPIv2
       query_params = {}
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
 
       # header parameters
       header_params = {}
@@ -1128,8 +1200,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
-    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :x_org_id  (default to )
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<GraphObjectWithPaths>]
     def graph_user_group_traverse_system_group(group_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_user_group_traverse_system_group_with_http_info(group_id, content_type, accept, opts)
@@ -1143,8 +1216,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-    # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :x_org_id 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_user_group_traverse_system_group_with_http_info(group_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -1162,6 +1236,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling UserGroupsApi.graph_user_group_traverse_system_group"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling UserGroupsApi.graph_user_group_traverse_system_group, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/usergroups/{group_id}/systemgroups".sub('{' + 'group_id' + '}', group_id.to_s)
 
@@ -1169,6 +1247,7 @@ module JCAPIv2
       query_params = {}
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
 
       # header parameters
       header_params = {}
@@ -1383,6 +1462,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling UserGroupsApi.groups_user_list"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling UserGroupsApi.groups_user_list, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/usergroups"
 

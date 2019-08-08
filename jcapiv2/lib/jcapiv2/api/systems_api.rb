@@ -71,6 +71,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && targets.nil?
         fail ArgumentError, "Missing the required parameter 'targets' when calling SystemsApi.graph_system_associations_list"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemsApi.graph_system_associations_list, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/systems/{system_id}/associations".sub('{' + 'system_id' + '}', system_id.to_s)
 
@@ -239,6 +243,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling SystemsApi.graph_system_member_of"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemsApi.graph_system_member_of, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/systems/{system_id}/memberof".sub('{' + 'system_id' + '}', system_id.to_s)
 
@@ -287,8 +295,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
-    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :x_org_id  (default to )
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_traverse_command(system_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_traverse_command_with_http_info(system_id, content_type, accept, opts)
@@ -302,8 +311,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-    # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :x_org_id 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_traverse_command_with_http_info(system_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -321,6 +331,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling SystemsApi.graph_system_traverse_command"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemsApi.graph_system_traverse_command, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/systems/{system_id}/commands".sub('{' + 'system_id' + '}', system_id.to_s)
 
@@ -328,6 +342,7 @@ module JCAPIv2
       query_params = {}
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
 
       # header parameters
       header_params = {}
@@ -365,8 +380,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
-    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :x_org_id  (default to )
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_traverse_policy(system_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_traverse_policy_with_http_info(system_id, content_type, accept, opts)
@@ -380,8 +396,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-    # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :x_org_id 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_traverse_policy_with_http_info(system_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -399,6 +416,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling SystemsApi.graph_system_traverse_policy"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemsApi.graph_system_traverse_policy, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/systems/{system_id}/policies".sub('{' + 'system_id' + '}', system_id.to_s)
 
@@ -406,6 +427,7 @@ module JCAPIv2
       query_params = {}
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
 
       # header parameters
       header_params = {}
@@ -483,6 +505,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling SystemsApi.graph_system_traverse_user"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemsApi.graph_system_traverse_user, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/systems/{system_id}/users".sub('{' + 'system_id' + '}', system_id.to_s)
 
@@ -530,10 +556,11 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
+    # @option opts [String] :x_org_id  (default to )
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
-    # @option opts [String] :x_org_id  (default to )
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<GraphObjectWithPaths>]
     def graph_system_traverse_user_group(system_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_system_traverse_user_group_with_http_info(system_id, content_type, accept, opts)
@@ -547,10 +574,11 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
+    # @option opts [String] :x_org_id 
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :date Current date header for the System Context API
     # @option opts [String] :authorization Authorization header for the System Context API
-    # @option opts [String] :x_org_id 
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_system_traverse_user_group_with_http_info(system_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -568,6 +596,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling SystemsApi.graph_system_traverse_user_group"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemsApi.graph_system_traverse_user_group, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/systems/{system_id}/usergroups".sub('{' + 'system_id' + '}', system_id.to_s)
 
@@ -575,6 +607,7 @@ module JCAPIv2
       query_params = {}
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
 
       # header parameters
       header_params = {}
@@ -584,9 +617,9 @@ module JCAPIv2
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'Content-Type'] = content_type
       header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
       header_params[:'Date'] = opts[:'date'] if !opts[:'date'].nil?
       header_params[:'Authorization'] = opts[:'authorization'] if !opts[:'authorization'].nil?
-      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
       form_params = {}

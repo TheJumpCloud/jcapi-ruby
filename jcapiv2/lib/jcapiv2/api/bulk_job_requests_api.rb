@@ -129,6 +129,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling BulkJobRequestsApi.bulk_users_create_results"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling BulkJobRequestsApi.bulk_users_create_results, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/bulk/users/{job_id}/results".sub('{' + 'job_id' + '}', job_id.to_s)
 
@@ -347,6 +351,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling BulkJobRequestsApi.jobs_results"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling BulkJobRequestsApi.jobs_results, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/jobs/{id}/results".sub('{' + 'id' + '}', id.to_s)
 

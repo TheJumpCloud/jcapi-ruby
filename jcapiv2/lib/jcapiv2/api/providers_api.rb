@@ -31,7 +31,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
-    # @return [InlineResponse200]
+    # @return [InlineResponse2001]
     def providers_list_administrators(provider_id, content_type, accept, opts = {})
       data, _status_code, _headers = providers_list_administrators_with_http_info(provider_id, content_type, accept, opts)
       return data
@@ -48,7 +48,7 @@ module JCAPIv2
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
-    # @return [Array<(InlineResponse200, Fixnum, Hash)>] InlineResponse200 data, response status code and response headers
+    # @return [Array<(InlineResponse2001, Fixnum, Hash)>] InlineResponse2001 data, response status code and response headers
     def providers_list_administrators_with_http_info(provider_id, content_type, accept, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: ProvidersApi.providers_list_administrators ..."
@@ -65,6 +65,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling ProvidersApi.providers_list_administrators"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling ProvidersApi.providers_list_administrators, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/providers/{provider_id}/administrators".sub('{' + 'provider_id' + '}', provider_id.to_s)
 
@@ -97,7 +101,7 @@ module JCAPIv2
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'InlineResponse200')
+        :return_type => 'InlineResponse2001')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ProvidersApi#providers_list_administrators\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

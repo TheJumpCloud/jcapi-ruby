@@ -54,17 +54,11 @@ Please follow the [installation](#installation) procedure and then run the follo
 # Load the gem
 require 'jcapiv2'
 
-# Setup authorization
-JCAPIv2.configure do |config|
-  # Configure API key authorization: x-api-key
-  config.api_key['x-api-key'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['x-api-key'] = 'Bearer'
-end
-
 api_instance = JCAPIv2::ActiveDirectoryApi.new
 
-id = "id_example" # String | ObjectID of this Active Directory instance.
+activedirectory_id = "activedirectory_id_example" # String | 
+
+agent_id = "agent_id_example" # String | 
 
 content_type = "application/json" # String | 
 
@@ -75,10 +69,10 @@ opts = {
 }
 
 begin
-  #Delete an Active Directory
-  api_instance.activedirectories_delete(id, content_type, accept, opts)
+  #Delete Active Directory Agent
+  api_instance.activedirectories_agents_delete(activedirectory_id, agent_id, content_type, accept, opts)
 rescue JCAPIv2::ApiError => e
-  puts "Exception when calling ActiveDirectoryApi->activedirectories_delete: #{e}"
+  puts "Exception when calling ActiveDirectoryApi->activedirectories_agents_delete: #{e}"
 end
 
 ```
@@ -89,6 +83,10 @@ All URIs are relative to *https://console.jumpcloud.com/api/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*JCAPIv2::ActiveDirectoryApi* | [**activedirectories_agents_delete**](docs/ActiveDirectoryApi.md#activedirectories_agents_delete) | **DELETE** /activedirectories/{activedirectory_id}/agents/{agent_id} | Delete Active Directory Agent
+*JCAPIv2::ActiveDirectoryApi* | [**activedirectories_agents_get**](docs/ActiveDirectoryApi.md#activedirectories_agents_get) | **GET** /activedirectories/{activedirectory_id}/agents/{agent_id} | Get Active Directory Agent
+*JCAPIv2::ActiveDirectoryApi* | [**activedirectories_agents_list**](docs/ActiveDirectoryApi.md#activedirectories_agents_list) | **GET** /activedirectories/{activedirectory_id}/agents | List Active Directory Agents
+*JCAPIv2::ActiveDirectoryApi* | [**activedirectories_agents_post**](docs/ActiveDirectoryApi.md#activedirectories_agents_post) | **POST** /activedirectories/{activedirectory_id}/agents | Create a new Active Directory Agent
 *JCAPIv2::ActiveDirectoryApi* | [**activedirectories_delete**](docs/ActiveDirectoryApi.md#activedirectories_delete) | **DELETE** /activedirectories/{id} | Delete an Active Directory
 *JCAPIv2::ActiveDirectoryApi* | [**activedirectories_get**](docs/ActiveDirectoryApi.md#activedirectories_get) | **GET** /activedirectories/{id} | Get an Active Directory
 *JCAPIv2::ActiveDirectoryApi* | [**activedirectories_list**](docs/ActiveDirectoryApi.md#activedirectories_list) | **GET** /activedirectories | List Active Directories
@@ -115,8 +113,10 @@ Class | Method | HTTP request | Description
 *JCAPIv2::GSuiteApi* | [**graph_g_suite_associations_post**](docs/GSuiteApi.md#graph_g_suite_associations_post) | **POST** /gsuites/{gsuite_id}/associations | Manage the associations of a G Suite instance
 *JCAPIv2::GSuiteApi* | [**graph_g_suite_traverse_user**](docs/GSuiteApi.md#graph_g_suite_traverse_user) | **GET** /gsuites/{gsuite_id}/users | List the Users bound to a G Suite instance
 *JCAPIv2::GSuiteApi* | [**graph_g_suite_traverse_user_group**](docs/GSuiteApi.md#graph_g_suite_traverse_user_group) | **GET** /gsuites/{gsuite_id}/usergroups | List the User Groups bound to a G Suite instance
+*JCAPIv2::GSuiteApi* | [**gsuites_get**](docs/GSuiteApi.md#gsuites_get) | **GET** /gsuites/{id} | Get G Suite
+*JCAPIv2::GSuiteApi* | [**gsuites_patch**](docs/GSuiteApi.md#gsuites_patch) | **PATCH** /gsuites/{id} | Update existing G Suite
 *JCAPIv2::GSuiteApi* | [**translation_rules_g_suite_delete**](docs/GSuiteApi.md#translation_rules_g_suite_delete) | **DELETE** /gsuites/{gsuite_id}/translationrules/{id} | Deletes a G Suite translation rule
-*JCAPIv2::GSuiteApi* | [**translation_rules_g_suite_get**](docs/GSuiteApi.md#translation_rules_g_suite_get) | **GET** /gsuites/{gsuite_id}/translationrules/{id} | Gets a specific g suite translation rule
+*JCAPIv2::GSuiteApi* | [**translation_rules_g_suite_get**](docs/GSuiteApi.md#translation_rules_g_suite_get) | **GET** /gsuites/{gsuite_id}/translationrules/{id} | Gets a specific G Suite translation rule
 *JCAPIv2::GSuiteApi* | [**translation_rules_g_suite_list**](docs/GSuiteApi.md#translation_rules_g_suite_list) | **GET** /gsuites/{gsuite_id}/translationrules | List all the G Suite Translation Rules
 *JCAPIv2::GSuiteApi* | [**translation_rules_g_suite_post**](docs/GSuiteApi.md#translation_rules_g_suite_post) | **POST** /gsuites/{gsuite_id}/translationrules | Create a new G Suite Translation Rule
 *JCAPIv2::GraphApi* | [**graph_active_directory_associations_list**](docs/GraphApi.md#graph_active_directory_associations_list) | **GET** /activedirectories/{activedirectory_id}/associations | List the associations of an Active Directory instance
@@ -201,6 +201,7 @@ Class | Method | HTTP request | Description
 *JCAPIv2::LDAPServersApi* | [**graph_ldap_server_traverse_user_group**](docs/LDAPServersApi.md#graph_ldap_server_traverse_user_group) | **GET** /ldapservers/{ldapserver_id}/usergroups | List the User Groups bound to a LDAP Server
 *JCAPIv2::LDAPServersApi* | [**ldapservers_get**](docs/LDAPServersApi.md#ldapservers_get) | **GET** /ldapservers/{id} | Get LDAP Server
 *JCAPIv2::LDAPServersApi* | [**ldapservers_list**](docs/LDAPServersApi.md#ldapservers_list) | **GET** /ldapservers | List LDAP Servers
+*JCAPIv2::LDAPServersApi* | [**ldapservers_patch**](docs/LDAPServersApi.md#ldapservers_patch) | **PATCH** /ldapservers/{id} | Update existing LDAP server
 *JCAPIv2::Office365Api* | [**graph_office365_associations_list**](docs/Office365Api.md#graph_office365_associations_list) | **GET** /office365s/{office365_id}/associations | List the associations of an Office 365 instance
 *JCAPIv2::Office365Api* | [**graph_office365_associations_post**](docs/Office365Api.md#graph_office365_associations_post) | **POST** /office365s/{office365_id}/associations | Manage the associations of an Office 365 instance
 *JCAPIv2::Office365Api* | [**graph_office365_traverse_user**](docs/Office365Api.md#graph_office365_traverse_user) | **GET** /office365s/{office365_id}/users | List the Users bound to an Office 365 instance
@@ -209,6 +210,8 @@ Class | Method | HTTP request | Description
 *JCAPIv2::Office365Api* | [**translation_rules_office365_get**](docs/Office365Api.md#translation_rules_office365_get) | **GET** /office365s/{office365_id}/translationrules/{id} | Gets a specific Office 365 translation rule
 *JCAPIv2::Office365Api* | [**translation_rules_office365_list**](docs/Office365Api.md#translation_rules_office365_list) | **GET** /office365s/{office365_id}/translationrules | List all the Office 365 Translation Rules
 *JCAPIv2::Office365Api* | [**translation_rules_office365_post**](docs/Office365Api.md#translation_rules_office365_post) | **POST** /office365s/{office365_id}/translationrules | Create a new Office 365 Translation Rule
+*JCAPIv2::OrganizationsApi* | [**org_crypto_get**](docs/OrganizationsApi.md#org_crypto_get) | **GET** /organizations/{id}/crypto | Get Crypto Settings
+*JCAPIv2::OrganizationsApi* | [**org_crypto_put**](docs/OrganizationsApi.md#org_crypto_put) | **PUT** /organizations/{id}/crypto | Edit Crypto Settings
 *JCAPIv2::PoliciesApi* | [**graph_policy_associations_list**](docs/PoliciesApi.md#graph_policy_associations_list) | **GET** /policies/{policy_id}/associations | List the associations of a Policy
 *JCAPIv2::PoliciesApi* | [**graph_policy_associations_post**](docs/PoliciesApi.md#graph_policy_associations_post) | **POST** /policies/{policy_id}/associations | Manage the associations of a Policy
 *JCAPIv2::PoliciesApi* | [**graph_policy_traverse_system**](docs/PoliciesApi.md#graph_policy_traverse_system) | **GET** /policies/{policy_id}/systems | List the Systems bound to a Policy
@@ -263,6 +266,30 @@ Class | Method | HTTP request | Description
 *JCAPIv2::SystemGroupsApi* | [**groups_system_patch**](docs/SystemGroupsApi.md#groups_system_patch) | **PATCH** /systemgroups/{id} | Partial update a System Group
 *JCAPIv2::SystemGroupsApi* | [**groups_system_post**](docs/SystemGroupsApi.md#groups_system_post) | **POST** /systemgroups | Create a new System Group
 *JCAPIv2::SystemGroupsApi* | [**groups_system_put**](docs/SystemGroupsApi.md#groups_system_put) | **PUT** /systemgroups/{id} | Update a System Group
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_apps**](docs/SystemInsightsApi.md#systeminsights_list_apps) | **GET** /systeminsights/apps | List System Insights Apps
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_apps_0**](docs/SystemInsightsApi.md#systeminsights_list_apps_0) | **GET** /systeminsights/{jc_system_id}/apps | List System Insights System Apps
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_browser_plugins**](docs/SystemInsightsApi.md#systeminsights_list_browser_plugins) | **GET** /systeminsights/{jc_system_id}/browser_plugins | List System Insights System Browser Plugins
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_browser_plugins_0**](docs/SystemInsightsApi.md#systeminsights_list_browser_plugins_0) | **GET** /systeminsights/browser_plugins | List System Insights Browser Plugins
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_chrome_extensions**](docs/SystemInsightsApi.md#systeminsights_list_chrome_extensions) | **GET** /systeminsights/{jc_system_id}/chrome_extensions | List System Insights System Chrome Extensions
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_chrome_extensions_0**](docs/SystemInsightsApi.md#systeminsights_list_chrome_extensions_0) | **GET** /systeminsights/chrome_extensions | List System Insights Chrome Extensions
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_disk_encryption**](docs/SystemInsightsApi.md#systeminsights_list_disk_encryption) | **GET** /systeminsights/disk_encryption | List System Insights Disk Encryption
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_disk_encryption_0**](docs/SystemInsightsApi.md#systeminsights_list_disk_encryption_0) | **GET** /systeminsights/{jc_system_id}/disk_encryption | List System Insights System Disk Encryption
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_firefox_addons**](docs/SystemInsightsApi.md#systeminsights_list_firefox_addons) | **GET** /systeminsights/firefox_addons | List System Insights Firefox Addons
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_firefox_addons_0**](docs/SystemInsightsApi.md#systeminsights_list_firefox_addons_0) | **GET** /systeminsights/{jc_system_id}/firefox_addons | List System Insights System Firefox Addons
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_groups**](docs/SystemInsightsApi.md#systeminsights_list_groups) | **GET** /systeminsights/groups | List System Insights Groups
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_groups_0**](docs/SystemInsightsApi.md#systeminsights_list_groups_0) | **GET** /systeminsights/{jc_system_id}/groups | List System Insights System Groups
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_interface_addresses**](docs/SystemInsightsApi.md#systeminsights_list_interface_addresses) | **GET** /systeminsights/interface_addresses | List System Insights Interface Addresses
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_interface_addresses_0**](docs/SystemInsightsApi.md#systeminsights_list_interface_addresses_0) | **GET** /systeminsights/{jc_system_id}/interface_addresses | List System Insights System Interface Addresses
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_mounts**](docs/SystemInsightsApi.md#systeminsights_list_mounts) | **GET** /systeminsights/mounts | List System Insights Mounts
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_mounts_0**](docs/SystemInsightsApi.md#systeminsights_list_mounts_0) | **GET** /systeminsights/{jc_system_id}/mounts | List System Insights System Mounts
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_os_version**](docs/SystemInsightsApi.md#systeminsights_list_os_version) | **GET** /systeminsights/{jc_system_id}/os_version | List System Insights System OS Version
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_os_version_0**](docs/SystemInsightsApi.md#systeminsights_list_os_version_0) | **GET** /systeminsights/os_version | List System Insights OS Version
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_safari_extensions**](docs/SystemInsightsApi.md#systeminsights_list_safari_extensions) | **GET** /systeminsights/{jc_system_id}/safari_extensions | List System Insights System Safari Extensions
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_safari_extensions_0**](docs/SystemInsightsApi.md#systeminsights_list_safari_extensions_0) | **GET** /systeminsights/safari_extensions | List System Insights Safari Extensions
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_system_info**](docs/SystemInsightsApi.md#systeminsights_list_system_info) | **GET** /systeminsights/system_info | List System Insights System Info
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_system_info_0**](docs/SystemInsightsApi.md#systeminsights_list_system_info_0) | **GET** /systeminsights/{jc_system_id}/system_info | List System Insights System System Info
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_users**](docs/SystemInsightsApi.md#systeminsights_list_users) | **GET** /systeminsights/users | List System Insights Users
+*JCAPIv2::SystemInsightsApi* | [**systeminsights_list_users_0**](docs/SystemInsightsApi.md#systeminsights_list_users_0) | **GET** /systeminsights/{jc_system_id}/users | List System Insights System Users
 *JCAPIv2::SystemsApi* | [**graph_system_associations_list**](docs/SystemsApi.md#graph_system_associations_list) | **GET** /systems/{system_id}/associations | List the associations of a System
 *JCAPIv2::SystemsApi* | [**graph_system_associations_post**](docs/SystemsApi.md#graph_system_associations_post) | **POST** /systems/{system_id}/associations | Manage associations of a System
 *JCAPIv2::SystemsApi* | [**graph_system_member_of**](docs/SystemsApi.md#graph_system_member_of) | **GET** /systems/{system_id}/memberof | List the parent Groups of a System
@@ -334,6 +361,9 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [JCAPIv2::ActiveDirectoryAgentGetOutput](docs/ActiveDirectoryAgentGetOutput.md)
+ - [JCAPIv2::ActiveDirectoryAgentInput](docs/ActiveDirectoryAgentInput.md)
+ - [JCAPIv2::ActiveDirectoryAgentListOutput](docs/ActiveDirectoryAgentListOutput.md)
  - [JCAPIv2::ActiveDirectoryInput](docs/ActiveDirectoryInput.md)
  - [JCAPIv2::Administrator](docs/Administrator.md)
  - [JCAPIv2::AuthInfo](docs/AuthInfo.md)
@@ -341,6 +371,7 @@ Class | Method | HTTP request | Description
  - [JCAPIv2::AuthInputObject](docs/AuthInputObject.md)
  - [JCAPIv2::AuthinputBasic](docs/AuthinputBasic.md)
  - [JCAPIv2::AuthinputOauth](docs/AuthinputOauth.md)
+ - [JCAPIv2::Body](docs/Body.md)
  - [JCAPIv2::BulkUserCreate](docs/BulkUserCreate.md)
  - [JCAPIv2::BulkUserUpdate](docs/BulkUserUpdate.md)
  - [JCAPIv2::Directory](docs/Directory.md)
@@ -357,17 +388,23 @@ Class | Method | HTTP request | Description
  - [JCAPIv2::GraphType](docs/GraphType.md)
  - [JCAPIv2::Group](docs/Group.md)
  - [JCAPIv2::GroupType](docs/GroupType.md)
+ - [JCAPIv2::GsuiteOutput](docs/GsuiteOutput.md)
+ - [JCAPIv2::GsuitePatchInput](docs/GsuitePatchInput.md)
  - [JCAPIv2::InlineResponse200](docs/InlineResponse200.md)
- - [JCAPIv2::InlineResponse401](docs/InlineResponse401.md)
+ - [JCAPIv2::InlineResponse2001](docs/InlineResponse2001.md)
+ - [JCAPIv2::InlineResponse400](docs/InlineResponse400.md)
  - [JCAPIv2::JobDetails](docs/JobDetails.md)
  - [JCAPIv2::JobId](docs/JobId.md)
  - [JCAPIv2::JobWorkresult](docs/JobWorkresult.md)
+ - [JCAPIv2::LdapServerAction](docs/LdapServerAction.md)
  - [JCAPIv2::LdapServerInput](docs/LdapServerInput.md)
  - [JCAPIv2::Mfa](docs/Mfa.md)
  - [JCAPIv2::OauthCodeInput](docs/OauthCodeInput.md)
  - [JCAPIv2::Office365BuiltinTranslation](docs/Office365BuiltinTranslation.md)
  - [JCAPIv2::Office365TranslationRule](docs/Office365TranslationRule.md)
  - [JCAPIv2::Office365TranslationRuleRequest](docs/Office365TranslationRuleRequest.md)
+ - [JCAPIv2::OrgCryptoSettings](docs/OrgCryptoSettings.md)
+ - [JCAPIv2::OrgcryptosettingsSshKeys](docs/OrgcryptosettingsSshKeys.md)
  - [JCAPIv2::Policy](docs/Policy.md)
  - [JCAPIv2::PolicyRequest](docs/PolicyRequest.md)
  - [JCAPIv2::PolicyRequestTemplate](docs/PolicyRequestTemplate.md)
@@ -391,6 +428,18 @@ Class | Method | HTTP request | Description
  - [JCAPIv2::SystemGroupData](docs/SystemGroupData.md)
  - [JCAPIv2::SystemGroupGraphManagementReq](docs/SystemGroupGraphManagementReq.md)
  - [JCAPIv2::SystemGroupMembersReq](docs/SystemGroupMembersReq.md)
+ - [JCAPIv2::SystemInsightsApps](docs/SystemInsightsApps.md)
+ - [JCAPIv2::SystemInsightsBrowserPlugins](docs/SystemInsightsBrowserPlugins.md)
+ - [JCAPIv2::SystemInsightsChromeExtensions](docs/SystemInsightsChromeExtensions.md)
+ - [JCAPIv2::SystemInsightsDiskEncryption](docs/SystemInsightsDiskEncryption.md)
+ - [JCAPIv2::SystemInsightsFirefoxAddons](docs/SystemInsightsFirefoxAddons.md)
+ - [JCAPIv2::SystemInsightsGroups](docs/SystemInsightsGroups.md)
+ - [JCAPIv2::SystemInsightsInterfaceAddresses](docs/SystemInsightsInterfaceAddresses.md)
+ - [JCAPIv2::SystemInsightsMounts](docs/SystemInsightsMounts.md)
+ - [JCAPIv2::SystemInsightsOsVersion](docs/SystemInsightsOsVersion.md)
+ - [JCAPIv2::SystemInsightsSafariExtensions](docs/SystemInsightsSafariExtensions.md)
+ - [JCAPIv2::SystemInsightsSystemInfo](docs/SystemInsightsSystemInfo.md)
+ - [JCAPIv2::SystemInsightsUsers](docs/SystemInsightsUsers.md)
  - [JCAPIv2::Systemfdekey](docs/Systemfdekey.md)
  - [JCAPIv2::Systemuser](docs/Systemuser.md)
  - [JCAPIv2::Systemuserputpost](docs/Systemuserputpost.md)

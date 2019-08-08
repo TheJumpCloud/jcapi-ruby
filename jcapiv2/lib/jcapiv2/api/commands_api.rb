@@ -67,6 +67,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling CommandsApi.graph_command_associations_list"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling CommandsApi.graph_command_associations_list, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/commands/{command_id}/associations".sub('{' + 'command_id' + '}', command_id.to_s)
 
@@ -185,8 +189,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
-    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :x_org_id  (default to )
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<GraphObjectWithPaths>]
     def graph_command_traverse_system(command_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_command_traverse_system_with_http_info(command_id, content_type, accept, opts)
@@ -200,8 +205,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-    # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :x_org_id 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_command_traverse_system_with_http_info(command_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -219,6 +225,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling CommandsApi.graph_command_traverse_system"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling CommandsApi.graph_command_traverse_system, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/commands/{command_id}/systems".sub('{' + 'command_id' + '}', command_id.to_s)
 
@@ -226,6 +236,7 @@ module JCAPIv2
       query_params = {}
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
 
       # header parameters
       header_params = {}
@@ -263,8 +274,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
-    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :x_org_id  (default to )
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<GraphObjectWithPaths>]
     def graph_command_traverse_system_group(command_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_command_traverse_system_group_with_http_info(command_id, content_type, accept, opts)
@@ -278,8 +290,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-    # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :x_org_id 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_command_traverse_system_group_with_http_info(command_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -297,6 +310,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling CommandsApi.graph_command_traverse_system_group"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling CommandsApi.graph_command_traverse_system_group, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/commands/{command_id}/systemgroups".sub('{' + 'command_id' + '}', command_id.to_s)
 
@@ -304,6 +321,7 @@ module JCAPIv2
       query_params = {}
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
 
       # header parameters
       header_params = {}

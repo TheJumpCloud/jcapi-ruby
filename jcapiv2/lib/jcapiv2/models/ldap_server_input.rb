@@ -18,18 +18,49 @@ module JCAPIv2
     # The name of this LDAP server
     attr_accessor :name
 
+    # action to take; one of 'remove' or 'disable'
+    attr_accessor :user_lockout_action
+
+    # action to take; one of 'remove' or 'disable'
+    attr_accessor :user_password_expiration_action
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name'
+        :'name' => :'name',
+        :'user_lockout_action' => :'userLockoutAction',
+        :'user_password_expiration_action' => :'userPasswordExpirationAction'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'name' => :'String'
+        :'name' => :'String',
+        :'user_lockout_action' => :'String',
+        :'user_password_expiration_action' => :'String'
       }
     end
 
@@ -45,6 +76,14 @@ module JCAPIv2
         self.name = attributes[:'name']
       end
 
+      if attributes.has_key?(:'userLockoutAction')
+        self.user_lockout_action = attributes[:'userLockoutAction']
+      end
+
+      if attributes.has_key?(:'userPasswordExpirationAction')
+        self.user_password_expiration_action = attributes[:'userPasswordExpirationAction']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -57,7 +96,31 @@ module JCAPIv2
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      user_lockout_action_validator = EnumAttributeValidator.new('String', ["disable", "remove"])
+      return false unless user_lockout_action_validator.valid?(@user_lockout_action)
+      user_password_expiration_action_validator = EnumAttributeValidator.new('String', ["disable", "remove"])
+      return false unless user_password_expiration_action_validator.valid?(@user_password_expiration_action)
       return true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] user_lockout_action Object to be assigned
+    def user_lockout_action=(user_lockout_action)
+      validator = EnumAttributeValidator.new('String', ["disable", "remove"])
+      unless validator.valid?(user_lockout_action)
+        fail ArgumentError, "invalid value for 'user_lockout_action', must be one of #{validator.allowable_values}."
+      end
+      @user_lockout_action = user_lockout_action
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] user_password_expiration_action Object to be assigned
+    def user_password_expiration_action=(user_password_expiration_action)
+      validator = EnumAttributeValidator.new('String', ["disable", "remove"])
+      unless validator.valid?(user_password_expiration_action)
+        fail ArgumentError, "invalid value for 'user_password_expiration_action', must be one of #{validator.allowable_values}."
+      end
+      @user_password_expiration_action = user_password_expiration_action
     end
 
     # Checks equality by comparing each attribute.
@@ -65,7 +128,9 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name
+          name == o.name &&
+          user_lockout_action == o.user_lockout_action &&
+          user_password_expiration_action == o.user_password_expiration_action
     end
 
     # @see the `==` method
@@ -77,7 +142,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name].hash
+      [name, user_lockout_action, user_password_expiration_action].hash
     end
 
     # Builds the object from hash

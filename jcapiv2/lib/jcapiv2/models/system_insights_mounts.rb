@@ -14,21 +14,73 @@ require 'date'
 
 module JCAPIv2
 
-  class InlineResponse401
-    attr_accessor :message
+  class SystemInsightsMounts
+    attr_accessor :device
+
+    attr_accessor :device_alias
+
+    attr_accessor :path
+
+    attr_accessor :type
+
+    attr_accessor :blocks_size
+
+    attr_accessor :blocks
+
+    attr_accessor :blocks_free
+
+    attr_accessor :blocks_available
+
+    attr_accessor :inodes
+
+    attr_accessor :inodes_free
+
+    attr_accessor :flags
+
+    attr_accessor :jc_collection_time
+
+    attr_accessor :jc_system_id
+
+    attr_accessor :jc_organization_id
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'message' => :'message'
+        :'device' => :'device',
+        :'device_alias' => :'device_alias',
+        :'path' => :'path',
+        :'type' => :'type',
+        :'blocks_size' => :'blocks_size',
+        :'blocks' => :'blocks',
+        :'blocks_free' => :'blocks_free',
+        :'blocks_available' => :'blocks_available',
+        :'inodes' => :'inodes',
+        :'inodes_free' => :'inodes_free',
+        :'flags' => :'flags',
+        :'jc_collection_time' => :'jc_collection_time',
+        :'jc_system_id' => :'jc_system_id',
+        :'jc_organization_id' => :'jc_organization_id'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'message' => :'String'
+        :'device' => :'String',
+        :'device_alias' => :'String',
+        :'path' => :'String',
+        :'type' => :'String',
+        :'blocks_size' => :'String',
+        :'blocks' => :'String',
+        :'blocks_free' => :'String',
+        :'blocks_available' => :'String',
+        :'inodes' => :'String',
+        :'inodes_free' => :'String',
+        :'flags' => :'String',
+        :'jc_collection_time' => :'String',
+        :'jc_system_id' => :'String',
+        :'jc_organization_id' => :'String'
       }
     end
 
@@ -40,8 +92,60 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'message')
-        self.message = attributes[:'message']
+      if attributes.has_key?(:'device')
+        self.device = attributes[:'device']
+      end
+
+      if attributes.has_key?(:'device_alias')
+        self.device_alias = attributes[:'device_alias']
+      end
+
+      if attributes.has_key?(:'path')
+        self.path = attributes[:'path']
+      end
+
+      if attributes.has_key?(:'type')
+        self.type = attributes[:'type']
+      end
+
+      if attributes.has_key?(:'blocks_size')
+        self.blocks_size = attributes[:'blocks_size']
+      end
+
+      if attributes.has_key?(:'blocks')
+        self.blocks = attributes[:'blocks']
+      end
+
+      if attributes.has_key?(:'blocks_free')
+        self.blocks_free = attributes[:'blocks_free']
+      end
+
+      if attributes.has_key?(:'blocks_available')
+        self.blocks_available = attributes[:'blocks_available']
+      end
+
+      if attributes.has_key?(:'inodes')
+        self.inodes = attributes[:'inodes']
+      end
+
+      if attributes.has_key?(:'inodes_free')
+        self.inodes_free = attributes[:'inodes_free']
+      end
+
+      if attributes.has_key?(:'flags')
+        self.flags = attributes[:'flags']
+      end
+
+      if attributes.has_key?(:'jc_collection_time')
+        self.jc_collection_time = attributes[:'jc_collection_time']
+      end
+
+      if attributes.has_key?(:'jc_system_id')
+        self.jc_system_id = attributes[:'jc_system_id']
+      end
+
+      if attributes.has_key?(:'jc_organization_id')
+        self.jc_organization_id = attributes[:'jc_organization_id']
       end
 
     end
@@ -64,7 +168,20 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          message == o.message
+          device == o.device &&
+          device_alias == o.device_alias &&
+          path == o.path &&
+          type == o.type &&
+          blocks_size == o.blocks_size &&
+          blocks == o.blocks &&
+          blocks_free == o.blocks_free &&
+          blocks_available == o.blocks_available &&
+          inodes == o.inodes &&
+          inodes_free == o.inodes_free &&
+          flags == o.flags &&
+          jc_collection_time == o.jc_collection_time &&
+          jc_system_id == o.jc_system_id &&
+          jc_organization_id == o.jc_organization_id
     end
 
     # @see the `==` method
@@ -76,7 +193,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [message].hash
+      [device, device_alias, path, type, blocks_size, blocks, blocks_free, blocks_available, inodes, inodes_free, flags, jc_collection_time, jc_system_id, jc_organization_id].hash
     end
 
     # Builds the object from hash

@@ -74,8 +74,9 @@ describe 'LDAPServersApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-  # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :x_org_id 
+  # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_ldap_server_traverse_user test' do
     it "should work" do
@@ -91,8 +92,9 @@ describe 'LDAPServersApi' do
   # @param accept 
   # @param [Hash] opts the optional parameters
   # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-  # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [String] :x_org_id 
+  # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   # @return [Array<GraphObjectWithPaths>]
   describe 'graph_ldap_server_traverse_user_group test' do
     it "should work" do
@@ -129,6 +131,23 @@ describe 'LDAPServersApi' do
   # @option opts [String] :x_org_id 
   # @return [Array<LdapServerOutput>]
   describe 'ldapservers_list test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for ldapservers_patch
+  # Update existing LDAP server
+  # This endpoint allows updating some attributes of an LDAP server.  Sample Request  &#x60;&#x60;&#x60; curl -X PATCH https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;userLockoutAction\&quot;: \&quot;remove\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;disable\&quot;   }&#39; &#x60;&#x60;&#x60;
+  # @param id Unique identifier of the LDAP server.
+  # @param content_type 
+  # @param accept 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Body] :body 
+  # @option opts [String] :x_api_key 
+  # @option opts [String] :x_org_id 
+  # @return [InlineResponse200]
+  describe 'ldapservers_patch test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

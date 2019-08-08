@@ -65,6 +65,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling UserGroupMembersMembershipApi.graph_user_group_member_of"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling UserGroupMembersMembershipApi.graph_user_group_member_of, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/usergroups/{group_id}/memberof".sub('{' + 'group_id' + '}', group_id.to_s)
 
@@ -145,6 +149,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling UserGroupMembersMembershipApi.graph_user_group_members_list"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling UserGroupMembersMembershipApi.graph_user_group_members_list, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/usergroups/{group_id}/members".sub('{' + 'group_id' + '}', group_id.to_s)
 
@@ -300,6 +308,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling UserGroupMembersMembershipApi.graph_user_group_membership"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling UserGroupMembersMembershipApi.graph_user_group_membership, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/usergroups/{group_id}/membership".sub('{' + 'group_id' + '}', group_id.to_s)
 

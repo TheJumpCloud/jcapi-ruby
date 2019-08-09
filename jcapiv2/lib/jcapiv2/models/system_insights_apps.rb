@@ -57,8 +57,6 @@ module JCAPIv2
 
     attr_accessor :jc_system_id
 
-    attr_accessor :jc_organization_id
-
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -83,8 +81,7 @@ module JCAPIv2
         :'copyright' => :'copyright',
         :'last_opened_time' => :'last_opened_time',
         :'jc_collection_time' => :'jc_collection_time',
-        :'jc_system_id' => :'jc_system_id',
-        :'jc_organization_id' => :'jc_organization_id'
+        :'jc_system_id' => :'jc_system_id'
       }
     end
 
@@ -111,8 +108,7 @@ module JCAPIv2
         :'copyright' => :'String',
         :'last_opened_time' => :'Float',
         :'jc_collection_time' => :'String',
-        :'jc_system_id' => :'String',
-        :'jc_organization_id' => :'String'
+        :'jc_system_id' => :'String'
       }
     end
 
@@ -208,10 +204,6 @@ module JCAPIv2
         self.jc_system_id = attributes[:'jc_system_id']
       end
 
-      if attributes.has_key?(:'jc_organization_id')
-        self.jc_organization_id = attributes[:'jc_organization_id']
-      end
-
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -252,8 +244,7 @@ module JCAPIv2
           copyright == o.copyright &&
           last_opened_time == o.last_opened_time &&
           jc_collection_time == o.jc_collection_time &&
-          jc_system_id == o.jc_system_id &&
-          jc_organization_id == o.jc_organization_id
+          jc_system_id == o.jc_system_id
     end
 
     # @see the `==` method
@@ -265,7 +256,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, path, bundle_executable, bundle_identifier, bundle_name, bundle_short_version, bundle_version, bundle_package_type, environment, element, compiler, development_region, display_name, info_string, minimum_system_version, category, applescript_enabled, copyright, last_opened_time, jc_collection_time, jc_system_id, jc_organization_id].hash
+      [name, path, bundle_executable, bundle_identifier, bundle_name, bundle_short_version, bundle_version, bundle_package_type, environment, element, compiler, development_region, display_name, info_string, minimum_system_version, category, applescript_enabled, copyright, last_opened_time, jc_collection_time, jc_system_id].hash
     end
 
     # Builds the object from hash

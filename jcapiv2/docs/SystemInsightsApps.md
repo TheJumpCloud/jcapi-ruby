@@ -24,6 +24,5 @@ Name | Type | Description | Notes
 **last_opened_time** | **Float** |  | [optional] 
 **jc_collection_time** | **String** |  | [optional] 
 **jc_system_id** | **String** |  | [optional] 
-**jc_organization_id** | **String** |  | [optional] 
 
 

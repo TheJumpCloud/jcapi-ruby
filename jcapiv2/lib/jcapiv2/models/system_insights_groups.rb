@@ -29,8 +29,6 @@ module JCAPIv2
 
     attr_accessor :jc_system_id
 
-    attr_accessor :jc_organization_id
-
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -41,8 +39,7 @@ module JCAPIv2
         :'group_sid' => :'group_sid',
         :'comment' => :'comment',
         :'jc_collection_time' => :'jc_collection_time',
-        :'jc_system_id' => :'jc_system_id',
-        :'jc_organization_id' => :'jc_organization_id'
+        :'jc_system_id' => :'jc_system_id'
       }
     end
 
@@ -55,8 +52,7 @@ module JCAPIv2
         :'group_sid' => :'String',
         :'comment' => :'String',
         :'jc_collection_time' => :'String',
-        :'jc_system_id' => :'String',
-        :'jc_organization_id' => :'String'
+        :'jc_system_id' => :'String'
       }
     end
 
@@ -96,10 +92,6 @@ module JCAPIv2
         self.jc_system_id = attributes[:'jc_system_id']
       end
 
-      if attributes.has_key?(:'jc_organization_id')
-        self.jc_organization_id = attributes[:'jc_organization_id']
-      end
-
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -126,8 +118,7 @@ module JCAPIv2
           group_sid == o.group_sid &&
           comment == o.comment &&
           jc_collection_time == o.jc_collection_time &&
-          jc_system_id == o.jc_system_id &&
-          jc_organization_id == o.jc_organization_id
+          jc_system_id == o.jc_system_id
     end
 
     # @see the `==` method
@@ -139,7 +130,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [gid, gid_signed, groupname, group_sid, comment, jc_collection_time, jc_system_id, jc_organization_id].hash
+      [gid, gid_signed, groupname, group_sid, comment, jc_collection_time, jc_system_id].hash
     end
 
     # Builds the object from hash

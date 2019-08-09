@@ -15,6 +15,5 @@ Name | Type | Description | Notes
 **install_date** | **String** |  | [optional] 
 **jc_collection_time** | **String** |  | [optional] 
 **jc_system_id** | **String** |  | [optional] 
-**jc_organization_id** | **String** |  | [optional] 
 
 

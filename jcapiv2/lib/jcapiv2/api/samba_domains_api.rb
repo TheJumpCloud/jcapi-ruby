@@ -199,6 +199,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && ldapserver_id.nil?
         fail ArgumentError, "Missing the required parameter 'ldapserver_id' when calling SambaDomainsApi.ldapservers_samba_domains_list"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SambaDomainsApi.ldapservers_samba_domains_list, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/ldapservers/{ldapserver_id}/sambadomains".sub('{' + 'ldapserver_id' + '}', ldapserver_id.to_s)
 

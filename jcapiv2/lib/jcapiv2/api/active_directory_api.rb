@@ -20,6 +20,320 @@ module JCAPIv2
       @api_client = api_client
     end
 
+    # Delete Active Directory Agent
+    # 
+    # @param activedirectory_id 
+    # @param agent_id 
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_org_id  (default to )
+    # @return [nil]
+    def activedirectories_agents_delete(activedirectory_id, agent_id, content_type, accept, opts = {})
+      activedirectories_agents_delete_with_http_info(activedirectory_id, agent_id, content_type, accept, opts)
+      return nil
+    end
+
+    # Delete Active Directory Agent
+    # 
+    # @param activedirectory_id 
+    # @param agent_id 
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_org_id 
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def activedirectories_agents_delete_with_http_info(activedirectory_id, agent_id, content_type, accept, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ActiveDirectoryApi.activedirectories_agents_delete ..."
+      end
+      # verify the required parameter 'activedirectory_id' is set
+      if @api_client.config.client_side_validation && activedirectory_id.nil?
+        fail ArgumentError, "Missing the required parameter 'activedirectory_id' when calling ActiveDirectoryApi.activedirectories_agents_delete"
+      end
+      # verify the required parameter 'agent_id' is set
+      if @api_client.config.client_side_validation && agent_id.nil?
+        fail ArgumentError, "Missing the required parameter 'agent_id' when calling ActiveDirectoryApi.activedirectories_agents_delete"
+      end
+      # verify the required parameter 'content_type' is set
+      if @api_client.config.client_side_validation && content_type.nil?
+        fail ArgumentError, "Missing the required parameter 'content_type' when calling ActiveDirectoryApi.activedirectories_agents_delete"
+      end
+      # verify the required parameter 'accept' is set
+      if @api_client.config.client_side_validation && accept.nil?
+        fail ArgumentError, "Missing the required parameter 'accept' when calling ActiveDirectoryApi.activedirectories_agents_delete"
+      end
+      # resource path
+      local_var_path = "/activedirectories/{activedirectory_id}/agents/{agent_id}".sub('{' + 'activedirectory_id' + '}', activedirectory_id.to_s).sub('{' + 'agent_id' + '}', agent_id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'Content-Type'] = content_type
+      header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ActiveDirectoryApi#activedirectories_agents_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get Active Directory Agent
+    # This endpoint returns a specific active directory agent.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/activedirectories/{activedirectory_id}/agents/{agent_id} \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
+    # @param activedirectory_id 
+    # @param agent_id 
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_org_id  (default to )
+    # @return [ActiveDirectoryAgentListOutput]
+    def activedirectories_agents_get(activedirectory_id, agent_id, content_type, accept, opts = {})
+      data, _status_code, _headers = activedirectories_agents_get_with_http_info(activedirectory_id, agent_id, content_type, accept, opts)
+      return data
+    end
+
+    # Get Active Directory Agent
+    # This endpoint returns a specific active directory agent.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/activedirectories/{activedirectory_id}/agents/{agent_id} \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+    # @param activedirectory_id 
+    # @param agent_id 
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :x_org_id 
+    # @return [Array<(ActiveDirectoryAgentListOutput, Fixnum, Hash)>] ActiveDirectoryAgentListOutput data, response status code and response headers
+    def activedirectories_agents_get_with_http_info(activedirectory_id, agent_id, content_type, accept, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ActiveDirectoryApi.activedirectories_agents_get ..."
+      end
+      # verify the required parameter 'activedirectory_id' is set
+      if @api_client.config.client_side_validation && activedirectory_id.nil?
+        fail ArgumentError, "Missing the required parameter 'activedirectory_id' when calling ActiveDirectoryApi.activedirectories_agents_get"
+      end
+      # verify the required parameter 'agent_id' is set
+      if @api_client.config.client_side_validation && agent_id.nil?
+        fail ArgumentError, "Missing the required parameter 'agent_id' when calling ActiveDirectoryApi.activedirectories_agents_get"
+      end
+      # verify the required parameter 'content_type' is set
+      if @api_client.config.client_side_validation && content_type.nil?
+        fail ArgumentError, "Missing the required parameter 'content_type' when calling ActiveDirectoryApi.activedirectories_agents_get"
+      end
+      # verify the required parameter 'accept' is set
+      if @api_client.config.client_side_validation && accept.nil?
+        fail ArgumentError, "Missing the required parameter 'accept' when calling ActiveDirectoryApi.activedirectories_agents_get"
+      end
+      # resource path
+      local_var_path = "/activedirectories/{activedirectory_id}/agents/{agent_id}".sub('{' + 'activedirectory_id' + '}', activedirectory_id.to_s).sub('{' + 'agent_id' + '}', agent_id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'Content-Type'] = content_type
+      header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ActiveDirectoryAgentListOutput')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ActiveDirectoryApi#activedirectories_agents_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Active Directory Agents
+    # This endpoint allows you to list all your Active Directory Agents for a given Instance.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/activedirectories/{activedirectory_id}/agents \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
+    # @param activedirectory_id 
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id  (default to )
+    # @return [Array<ActiveDirectoryAgentListOutput>]
+    def activedirectories_agents_list(activedirectory_id, content_type, accept, opts = {})
+      data, _status_code, _headers = activedirectories_agents_list_with_http_info(activedirectory_id, content_type, accept, opts)
+      return data
+    end
+
+    # List Active Directory Agents
+    # This endpoint allows you to list all your Active Directory Agents for a given Instance.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/v2/activedirectories/{activedirectory_id}/agents \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+    # @param activedirectory_id 
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+    # @option opts [String] :x_org_id 
+    # @return [Array<(Array<ActiveDirectoryAgentListOutput>, Fixnum, Hash)>] Array<ActiveDirectoryAgentListOutput> data, response status code and response headers
+    def activedirectories_agents_list_with_http_info(activedirectory_id, content_type, accept, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ActiveDirectoryApi.activedirectories_agents_list ..."
+      end
+      # verify the required parameter 'activedirectory_id' is set
+      if @api_client.config.client_side_validation && activedirectory_id.nil?
+        fail ArgumentError, "Missing the required parameter 'activedirectory_id' when calling ActiveDirectoryApi.activedirectories_agents_list"
+      end
+      # verify the required parameter 'content_type' is set
+      if @api_client.config.client_side_validation && content_type.nil?
+        fail ArgumentError, "Missing the required parameter 'content_type' when calling ActiveDirectoryApi.activedirectories_agents_list"
+      end
+      # verify the required parameter 'accept' is set
+      if @api_client.config.client_side_validation && accept.nil?
+        fail ArgumentError, "Missing the required parameter 'accept' when calling ActiveDirectoryApi.activedirectories_agents_list"
+      end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling ActiveDirectoryApi.activedirectories_agents_list, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/activedirectories/{activedirectory_id}/agents".sub('{' + 'activedirectory_id' + '}', activedirectory_id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'sort'] = @api_client.build_collection_param(opts[:'sort'], :csv) if !opts[:'sort'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'Content-Type'] = content_type
+      header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['x-api-key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<ActiveDirectoryAgentListOutput>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ActiveDirectoryApi#activedirectories_agents_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Create a new Active Directory Agent
+    # This endpoint allows you to create a new Active Directory Agent.   #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{activedirectory_id}/agents \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{}' ```
+    # @param activedirectory_id 
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ActiveDirectoryAgentInput] :body 
+    # @option opts [String] :x_org_id  (default to )
+    # @return [ActiveDirectoryAgentGetOutput]
+    def activedirectories_agents_post(activedirectory_id, content_type, accept, opts = {})
+      data, _status_code, _headers = activedirectories_agents_post_with_http_info(activedirectory_id, content_type, accept, opts)
+      return data
+    end
+
+    # Create a new Active Directory Agent
+    # This endpoint allows you to create a new Active Directory Agent.   #### Sample Request &#x60;&#x60;&#x60; curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{activedirectory_id}/agents \\   -H &#39;accept: application/json&#39; \\   -H &#39;content-type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{}&#39; &#x60;&#x60;&#x60;
+    # @param activedirectory_id 
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [ActiveDirectoryAgentInput] :body 
+    # @option opts [String] :x_org_id 
+    # @return [Array<(ActiveDirectoryAgentGetOutput, Fixnum, Hash)>] ActiveDirectoryAgentGetOutput data, response status code and response headers
+    def activedirectories_agents_post_with_http_info(activedirectory_id, content_type, accept, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ActiveDirectoryApi.activedirectories_agents_post ..."
+      end
+      # verify the required parameter 'activedirectory_id' is set
+      if @api_client.config.client_side_validation && activedirectory_id.nil?
+        fail ArgumentError, "Missing the required parameter 'activedirectory_id' when calling ActiveDirectoryApi.activedirectories_agents_post"
+      end
+      # verify the required parameter 'content_type' is set
+      if @api_client.config.client_side_validation && content_type.nil?
+        fail ArgumentError, "Missing the required parameter 'content_type' when calling ActiveDirectoryApi.activedirectories_agents_post"
+      end
+      # verify the required parameter 'accept' is set
+      if @api_client.config.client_side_validation && accept.nil?
+        fail ArgumentError, "Missing the required parameter 'accept' when calling ActiveDirectoryApi.activedirectories_agents_post"
+      end
+      # resource path
+      local_var_path = "/activedirectories/{activedirectory_id}/agents".sub('{' + 'activedirectory_id' + '}', activedirectory_id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'Content-Type'] = content_type
+      header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'body'])
+      auth_names = ['x-api-key']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ActiveDirectoryAgentGetOutput')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ActiveDirectoryApi#activedirectories_agents_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Delete an Active Directory
     # This endpoint allows you to delete an Active Directory Instance.  #### Sample Request ``` curl -X DELETE https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID} \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY'   ```
     # @param id ObjectID of this Active Directory instance.
@@ -204,6 +518,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling ActiveDirectoryApi.activedirectories_list"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling ActiveDirectoryApi.activedirectories_list, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/activedirectories"
 
@@ -359,6 +677,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling ActiveDirectoryApi.graph_active_directory_associations_list"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling ActiveDirectoryApi.graph_active_directory_associations_list, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/activedirectories/{activedirectory_id}/associations".sub('{' + 'activedirectory_id' + '}', activedirectory_id.to_s)
 
@@ -477,8 +799,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100. (default to 10)
-    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [String] :x_org_id  (default to )
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<GraphObjectWithPaths>]
     def graph_active_directory_traverse_user_group(activedirectory_id, content_type, accept, opts = {})
       data, _status_code, _headers = graph_active_directory_traverse_user_group_with_http_info(activedirectory_id, content_type, accept, opts)
@@ -492,8 +815,9 @@ module JCAPIv2
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit The number of records to return at once. Limited to 100.
-    # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [String] :x_org_id 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
     # @return [Array<(Array<GraphObjectWithPaths>, Fixnum, Hash)>] Array<GraphObjectWithPaths> data, response status code and response headers
     def graph_active_directory_traverse_user_group_with_http_info(activedirectory_id, content_type, accept, opts = {})
       if @api_client.config.debugging
@@ -511,6 +835,10 @@ module JCAPIv2
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling ActiveDirectoryApi.graph_active_directory_traverse_user_group"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling ActiveDirectoryApi.graph_active_directory_traverse_user_group, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/activedirectories/{activedirectory_id}/usergroups".sub('{' + 'activedirectory_id' + '}', activedirectory_id.to_s)
 
@@ -518,6 +846,7 @@ module JCAPIv2
       query_params = {}
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
 
       # header parameters
       header_params = {}

@@ -1,8 +1,7 @@
-# JCAPIv2::InlineResponse401
+# JCAPIv2::ActiveDirectoryAgentInput
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **String** |  | [optional] 
 
 

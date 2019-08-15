@@ -7,5 +7,8 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **tag_names** | **Array&lt;String&gt;** |  | [optional] 
 **shared_secret** | **String** | RADIUS shared secret between the server and client. | 
+**user_lockout_action** | **String** |  | [optional] 
+**user_password_expiration_action** | **String** |  | [optional] 
+**mfa** | **String** |  | [optional] 
 
 

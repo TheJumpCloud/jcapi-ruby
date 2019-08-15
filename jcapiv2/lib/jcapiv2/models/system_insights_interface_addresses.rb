@@ -14,21 +14,53 @@ require 'date'
 
 module JCAPIv2
 
-  class InlineResponse401
-    attr_accessor :message
+  class SystemInsightsInterfaceAddresses
+    attr_accessor :interface
+
+    attr_accessor :address
+
+    attr_accessor :mask
+
+    attr_accessor :broadcast
+
+    attr_accessor :point_to_point
+
+    attr_accessor :type
+
+    attr_accessor :friendly_name
+
+    attr_accessor :jc_collection_time
+
+    attr_accessor :jc_system_id
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'message' => :'message'
+        :'interface' => :'interface',
+        :'address' => :'address',
+        :'mask' => :'mask',
+        :'broadcast' => :'broadcast',
+        :'point_to_point' => :'point_to_point',
+        :'type' => :'type',
+        :'friendly_name' => :'friendly_name',
+        :'jc_collection_time' => :'jc_collection_time',
+        :'jc_system_id' => :'jc_system_id'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'message' => :'String'
+        :'interface' => :'String',
+        :'address' => :'String',
+        :'mask' => :'String',
+        :'broadcast' => :'String',
+        :'point_to_point' => :'String',
+        :'type' => :'String',
+        :'friendly_name' => :'String',
+        :'jc_collection_time' => :'String',
+        :'jc_system_id' => :'String'
       }
     end
 
@@ -40,8 +72,40 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'message')
-        self.message = attributes[:'message']
+      if attributes.has_key?(:'interface')
+        self.interface = attributes[:'interface']
+      end
+
+      if attributes.has_key?(:'address')
+        self.address = attributes[:'address']
+      end
+
+      if attributes.has_key?(:'mask')
+        self.mask = attributes[:'mask']
+      end
+
+      if attributes.has_key?(:'broadcast')
+        self.broadcast = attributes[:'broadcast']
+      end
+
+      if attributes.has_key?(:'point_to_point')
+        self.point_to_point = attributes[:'point_to_point']
+      end
+
+      if attributes.has_key?(:'type')
+        self.type = attributes[:'type']
+      end
+
+      if attributes.has_key?(:'friendly_name')
+        self.friendly_name = attributes[:'friendly_name']
+      end
+
+      if attributes.has_key?(:'jc_collection_time')
+        self.jc_collection_time = attributes[:'jc_collection_time']
+      end
+
+      if attributes.has_key?(:'jc_system_id')
+        self.jc_system_id = attributes[:'jc_system_id']
       end
 
     end
@@ -64,7 +128,15 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          message == o.message
+          interface == o.interface &&
+          address == o.address &&
+          mask == o.mask &&
+          broadcast == o.broadcast &&
+          point_to_point == o.point_to_point &&
+          type == o.type &&
+          friendly_name == o.friendly_name &&
+          jc_collection_time == o.jc_collection_time &&
+          jc_system_id == o.jc_system_id
     end
 
     # @see the `==` method
@@ -76,7 +148,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [message].hash
+      [interface, address, mask, broadcast, point_to_point, type, friendly_name, jc_collection_time, jc_system_id].hash
     end
 
     # Builds the object from hash

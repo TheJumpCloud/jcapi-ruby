@@ -15,48 +15,48 @@ require 'date'
 module JCAPIv2
 
   class SystemuserputpostAddresses
-    attr_accessor :type
-
-    attr_accessor :po_box
+    attr_accessor :country
 
     attr_accessor :extended_address
 
-    attr_accessor :street_address
-
     attr_accessor :locality
 
-    attr_accessor :region
+    attr_accessor :po_box
 
     attr_accessor :postal_code
 
-    attr_accessor :country
+    attr_accessor :region
+
+    attr_accessor :street_address
+
+    attr_accessor :type
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'type' => :'type',
-        :'po_box' => :'poBox',
+        :'country' => :'country',
         :'extended_address' => :'extendedAddress',
-        :'street_address' => :'streetAddress',
         :'locality' => :'locality',
-        :'region' => :'region',
+        :'po_box' => :'poBox',
         :'postal_code' => :'postalCode',
-        :'country' => :'country'
+        :'region' => :'region',
+        :'street_address' => :'streetAddress',
+        :'type' => :'type'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'type' => :'String',
-        :'po_box' => :'String',
+        :'country' => :'String',
         :'extended_address' => :'String',
-        :'street_address' => :'String',
         :'locality' => :'String',
-        :'region' => :'String',
+        :'po_box' => :'String',
         :'postal_code' => :'String',
-        :'country' => :'String'
+        :'region' => :'String',
+        :'street_address' => :'String',
+        :'type' => :'String'
       }
     end
 
@@ -68,36 +68,36 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'type')
-        self.type = attributes[:'type']
-      end
-
-      if attributes.has_key?(:'poBox')
-        self.po_box = attributes[:'poBox']
+      if attributes.has_key?(:'country')
+        self.country = attributes[:'country']
       end
 
       if attributes.has_key?(:'extendedAddress')
         self.extended_address = attributes[:'extendedAddress']
       end
 
-      if attributes.has_key?(:'streetAddress')
-        self.street_address = attributes[:'streetAddress']
-      end
-
       if attributes.has_key?(:'locality')
         self.locality = attributes[:'locality']
       end
 
-      if attributes.has_key?(:'region')
-        self.region = attributes[:'region']
+      if attributes.has_key?(:'poBox')
+        self.po_box = attributes[:'poBox']
       end
 
       if attributes.has_key?(:'postalCode')
         self.postal_code = attributes[:'postalCode']
       end
 
-      if attributes.has_key?(:'country')
-        self.country = attributes[:'country']
+      if attributes.has_key?(:'region')
+        self.region = attributes[:'region']
+      end
+
+      if attributes.has_key?(:'streetAddress')
+        self.street_address = attributes[:'streetAddress']
+      end
+
+      if attributes.has_key?(:'type')
+        self.type = attributes[:'type']
       end
 
     end
@@ -120,14 +120,14 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          type == o.type &&
-          po_box == o.po_box &&
+          country == o.country &&
           extended_address == o.extended_address &&
-          street_address == o.street_address &&
           locality == o.locality &&
-          region == o.region &&
+          po_box == o.po_box &&
           postal_code == o.postal_code &&
-          country == o.country
+          region == o.region &&
+          street_address == o.street_address &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -139,7 +139,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [type, po_box, extended_address, street_address, locality, region, postal_code, country].hash
+      [country, extended_address, locality, po_box, postal_code, region, street_address, type].hash
     end
 
     # Builds the object from hash

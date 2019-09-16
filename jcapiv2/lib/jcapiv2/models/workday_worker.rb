@@ -15,36 +15,36 @@ require 'date'
 module JCAPIv2
 
   class WorkdayWorker
-    attr_accessor :username
+    attr_accessor :attributes
+
+    attr_accessor :email
 
     attr_accessor :first_name
 
     attr_accessor :last_name
 
-    attr_accessor :email
-
-    attr_accessor :attributes
+    attr_accessor :username
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'username' => :'username',
+        :'attributes' => :'attributes',
+        :'email' => :'email',
         :'first_name' => :'firstName',
         :'last_name' => :'lastName',
-        :'email' => :'email',
-        :'attributes' => :'attributes'
+        :'username' => :'username'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'username' => :'String',
+        :'attributes' => :'Object',
+        :'email' => :'String',
         :'first_name' => :'String',
         :'last_name' => :'String',
-        :'email' => :'String',
-        :'attributes' => :'Object'
+        :'username' => :'String'
       }
     end
 
@@ -56,8 +56,12 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'username')
-        self.username = attributes[:'username']
+      if attributes.has_key?(:'attributes')
+        self.attributes = attributes[:'attributes']
+      end
+
+      if attributes.has_key?(:'email')
+        self.email = attributes[:'email']
       end
 
       if attributes.has_key?(:'firstName')
@@ -68,12 +72,8 @@ module JCAPIv2
         self.last_name = attributes[:'lastName']
       end
 
-      if attributes.has_key?(:'email')
-        self.email = attributes[:'email']
-      end
-
-      if attributes.has_key?(:'attributes')
-        self.attributes = attributes[:'attributes']
+      if attributes.has_key?(:'username')
+        self.username = attributes[:'username']
       end
 
     end
@@ -96,11 +96,11 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          username == o.username &&
+          attributes == o.attributes &&
+          email == o.email &&
           first_name == o.first_name &&
           last_name == o.last_name &&
-          email == o.email &&
-          attributes == o.attributes
+          username == o.username
     end
 
     # @see the `==` method
@@ -112,7 +112,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [username, first_name, last_name, email, attributes].hash
+      [attributes, email, first_name, last_name, username].hash
     end
 
     # Builds the object from hash

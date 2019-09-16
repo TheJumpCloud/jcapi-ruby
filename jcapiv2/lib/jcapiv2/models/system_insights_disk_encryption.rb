@@ -15,11 +15,15 @@ require 'date'
 module JCAPIv2
 
   class SystemInsightsDiskEncryption
-    attr_accessor :name
-
-    attr_accessor :uuid
+    attr_accessor :collection_time
 
     attr_accessor :encrypted
+
+    attr_accessor :encryption_status
+
+    attr_accessor :name
+
+    attr_accessor :system_id
 
     attr_accessor :type
 
@@ -27,40 +31,36 @@ module JCAPIv2
 
     attr_accessor :user_uuid
 
-    attr_accessor :encryption_status
-
-    attr_accessor :jc_collection_time
-
-    attr_accessor :jc_system_id
+    attr_accessor :uuid
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'uuid' => :'uuid',
+        :'collection_time' => :'collection_time',
         :'encrypted' => :'encrypted',
+        :'encryption_status' => :'encryption_status',
+        :'name' => :'name',
+        :'system_id' => :'system_id',
         :'type' => :'type',
         :'uid' => :'uid',
         :'user_uuid' => :'user_uuid',
-        :'encryption_status' => :'encryption_status',
-        :'jc_collection_time' => :'jc_collection_time',
-        :'jc_system_id' => :'jc_system_id'
+        :'uuid' => :'uuid'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'name' => :'String',
-        :'uuid' => :'String',
+        :'collection_time' => :'String',
         :'encrypted' => :'Integer',
+        :'encryption_status' => :'String',
+        :'name' => :'String',
+        :'system_id' => :'String',
         :'type' => :'String',
         :'uid' => :'String',
         :'user_uuid' => :'String',
-        :'encryption_status' => :'String',
-        :'jc_collection_time' => :'String',
-        :'jc_system_id' => :'String'
+        :'uuid' => :'String'
       }
     end
 
@@ -72,16 +72,24 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'uuid')
-        self.uuid = attributes[:'uuid']
+      if attributes.has_key?(:'collection_time')
+        self.collection_time = attributes[:'collection_time']
       end
 
       if attributes.has_key?(:'encrypted')
         self.encrypted = attributes[:'encrypted']
+      end
+
+      if attributes.has_key?(:'encryption_status')
+        self.encryption_status = attributes[:'encryption_status']
+      end
+
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.has_key?(:'system_id')
+        self.system_id = attributes[:'system_id']
       end
 
       if attributes.has_key?(:'type')
@@ -96,16 +104,8 @@ module JCAPIv2
         self.user_uuid = attributes[:'user_uuid']
       end
 
-      if attributes.has_key?(:'encryption_status')
-        self.encryption_status = attributes[:'encryption_status']
-      end
-
-      if attributes.has_key?(:'jc_collection_time')
-        self.jc_collection_time = attributes[:'jc_collection_time']
-      end
-
-      if attributes.has_key?(:'jc_system_id')
-        self.jc_system_id = attributes[:'jc_system_id']
+      if attributes.has_key?(:'uuid')
+        self.uuid = attributes[:'uuid']
       end
 
     end
@@ -128,15 +128,15 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          uuid == o.uuid &&
+          collection_time == o.collection_time &&
           encrypted == o.encrypted &&
+          encryption_status == o.encryption_status &&
+          name == o.name &&
+          system_id == o.system_id &&
           type == o.type &&
           uid == o.uid &&
           user_uuid == o.user_uuid &&
-          encryption_status == o.encryption_status &&
-          jc_collection_time == o.jc_collection_time &&
-          jc_system_id == o.jc_system_id
+          uuid == o.uuid
     end
 
     # @see the `==` method
@@ -148,7 +148,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, uuid, encrypted, type, uid, user_uuid, encryption_status, jc_collection_time, jc_system_id].hash
+      [collection_time, encrypted, encryption_status, name, system_id, type, uid, user_uuid, uuid].hash
     end
 
     # Builds the object from hash

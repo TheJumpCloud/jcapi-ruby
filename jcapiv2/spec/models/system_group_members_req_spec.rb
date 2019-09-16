@@ -32,6 +32,12 @@ describe 'SystemGroupMembersReq' do
       expect(@instance).to be_instance_of(JCAPIv2::SystemGroupMembersReq)
     end
   end
+  describe 'test attribute "id"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "op"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -49,12 +55,6 @@ describe 'SystemGroupMembersReq' do
        #validator.allowable_values.each do |value|
        #  expect { @instance.type = value }.not_to raise_error
        #end
-    end
-  end
-
-  describe 'test attribute "id"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 

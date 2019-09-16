@@ -3,17 +3,17 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uid** | **String** |  | [optional] 
-**gid** | **String** |  | [optional] 
-**uid_signed** | **String** |  | [optional] 
-**gid_signed** | **String** |  | [optional] 
-**username** | **String** |  | [optional] 
+**collection_time** | **String** |  | [optional] 
 **description** | **String** |  | [optional] 
 **directory** | **String** |  | [optional] 
+**gid** | **String** |  | [optional] 
+**gid_signed** | **String** |  | [optional] 
 **shell** | **String** |  | [optional] 
-**uuid** | **String** |  | [optional] 
+**system_id** | **String** |  | [optional] 
 **type** | **String** |  | [optional] 
-**jc_collection_time** | **String** |  | [optional] 
-**jc_system_id** | **String** |  | [optional] 
+**uid** | **String** |  | [optional] 
+**uid_signed** | **String** |  | [optional] 
+**username** | **String** |  | [optional] 
+**uuid** | **String** |  | [optional] 
 
 

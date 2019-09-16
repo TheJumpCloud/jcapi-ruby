@@ -15,40 +15,40 @@ require 'date'
 module JCAPIv1
 
   class ApplicationConfig
-    attr_accessor :idp_entity_id
-
-    attr_accessor :idp_certificate
-
-    attr_accessor :sp_entity_id
-
     attr_accessor :acs_url
 
     attr_accessor :constant_attributes
 
     attr_accessor :database_attributes
 
+    attr_accessor :idp_certificate
+
+    attr_accessor :idp_entity_id
+
+    attr_accessor :sp_entity_id
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'idp_entity_id' => :'idpEntityId',
-        :'idp_certificate' => :'idpCertificate',
-        :'sp_entity_id' => :'spEntityId',
         :'acs_url' => :'acsUrl',
         :'constant_attributes' => :'constantAttributes',
-        :'database_attributes' => :'databaseAttributes'
+        :'database_attributes' => :'databaseAttributes',
+        :'idp_certificate' => :'idpCertificate',
+        :'idp_entity_id' => :'idpEntityId',
+        :'sp_entity_id' => :'spEntityId'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'idp_entity_id' => :'ApplicationConfigIdpEntityId',
-        :'idp_certificate' => :'ApplicationConfigIdpEntityId',
-        :'sp_entity_id' => :'ApplicationConfigIdpEntityId',
-        :'acs_url' => :'ApplicationConfigIdpEntityId',
+        :'acs_url' => :'ApplicationConfigAcsUrl',
         :'constant_attributes' => :'ApplicationConfigConstantAttributes',
-        :'database_attributes' => :'ApplicationConfigDatabaseAttributes'
+        :'database_attributes' => :'ApplicationConfigDatabaseAttributes',
+        :'idp_certificate' => :'ApplicationConfigAcsUrl',
+        :'idp_entity_id' => :'ApplicationConfigAcsUrl',
+        :'sp_entity_id' => :'ApplicationConfigAcsUrl'
       }
     end
 
@@ -60,18 +60,6 @@ module JCAPIv1
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'idpEntityId')
-        self.idp_entity_id = attributes[:'idpEntityId']
-      end
-
-      if attributes.has_key?(:'idpCertificate')
-        self.idp_certificate = attributes[:'idpCertificate']
-      end
-
-      if attributes.has_key?(:'spEntityId')
-        self.sp_entity_id = attributes[:'spEntityId']
-      end
-
       if attributes.has_key?(:'acsUrl')
         self.acs_url = attributes[:'acsUrl']
       end
@@ -82,6 +70,18 @@ module JCAPIv1
 
       if attributes.has_key?(:'databaseAttributes')
         self.database_attributes = attributes[:'databaseAttributes']
+      end
+
+      if attributes.has_key?(:'idpCertificate')
+        self.idp_certificate = attributes[:'idpCertificate']
+      end
+
+      if attributes.has_key?(:'idpEntityId')
+        self.idp_entity_id = attributes[:'idpEntityId']
+      end
+
+      if attributes.has_key?(:'spEntityId')
+        self.sp_entity_id = attributes[:'spEntityId']
       end
 
     end
@@ -104,12 +104,12 @@ module JCAPIv1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          idp_entity_id == o.idp_entity_id &&
-          idp_certificate == o.idp_certificate &&
-          sp_entity_id == o.sp_entity_id &&
           acs_url == o.acs_url &&
           constant_attributes == o.constant_attributes &&
-          database_attributes == o.database_attributes
+          database_attributes == o.database_attributes &&
+          idp_certificate == o.idp_certificate &&
+          idp_entity_id == o.idp_entity_id &&
+          sp_entity_id == o.sp_entity_id
     end
 
     # @see the `==` method
@@ -121,7 +121,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [idp_entity_id, idp_certificate, sp_entity_id, acs_url, constant_attributes, database_attributes].hash
+      [acs_url, constant_attributes, database_attributes, idp_certificate, idp_entity_id, sp_entity_id].hash
     end
 
     # Builds the object from hash

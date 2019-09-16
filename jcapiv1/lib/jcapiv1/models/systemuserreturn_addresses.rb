@@ -15,52 +15,52 @@ require 'date'
 module JCAPIv1
 
   class SystemuserreturnAddresses
-    attr_accessor :id
-
-    attr_accessor :type
-
-    attr_accessor :po_box
+    attr_accessor :country
 
     attr_accessor :extended_address
 
-    attr_accessor :street_address
+    attr_accessor :id
 
     attr_accessor :locality
 
-    attr_accessor :region
+    attr_accessor :po_box
 
     attr_accessor :postal_code
 
-    attr_accessor :country
+    attr_accessor :region
+
+    attr_accessor :street_address
+
+    attr_accessor :type
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'type' => :'type',
-        :'po_box' => :'poBox',
+        :'country' => :'country',
         :'extended_address' => :'extendedAddress',
-        :'street_address' => :'streetAddress',
+        :'id' => :'id',
         :'locality' => :'locality',
-        :'region' => :'region',
+        :'po_box' => :'poBox',
         :'postal_code' => :'postalCode',
-        :'country' => :'country'
+        :'region' => :'region',
+        :'street_address' => :'streetAddress',
+        :'type' => :'type'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'String',
-        :'type' => :'String',
-        :'po_box' => :'String',
+        :'country' => :'String',
         :'extended_address' => :'String',
-        :'street_address' => :'String',
+        :'id' => :'String',
         :'locality' => :'String',
-        :'region' => :'String',
+        :'po_box' => :'String',
         :'postal_code' => :'String',
-        :'country' => :'String'
+        :'region' => :'String',
+        :'street_address' => :'String',
+        :'type' => :'String'
       }
     end
 
@@ -72,40 +72,40 @@ module JCAPIv1
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.has_key?(:'type')
-        self.type = attributes[:'type']
-      end
-
-      if attributes.has_key?(:'poBox')
-        self.po_box = attributes[:'poBox']
+      if attributes.has_key?(:'country')
+        self.country = attributes[:'country']
       end
 
       if attributes.has_key?(:'extendedAddress')
         self.extended_address = attributes[:'extendedAddress']
       end
 
-      if attributes.has_key?(:'streetAddress')
-        self.street_address = attributes[:'streetAddress']
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
       end
 
       if attributes.has_key?(:'locality')
         self.locality = attributes[:'locality']
       end
 
-      if attributes.has_key?(:'region')
-        self.region = attributes[:'region']
+      if attributes.has_key?(:'poBox')
+        self.po_box = attributes[:'poBox']
       end
 
       if attributes.has_key?(:'postalCode')
         self.postal_code = attributes[:'postalCode']
       end
 
-      if attributes.has_key?(:'country')
-        self.country = attributes[:'country']
+      if attributes.has_key?(:'region')
+        self.region = attributes[:'region']
+      end
+
+      if attributes.has_key?(:'streetAddress')
+        self.street_address = attributes[:'streetAddress']
+      end
+
+      if attributes.has_key?(:'type')
+        self.type = attributes[:'type']
       end
 
     end
@@ -114,36 +114,36 @@ module JCAPIv1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@type.nil? && @type.to_s.length > 1024
-        invalid_properties.push("invalid value for 'type', the character length must be smaller than or equal to 1024.")
-      end
-
-      if !@po_box.nil? && @po_box.to_s.length > 1024
-        invalid_properties.push("invalid value for 'po_box', the character length must be smaller than or equal to 1024.")
+      if !@country.nil? && @country.to_s.length > 1024
+        invalid_properties.push("invalid value for 'country', the character length must be smaller than or equal to 1024.")
       end
 
       if !@extended_address.nil? && @extended_address.to_s.length > 1024
         invalid_properties.push("invalid value for 'extended_address', the character length must be smaller than or equal to 1024.")
       end
 
-      if !@street_address.nil? && @street_address.to_s.length > 1024
-        invalid_properties.push("invalid value for 'street_address', the character length must be smaller than or equal to 1024.")
-      end
-
       if !@locality.nil? && @locality.to_s.length > 1024
         invalid_properties.push("invalid value for 'locality', the character length must be smaller than or equal to 1024.")
       end
 
-      if !@region.nil? && @region.to_s.length > 1024
-        invalid_properties.push("invalid value for 'region', the character length must be smaller than or equal to 1024.")
+      if !@po_box.nil? && @po_box.to_s.length > 1024
+        invalid_properties.push("invalid value for 'po_box', the character length must be smaller than or equal to 1024.")
       end
 
       if !@postal_code.nil? && @postal_code.to_s.length > 1024
         invalid_properties.push("invalid value for 'postal_code', the character length must be smaller than or equal to 1024.")
       end
 
-      if !@country.nil? && @country.to_s.length > 1024
-        invalid_properties.push("invalid value for 'country', the character length must be smaller than or equal to 1024.")
+      if !@region.nil? && @region.to_s.length > 1024
+        invalid_properties.push("invalid value for 'region', the character length must be smaller than or equal to 1024.")
+      end
+
+      if !@street_address.nil? && @street_address.to_s.length > 1024
+        invalid_properties.push("invalid value for 'street_address', the character length must be smaller than or equal to 1024.")
+      end
+
+      if !@type.nil? && @type.to_s.length > 1024
+        invalid_properties.push("invalid value for 'type', the character length must be smaller than or equal to 1024.")
       end
 
       return invalid_properties
@@ -152,37 +152,26 @@ module JCAPIv1
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@type.nil? && @type.to_s.length > 1024
-      return false if !@po_box.nil? && @po_box.to_s.length > 1024
-      return false if !@extended_address.nil? && @extended_address.to_s.length > 1024
-      return false if !@street_address.nil? && @street_address.to_s.length > 1024
-      return false if !@locality.nil? && @locality.to_s.length > 1024
-      return false if !@region.nil? && @region.to_s.length > 1024
-      return false if !@postal_code.nil? && @postal_code.to_s.length > 1024
       return false if !@country.nil? && @country.to_s.length > 1024
+      return false if !@extended_address.nil? && @extended_address.to_s.length > 1024
+      return false if !@locality.nil? && @locality.to_s.length > 1024
+      return false if !@po_box.nil? && @po_box.to_s.length > 1024
+      return false if !@postal_code.nil? && @postal_code.to_s.length > 1024
+      return false if !@region.nil? && @region.to_s.length > 1024
+      return false if !@street_address.nil? && @street_address.to_s.length > 1024
+      return false if !@type.nil? && @type.to_s.length > 1024
       return true
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] type Value to be assigned
-    def type=(type)
+    # @param [Object] country Value to be assigned
+    def country=(country)
 
-      if !type.nil? && type.to_s.length > 1024
-        fail ArgumentError, "invalid value for 'type', the character length must be smaller than or equal to 1024."
+      if !country.nil? && country.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'country', the character length must be smaller than or equal to 1024."
       end
 
-      @type = type
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] po_box Value to be assigned
-    def po_box=(po_box)
-
-      if !po_box.nil? && po_box.to_s.length > 1024
-        fail ArgumentError, "invalid value for 'po_box', the character length must be smaller than or equal to 1024."
-      end
-
-      @po_box = po_box
+      @country = country
     end
 
     # Custom attribute writer method with validation
@@ -197,17 +186,6 @@ module JCAPIv1
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] street_address Value to be assigned
-    def street_address=(street_address)
-
-      if !street_address.nil? && street_address.to_s.length > 1024
-        fail ArgumentError, "invalid value for 'street_address', the character length must be smaller than or equal to 1024."
-      end
-
-      @street_address = street_address
-    end
-
-    # Custom attribute writer method with validation
     # @param [Object] locality Value to be assigned
     def locality=(locality)
 
@@ -219,14 +197,14 @@ module JCAPIv1
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] region Value to be assigned
-    def region=(region)
+    # @param [Object] po_box Value to be assigned
+    def po_box=(po_box)
 
-      if !region.nil? && region.to_s.length > 1024
-        fail ArgumentError, "invalid value for 'region', the character length must be smaller than or equal to 1024."
+      if !po_box.nil? && po_box.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'po_box', the character length must be smaller than or equal to 1024."
       end
 
-      @region = region
+      @po_box = po_box
     end
 
     # Custom attribute writer method with validation
@@ -241,14 +219,36 @@ module JCAPIv1
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] country Value to be assigned
-    def country=(country)
+    # @param [Object] region Value to be assigned
+    def region=(region)
 
-      if !country.nil? && country.to_s.length > 1024
-        fail ArgumentError, "invalid value for 'country', the character length must be smaller than or equal to 1024."
+      if !region.nil? && region.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'region', the character length must be smaller than or equal to 1024."
       end
 
-      @country = country
+      @region = region
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] street_address Value to be assigned
+    def street_address=(street_address)
+
+      if !street_address.nil? && street_address.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'street_address', the character length must be smaller than or equal to 1024."
+      end
+
+      @street_address = street_address
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] type Value to be assigned
+    def type=(type)
+
+      if !type.nil? && type.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'type', the character length must be smaller than or equal to 1024."
+      end
+
+      @type = type
     end
 
     # Checks equality by comparing each attribute.
@@ -256,15 +256,15 @@ module JCAPIv1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          type == o.type &&
-          po_box == o.po_box &&
+          country == o.country &&
           extended_address == o.extended_address &&
-          street_address == o.street_address &&
+          id == o.id &&
           locality == o.locality &&
-          region == o.region &&
+          po_box == o.po_box &&
           postal_code == o.postal_code &&
-          country == o.country
+          region == o.region &&
+          street_address == o.street_address &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -276,7 +276,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, type, po_box, extended_address, street_address, locality, region, postal_code, country].hash
+      [country, extended_address, id, locality, po_box, postal_code, region, street_address, type].hash
     end
 
     # Builds the object from hash

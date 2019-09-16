@@ -32,13 +32,13 @@ describe 'Systemslist' do
       expect(@instance).to be_instance_of(JCAPIv1::Systemslist)
     end
   end
-  describe 'test attribute "total_count"' do
+  describe 'test attribute "results"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "results"' do
+  describe 'test attribute "total_count"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

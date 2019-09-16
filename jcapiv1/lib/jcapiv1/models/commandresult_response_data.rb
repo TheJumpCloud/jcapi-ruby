@@ -15,26 +15,26 @@ require 'date'
 module JCAPIv1
 
   class CommandresultResponseData
-    # The output of the command that was executed.
-    attr_accessor :output
-
     # The stderr output from the command that ran.
     attr_accessor :exit_code
+
+    # The output of the command that was executed.
+    attr_accessor :output
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'output' => :'output',
-        :'exit_code' => :'exitCode'
+        :'exit_code' => :'exitCode',
+        :'output' => :'output'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'output' => :'String',
-        :'exit_code' => :'Integer'
+        :'exit_code' => :'Integer',
+        :'output' => :'String'
       }
     end
 
@@ -46,12 +46,12 @@ module JCAPIv1
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'output')
-        self.output = attributes[:'output']
-      end
-
       if attributes.has_key?(:'exitCode')
         self.exit_code = attributes[:'exitCode']
+      end
+
+      if attributes.has_key?(:'output')
+        self.output = attributes[:'output']
       end
 
     end
@@ -74,8 +74,8 @@ module JCAPIv1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          output == o.output &&
-          exit_code == o.exit_code
+          exit_code == o.exit_code &&
+          output == o.output
     end
 
     # @see the `==` method
@@ -87,7 +87,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [output, exit_code].hash
+      [exit_code, output].hash
     end
 
     # Builds the object from hash

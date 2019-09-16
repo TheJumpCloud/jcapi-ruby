@@ -32,7 +32,7 @@ describe 'CommandresultResponse' do
       expect(@instance).to be_instance_of(JCAPIv1::CommandresultResponse)
     end
   end
-  describe 'test attribute "id"' do
+  describe 'test attribute "data"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -44,7 +44,7 @@ describe 'CommandresultResponse' do
     end
   end
 
-  describe 'test attribute "data"' do
+  describe 'test attribute "id"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

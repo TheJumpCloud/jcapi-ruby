@@ -1,4 +1,4 @@
-# JCAPIv1::ApplicationConfigIdpEntityIdTooltipVariables
+# JCAPIv1::ApplicationConfigAcsUrlTooltipVariables
 
 ## Properties
 Name | Type | Description | Notes

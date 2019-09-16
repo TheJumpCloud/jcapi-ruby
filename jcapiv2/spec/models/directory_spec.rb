@@ -32,16 +32,6 @@ describe 'Directory' do
       expect(@instance).to be_instance_of(JCAPIv2::Directory)
     end
   end
-  describe 'test attribute "type"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-       #validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["g_suite", "ldap_server", "office_365", "workday"])
-       #validator.allowable_values.each do |value|
-       #  expect { @instance.type = value }.not_to raise_error
-       #end
-    end
-  end
-
   describe 'test attribute "id"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -51,6 +41,16 @@ describe 'Directory' do
   describe 'test attribute "name"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "type"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+       #validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["g_suite", "ldap_server", "office_365", "workday"])
+       #validator.allowable_values.each do |value|
+       #  expect { @instance.type = value }.not_to raise_error
+       #end
     end
   end
 

@@ -32,7 +32,7 @@ describe 'WorkdayInput' do
       expect(@instance).to be_instance_of(JCAPIv2::WorkdayInput)
     end
   end
-  describe 'test attribute "report_url"' do
+  describe 'test attribute "auth"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -44,7 +44,7 @@ describe 'WorkdayInput' do
     end
   end
 
-  describe 'test attribute "auth"' do
+  describe 'test attribute "report_url"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

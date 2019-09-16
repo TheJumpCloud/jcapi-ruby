@@ -15,64 +15,64 @@ require 'date'
 module JCAPIv2
 
   class SystemInsightsBrowserPlugins
-    attr_accessor :uid
-
-    attr_accessor :name
-
-    attr_accessor :identifier
-
-    attr_accessor :version
-
-    attr_accessor :sdk
+    attr_accessor :collection_time
 
     attr_accessor :description
 
     attr_accessor :development_region
 
+    attr_accessor :disabled
+
+    attr_accessor :identifier
+
+    attr_accessor :name
+
     attr_accessor :native
 
     attr_accessor :path
 
-    attr_accessor :disabled
+    attr_accessor :sdk
 
-    attr_accessor :jc_collection_time
+    attr_accessor :system_id
 
-    attr_accessor :jc_system_id
+    attr_accessor :uid
+
+    attr_accessor :version
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'uid' => :'uid',
-        :'name' => :'name',
-        :'identifier' => :'identifier',
-        :'version' => :'version',
-        :'sdk' => :'sdk',
+        :'collection_time' => :'collection_time',
         :'description' => :'description',
         :'development_region' => :'development_region',
+        :'disabled' => :'disabled',
+        :'identifier' => :'identifier',
+        :'name' => :'name',
         :'native' => :'native',
         :'path' => :'path',
-        :'disabled' => :'disabled',
-        :'jc_collection_time' => :'jc_collection_time',
-        :'jc_system_id' => :'jc_system_id'
+        :'sdk' => :'sdk',
+        :'system_id' => :'system_id',
+        :'uid' => :'uid',
+        :'version' => :'version'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'uid' => :'String',
-        :'name' => :'String',
-        :'identifier' => :'String',
-        :'version' => :'String',
-        :'sdk' => :'String',
+        :'collection_time' => :'String',
         :'description' => :'String',
         :'development_region' => :'String',
+        :'disabled' => :'Integer',
+        :'identifier' => :'String',
+        :'name' => :'String',
         :'native' => :'Integer',
         :'path' => :'String',
-        :'disabled' => :'Integer',
-        :'jc_collection_time' => :'String',
-        :'jc_system_id' => :'String'
+        :'sdk' => :'String',
+        :'system_id' => :'String',
+        :'uid' => :'String',
+        :'version' => :'String'
       }
     end
 
@@ -84,24 +84,8 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'uid')
-        self.uid = attributes[:'uid']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'identifier')
-        self.identifier = attributes[:'identifier']
-      end
-
-      if attributes.has_key?(:'version')
-        self.version = attributes[:'version']
-      end
-
-      if attributes.has_key?(:'sdk')
-        self.sdk = attributes[:'sdk']
+      if attributes.has_key?(:'collection_time')
+        self.collection_time = attributes[:'collection_time']
       end
 
       if attributes.has_key?(:'description')
@@ -112,6 +96,18 @@ module JCAPIv2
         self.development_region = attributes[:'development_region']
       end
 
+      if attributes.has_key?(:'disabled')
+        self.disabled = attributes[:'disabled']
+      end
+
+      if attributes.has_key?(:'identifier')
+        self.identifier = attributes[:'identifier']
+      end
+
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
+      end
+
       if attributes.has_key?(:'native')
         self.native = attributes[:'native']
       end
@@ -120,16 +116,20 @@ module JCAPIv2
         self.path = attributes[:'path']
       end
 
-      if attributes.has_key?(:'disabled')
-        self.disabled = attributes[:'disabled']
+      if attributes.has_key?(:'sdk')
+        self.sdk = attributes[:'sdk']
       end
 
-      if attributes.has_key?(:'jc_collection_time')
-        self.jc_collection_time = attributes[:'jc_collection_time']
+      if attributes.has_key?(:'system_id')
+        self.system_id = attributes[:'system_id']
       end
 
-      if attributes.has_key?(:'jc_system_id')
-        self.jc_system_id = attributes[:'jc_system_id']
+      if attributes.has_key?(:'uid')
+        self.uid = attributes[:'uid']
+      end
+
+      if attributes.has_key?(:'version')
+        self.version = attributes[:'version']
       end
 
     end
@@ -152,18 +152,18 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          uid == o.uid &&
-          name == o.name &&
-          identifier == o.identifier &&
-          version == o.version &&
-          sdk == o.sdk &&
+          collection_time == o.collection_time &&
           description == o.description &&
           development_region == o.development_region &&
+          disabled == o.disabled &&
+          identifier == o.identifier &&
+          name == o.name &&
           native == o.native &&
           path == o.path &&
-          disabled == o.disabled &&
-          jc_collection_time == o.jc_collection_time &&
-          jc_system_id == o.jc_system_id
+          sdk == o.sdk &&
+          system_id == o.system_id &&
+          uid == o.uid &&
+          version == o.version
     end
 
     # @see the `==` method
@@ -175,7 +175,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [uid, name, identifier, version, sdk, description, development_region, native, path, disabled, jc_collection_time, jc_system_id].hash
+      [collection_time, description, development_region, disabled, identifier, name, native, path, sdk, system_id, uid, version].hash
     end
 
     # Builds the object from hash

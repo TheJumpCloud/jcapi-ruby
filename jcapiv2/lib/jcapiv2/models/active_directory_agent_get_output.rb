@@ -15,26 +15,26 @@ require 'date'
 module JCAPIv2
 
   class ActiveDirectoryAgentGetOutput
-    # ObjectID of this Active Directory Agent.
-    attr_accessor :id
-
     # The connect key to use when installing the Agent on a Domain Controller.
     attr_accessor :connect_key
+
+    # ObjectID of this Active Directory Agent.
+    attr_accessor :id
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'connect_key' => :'connectKey'
+        :'connect_key' => :'connectKey',
+        :'id' => :'id'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'String',
-        :'connect_key' => :'String'
+        :'connect_key' => :'String',
+        :'id' => :'String'
       }
     end
 
@@ -46,12 +46,12 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
-
       if attributes.has_key?(:'connectKey')
         self.connect_key = attributes[:'connectKey']
+      end
+
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
       end
 
     end
@@ -79,8 +79,8 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          connect_key == o.connect_key
+          connect_key == o.connect_key &&
+          id == o.id
     end
 
     # @see the `==` method
@@ -92,7 +92,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, connect_key].hash
+      [connect_key, id].hash
     end
 
     # Builds the object from hash

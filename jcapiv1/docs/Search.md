@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**filter** | **Object** |  | [optional] 
 **fields** | **String** |  | [optional] 
+**filter** | **Object** |  | [optional] 
 **search_filter** | **Object** |  | [optional] 
 
 

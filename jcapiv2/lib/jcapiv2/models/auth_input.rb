@@ -15,24 +15,24 @@ require 'date'
 module JCAPIv2
 
   class AuthInput
-    attr_accessor :oauth
-
     attr_accessor :basic
+
+    attr_accessor :oauth
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'oauth' => :'oauth',
-        :'basic' => :'basic'
+        :'basic' => :'basic',
+        :'oauth' => :'oauth'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'oauth' => :'AuthinputOauth',
-        :'basic' => :'AuthinputBasic'
+        :'basic' => :'AuthinputBasic',
+        :'oauth' => :'AuthinputOauth'
       }
     end
 
@@ -44,12 +44,12 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'oauth')
-        self.oauth = attributes[:'oauth']
-      end
-
       if attributes.has_key?(:'basic')
         self.basic = attributes[:'basic']
+      end
+
+      if attributes.has_key?(:'oauth')
+        self.oauth = attributes[:'oauth']
       end
 
     end
@@ -72,8 +72,8 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          oauth == o.oauth &&
-          basic == o.basic
+          basic == o.basic &&
+          oauth == o.oauth
     end
 
     # @see the `==` method
@@ -85,7 +85,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [oauth, basic].hash
+      [basic, oauth].hash
     end
 
     # Builds the object from hash

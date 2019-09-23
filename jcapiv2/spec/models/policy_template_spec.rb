@@ -32,13 +32,13 @@ describe 'PolicyTemplate' do
       expect(@instance).to be_instance_of(JCAPIv2::PolicyTemplate)
     end
   end
-  describe 'test attribute "id"' do
+  describe 'test attribute "activation"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "name"' do
+  describe 'test attribute "behavior"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -56,6 +56,18 @@ describe 'PolicyTemplate' do
     end
   end
 
+  describe 'test attribute "id"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "name"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "os_meta_family"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -63,18 +75,6 @@ describe 'PolicyTemplate' do
        #validator.allowable_values.each do |value|
        #  expect { @instance.os_meta_family = value }.not_to raise_error
        #end
-    end
-  end
-
-  describe 'test attribute "activation"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "behavior"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 

@@ -15,11 +15,14 @@ require 'date'
 module JCAPIv2
   # The shallow information about a Policy Template.
   class PolicyTemplateWithDetails
-    # ObjectId uniquely identifying a Policy Template.
-    attr_accessor :id
+    # Requirements before the policy can be activated.
+    attr_accessor :activation
 
-    # The unique name for the Policy Template.
-    attr_accessor :name
+    # Specifics about the behavior of the policy.
+    attr_accessor :behavior
+
+    # An unordered list of all the fields that can be configured for this Policy Template.
+    attr_accessor :config_fields
 
     # The default description for the Policy.
     attr_accessor :description
@@ -27,16 +30,13 @@ module JCAPIv2
     # The default display name for the Policy.
     attr_accessor :display_name
 
+    # ObjectId uniquely identifying a Policy Template.
+    attr_accessor :id
+
+    # The unique name for the Policy Template.
+    attr_accessor :name
+
     attr_accessor :os_meta_family
-
-    # An unordered list of all the fields that can be configured for this Policy Template.
-    attr_accessor :config_fields
-
-    # Requirements before the policy can be activated.
-    attr_accessor :activation
-
-    # Specifics about the behavior of the policy.
-    attr_accessor :behavior
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -63,28 +63,28 @@ module JCAPIv2
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'name' => :'name',
+        :'activation' => :'activation',
+        :'behavior' => :'behavior',
+        :'config_fields' => :'configFields',
         :'description' => :'description',
         :'display_name' => :'displayName',
-        :'os_meta_family' => :'osMetaFamily',
-        :'config_fields' => :'configFields',
-        :'activation' => :'activation',
-        :'behavior' => :'behavior'
+        :'id' => :'id',
+        :'name' => :'name',
+        :'os_meta_family' => :'osMetaFamily'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'String',
-        :'name' => :'String',
+        :'activation' => :'String',
+        :'behavior' => :'String',
+        :'config_fields' => :'Array<PolicyTemplateConfigField>',
         :'description' => :'String',
         :'display_name' => :'String',
-        :'os_meta_family' => :'String',
-        :'config_fields' => :'Array<PolicyTemplateConfigField>',
-        :'activation' => :'String',
-        :'behavior' => :'String'
+        :'id' => :'String',
+        :'name' => :'String',
+        :'os_meta_family' => :'String'
       }
     end
 
@@ -96,12 +96,18 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.has_key?(:'activation')
+        self.activation = attributes[:'activation']
       end
 
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.has_key?(:'behavior')
+        self.behavior = attributes[:'behavior']
+      end
+
+      if attributes.has_key?(:'configFields')
+        if (value = attributes[:'configFields']).is_a?(Array)
+          self.config_fields = value
+        end
       end
 
       if attributes.has_key?(:'description')
@@ -112,22 +118,16 @@ module JCAPIv2
         self.display_name = attributes[:'displayName']
       end
 
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
+      end
+
       if attributes.has_key?(:'osMetaFamily')
         self.os_meta_family = attributes[:'osMetaFamily']
-      end
-
-      if attributes.has_key?(:'configFields')
-        if (value = attributes[:'configFields']).is_a?(Array)
-          self.config_fields = value
-        end
-      end
-
-      if attributes.has_key?(:'activation')
-        self.activation = attributes[:'activation']
-      end
-
-      if attributes.has_key?(:'behavior')
-        self.behavior = attributes[:'behavior']
       end
 
     end
@@ -162,14 +162,14 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          name == o.name &&
+          activation == o.activation &&
+          behavior == o.behavior &&
+          config_fields == o.config_fields &&
           description == o.description &&
           display_name == o.display_name &&
-          os_meta_family == o.os_meta_family &&
-          config_fields == o.config_fields &&
-          activation == o.activation &&
-          behavior == o.behavior
+          id == o.id &&
+          name == o.name &&
+          os_meta_family == o.os_meta_family
     end
 
     # @see the `==` method
@@ -181,7 +181,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, description, display_name, os_meta_family, config_fields, activation, behavior].hash
+      [activation, behavior, config_fields, description, display_name, id, name, os_meta_family].hash
     end
 
     # Builds the object from hash

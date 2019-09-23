@@ -38,7 +38,17 @@ describe 'Radiusserver' do
     end
   end
 
-  describe 'test attribute "organization"' do
+  describe 'test attribute "mfa"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+       #validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["DISABLED", "ENABLED", "REQUIRED", "ALWAYS"])
+       #validator.allowable_values.each do |value|
+       #  expect { @instance.mfa = value }.not_to raise_error
+       #end
+    end
+  end
+
+  describe 'test attribute "name"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -50,25 +60,25 @@ describe 'Radiusserver' do
     end
   end
 
+  describe 'test attribute "organization"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "shared_secret"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "name"' do
+  describe 'test attribute "tag_names"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
   describe 'test attribute "tags"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "tag_names"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -83,16 +93,6 @@ describe 'Radiusserver' do
   describe 'test attribute "user_password_expiration_action"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "mfa"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-       #validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["DISABLED", "ENABLED", "REQUIRED", "ALWAYS"])
-       #validator.allowable_values.each do |value|
-       #  expect { @instance.mfa = value }.not_to raise_error
-       #end
     end
   end
 

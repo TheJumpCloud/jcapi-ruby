@@ -15,36 +15,36 @@ require 'date'
 module JCAPIv2
 
   class WorkdayOutput
+    attr_accessor :auth
+
     attr_accessor :id
+
+    attr_accessor :last_import
 
     attr_accessor :name
 
     attr_accessor :report_url
 
-    attr_accessor :last_import
-
-    attr_accessor :auth
-
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'auth' => :'auth',
         :'id' => :'id',
-        :'name' => :'name',
-        :'report_url' => :'reportUrl',
         :'last_import' => :'lastImport',
-        :'auth' => :'auth'
+        :'name' => :'name',
+        :'report_url' => :'reportUrl'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'auth' => :'WorkdayoutputAuth',
         :'id' => :'String',
-        :'name' => :'String',
-        :'report_url' => :'String',
         :'last_import' => :'String',
-        :'auth' => :'WorkdayoutputAuth'
+        :'name' => :'String',
+        :'report_url' => :'String'
       }
     end
 
@@ -56,8 +56,16 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
+      if attributes.has_key?(:'auth')
+        self.auth = attributes[:'auth']
+      end
+
       if attributes.has_key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.has_key?(:'lastImport')
+        self.last_import = attributes[:'lastImport']
       end
 
       if attributes.has_key?(:'name')
@@ -66,14 +74,6 @@ module JCAPIv2
 
       if attributes.has_key?(:'reportUrl')
         self.report_url = attributes[:'reportUrl']
-      end
-
-      if attributes.has_key?(:'lastImport')
-        self.last_import = attributes[:'lastImport']
-      end
-
-      if attributes.has_key?(:'auth')
-        self.auth = attributes[:'auth']
       end
 
     end
@@ -96,11 +96,11 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          auth == o.auth &&
           id == o.id &&
-          name == o.name &&
-          report_url == o.report_url &&
           last_import == o.last_import &&
-          auth == o.auth
+          name == o.name &&
+          report_url == o.report_url
     end
 
     # @see the `==` method
@@ -112,7 +112,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, report_url, last_import, auth].hash
+      [auth, id, last_import, name, report_url].hash
     end
 
     # Builds the object from hash

@@ -4,7 +4,7 @@ All URIs are relative to *https://console.jumpcloud.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**sshkey_delete**](SystemusersApi.md#sshkey_delete) | **DELETE** /systemusers/{id}/sshkeys/{id} | Delete a system user&#39;s Public SSH Keys
+[**sshkey_delete**](SystemusersApi.md#sshkey_delete) | **DELETE** /systemusers/{systemuser_id}/sshkeys/{id} | Delete a system user&#39;s Public SSH Keys
 [**sshkey_list**](SystemusersApi.md#sshkey_list) | **GET** /systemusers/{id}/sshkeys | List a system user&#39;s public SSH keys
 [**sshkey_post**](SystemusersApi.md#sshkey_post) | **POST** /systemusers/{id}/sshkeys | Create a system user&#39;s Public SSH Key
 [**systemusers_delete**](SystemusersApi.md#systemusers_delete) | **DELETE** /systemusers/{id} | Delete a system user
@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 
 # **sshkey_delete**
-> sshkey_delete(id, content_type, accept, opts)
+> sshkey_delete(systemuser_id, id, content_type, accept, opts)
 
 Delete a system user's Public SSH Keys
 
@@ -39,6 +39,8 @@ end
 
 api_instance = JCAPIv1::SystemusersApi.new
 
+systemuser_id = "systemuser_id_example" # String | 
+
 id = "id_example" # String | 
 
 content_type = "application/json" # String | 
@@ -51,7 +53,7 @@ opts = {
 
 begin
   #Delete a system user's Public SSH Keys
-  api_instance.sshkey_delete(id, content_type, accept, opts)
+  api_instance.sshkey_delete(systemuser_id, id, content_type, accept, opts)
 rescue JCAPIv1::ApiError => e
   puts "Exception when calling SystemusersApi->sshkey_delete: #{e}"
 end
@@ -61,6 +63,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **systemuser_id** | **String**|  | 
  **id** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
@@ -82,7 +85,7 @@ nil (empty response body)
 
 
 # **sshkey_list**
-> Sshkeylist sshkey_list(id, content_type, accept, opts)
+> Array&lt;Sshkeylist&gt; sshkey_list(id, content_type, accept, opts)
 
 List a system user's public SSH keys
 
@@ -132,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Sshkeylist**](Sshkeylist.md)
+[**Array&lt;Sshkeylist&gt;**](Sshkeylist.md)
 
 ### Authorization
 
@@ -216,7 +219,7 @@ Name | Type | Description  | Notes
 
 Delete a system user
 
-This endpoint allows you to delete a particular system user.  #### Sample Request ``` curl -X DELETE https://console.jumpcloud.com/api/systemusers/{UserID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
+This endpoint allows you to delete a particular system user.  #### Sample Request ``` curl -X DELETE https://console.jumpcloud.com/api/systemusers/{UserID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'  ```
 
 ### Example
 ```ruby
@@ -348,7 +351,7 @@ Name | Type | Description  | Notes
 
 List all system users
 
-This endpoint returns all systemusers.  #### Sample Request  ``` curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
+This endpoint returns all systemusers.  #### Sample Request  ``` curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'  ```
 
 ### Example
 ```ruby
@@ -546,11 +549,11 @@ Name | Type | Description  | Notes
 
 
 # **systemusers_resetmfa**
-> systemusers_resetmfa(id, x_api_key, opts)
+> systemusers_resetmfa(id, x_api_key, content_type, accept, opts)
 
 Reset a system user's MFA token
 
-This endpoint allows you to reset the MFA TOTP token for a specified system user and put them in an MFA enrollment period. This will result in the user being prompted to setup MFA when logging into userportal. Please be aware that if the user does not complete MFA setup before the `exclusionUntil` date, they will be locked out of any resources that require MFA.  Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2959138-using-multifactor-authentication-with-jumpcloud) on setting up MFA for more information.  #### Sample Request ``` curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H 'x-api-key: {API_KEY}' \\   -H 'Content-Type: application/json' \\   -d '{\"exclusion\": true, \"exclusionUntil\": \"{date-time}\"}'   ```
+This endpoint allows you to reset the MFA TOTP token for a specified system user and put them in an MFA enrollment period. This will result in the user being prompted to setup MFA when logging into userportal. Please be aware that if the user does not complete MFA setup before the `exclusionUntil` date, they will be locked out of any resources that require MFA.  Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2959138-using-multifactor-authentication-with-jumpcloud) on setting up MFA for more information.   #### Sample Request  ``` curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{\"exclusion\": true, \"exclusionUntil\": \"{date-time}\"}'     ```
 
 ### Example
 ```ruby
@@ -570,6 +573,10 @@ id = "id_example" # String |
 
 x_api_key = "x_api_key_example" # String | 
 
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
 opts = { 
   body: JCAPIv1::Body1.new, # Body1 | 
   x_org_id: "" # String | 
@@ -577,7 +584,7 @@ opts = {
 
 begin
   #Reset a system user's MFA token
-  api_instance.systemusers_resetmfa(id, x_api_key, opts)
+  api_instance.systemusers_resetmfa(id, x_api_key, content_type, accept, opts)
 rescue JCAPIv1::ApiError => e
   puts "Exception when calling SystemusersApi->systemusers_resetmfa: #{e}"
 end
@@ -589,6 +596,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  | 
  **x_api_key** | **String**|  | 
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
  **body** | [**Body1**](Body1.md)|  | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
@@ -612,7 +621,7 @@ nil (empty response body)
 
 List system user binding
 
-Hidden as Tags is deprecated  Adds or removes a system binding for a user.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).   List system bindings for a specific system user in a system and user binding format.  ### Examples  #### List system bindings for specific system user  ``` curl \\   -H 'Content-Type: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\" ```
+Hidden as Tags is deprecated  Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).   List system bindings for a specific system user in a system and user binding format.  ### Examples  #### List system bindings for specific system user  ``` curl \\   -H 'Content-Type: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\" ```
 
 ### Example
 ```ruby
@@ -686,7 +695,7 @@ Name | Type | Description  | Notes
 
 Update a system user binding
 
-Hidden as Tags is deprecated  Adds or removes a system binding for a user.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) system to system user  ``` curl \\   -d '{ \"add\": [\"[SYSTEM_ID_TO_ADD_HERE]\"], \"remove\": [\"[SYSTEM_ID_TO_REMOVE_HERE]\"] }' \\   -X PUT \\   -H 'Content-Type: application/json' \\   -H 'Accept: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\" ```
+Hidden as Tags is deprecated  Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) system to system user  ``` curl \\   -d '{ \"add\": [\"[SYSTEM_ID_TO_ADD_HERE]\"], \"remove\": [\"[SYSTEM_ID_TO_REMOVE_HERE]\"] }' \\   -X PUT \\   -H 'Content-Type: application/json' \\   -H 'Accept: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\" ```
 
 ### Example
 ```ruby
@@ -748,7 +757,7 @@ Name | Type | Description  | Notes
 
 
 # **systemusers_unlock**
-> systemusers_unlock(id, opts)
+> systemusers_unlock(id, content_type, accept, opts)
 
 Unlock a system user
 
@@ -770,13 +779,17 @@ api_instance = JCAPIv1::SystemusersApi.new
 
 id = "id_example" # String | 
 
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
 opts = { 
   x_org_id: "" # String | 
 }
 
 begin
   #Unlock a system user
-  api_instance.systemusers_unlock(id, opts)
+  api_instance.systemusers_unlock(id, content_type, accept, opts)
 rescue JCAPIv1::ApiError => e
   puts "Exception when calling SystemusersApi->systemusers_unlock: #{e}"
 end
@@ -787,6 +800,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  | 
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type

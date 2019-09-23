@@ -32,6 +32,12 @@ describe 'Mfa' do
       expect(@instance).to be_instance_of(JCAPIv1::Mfa)
     end
   end
+  describe 'test attribute "configured"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "exclusion"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -39,12 +45,6 @@ describe 'Mfa' do
   end
 
   describe 'test attribute "exclusion_until"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "configured"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

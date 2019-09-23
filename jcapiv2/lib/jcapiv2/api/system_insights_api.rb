@@ -21,7 +21,7 @@ module JCAPIv2
     end
 
     # List System Insights Apps
-    # Valid filter fields are `jc_system_id` and `bundle_name`.
+    # Valid filter fields are `system_id` and `bundle_name`.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
@@ -33,7 +33,7 @@ module JCAPIv2
     end
 
     # List System Insights Apps
-    # Valid filter fields are &#x60;jc_system_id&#x60; and &#x60;bundle_name&#x60;.
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;bundle_name&#x60;.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
@@ -92,32 +92,32 @@ module JCAPIv2
 
     # List System Insights System Apps
     # Valid filter fields are `bundle_name`.
-    # @param jc_system_id 
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<SystemInsightsApps>]
-    def systeminsights_list_apps_0(jc_system_id, opts = {})
-      data, _status_code, _headers = systeminsights_list_apps_0_with_http_info(jc_system_id, opts)
+    def systeminsights_list_apps_0(system_id, opts = {})
+      data, _status_code, _headers = systeminsights_list_apps_0_with_http_info(system_id, opts)
       return data
     end
 
     # List System Insights System Apps
     # Valid filter fields are &#x60;bundle_name&#x60;.
-    # @param jc_system_id 
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<(Array<SystemInsightsApps>, Fixnum, Hash)>] Array<SystemInsightsApps> data, response status code and response headers
-    def systeminsights_list_apps_0_with_http_info(jc_system_id, opts = {})
+    def systeminsights_list_apps_0_with_http_info(system_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_apps_0 ..."
       end
-      # verify the required parameter 'jc_system_id' is set
-      if @api_client.config.client_side_validation && jc_system_id.nil?
-        fail ArgumentError, "Missing the required parameter 'jc_system_id' when calling SystemInsightsApi.systeminsights_list_apps_0"
+      # verify the required parameter 'system_id' is set
+      if @api_client.config.client_side_validation && system_id.nil?
+        fail ArgumentError, "Missing the required parameter 'system_id' when calling SystemInsightsApi.systeminsights_list_apps_0"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_apps_0, must be smaller than or equal to 100.'
@@ -132,7 +132,7 @@ module JCAPIv2
       end
 
       # resource path
-      local_var_path = "/systeminsights/{jc_system_id}/apps".sub('{' + 'jc_system_id' + '}', jc_system_id.to_s)
+      local_var_path = "/systeminsights/{system_id}/apps".sub('{' + 'system_id' + '}', system_id.to_s)
 
       # query parameters
       query_params = {}
@@ -166,34 +166,174 @@ module JCAPIv2
       return data, status_code, headers
     end
 
-    # List System Insights System Browser Plugins
-    # Valid filter fields are `name`.
-    # @param jc_system_id 
+    # List System Insights Bitlocker Info
+    # Valid filter fields are `system_id` and `protection_status`.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsBitlockerInfo>]
+    def systeminsights_list_bitlocker_info(opts = {})
+      data, _status_code, _headers = systeminsights_list_bitlocker_info_with_http_info(opts)
+      return data
+    end
+
+    # List System Insights Bitlocker Info
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;protection_status&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsBitlockerInfo>, Fixnum, Hash)>] Array<SystemInsightsBitlockerInfo> data, response status code and response headers
+    def systeminsights_list_bitlocker_info_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_bitlocker_info ..."
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_bitlocker_info, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_bitlocker_info, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_bitlocker_info, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/bitlocker_info"
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsBitlockerInfo>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_bitlocker_info\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List System Insights System Bitlocker Info
+    # Valid filter fields are `protection_status`.
+    # @param system_id 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsBitlockerInfo>]
+    def systeminsights_list_bitlocker_info_0(system_id, opts = {})
+      data, _status_code, _headers = systeminsights_list_bitlocker_info_0_with_http_info(system_id, opts)
+      return data
+    end
+
+    # List System Insights System Bitlocker Info
+    # Valid filter fields are &#x60;protection_status&#x60;.
+    # @param system_id 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsBitlockerInfo>, Fixnum, Hash)>] Array<SystemInsightsBitlockerInfo> data, response status code and response headers
+    def systeminsights_list_bitlocker_info_0_with_http_info(system_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_bitlocker_info_0 ..."
+      end
+      # verify the required parameter 'system_id' is set
+      if @api_client.config.client_side_validation && system_id.nil?
+        fail ArgumentError, "Missing the required parameter 'system_id' when calling SystemInsightsApi.systeminsights_list_bitlocker_info_0"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_bitlocker_info_0, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_bitlocker_info_0, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_bitlocker_info_0, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/{system_id}/bitlocker_info".sub('{' + 'system_id' + '}', system_id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsBitlockerInfo>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_bitlocker_info_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List System Insights Browser Plugins
+    # Valid filter fields are `system_id` and `name`.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<SystemInsightsBrowserPlugins>]
-    def systeminsights_list_browser_plugins(jc_system_id, opts = {})
-      data, _status_code, _headers = systeminsights_list_browser_plugins_with_http_info(jc_system_id, opts)
+    def systeminsights_list_browser_plugins(opts = {})
+      data, _status_code, _headers = systeminsights_list_browser_plugins_with_http_info(opts)
       return data
     end
 
-    # List System Insights System Browser Plugins
-    # Valid filter fields are &#x60;name&#x60;.
-    # @param jc_system_id 
+    # List System Insights Browser Plugins
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<(Array<SystemInsightsBrowserPlugins>, Fixnum, Hash)>] Array<SystemInsightsBrowserPlugins> data, response status code and response headers
-    def systeminsights_list_browser_plugins_with_http_info(jc_system_id, opts = {})
+    def systeminsights_list_browser_plugins_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_browser_plugins ..."
-      end
-      # verify the required parameter 'jc_system_id' is set
-      if @api_client.config.client_side_validation && jc_system_id.nil?
-        fail ArgumentError, "Missing the required parameter 'jc_system_id' when calling SystemInsightsApi.systeminsights_list_browser_plugins"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_browser_plugins, must be smaller than or equal to 100.'
@@ -208,7 +348,7 @@ module JCAPIv2
       end
 
       # resource path
-      local_var_path = "/systeminsights/{jc_system_id}/browser_plugins".sub('{' + 'jc_system_id' + '}', jc_system_id.to_s)
+      local_var_path = "/systeminsights/browser_plugins"
 
       # query parameters
       query_params = {}
@@ -242,28 +382,34 @@ module JCAPIv2
       return data, status_code, headers
     end
 
-    # List System Insights Browser Plugins
-    # Valid filter fields are `jc_system_id` and `name`.
+    # List System Insights System Browser Plugins
+    # Valid filter fields are `name`.
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<SystemInsightsBrowserPlugins>]
-    def systeminsights_list_browser_plugins_0(opts = {})
-      data, _status_code, _headers = systeminsights_list_browser_plugins_0_with_http_info(opts)
+    def systeminsights_list_browser_plugins_0(system_id, opts = {})
+      data, _status_code, _headers = systeminsights_list_browser_plugins_0_with_http_info(system_id, opts)
       return data
     end
 
-    # List System Insights Browser Plugins
-    # Valid filter fields are &#x60;jc_system_id&#x60; and &#x60;name&#x60;.
+    # List System Insights System Browser Plugins
+    # Valid filter fields are &#x60;name&#x60;.
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<(Array<SystemInsightsBrowserPlugins>, Fixnum, Hash)>] Array<SystemInsightsBrowserPlugins> data, response status code and response headers
-    def systeminsights_list_browser_plugins_0_with_http_info(opts = {})
+    def systeminsights_list_browser_plugins_0_with_http_info(system_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_browser_plugins_0 ..."
+      end
+      # verify the required parameter 'system_id' is set
+      if @api_client.config.client_side_validation && system_id.nil?
+        fail ArgumentError, "Missing the required parameter 'system_id' when calling SystemInsightsApi.systeminsights_list_browser_plugins_0"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_browser_plugins_0, must be smaller than or equal to 100.'
@@ -278,7 +424,7 @@ module JCAPIv2
       end
 
       # resource path
-      local_var_path = "/systeminsights/browser_plugins"
+      local_var_path = "/systeminsights/{system_id}/browser_plugins".sub('{' + 'system_id' + '}', system_id.to_s)
 
       # query parameters
       query_params = {}
@@ -312,34 +458,28 @@ module JCAPIv2
       return data, status_code, headers
     end
 
-    # List System Insights System Chrome Extensions
-    # Valid filter fields are `name`.
-    # @param jc_system_id 
+    # List System Insights Chrome Extensions
+    # Valid filter fields are `system_id` and `name`.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<SystemInsightsChromeExtensions>]
-    def systeminsights_list_chrome_extensions(jc_system_id, opts = {})
-      data, _status_code, _headers = systeminsights_list_chrome_extensions_with_http_info(jc_system_id, opts)
+    def systeminsights_list_chrome_extensions(opts = {})
+      data, _status_code, _headers = systeminsights_list_chrome_extensions_with_http_info(opts)
       return data
     end
 
-    # List System Insights System Chrome Extensions
-    # Valid filter fields are &#x60;name&#x60;.
-    # @param jc_system_id 
+    # List System Insights Chrome Extensions
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<(Array<SystemInsightsChromeExtensions>, Fixnum, Hash)>] Array<SystemInsightsChromeExtensions> data, response status code and response headers
-    def systeminsights_list_chrome_extensions_with_http_info(jc_system_id, opts = {})
+    def systeminsights_list_chrome_extensions_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_chrome_extensions ..."
-      end
-      # verify the required parameter 'jc_system_id' is set
-      if @api_client.config.client_side_validation && jc_system_id.nil?
-        fail ArgumentError, "Missing the required parameter 'jc_system_id' when calling SystemInsightsApi.systeminsights_list_chrome_extensions"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_chrome_extensions, must be smaller than or equal to 100.'
@@ -354,7 +494,7 @@ module JCAPIv2
       end
 
       # resource path
-      local_var_path = "/systeminsights/{jc_system_id}/chrome_extensions".sub('{' + 'jc_system_id' + '}', jc_system_id.to_s)
+      local_var_path = "/systeminsights/chrome_extensions"
 
       # query parameters
       query_params = {}
@@ -388,28 +528,34 @@ module JCAPIv2
       return data, status_code, headers
     end
 
-    # List System Insights Chrome Extensions
-    # Valid filter fields are `jc_system_id` and `name`.
+    # List System Insights System Chrome Extensions
+    # Valid filter fields are `name`.
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<SystemInsightsChromeExtensions>]
-    def systeminsights_list_chrome_extensions_0(opts = {})
-      data, _status_code, _headers = systeminsights_list_chrome_extensions_0_with_http_info(opts)
+    def systeminsights_list_chrome_extensions_0(system_id, opts = {})
+      data, _status_code, _headers = systeminsights_list_chrome_extensions_0_with_http_info(system_id, opts)
       return data
     end
 
-    # List System Insights Chrome Extensions
-    # Valid filter fields are &#x60;jc_system_id&#x60; and &#x60;name&#x60;.
+    # List System Insights System Chrome Extensions
+    # Valid filter fields are &#x60;name&#x60;.
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<(Array<SystemInsightsChromeExtensions>, Fixnum, Hash)>] Array<SystemInsightsChromeExtensions> data, response status code and response headers
-    def systeminsights_list_chrome_extensions_0_with_http_info(opts = {})
+    def systeminsights_list_chrome_extensions_0_with_http_info(system_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_chrome_extensions_0 ..."
+      end
+      # verify the required parameter 'system_id' is set
+      if @api_client.config.client_side_validation && system_id.nil?
+        fail ArgumentError, "Missing the required parameter 'system_id' when calling SystemInsightsApi.systeminsights_list_chrome_extensions_0"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_chrome_extensions_0, must be smaller than or equal to 100.'
@@ -424,7 +570,7 @@ module JCAPIv2
       end
 
       # resource path
-      local_var_path = "/systeminsights/chrome_extensions"
+      local_var_path = "/systeminsights/{system_id}/chrome_extensions".sub('{' + 'system_id' + '}', system_id.to_s)
 
       # query parameters
       query_params = {}
@@ -459,7 +605,7 @@ module JCAPIv2
     end
 
     # List System Insights Disk Encryption
-    # Valid filter fields are `jc_system_id` and `encryption_status`.
+    # Valid filter fields are `system_id` and `encryption_status`.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
@@ -471,7 +617,7 @@ module JCAPIv2
     end
 
     # List System Insights Disk Encryption
-    # Valid filter fields are &#x60;jc_system_id&#x60; and &#x60;encryption_status&#x60;.
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;encryption_status&#x60;.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
@@ -530,32 +676,32 @@ module JCAPIv2
 
     # List System Insights System Disk Encryption
     # Valid filter fields are `encryption_status`.
-    # @param jc_system_id 
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<SystemInsightsDiskEncryption>]
-    def systeminsights_list_disk_encryption_0(jc_system_id, opts = {})
-      data, _status_code, _headers = systeminsights_list_disk_encryption_0_with_http_info(jc_system_id, opts)
+    def systeminsights_list_disk_encryption_0(system_id, opts = {})
+      data, _status_code, _headers = systeminsights_list_disk_encryption_0_with_http_info(system_id, opts)
       return data
     end
 
     # List System Insights System Disk Encryption
     # Valid filter fields are &#x60;encryption_status&#x60;.
-    # @param jc_system_id 
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<(Array<SystemInsightsDiskEncryption>, Fixnum, Hash)>] Array<SystemInsightsDiskEncryption> data, response status code and response headers
-    def systeminsights_list_disk_encryption_0_with_http_info(jc_system_id, opts = {})
+    def systeminsights_list_disk_encryption_0_with_http_info(system_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_disk_encryption_0 ..."
       end
-      # verify the required parameter 'jc_system_id' is set
-      if @api_client.config.client_side_validation && jc_system_id.nil?
-        fail ArgumentError, "Missing the required parameter 'jc_system_id' when calling SystemInsightsApi.systeminsights_list_disk_encryption_0"
+      # verify the required parameter 'system_id' is set
+      if @api_client.config.client_side_validation && system_id.nil?
+        fail ArgumentError, "Missing the required parameter 'system_id' when calling SystemInsightsApi.systeminsights_list_disk_encryption_0"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_disk_encryption_0, must be smaller than or equal to 100.'
@@ -570,7 +716,7 @@ module JCAPIv2
       end
 
       # resource path
-      local_var_path = "/systeminsights/{jc_system_id}/disk_encryption".sub('{' + 'jc_system_id' + '}', jc_system_id.to_s)
+      local_var_path = "/systeminsights/{system_id}/disk_encryption".sub('{' + 'system_id' + '}', system_id.to_s)
 
       # query parameters
       query_params = {}
@@ -604,8 +750,300 @@ module JCAPIv2
       return data, status_code, headers
     end
 
+    # List System Insights Disk Info
+    # Valid filter fields are `system_id` and `disk_index`.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsDiskInfo>]
+    def systeminsights_list_disk_info(opts = {})
+      data, _status_code, _headers = systeminsights_list_disk_info_with_http_info(opts)
+      return data
+    end
+
+    # List System Insights Disk Info
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;disk_index&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsDiskInfo>, Fixnum, Hash)>] Array<SystemInsightsDiskInfo> data, response status code and response headers
+    def systeminsights_list_disk_info_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_disk_info ..."
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_disk_info, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_disk_info, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_disk_info, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/disk_info"
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsDiskInfo>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_disk_info\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List System Insights System Disk Info
+    # Valid filter fields are `disk_index`.
+    # @param system_id 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsBitlockerInfo>]
+    def systeminsights_list_disk_info_0(system_id, opts = {})
+      data, _status_code, _headers = systeminsights_list_disk_info_0_with_http_info(system_id, opts)
+      return data
+    end
+
+    # List System Insights System Disk Info
+    # Valid filter fields are &#x60;disk_index&#x60;.
+    # @param system_id 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsBitlockerInfo>, Fixnum, Hash)>] Array<SystemInsightsBitlockerInfo> data, response status code and response headers
+    def systeminsights_list_disk_info_0_with_http_info(system_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_disk_info_0 ..."
+      end
+      # verify the required parameter 'system_id' is set
+      if @api_client.config.client_side_validation && system_id.nil?
+        fail ArgumentError, "Missing the required parameter 'system_id' when calling SystemInsightsApi.systeminsights_list_disk_info_0"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_disk_info_0, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_disk_info_0, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_disk_info_0, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/{system_id}/disk_info".sub('{' + 'system_id' + '}', system_id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsBitlockerInfo>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_disk_info_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List System Insights Etc Hosts
+    # Valid filter fields are `system_id` and `address`.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsEtcHosts>]
+    def systeminsights_list_etc_hosts(opts = {})
+      data, _status_code, _headers = systeminsights_list_etc_hosts_with_http_info(opts)
+      return data
+    end
+
+    # List System Insights Etc Hosts
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;address&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsEtcHosts>, Fixnum, Hash)>] Array<SystemInsightsEtcHosts> data, response status code and response headers
+    def systeminsights_list_etc_hosts_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_etc_hosts ..."
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_etc_hosts, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_etc_hosts, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_etc_hosts, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/etc_hosts"
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsEtcHosts>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_etc_hosts\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List System Insights System Etc Hosts
+    # Valid filter fields are `address`.
+    # @param system_id 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsBitlockerInfo>]
+    def systeminsights_list_etc_hosts_0(system_id, opts = {})
+      data, _status_code, _headers = systeminsights_list_etc_hosts_0_with_http_info(system_id, opts)
+      return data
+    end
+
+    # List System Insights System Etc Hosts
+    # Valid filter fields are &#x60;address&#x60;.
+    # @param system_id 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsBitlockerInfo>, Fixnum, Hash)>] Array<SystemInsightsBitlockerInfo> data, response status code and response headers
+    def systeminsights_list_etc_hosts_0_with_http_info(system_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_etc_hosts_0 ..."
+      end
+      # verify the required parameter 'system_id' is set
+      if @api_client.config.client_side_validation && system_id.nil?
+        fail ArgumentError, "Missing the required parameter 'system_id' when calling SystemInsightsApi.systeminsights_list_etc_hosts_0"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_etc_hosts_0, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_etc_hosts_0, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_etc_hosts_0, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/{system_id}/etc_hosts".sub('{' + 'system_id' + '}', system_id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsBitlockerInfo>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_etc_hosts_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List System Insights Firefox Addons
-    # Valid filter fields are `jc_system_id` and `name`.
+    # Valid filter fields are `system_id` and `name`.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
@@ -617,7 +1055,7 @@ module JCAPIv2
     end
 
     # List System Insights Firefox Addons
-    # Valid filter fields are &#x60;jc_system_id&#x60; and &#x60;name&#x60;.
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
@@ -676,32 +1114,32 @@ module JCAPIv2
 
     # List System Insights System Firefox Addons
     # Valid filter fields are `name`.
-    # @param jc_system_id 
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<SystemInsightsFirefoxAddons>]
-    def systeminsights_list_firefox_addons_0(jc_system_id, opts = {})
-      data, _status_code, _headers = systeminsights_list_firefox_addons_0_with_http_info(jc_system_id, opts)
+    def systeminsights_list_firefox_addons_0(system_id, opts = {})
+      data, _status_code, _headers = systeminsights_list_firefox_addons_0_with_http_info(system_id, opts)
       return data
     end
 
     # List System Insights System Firefox Addons
     # Valid filter fields are &#x60;name&#x60;.
-    # @param jc_system_id 
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<(Array<SystemInsightsFirefoxAddons>, Fixnum, Hash)>] Array<SystemInsightsFirefoxAddons> data, response status code and response headers
-    def systeminsights_list_firefox_addons_0_with_http_info(jc_system_id, opts = {})
+    def systeminsights_list_firefox_addons_0_with_http_info(system_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_firefox_addons_0 ..."
       end
-      # verify the required parameter 'jc_system_id' is set
-      if @api_client.config.client_side_validation && jc_system_id.nil?
-        fail ArgumentError, "Missing the required parameter 'jc_system_id' when calling SystemInsightsApi.systeminsights_list_firefox_addons_0"
+      # verify the required parameter 'system_id' is set
+      if @api_client.config.client_side_validation && system_id.nil?
+        fail ArgumentError, "Missing the required parameter 'system_id' when calling SystemInsightsApi.systeminsights_list_firefox_addons_0"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_firefox_addons_0, must be smaller than or equal to 100.'
@@ -716,7 +1154,7 @@ module JCAPIv2
       end
 
       # resource path
-      local_var_path = "/systeminsights/{jc_system_id}/firefox_addons".sub('{' + 'jc_system_id' + '}', jc_system_id.to_s)
+      local_var_path = "/systeminsights/{system_id}/firefox_addons".sub('{' + 'system_id' + '}', system_id.to_s)
 
       # query parameters
       query_params = {}
@@ -751,7 +1189,7 @@ module JCAPIv2
     end
 
     # List System Insights Groups
-    # Valid filter fields are `jc_system_id` and `groupname`.
+    # Valid filter fields are `system_id` and `groupname`.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
@@ -763,7 +1201,7 @@ module JCAPIv2
     end
 
     # List System Insights Groups
-    # Valid filter fields are &#x60;jc_system_id&#x60; and &#x60;groupname&#x60;.
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;groupname&#x60;.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
@@ -822,32 +1260,32 @@ module JCAPIv2
 
     # List System Insights System Groups
     # Valid filter fields are `groupname`.
-    # @param jc_system_id 
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<SystemInsightsGroups>]
-    def systeminsights_list_groups_0(jc_system_id, opts = {})
-      data, _status_code, _headers = systeminsights_list_groups_0_with_http_info(jc_system_id, opts)
+    def systeminsights_list_groups_0(system_id, opts = {})
+      data, _status_code, _headers = systeminsights_list_groups_0_with_http_info(system_id, opts)
       return data
     end
 
     # List System Insights System Groups
     # Valid filter fields are &#x60;groupname&#x60;.
-    # @param jc_system_id 
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<(Array<SystemInsightsGroups>, Fixnum, Hash)>] Array<SystemInsightsGroups> data, response status code and response headers
-    def systeminsights_list_groups_0_with_http_info(jc_system_id, opts = {})
+    def systeminsights_list_groups_0_with_http_info(system_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_groups_0 ..."
       end
-      # verify the required parameter 'jc_system_id' is set
-      if @api_client.config.client_side_validation && jc_system_id.nil?
-        fail ArgumentError, "Missing the required parameter 'jc_system_id' when calling SystemInsightsApi.systeminsights_list_groups_0"
+      # verify the required parameter 'system_id' is set
+      if @api_client.config.client_side_validation && system_id.nil?
+        fail ArgumentError, "Missing the required parameter 'system_id' when calling SystemInsightsApi.systeminsights_list_groups_0"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_groups_0, must be smaller than or equal to 100.'
@@ -862,7 +1300,7 @@ module JCAPIv2
       end
 
       # resource path
-      local_var_path = "/systeminsights/{jc_system_id}/groups".sub('{' + 'jc_system_id' + '}', jc_system_id.to_s)
+      local_var_path = "/systeminsights/{system_id}/groups".sub('{' + 'system_id' + '}', system_id.to_s)
 
       # query parameters
       query_params = {}
@@ -897,7 +1335,7 @@ module JCAPIv2
     end
 
     # List System Insights Interface Addresses
-    # Valid filter fields are `jc_system_id` and `address`.
+    # Valid filter fields are `system_id` and `address`.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
@@ -909,7 +1347,7 @@ module JCAPIv2
     end
 
     # List System Insights Interface Addresses
-    # Valid filter fields are &#x60;jc_system_id&#x60; and &#x60;address&#x60;.
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;address&#x60;.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
@@ -968,32 +1406,32 @@ module JCAPIv2
 
     # List System Insights System Interface Addresses
     # Valid filter fields are `address`.
-    # @param jc_system_id 
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<SystemInsightsInterfaceAddresses>]
-    def systeminsights_list_interface_addresses_0(jc_system_id, opts = {})
-      data, _status_code, _headers = systeminsights_list_interface_addresses_0_with_http_info(jc_system_id, opts)
+    def systeminsights_list_interface_addresses_0(system_id, opts = {})
+      data, _status_code, _headers = systeminsights_list_interface_addresses_0_with_http_info(system_id, opts)
       return data
     end
 
     # List System Insights System Interface Addresses
     # Valid filter fields are &#x60;address&#x60;.
-    # @param jc_system_id 
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<(Array<SystemInsightsInterfaceAddresses>, Fixnum, Hash)>] Array<SystemInsightsInterfaceAddresses> data, response status code and response headers
-    def systeminsights_list_interface_addresses_0_with_http_info(jc_system_id, opts = {})
+    def systeminsights_list_interface_addresses_0_with_http_info(system_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_interface_addresses_0 ..."
       end
-      # verify the required parameter 'jc_system_id' is set
-      if @api_client.config.client_side_validation && jc_system_id.nil?
-        fail ArgumentError, "Missing the required parameter 'jc_system_id' when calling SystemInsightsApi.systeminsights_list_interface_addresses_0"
+      # verify the required parameter 'system_id' is set
+      if @api_client.config.client_side_validation && system_id.nil?
+        fail ArgumentError, "Missing the required parameter 'system_id' when calling SystemInsightsApi.systeminsights_list_interface_addresses_0"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_interface_addresses_0, must be smaller than or equal to 100.'
@@ -1008,7 +1446,7 @@ module JCAPIv2
       end
 
       # resource path
-      local_var_path = "/systeminsights/{jc_system_id}/interface_addresses".sub('{' + 'jc_system_id' + '}', jc_system_id.to_s)
+      local_var_path = "/systeminsights/{system_id}/interface_addresses".sub('{' + 'system_id' + '}', system_id.to_s)
 
       # query parameters
       query_params = {}
@@ -1042,8 +1480,300 @@ module JCAPIv2
       return data, status_code, headers
     end
 
+    # List System Insights Kernel Info
+    # Valid filter fields are `system_id` and `version`.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsKernelInfo>]
+    def systeminsights_list_kernel_info(opts = {})
+      data, _status_code, _headers = systeminsights_list_kernel_info_with_http_info(opts)
+      return data
+    end
+
+    # List System Insights Kernel Info
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;version&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsKernelInfo>, Fixnum, Hash)>] Array<SystemInsightsKernelInfo> data, response status code and response headers
+    def systeminsights_list_kernel_info_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_kernel_info ..."
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_kernel_info, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_kernel_info, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_kernel_info, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/kernel_info"
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsKernelInfo>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_kernel_info\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List System Insights System Kernel Info
+    # Valid filter fields are `version`.
+    # @param system_id 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsKernelInfo>]
+    def systeminsights_list_kernel_info_0(system_id, opts = {})
+      data, _status_code, _headers = systeminsights_list_kernel_info_0_with_http_info(system_id, opts)
+      return data
+    end
+
+    # List System Insights System Kernel Info
+    # Valid filter fields are &#x60;version&#x60;.
+    # @param system_id 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsKernelInfo>, Fixnum, Hash)>] Array<SystemInsightsKernelInfo> data, response status code and response headers
+    def systeminsights_list_kernel_info_0_with_http_info(system_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_kernel_info_0 ..."
+      end
+      # verify the required parameter 'system_id' is set
+      if @api_client.config.client_side_validation && system_id.nil?
+        fail ArgumentError, "Missing the required parameter 'system_id' when calling SystemInsightsApi.systeminsights_list_kernel_info_0"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_kernel_info_0, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_kernel_info_0, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_kernel_info_0, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/{system_id}/kernel_info".sub('{' + 'system_id' + '}', system_id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsKernelInfo>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_kernel_info_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List System Insights Logical Drives
+    # Valid filter fields are `system_id` and `device_id`.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsLogicalDrvies>]
+    def systeminsights_list_logical_drives(opts = {})
+      data, _status_code, _headers = systeminsights_list_logical_drives_with_http_info(opts)
+      return data
+    end
+
+    # List System Insights Logical Drives
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;device_id&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsLogicalDrvies>, Fixnum, Hash)>] Array<SystemInsightsLogicalDrvies> data, response status code and response headers
+    def systeminsights_list_logical_drives_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_logical_drives ..."
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_logical_drives, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_logical_drives, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_logical_drives, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/logical_drives"
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsLogicalDrvies>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_logical_drives\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List System Insights System Logical Drives
+    # Valid filter fields are `device_id`.
+    # @param system_id 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsLogicalDrvies>]
+    def systeminsights_list_logical_drives_0(system_id, opts = {})
+      data, _status_code, _headers = systeminsights_list_logical_drives_0_with_http_info(system_id, opts)
+      return data
+    end
+
+    # List System Insights System Logical Drives
+    # Valid filter fields are &#x60;device_id&#x60;.
+    # @param system_id 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsLogicalDrvies>, Fixnum, Hash)>] Array<SystemInsightsLogicalDrvies> data, response status code and response headers
+    def systeminsights_list_logical_drives_0_with_http_info(system_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_logical_drives_0 ..."
+      end
+      # verify the required parameter 'system_id' is set
+      if @api_client.config.client_side_validation && system_id.nil?
+        fail ArgumentError, "Missing the required parameter 'system_id' when calling SystemInsightsApi.systeminsights_list_logical_drives_0"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_logical_drives_0, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_logical_drives_0, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_logical_drives_0, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/{system_id}/logical_drives".sub('{' + 'system_id' + '}', system_id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsLogicalDrvies>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_logical_drives_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List System Insights Mounts
-    # Valid filter fields are `jc_system_id` and `path`.
+    # Valid filter fields are `system_id` and `path`.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
@@ -1055,7 +1785,7 @@ module JCAPIv2
     end
 
     # List System Insights Mounts
-    # Valid filter fields are &#x60;jc_system_id&#x60; and &#x60;path&#x60;.
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;path&#x60;.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
@@ -1114,32 +1844,32 @@ module JCAPIv2
 
     # List System Insights System Mounts
     # Valid filter fields are `path`.
-    # @param jc_system_id 
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<SystemInsightsMounts>]
-    def systeminsights_list_mounts_0(jc_system_id, opts = {})
-      data, _status_code, _headers = systeminsights_list_mounts_0_with_http_info(jc_system_id, opts)
+    def systeminsights_list_mounts_0(system_id, opts = {})
+      data, _status_code, _headers = systeminsights_list_mounts_0_with_http_info(system_id, opts)
       return data
     end
 
     # List System Insights System Mounts
     # Valid filter fields are &#x60;path&#x60;.
-    # @param jc_system_id 
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<(Array<SystemInsightsMounts>, Fixnum, Hash)>] Array<SystemInsightsMounts> data, response status code and response headers
-    def systeminsights_list_mounts_0_with_http_info(jc_system_id, opts = {})
+    def systeminsights_list_mounts_0_with_http_info(system_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_mounts_0 ..."
       end
-      # verify the required parameter 'jc_system_id' is set
-      if @api_client.config.client_side_validation && jc_system_id.nil?
-        fail ArgumentError, "Missing the required parameter 'jc_system_id' when calling SystemInsightsApi.systeminsights_list_mounts_0"
+      # verify the required parameter 'system_id' is set
+      if @api_client.config.client_side_validation && system_id.nil?
+        fail ArgumentError, "Missing the required parameter 'system_id' when calling SystemInsightsApi.systeminsights_list_mounts_0"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_mounts_0, must be smaller than or equal to 100.'
@@ -1154,7 +1884,7 @@ module JCAPIv2
       end
 
       # resource path
-      local_var_path = "/systeminsights/{jc_system_id}/mounts".sub('{' + 'jc_system_id' + '}', jc_system_id.to_s)
+      local_var_path = "/systeminsights/{system_id}/mounts".sub('{' + 'system_id' + '}', system_id.to_s)
 
       # query parameters
       query_params = {}
@@ -1188,34 +1918,28 @@ module JCAPIv2
       return data, status_code, headers
     end
 
-    # List System Insights System OS Version
-    # Valid filter fields are `version`.
-    # @param jc_system_id 
+    # List System Insights OS Version
+    # Valid filter fields are `system_id` and `version`.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<SystemInsightsOsVersion>]
-    def systeminsights_list_os_version(jc_system_id, opts = {})
-      data, _status_code, _headers = systeminsights_list_os_version_with_http_info(jc_system_id, opts)
+    def systeminsights_list_os_version(opts = {})
+      data, _status_code, _headers = systeminsights_list_os_version_with_http_info(opts)
       return data
     end
 
-    # List System Insights System OS Version
-    # Valid filter fields are &#x60;version&#x60;.
-    # @param jc_system_id 
+    # List System Insights OS Version
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;version&#x60;.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<(Array<SystemInsightsOsVersion>, Fixnum, Hash)>] Array<SystemInsightsOsVersion> data, response status code and response headers
-    def systeminsights_list_os_version_with_http_info(jc_system_id, opts = {})
+    def systeminsights_list_os_version_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_os_version ..."
-      end
-      # verify the required parameter 'jc_system_id' is set
-      if @api_client.config.client_side_validation && jc_system_id.nil?
-        fail ArgumentError, "Missing the required parameter 'jc_system_id' when calling SystemInsightsApi.systeminsights_list_os_version"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_os_version, must be smaller than or equal to 100.'
@@ -1230,7 +1954,7 @@ module JCAPIv2
       end
 
       # resource path
-      local_var_path = "/systeminsights/{jc_system_id}/os_version".sub('{' + 'jc_system_id' + '}', jc_system_id.to_s)
+      local_var_path = "/systeminsights/os_version"
 
       # query parameters
       query_params = {}
@@ -1264,28 +1988,34 @@ module JCAPIv2
       return data, status_code, headers
     end
 
-    # List System Insights OS Version
-    # Valid filter fields are `jc_system_id` and `version`.
+    # List System Insights System OS Version
+    # Valid filter fields are `version`.
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<SystemInsightsOsVersion>]
-    def systeminsights_list_os_version_0(opts = {})
-      data, _status_code, _headers = systeminsights_list_os_version_0_with_http_info(opts)
+    def systeminsights_list_os_version_0(system_id, opts = {})
+      data, _status_code, _headers = systeminsights_list_os_version_0_with_http_info(system_id, opts)
       return data
     end
 
-    # List System Insights OS Version
-    # Valid filter fields are &#x60;jc_system_id&#x60; and &#x60;version&#x60;.
+    # List System Insights System OS Version
+    # Valid filter fields are &#x60;version&#x60;.
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<(Array<SystemInsightsOsVersion>, Fixnum, Hash)>] Array<SystemInsightsOsVersion> data, response status code and response headers
-    def systeminsights_list_os_version_0_with_http_info(opts = {})
+    def systeminsights_list_os_version_0_with_http_info(system_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_os_version_0 ..."
+      end
+      # verify the required parameter 'system_id' is set
+      if @api_client.config.client_side_validation && system_id.nil?
+        fail ArgumentError, "Missing the required parameter 'system_id' when calling SystemInsightsApi.systeminsights_list_os_version_0"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_os_version_0, must be smaller than or equal to 100.'
@@ -1300,7 +2030,7 @@ module JCAPIv2
       end
 
       # resource path
-      local_var_path = "/systeminsights/os_version"
+      local_var_path = "/systeminsights/{system_id}/os_version".sub('{' + 'system_id' + '}', system_id.to_s)
 
       # query parameters
       query_params = {}
@@ -1334,34 +2064,320 @@ module JCAPIv2
       return data, status_code, headers
     end
 
-    # List System Insights System Safari Extensions
+    # List System Insights Patches
+    # Valid filter fields are `system_id` and `hotfix_id`.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsPatches>]
+    def systeminsights_list_patches(opts = {})
+      data, _status_code, _headers = systeminsights_list_patches_with_http_info(opts)
+      return data
+    end
+
+    # List System Insights Patches
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;hotfix_id&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsPatches>, Fixnum, Hash)>] Array<SystemInsightsPatches> data, response status code and response headers
+    def systeminsights_list_patches_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_patches ..."
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_patches, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_patches, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_patches, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/patches"
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsPatches>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_patches\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List System Insights System Patches
+    # Valid filter fields are `hotfix_id  `.
+    # @param system_id 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsPatches>]
+    def systeminsights_list_patches_0(system_id, opts = {})
+      data, _status_code, _headers = systeminsights_list_patches_0_with_http_info(system_id, opts)
+      return data
+    end
+
+    # List System Insights System Patches
+    # Valid filter fields are &#x60;hotfix_id  &#x60;.
+    # @param system_id 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsPatches>, Fixnum, Hash)>] Array<SystemInsightsPatches> data, response status code and response headers
+    def systeminsights_list_patches_0_with_http_info(system_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_patches_0 ..."
+      end
+      # verify the required parameter 'system_id' is set
+      if @api_client.config.client_side_validation && system_id.nil?
+        fail ArgumentError, "Missing the required parameter 'system_id' when calling SystemInsightsApi.systeminsights_list_patches_0"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_patches_0, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_patches_0, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_patches_0, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/{system_id}/patches".sub('{' + 'system_id' + '}', system_id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsPatches>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_patches_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List System Insights Programs
+    # Valid filter fields are `system_id` and `name`.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsPrograms>]
+    def systeminsights_list_programs(opts = {})
+      data, _status_code, _headers = systeminsights_list_programs_with_http_info(opts)
+      return data
+    end
+
+    # List System Insights Programs
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsPrograms>, Fixnum, Hash)>] Array<SystemInsightsPrograms> data, response status code and response headers
+    def systeminsights_list_programs_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_programs ..."
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_programs, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_programs, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_programs, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/programs"
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsPrograms>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_programs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List System Insights System Programs
     # Valid filter fields are `name`.
-    # @param jc_system_id 
+    # @param system_id 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsPrograms>]
+    def systeminsights_list_programs_0(system_id, opts = {})
+      data, _status_code, _headers = systeminsights_list_programs_0_with_http_info(system_id, opts)
+      return data
+    end
+
+    # List System Insights System Programs
+    # Valid filter fields are &#x60;name&#x60;.
+    # @param system_id 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsPrograms>, Fixnum, Hash)>] Array<SystemInsightsPrograms> data, response status code and response headers
+    def systeminsights_list_programs_0_with_http_info(system_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_programs_0 ..."
+      end
+      # verify the required parameter 'system_id' is set
+      if @api_client.config.client_side_validation && system_id.nil?
+        fail ArgumentError, "Missing the required parameter 'system_id' when calling SystemInsightsApi.systeminsights_list_programs_0"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_programs_0, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_programs_0, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_programs_0, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/{system_id}/programs".sub('{' + 'system_id' + '}', system_id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsPrograms>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_programs_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List System Insights Safari Extensions
+    # Valid filter fields are `system_id` and `name`.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<SystemInsightsSafariExtensions>]
-    def systeminsights_list_safari_extensions(jc_system_id, opts = {})
-      data, _status_code, _headers = systeminsights_list_safari_extensions_with_http_info(jc_system_id, opts)
+    def systeminsights_list_safari_extensions(opts = {})
+      data, _status_code, _headers = systeminsights_list_safari_extensions_with_http_info(opts)
       return data
     end
 
-    # List System Insights System Safari Extensions
-    # Valid filter fields are &#x60;name&#x60;.
-    # @param jc_system_id 
+    # List System Insights Safari Extensions
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<(Array<SystemInsightsSafariExtensions>, Fixnum, Hash)>] Array<SystemInsightsSafariExtensions> data, response status code and response headers
-    def systeminsights_list_safari_extensions_with_http_info(jc_system_id, opts = {})
+    def systeminsights_list_safari_extensions_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_safari_extensions ..."
-      end
-      # verify the required parameter 'jc_system_id' is set
-      if @api_client.config.client_side_validation && jc_system_id.nil?
-        fail ArgumentError, "Missing the required parameter 'jc_system_id' when calling SystemInsightsApi.systeminsights_list_safari_extensions"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_safari_extensions, must be smaller than or equal to 100.'
@@ -1376,7 +2392,7 @@ module JCAPIv2
       end
 
       # resource path
-      local_var_path = "/systeminsights/{jc_system_id}/safari_extensions".sub('{' + 'jc_system_id' + '}', jc_system_id.to_s)
+      local_var_path = "/systeminsights/safari_extensions"
 
       # query parameters
       query_params = {}
@@ -1410,28 +2426,34 @@ module JCAPIv2
       return data, status_code, headers
     end
 
-    # List System Insights Safari Extensions
-    # Valid filter fields are `jc_system_id` and `name`.
+    # List System Insights System Safari Extensions
+    # Valid filter fields are `name`.
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<SystemInsightsSafariExtensions>]
-    def systeminsights_list_safari_extensions_0(opts = {})
-      data, _status_code, _headers = systeminsights_list_safari_extensions_0_with_http_info(opts)
+    def systeminsights_list_safari_extensions_0(system_id, opts = {})
+      data, _status_code, _headers = systeminsights_list_safari_extensions_0_with_http_info(system_id, opts)
       return data
     end
 
-    # List System Insights Safari Extensions
-    # Valid filter fields are &#x60;jc_system_id&#x60; and &#x60;name&#x60;.
+    # List System Insights System Safari Extensions
+    # Valid filter fields are &#x60;name&#x60;.
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<(Array<SystemInsightsSafariExtensions>, Fixnum, Hash)>] Array<SystemInsightsSafariExtensions> data, response status code and response headers
-    def systeminsights_list_safari_extensions_0_with_http_info(opts = {})
+    def systeminsights_list_safari_extensions_0_with_http_info(system_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_safari_extensions_0 ..."
+      end
+      # verify the required parameter 'system_id' is set
+      if @api_client.config.client_side_validation && system_id.nil?
+        fail ArgumentError, "Missing the required parameter 'system_id' when calling SystemInsightsApi.systeminsights_list_safari_extensions_0"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_safari_extensions_0, must be smaller than or equal to 100.'
@@ -1446,7 +2468,7 @@ module JCAPIv2
       end
 
       # resource path
-      local_var_path = "/systeminsights/safari_extensions"
+      local_var_path = "/systeminsights/{system_id}/safari_extensions".sub('{' + 'system_id' + '}', system_id.to_s)
 
       # query parameters
       query_params = {}
@@ -1480,8 +2502,154 @@ module JCAPIv2
       return data, status_code, headers
     end
 
+    # List System Insights System Control
+    # Valid filter fields are `system_id` and `name`.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsSystemControls>]
+    def systeminsights_list_system_controls(opts = {})
+      data, _status_code, _headers = systeminsights_list_system_controls_with_http_info(opts)
+      return data
+    end
+
+    # List System Insights System Control
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsSystemControls>, Fixnum, Hash)>] Array<SystemInsightsSystemControls> data, response status code and response headers
+    def systeminsights_list_system_controls_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_system_controls ..."
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_system_controls, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_system_controls, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_system_controls, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/system_controls"
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsSystemControls>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_system_controls\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List System Insights System System Controls
+    # Valid filter fields are `name`.
+    # @param system_id 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsSystemControls>]
+    def systeminsights_list_system_controls_0(system_id, opts = {})
+      data, _status_code, _headers = systeminsights_list_system_controls_0_with_http_info(system_id, opts)
+      return data
+    end
+
+    # List System Insights System System Controls
+    # Valid filter fields are &#x60;name&#x60;.
+    # @param system_id 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsSystemControls>, Fixnum, Hash)>] Array<SystemInsightsSystemControls> data, response status code and response headers
+    def systeminsights_list_system_controls_0_with_http_info(system_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_system_controls_0 ..."
+      end
+      # verify the required parameter 'system_id' is set
+      if @api_client.config.client_side_validation && system_id.nil?
+        fail ArgumentError, "Missing the required parameter 'system_id' when calling SystemInsightsApi.systeminsights_list_system_controls_0"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_system_controls_0, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_system_controls_0, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_system_controls_0, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/{system_id}/system_controls".sub('{' + 'system_id' + '}', system_id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsSystemControls>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_system_controls_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List System Insights System Info
-    # Valid filter fields are `jc_system_id` and `cpu_subtype`.
+    # Valid filter fields are `system_id` and `cpu_subtype`.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
@@ -1493,7 +2661,7 @@ module JCAPIv2
     end
 
     # List System Insights System Info
-    # Valid filter fields are &#x60;jc_system_id&#x60; and &#x60;cpu_subtype&#x60;.
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;cpu_subtype&#x60;.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
@@ -1552,32 +2720,32 @@ module JCAPIv2
 
     # List System Insights System System Info
     # Valid filter fields are `cpu_subtype`.
-    # @param jc_system_id 
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<SystemInsightsSystemInfo>]
-    def systeminsights_list_system_info_0(jc_system_id, opts = {})
-      data, _status_code, _headers = systeminsights_list_system_info_0_with_http_info(jc_system_id, opts)
+    def systeminsights_list_system_info_0(system_id, opts = {})
+      data, _status_code, _headers = systeminsights_list_system_info_0_with_http_info(system_id, opts)
       return data
     end
 
     # List System Insights System System Info
     # Valid filter fields are &#x60;cpu_subtype&#x60;.
-    # @param jc_system_id 
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<(Array<SystemInsightsSystemInfo>, Fixnum, Hash)>] Array<SystemInsightsSystemInfo> data, response status code and response headers
-    def systeminsights_list_system_info_0_with_http_info(jc_system_id, opts = {})
+    def systeminsights_list_system_info_0_with_http_info(system_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_system_info_0 ..."
       end
-      # verify the required parameter 'jc_system_id' is set
-      if @api_client.config.client_side_validation && jc_system_id.nil?
-        fail ArgumentError, "Missing the required parameter 'jc_system_id' when calling SystemInsightsApi.systeminsights_list_system_info_0"
+      # verify the required parameter 'system_id' is set
+      if @api_client.config.client_side_validation && system_id.nil?
+        fail ArgumentError, "Missing the required parameter 'system_id' when calling SystemInsightsApi.systeminsights_list_system_info_0"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_system_info_0, must be smaller than or equal to 100.'
@@ -1592,7 +2760,7 @@ module JCAPIv2
       end
 
       # resource path
-      local_var_path = "/systeminsights/{jc_system_id}/system_info".sub('{' + 'jc_system_id' + '}', jc_system_id.to_s)
+      local_var_path = "/systeminsights/{system_id}/system_info".sub('{' + 'system_id' + '}', system_id.to_s)
 
       # query parameters
       query_params = {}
@@ -1626,8 +2794,154 @@ module JCAPIv2
       return data, status_code, headers
     end
 
+    # List System Insights Uptime
+    # Valid filter fields are `system_id` and `days`.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsUptime>]
+    def systeminsights_list_uptime(opts = {})
+      data, _status_code, _headers = systeminsights_list_uptime_with_http_info(opts)
+      return data
+    end
+
+    # List System Insights Uptime
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;days&#x60;.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsUptime>, Fixnum, Hash)>] Array<SystemInsightsUptime> data, response status code and response headers
+    def systeminsights_list_uptime_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_uptime ..."
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_uptime, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_uptime, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_uptime, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/uptime"
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsUptime>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_uptime\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List System Insights System Uptime
+    # Valid filter fields are `days`.
+    # @param system_id 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsUptime>]
+    def systeminsights_list_uptime_0(system_id, opts = {})
+      data, _status_code, _headers = systeminsights_list_uptime_0_with_http_info(system_id, opts)
+      return data
+    end
+
+    # List System Insights System Uptime
+    # Valid filter fields are &#x60;days&#x60;.
+    # @param system_id 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsUptime>, Fixnum, Hash)>] Array<SystemInsightsUptime> data, response status code and response headers
+    def systeminsights_list_uptime_0_with_http_info(system_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_uptime_0 ..."
+      end
+      # verify the required parameter 'system_id' is set
+      if @api_client.config.client_side_validation && system_id.nil?
+        fail ArgumentError, "Missing the required parameter 'system_id' when calling SystemInsightsApi.systeminsights_list_uptime_0"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_uptime_0, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_uptime_0, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_uptime_0, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/{system_id}/uptime".sub('{' + 'system_id' + '}', system_id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsUptime>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_uptime_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List System Insights Users
-    # Valid filter fields are `jc_system_id` and `username`.
+    # Valid filter fields are `system_id` and `username`.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
@@ -1639,7 +2953,7 @@ module JCAPIv2
     end
 
     # List System Insights Users
-    # Valid filter fields are &#x60;jc_system_id&#x60; and &#x60;username&#x60;.
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;username&#x60;.
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
@@ -1698,32 +3012,32 @@ module JCAPIv2
 
     # List System Insights System Users
     # Valid filter fields are `username`.
-    # @param jc_system_id 
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit  (default to 10)
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<SystemInsightsUsers>]
-    def systeminsights_list_users_0(jc_system_id, opts = {})
-      data, _status_code, _headers = systeminsights_list_users_0_with_http_info(jc_system_id, opts)
+    def systeminsights_list_users_0(system_id, opts = {})
+      data, _status_code, _headers = systeminsights_list_users_0_with_http_info(system_id, opts)
       return data
     end
 
     # List System Insights System Users
     # Valid filter fields are &#x60;username&#x60;.
-    # @param jc_system_id 
+    # @param system_id 
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit 
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :filter Supported operators are: eq
     # @return [Array<(Array<SystemInsightsUsers>, Fixnum, Hash)>] Array<SystemInsightsUsers> data, response status code and response headers
-    def systeminsights_list_users_0_with_http_info(jc_system_id, opts = {})
+    def systeminsights_list_users_0_with_http_info(system_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_users_0 ..."
       end
-      # verify the required parameter 'jc_system_id' is set
-      if @api_client.config.client_side_validation && jc_system_id.nil?
-        fail ArgumentError, "Missing the required parameter 'jc_system_id' when calling SystemInsightsApi.systeminsights_list_users_0"
+      # verify the required parameter 'system_id' is set
+      if @api_client.config.client_side_validation && system_id.nil?
+        fail ArgumentError, "Missing the required parameter 'system_id' when calling SystemInsightsApi.systeminsights_list_users_0"
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_users_0, must be smaller than or equal to 100.'
@@ -1738,7 +3052,7 @@ module JCAPIv2
       end
 
       # resource path
-      local_var_path = "/systeminsights/{jc_system_id}/users".sub('{' + 'jc_system_id' + '}', jc_system_id.to_s)
+      local_var_path = "/systeminsights/{system_id}/users".sub('{' + 'system_id' + '}', system_id.to_s)
 
       # query parameters
       query_params = {}

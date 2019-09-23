@@ -32,19 +32,7 @@ describe 'Systemput' do
       expect(@instance).to be_instance_of(JCAPIv1::Systemput)
     end
   end
-  describe 'test attribute "display_name"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "allow_ssh_password_authentication"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "allow_ssh_root_login"' do
+  describe 'test attribute "agent_bound_messages"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -62,7 +50,19 @@ describe 'Systemput' do
     end
   end
 
-  describe 'test attribute "agent_bound_messages"' do
+  describe 'test attribute "allow_ssh_password_authentication"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "allow_ssh_root_login"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "display_name"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

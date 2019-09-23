@@ -38,13 +38,13 @@ describe 'PolicyRequest' do
     end
   end
 
-  describe 'test attribute "values"' do
+  describe 'test attribute "template"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "template"' do
+  describe 'test attribute "values"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -17,13 +17,13 @@ module JCAPIv2
   class UserGraphManagementReq
     attr_accessor :attributes
 
+    # The ObjectID of graph object being added or removed as an association.
+    attr_accessor :id
+
     # How to modify the graph connection.
     attr_accessor :op
 
     attr_accessor :type
-
-    # The ObjectID of graph object being added or removed as an association.
-    attr_accessor :id
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -51,9 +51,9 @@ module JCAPIv2
     def self.attribute_map
       {
         :'attributes' => :'attributes',
+        :'id' => :'id',
         :'op' => :'op',
-        :'type' => :'type',
-        :'id' => :'id'
+        :'type' => :'type'
       }
     end
 
@@ -61,9 +61,9 @@ module JCAPIv2
     def self.swagger_types
       {
         :'attributes' => :'SystemGraphManagementReqAttributes',
+        :'id' => :'String',
         :'op' => :'String',
-        :'type' => :'String',
-        :'id' => :'String'
+        :'type' => :'String'
       }
     end
 
@@ -79,6 +79,10 @@ module JCAPIv2
         self.attributes = attributes[:'attributes']
       end
 
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
+      end
+
       if attributes.has_key?(:'op')
         self.op = attributes[:'op']
       end
@@ -87,16 +91,16 @@ module JCAPIv2
         self.type = attributes[:'type']
       end
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
-
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @id.nil?
+        invalid_properties.push("invalid value for 'id', id cannot be nil.")
+      end
+
       if @op.nil?
         invalid_properties.push("invalid value for 'op', op cannot be nil.")
       end
@@ -105,23 +109,19 @@ module JCAPIv2
         invalid_properties.push("invalid value for 'type', type cannot be nil.")
       end
 
-      if @id.nil?
-        invalid_properties.push("invalid value for 'id', id cannot be nil.")
-      end
-
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @id.nil?
       return false if @op.nil?
       op_validator = EnumAttributeValidator.new('String', ["add", "remove", "update"])
       return false unless op_validator.valid?(@op)
       return false if @type.nil?
       type_validator = EnumAttributeValidator.new('String', ["active_directory", "application", "command", "g_suite", "ldap_server", "office_365", "policy", "radius_server", "system", "system_group"])
       return false unless type_validator.valid?(@type)
-      return false if @id.nil?
       return true
     end
 
@@ -151,9 +151,9 @@ module JCAPIv2
       return true if self.equal?(o)
       self.class == o.class &&
           attributes == o.attributes &&
+          id == o.id &&
           op == o.op &&
-          type == o.type &&
-          id == o.id
+          type == o.type
     end
 
     # @see the `==` method
@@ -165,7 +165,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [attributes, op, type, id].hash
+      [attributes, id, op, type].hash
     end
 
     # Builds the object from hash

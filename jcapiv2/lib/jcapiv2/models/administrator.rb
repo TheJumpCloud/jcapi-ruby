@@ -15,15 +15,15 @@ require 'date'
 module JCAPIv2
 
   class Administrator
-    attr_accessor :id
-
     attr_accessor :email
+
+    attr_accessor :enable_multi_factor
 
     attr_accessor :firstname
 
-    attr_accessor :lastname
+    attr_accessor :id
 
-    attr_accessor :enable_multi_factor
+    attr_accessor :lastname
 
     attr_accessor :registered
 
@@ -31,11 +31,11 @@ module JCAPIv2
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
         :'email' => :'email',
-        :'firstname' => :'firstname',
-        :'lastname' => :'lastname',
         :'enable_multi_factor' => :'enableMultiFactor',
+        :'firstname' => :'firstname',
+        :'id' => :'id',
+        :'lastname' => :'lastname',
         :'registered' => :'registered'
       }
     end
@@ -43,11 +43,11 @@ module JCAPIv2
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'String',
         :'email' => :'String',
-        :'firstname' => :'String',
-        :'lastname' => :'String',
         :'enable_multi_factor' => :'BOOLEAN',
+        :'firstname' => :'String',
+        :'id' => :'String',
+        :'lastname' => :'String',
         :'registered' => :'BOOLEAN'
       }
     end
@@ -60,24 +60,24 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
-
       if attributes.has_key?(:'email')
         self.email = attributes[:'email']
+      end
+
+      if attributes.has_key?(:'enableMultiFactor')
+        self.enable_multi_factor = attributes[:'enableMultiFactor']
       end
 
       if attributes.has_key?(:'firstname')
         self.firstname = attributes[:'firstname']
       end
 
-      if attributes.has_key?(:'lastname')
-        self.lastname = attributes[:'lastname']
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
       end
 
-      if attributes.has_key?(:'enableMultiFactor')
-        self.enable_multi_factor = attributes[:'enableMultiFactor']
+      if attributes.has_key?(:'lastname')
+        self.lastname = attributes[:'lastname']
       end
 
       if attributes.has_key?(:'registered')
@@ -104,11 +104,11 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
           email == o.email &&
-          firstname == o.firstname &&
-          lastname == o.lastname &&
           enable_multi_factor == o.enable_multi_factor &&
+          firstname == o.firstname &&
+          id == o.id &&
+          lastname == o.lastname &&
           registered == o.registered
     end
 
@@ -121,7 +121,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, email, firstname, lastname, enable_multi_factor, registered].hash
+      [email, enable_multi_factor, firstname, id, lastname, registered].hash
     end
 
     # Builds the object from hash

@@ -32,6 +32,12 @@ describe 'OrgcryptosettingsSshKeys' do
       expect(@instance).to be_instance_of(JCAPIv2::OrgcryptosettingsSshKeys)
     end
   end
+  describe 'test attribute "key_size"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "validate"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -39,12 +45,6 @@ describe 'OrgcryptosettingsSshKeys' do
   end
 
   describe 'test attribute "validate_key_size"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "key_size"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

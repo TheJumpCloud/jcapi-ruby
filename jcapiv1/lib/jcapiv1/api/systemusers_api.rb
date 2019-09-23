@@ -22,28 +22,34 @@ module JCAPIv1
 
     # Delete a system user's Public SSH Keys
     # This endpoint will delete a specific System User's SSH Key.
+    # @param systemuser_id 
     # @param id 
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_org_id  (default to )
     # @return [nil]
-    def sshkey_delete(id, content_type, accept, opts = {})
-      sshkey_delete_with_http_info(id, content_type, accept, opts)
+    def sshkey_delete(systemuser_id, id, content_type, accept, opts = {})
+      sshkey_delete_with_http_info(systemuser_id, id, content_type, accept, opts)
       return nil
     end
 
     # Delete a system user&#39;s Public SSH Keys
     # This endpoint will delete a specific System User&#39;s SSH Key.
+    # @param systemuser_id 
     # @param id 
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def sshkey_delete_with_http_info(id, content_type, accept, opts = {})
+    def sshkey_delete_with_http_info(systemuser_id, id, content_type, accept, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemusersApi.sshkey_delete ..."
+      end
+      # verify the required parameter 'systemuser_id' is set
+      if @api_client.config.client_side_validation && systemuser_id.nil?
+        fail ArgumentError, "Missing the required parameter 'systemuser_id' when calling SystemusersApi.sshkey_delete"
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
@@ -58,7 +64,7 @@ module JCAPIv1
         fail ArgumentError, "Missing the required parameter 'accept' when calling SystemusersApi.sshkey_delete"
       end
       # resource path
-      local_var_path = "/systemusers/{id}/sshkeys/{id}".sub('{' + 'id' + '}', id.to_s)
+      local_var_path = "/systemusers/{systemuser_id}/sshkeys/{id}".sub('{' + 'systemuser_id' + '}', systemuser_id.to_s).sub('{' + 'id' + '}', id.to_s)
 
       # query parameters
       query_params = {}
@@ -98,7 +104,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_org_id  (default to )
-    # @return [Sshkeylist]
+    # @return [Array<Sshkeylist>]
     def sshkey_list(id, content_type, accept, opts = {})
       data, _status_code, _headers = sshkey_list_with_http_info(id, content_type, accept, opts)
       return data
@@ -111,7 +117,7 @@ module JCAPIv1
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_org_id 
-    # @return [Array<(Sshkeylist, Fixnum, Hash)>] Sshkeylist data, response status code and response headers
+    # @return [Array<(Array<Sshkeylist>, Fixnum, Hash)>] Array<Sshkeylist> data, response status code and response headers
     def sshkey_list_with_http_info(id, content_type, accept, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemusersApi.sshkey_list ..."
@@ -156,7 +162,7 @@ module JCAPIv1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Sshkeylist')
+        :return_type => 'Array<Sshkeylist>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SystemusersApi#sshkey_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -238,7 +244,7 @@ module JCAPIv1
     end
 
     # Delete a system user
-    # This endpoint allows you to delete a particular system user.  #### Sample Request ``` curl -X DELETE https://console.jumpcloud.com/api/systemusers/{UserID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
+    # This endpoint allows you to delete a particular system user.  #### Sample Request ``` curl -X DELETE https://console.jumpcloud.com/api/systemusers/{UserID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'  ```
     # @param id 
     # @param content_type 
     # @param accept 
@@ -251,7 +257,7 @@ module JCAPIv1
     end
 
     # Delete a system user
-    # This endpoint allows you to delete a particular system user.  #### Sample Request &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/systemusers/{UserID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+    # This endpoint allows you to delete a particular system user.  #### Sample Request &#x60;&#x60;&#x60; curl -X DELETE https://console.jumpcloud.com/api/systemusers/{UserID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
     # @param id 
     # @param content_type 
     # @param accept 
@@ -388,7 +394,7 @@ module JCAPIv1
     end
 
     # List all system users
-    # This endpoint returns all systemusers.  #### Sample Request  ``` curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
+    # This endpoint returns all systemusers.  #### Sample Request  ``` curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'  ```
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
@@ -406,7 +412,7 @@ module JCAPIv1
     end
 
     # List all system users
-    # This endpoint returns all systemusers.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+    # This endpoint returns all systemusers.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/systemusers \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
@@ -614,27 +620,31 @@ module JCAPIv1
     end
 
     # Reset a system user's MFA token
-    # This endpoint allows you to reset the MFA TOTP token for a specified system user and put them in an MFA enrollment period. This will result in the user being prompted to setup MFA when logging into userportal. Please be aware that if the user does not complete MFA setup before the `exclusionUntil` date, they will be locked out of any resources that require MFA.  Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2959138-using-multifactor-authentication-with-jumpcloud) on setting up MFA for more information.  #### Sample Request ``` curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H 'x-api-key: {API_KEY}' \\   -H 'Content-Type: application/json' \\   -d '{\"exclusion\": true, \"exclusionUntil\": \"{date-time}\"}'   ```
+    # This endpoint allows you to reset the MFA TOTP token for a specified system user and put them in an MFA enrollment period. This will result in the user being prompted to setup MFA when logging into userportal. Please be aware that if the user does not complete MFA setup before the `exclusionUntil` date, they will be locked out of any resources that require MFA.  Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2959138-using-multifactor-authentication-with-jumpcloud) on setting up MFA for more information.   #### Sample Request  ``` curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{\"exclusion\": true, \"exclusionUntil\": \"{date-time}\"}'     ```
     # @param id 
     # @param x_api_key 
+    # @param content_type 
+    # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Body1] :body 
     # @option opts [String] :x_org_id  (default to )
     # @return [nil]
-    def systemusers_resetmfa(id, x_api_key, opts = {})
-      systemusers_resetmfa_with_http_info(id, x_api_key, opts)
+    def systemusers_resetmfa(id, x_api_key, content_type, accept, opts = {})
+      systemusers_resetmfa_with_http_info(id, x_api_key, content_type, accept, opts)
       return nil
     end
 
     # Reset a system user&#39;s MFA token
-    # This endpoint allows you to reset the MFA TOTP token for a specified system user and put them in an MFA enrollment period. This will result in the user being prompted to setup MFA when logging into userportal. Please be aware that if the user does not complete MFA setup before the &#x60;exclusionUntil&#x60; date, they will be locked out of any resources that require MFA.  Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2959138-using-multifactor-authentication-with-jumpcloud) on setting up MFA for more information.  #### Sample Request &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -d &#39;{\&quot;exclusion\&quot;: true, \&quot;exclusionUntil\&quot;: \&quot;{date-time}\&quot;}&#39;   &#x60;&#x60;&#x60;
+    # This endpoint allows you to reset the MFA TOTP token for a specified system user and put them in an MFA enrollment period. This will result in the user being prompted to setup MFA when logging into userportal. Please be aware that if the user does not complete MFA setup before the &#x60;exclusionUntil&#x60; date, they will be locked out of any resources that require MFA.  Please refer to our [Knowledge Base Article](https://support.jumpcloud.com/customer/en/portal/articles/2959138-using-multifactor-authentication-with-jumpcloud) on setting up MFA for more information.   #### Sample Request  &#x60;&#x60;&#x60; curl -X POST \\   https://console.jumpcloud.com/api/systemusers/{UserID}/resetmfa \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{\&quot;exclusion\&quot;: true, \&quot;exclusionUntil\&quot;: \&quot;{date-time}\&quot;}&#39;     &#x60;&#x60;&#x60;
     # @param id 
     # @param x_api_key 
+    # @param content_type 
+    # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Body1] :body 
     # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def systemusers_resetmfa_with_http_info(id, x_api_key, opts = {})
+    def systemusers_resetmfa_with_http_info(id, x_api_key, content_type, accept, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemusersApi.systemusers_resetmfa ..."
       end
@@ -645,6 +655,14 @@ module JCAPIv1
       # verify the required parameter 'x_api_key' is set
       if @api_client.config.client_side_validation && x_api_key.nil?
         fail ArgumentError, "Missing the required parameter 'x_api_key' when calling SystemusersApi.systemusers_resetmfa"
+      end
+      # verify the required parameter 'content_type' is set
+      if @api_client.config.client_side_validation && content_type.nil?
+        fail ArgumentError, "Missing the required parameter 'content_type' when calling SystemusersApi.systemusers_resetmfa"
+      end
+      # verify the required parameter 'accept' is set
+      if @api_client.config.client_side_validation && accept.nil?
+        fail ArgumentError, "Missing the required parameter 'accept' when calling SystemusersApi.systemusers_resetmfa"
       end
       # resource path
       local_var_path = "/systemusers/{id}/resetmfa".sub('{' + 'id' + '}', id.to_s)
@@ -659,6 +677,8 @@ module JCAPIv1
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
       header_params[:'x-api-key'] = x_api_key
+      header_params[:'Content-Type'] = content_type
+      header_params[:'Accept'] = accept
       header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters
@@ -680,7 +700,7 @@ module JCAPIv1
     end
 
     # List system user binding
-    # Hidden as Tags is deprecated  Adds or removes a system binding for a user.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).   List system bindings for a specific system user in a system and user binding format.  ### Examples  #### List system bindings for specific system user  ``` curl \\   -H 'Content-Type: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\" ```
+    # Hidden as Tags is deprecated  Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).   List system bindings for a specific system user in a system and user binding format.  ### Examples  #### List system bindings for specific system user  ``` curl \\   -H 'Content-Type: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\" ```
     # @param id 
     # @param content_type 
     # @param accept 
@@ -698,7 +718,7 @@ module JCAPIv1
     end
 
     # List system user binding
-    # Hidden as Tags is deprecated  Adds or removes a system binding for a user.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).   List system bindings for a specific system user in a system and user binding format.  ### Examples  #### List system bindings for specific system user  &#x60;&#x60;&#x60; curl \\   -H &#39;Content-Type: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
+    # Hidden as Tags is deprecated  Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).   List system bindings for a specific system user in a system and user binding format.  ### Examples  #### List system bindings for specific system user  &#x60;&#x60;&#x60; curl \\   -H &#39;Content-Type: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
     # @param id 
     # @param content_type 
     # @param accept 
@@ -767,7 +787,7 @@ module JCAPIv1
     end
 
     # Update a system user binding
-    # Hidden as Tags is deprecated  Adds or removes a system binding for a user.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) system to system user  ``` curl \\   -d '{ \"add\": [\"[SYSTEM_ID_TO_ADD_HERE]\"], \"remove\": [\"[SYSTEM_ID_TO_REMOVE_HERE]\"] }' \\   -X PUT \\   -H 'Content-Type: application/json' \\   -H 'Accept: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\" ```
+    # Hidden as Tags is deprecated  Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) system to system user  ``` curl \\   -d '{ \"add\": [\"[SYSTEM_ID_TO_ADD_HERE]\"], \"remove\": [\"[SYSTEM_ID_TO_REMOVE_HERE]\"] }' \\   -X PUT \\   -H 'Content-Type: application/json' \\   -H 'Accept: application/json' \\   -H \"x-api-key: [YOUR_API_KEY_HERE]\" \\   \"https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\" ```
     # @param id 
     # @param content_type 
     # @param accept 
@@ -781,7 +801,7 @@ module JCAPIv1
     end
 
     # Update a system user binding
-    # Hidden as Tags is deprecated  Adds or removes a system binding for a user.  This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) system to system user  &#x60;&#x60;&#x60; curl \\   -d &#39;{ \&quot;add\&quot;: [\&quot;[SYSTEM_ID_TO_ADD_HERE]\&quot;], \&quot;remove\&quot;: [\&quot;[SYSTEM_ID_TO_REMOVE_HERE]\&quot;] }&#39; \\   -X PUT \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;Accept: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
+    # Hidden as Tags is deprecated  Adds or removes a system binding for a user.   This endpoint is only used for users still using JumpCloud Tags. If you are using JumpCloud Groups please refer to the documentation found [here](https://docs.jumpcloud.com/2.0/systems/manage-associations-of-a-system).  ### Example  #### Add (or remove) system to system user  &#x60;&#x60;&#x60; curl \\   -d &#39;{ \&quot;add\&quot;: [\&quot;[SYSTEM_ID_TO_ADD_HERE]\&quot;], \&quot;remove\&quot;: [\&quot;[SYSTEM_ID_TO_REMOVE_HERE]\&quot;] }&#39; \\   -X PUT \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;Accept: application/json&#39; \\   -H \&quot;x-api-key: [YOUR_API_KEY_HERE]\&quot; \\   \&quot;https://console.jumpcloud.com/api/systemusers/[SYSTEM_USER_ID_HERE]/systems\&quot; &#x60;&#x60;&#x60;
     # @param id 
     # @param content_type 
     # @param accept 
@@ -843,27 +863,39 @@ module JCAPIv1
     # Unlock a system user
     # This endpoint allows you to unlock a user's account.
     # @param id 
+    # @param content_type 
+    # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_org_id  (default to )
     # @return [nil]
-    def systemusers_unlock(id, opts = {})
-      systemusers_unlock_with_http_info(id, opts)
+    def systemusers_unlock(id, content_type, accept, opts = {})
+      systemusers_unlock_with_http_info(id, content_type, accept, opts)
       return nil
     end
 
     # Unlock a system user
     # This endpoint allows you to unlock a user&#39;s account.
     # @param id 
+    # @param content_type 
+    # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :x_org_id 
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def systemusers_unlock_with_http_info(id, opts = {})
+    def systemusers_unlock_with_http_info(id, content_type, accept, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: SystemusersApi.systemusers_unlock ..."
       end
       # verify the required parameter 'id' is set
       if @api_client.config.client_side_validation && id.nil?
         fail ArgumentError, "Missing the required parameter 'id' when calling SystemusersApi.systemusers_unlock"
+      end
+      # verify the required parameter 'content_type' is set
+      if @api_client.config.client_side_validation && content_type.nil?
+        fail ArgumentError, "Missing the required parameter 'content_type' when calling SystemusersApi.systemusers_unlock"
+      end
+      # verify the required parameter 'accept' is set
+      if @api_client.config.client_side_validation && accept.nil?
+        fail ArgumentError, "Missing the required parameter 'accept' when calling SystemusersApi.systemusers_unlock"
       end
       # resource path
       local_var_path = "/systemusers/{id}/unlock".sub('{' + 'id' + '}', id.to_s)
@@ -877,6 +909,8 @@ module JCAPIv1
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'Content-Type'] = content_type
+      header_params[:'Accept'] = accept
       header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
 
       # form parameters

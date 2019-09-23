@@ -15,30 +15,30 @@ require 'date'
 module JCAPIv2
 
   class GraphObjectWithPaths
-    attr_accessor :type
-
     # Object ID of this graph object.
     attr_accessor :id
 
     # A path through the graph between two graph objects.
     attr_accessor :paths
 
+    attr_accessor :type
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'type' => :'type',
         :'id' => :'id',
-        :'paths' => :'paths'
+        :'paths' => :'paths',
+        :'type' => :'type'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'type' => :'GraphType',
         :'id' => :'String',
-        :'paths' => :'Array<Array<GraphConnection>>'
+        :'paths' => :'Array<Array<GraphConnection>>',
+        :'type' => :'GraphType'
       }
     end
 
@@ -50,10 +50,6 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'type')
-        self.type = attributes[:'type']
-      end
-
       if attributes.has_key?(:'id')
         self.id = attributes[:'id']
       end
@@ -64,16 +60,16 @@ module JCAPIv2
         end
       end
 
+      if attributes.has_key?(:'type')
+        self.type = attributes[:'type']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @type.nil?
-        invalid_properties.push("invalid value for 'type', type cannot be nil.")
-      end
-
       if @id.nil?
         invalid_properties.push("invalid value for 'id', id cannot be nil.")
       end
@@ -82,15 +78,19 @@ module JCAPIv2
         invalid_properties.push("invalid value for 'paths', paths cannot be nil.")
       end
 
+      if @type.nil?
+        invalid_properties.push("invalid value for 'type', type cannot be nil.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @type.nil?
       return false if @id.nil?
       return false if @paths.nil?
+      return false if @type.nil?
       return true
     end
 
@@ -99,9 +99,9 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          type == o.type &&
           id == o.id &&
-          paths == o.paths
+          paths == o.paths &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -113,7 +113,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [type, id, paths].hash
+      [id, paths, type].hash
     end
 
     # Builds the object from hash

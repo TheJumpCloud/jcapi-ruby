@@ -15,36 +15,36 @@ require 'date'
 module JCAPIv2
 
   class Sshkeylist
-    # The date the SSH key was created.
-    attr_accessor :create_date
-
     # The ID of the SSH key.
     attr_accessor :_id
 
-    # The Public SSH key.
-    attr_accessor :public_key
+    # The date the SSH key was created.
+    attr_accessor :create_date
 
     # The name of the SSH key.
     attr_accessor :name
+
+    # The Public SSH key.
+    attr_accessor :public_key
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'create_date' => :'create_date',
         :'_id' => :'_id',
-        :'public_key' => :'public_key',
-        :'name' => :'name'
+        :'create_date' => :'create_date',
+        :'name' => :'name',
+        :'public_key' => :'public_key'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'create_date' => :'String',
         :'_id' => :'String',
-        :'public_key' => :'String',
-        :'name' => :'String'
+        :'create_date' => :'String',
+        :'name' => :'String',
+        :'public_key' => :'String'
       }
     end
 
@@ -56,20 +56,20 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'create_date')
-        self.create_date = attributes[:'create_date']
-      end
-
       if attributes.has_key?(:'_id')
         self._id = attributes[:'_id']
       end
 
-      if attributes.has_key?(:'public_key')
-        self.public_key = attributes[:'public_key']
+      if attributes.has_key?(:'create_date')
+        self.create_date = attributes[:'create_date']
       end
 
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.has_key?(:'public_key')
+        self.public_key = attributes[:'public_key']
       end
 
     end
@@ -92,10 +92,10 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          create_date == o.create_date &&
           _id == o._id &&
-          public_key == o.public_key &&
-          name == o.name
+          create_date == o.create_date &&
+          name == o.name &&
+          public_key == o.public_key
     end
 
     # @see the `==` method
@@ -107,7 +107,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [create_date, _id, public_key, name].hash
+      [_id, create_date, name, public_key].hash
     end
 
     # Builds the object from hash

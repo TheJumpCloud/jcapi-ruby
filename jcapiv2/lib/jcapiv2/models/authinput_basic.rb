@@ -15,24 +15,24 @@ require 'date'
 module JCAPIv2
 
   class AuthinputBasic
-    attr_accessor :username
-
     attr_accessor :password
+
+    attr_accessor :username
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'username' => :'username',
-        :'password' => :'password'
+        :'password' => :'password',
+        :'username' => :'username'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'username' => :'String',
-        :'password' => :'String'
+        :'password' => :'String',
+        :'username' => :'String'
       }
     end
 
@@ -44,12 +44,12 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'username')
-        self.username = attributes[:'username']
-      end
-
       if attributes.has_key?(:'password')
         self.password = attributes[:'password']
+      end
+
+      if attributes.has_key?(:'username')
+        self.username = attributes[:'username']
       end
 
     end
@@ -72,8 +72,8 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          username == o.username &&
-          password == o.password
+          password == o.password &&
+          username == o.username
     end
 
     # @see the `==` method
@@ -85,7 +85,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [username, password].hash
+      [password, username].hash
     end
 
     # Builds the object from hash

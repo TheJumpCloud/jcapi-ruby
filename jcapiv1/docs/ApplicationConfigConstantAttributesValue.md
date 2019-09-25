@@ -4,9 +4,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | [optional] 
-**value** | **String** |  | [optional] 
-**required** | **BOOLEAN** |  | [optional] 
-**visible** | **BOOLEAN** |  | [optional] 
 **read_only** | **BOOLEAN** |  | [optional] 
+**required** | **BOOLEAN** |  | [optional] 
+**value** | **String** |  | [optional] 
+**visible** | **BOOLEAN** |  | [optional] 
 
 

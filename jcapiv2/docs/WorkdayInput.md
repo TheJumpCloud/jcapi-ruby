@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**report_url** | **String** |  | [optional] 
-**name** | **String** |  | [optional] 
 **auth** | [**AuthInput**](AuthInput.md) |  | [optional] 
+**name** | **String** |  | [optional] 
+**report_url** | **String** |  | [optional] 
 
 

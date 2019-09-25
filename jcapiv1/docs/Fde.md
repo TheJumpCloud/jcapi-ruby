@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**key_present** | **BOOLEAN** |  | [optional] 
 **active** | **BOOLEAN** |  | [optional] 
+**key_present** | **BOOLEAN** |  | [optional] 
 
 

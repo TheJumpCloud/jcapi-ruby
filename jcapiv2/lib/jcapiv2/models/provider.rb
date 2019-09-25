@@ -15,24 +15,24 @@ require 'date'
 module JCAPIv2
 
   class Provider
-    attr_accessor :name
-
     attr_accessor :contact
+
+    attr_accessor :name
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'contact' => :'contact'
+        :'contact' => :'contact',
+        :'name' => :'name'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'name' => :'String',
-        :'contact' => :'ProviderContact'
+        :'contact' => :'ProviderContact',
+        :'name' => :'String'
       }
     end
 
@@ -44,12 +44,12 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
       if attributes.has_key?(:'contact')
         self.contact = attributes[:'contact']
+      end
+
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
       end
 
     end
@@ -72,8 +72,8 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          contact == o.contact
+          contact == o.contact &&
+          name == o.name
     end
 
     # @see the `==` method
@@ -85,7 +85,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, contact].hash
+      [contact, name].hash
     end
 
     # Builds the object from hash

@@ -32,13 +32,13 @@ describe 'CommandresultResponseData' do
       expect(@instance).to be_instance_of(JCAPIv1::CommandresultResponseData)
     end
   end
-  describe 'test attribute "output"' do
+  describe 'test attribute "exit_code"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "exit_code"' do
+  describe 'test attribute "output"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

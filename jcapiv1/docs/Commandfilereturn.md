@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**total_count** | **Integer** | The total number of commands files | [optional] 
 **results** | [**CommandfilereturnResults**](CommandfilereturnResults.md) |  | [optional] 
+**total_count** | **Integer** | The total number of commands files | [optional] 
 
 

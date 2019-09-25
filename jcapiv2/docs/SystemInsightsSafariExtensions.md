@@ -3,17 +3,17 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uid** | **String** |  | [optional] 
-**name** | **String** |  | [optional] 
-**identifier** | **String** |  | [optional] 
-**version** | **String** |  | [optional] 
-**sdk** | **String** |  | [optional] 
-**update_url** | **String** |  | [optional] 
 **author** | **String** |  | [optional] 
-**developer_id** | **String** |  | [optional] 
+**collection_time** | **String** |  | [optional] 
 **description** | **String** |  | [optional] 
+**developer_id** | **String** |  | [optional] 
+**identifier** | **String** |  | [optional] 
+**name** | **String** |  | [optional] 
 **path** | **String** |  | [optional] 
-**jc_collection_time** | **String** |  | [optional] 
-**jc_system_id** | **String** |  | [optional] 
+**sdk** | **String** |  | [optional] 
+**system_id** | **String** |  | [optional] 
+**uid** | **String** |  | [optional] 
+**update_url** | **String** |  | [optional] 
+**version** | **String** |  | [optional] 
 
 

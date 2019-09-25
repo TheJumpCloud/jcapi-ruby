@@ -32,13 +32,13 @@ describe 'AuthInput' do
       expect(@instance).to be_instance_of(JCAPIv2::AuthInput)
     end
   end
-  describe 'test attribute "oauth"' do
+  describe 'test attribute "basic"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "basic"' do
+  describe 'test attribute "oauth"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

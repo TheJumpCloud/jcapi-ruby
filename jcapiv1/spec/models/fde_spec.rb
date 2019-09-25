@@ -32,13 +32,13 @@ describe 'Fde' do
       expect(@instance).to be_instance_of(JCAPIv1::Fde)
     end
   end
-  describe 'test attribute "key_present"' do
+  describe 'test attribute "active"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "active"' do
+  describe 'test attribute "key_present"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

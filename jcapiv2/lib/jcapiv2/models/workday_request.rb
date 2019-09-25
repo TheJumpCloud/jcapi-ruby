@@ -15,24 +15,24 @@ require 'date'
 module JCAPIv2
 
   class WorkdayRequest
-    attr_accessor :object_id
-
     attr_accessor :name
+
+    attr_accessor :object_id
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'object_id' => :'objectId',
-        :'name' => :'name'
+        :'name' => :'name',
+        :'object_id' => :'objectId'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'object_id' => :'String',
-        :'name' => :'String'
+        :'name' => :'String',
+        :'object_id' => :'String'
       }
     end
 
@@ -44,12 +44,12 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'objectId')
-        self.object_id = attributes[:'objectId']
-      end
-
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.has_key?(:'objectId')
+        self.object_id = attributes[:'objectId']
       end
 
     end
@@ -72,8 +72,8 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          object_id == o.object_id &&
-          name == o.name
+          name == o.name &&
+          object_id == o.object_id
     end
 
     # @see the `==` method
@@ -85,7 +85,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [object_id, name].hash
+      [name, object_id].hash
     end
 
     # Builds the object from hash

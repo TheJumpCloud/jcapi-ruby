@@ -3,14 +3,14 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **String** |  | [optional] 
-**uuid** | **String** |  | [optional] 
+**collection_time** | **String** |  | [optional] 
 **encrypted** | **Integer** |  | [optional] 
+**encryption_status** | **String** |  | [optional] 
+**name** | **String** |  | [optional] 
+**system_id** | **String** |  | [optional] 
 **type** | **String** |  | [optional] 
 **uid** | **String** |  | [optional] 
 **user_uuid** | **String** |  | [optional] 
-**encryption_status** | **String** |  | [optional] 
-**jc_collection_time** | **String** |  | [optional] 
-**jc_system_id** | **String** |  | [optional] 
+**uuid** | **String** |  | [optional] 
 
 

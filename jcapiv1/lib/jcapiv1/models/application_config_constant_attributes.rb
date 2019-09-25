@@ -17,7 +17,13 @@ module JCAPIv1
   class ApplicationConfigConstantAttributes
     attr_accessor :label
 
+    attr_accessor :mutable
+
+    attr_accessor :position
+
     attr_accessor :read_only
+
+    attr_accessor :required
 
     attr_accessor :tooltip
 
@@ -27,25 +33,19 @@ module JCAPIv1
 
     attr_accessor :visible
 
-    attr_accessor :mutable
-
-    attr_accessor :required
-
-    attr_accessor :position
-
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'label' => :'label',
+        :'mutable' => :'mutable',
+        :'position' => :'position',
         :'read_only' => :'readOnly',
+        :'required' => :'required',
         :'tooltip' => :'tooltip',
         :'type' => :'type',
         :'value' => :'value',
-        :'visible' => :'visible',
-        :'mutable' => :'mutable',
-        :'required' => :'required',
-        :'position' => :'position'
+        :'visible' => :'visible'
       }
     end
 
@@ -53,14 +53,14 @@ module JCAPIv1
     def self.swagger_types
       {
         :'label' => :'String',
+        :'mutable' => :'BOOLEAN',
+        :'position' => :'Integer',
         :'read_only' => :'BOOLEAN',
-        :'tooltip' => :'ApplicationConfigIdpEntityIdTooltip',
+        :'required' => :'BOOLEAN',
+        :'tooltip' => :'ApplicationConfigAcsUrlTooltip',
         :'type' => :'String',
         :'value' => :'Array<ApplicationConfigConstantAttributesValue>',
-        :'visible' => :'BOOLEAN',
-        :'mutable' => :'BOOLEAN',
-        :'required' => :'BOOLEAN',
-        :'position' => :'Integer'
+        :'visible' => :'BOOLEAN'
       }
     end
 
@@ -76,8 +76,20 @@ module JCAPIv1
         self.label = attributes[:'label']
       end
 
+      if attributes.has_key?(:'mutable')
+        self.mutable = attributes[:'mutable']
+      end
+
+      if attributes.has_key?(:'position')
+        self.position = attributes[:'position']
+      end
+
       if attributes.has_key?(:'readOnly')
         self.read_only = attributes[:'readOnly']
+      end
+
+      if attributes.has_key?(:'required')
+        self.required = attributes[:'required']
       end
 
       if attributes.has_key?(:'tooltip')
@@ -96,18 +108,6 @@ module JCAPIv1
 
       if attributes.has_key?(:'visible')
         self.visible = attributes[:'visible']
-      end
-
-      if attributes.has_key?(:'mutable')
-        self.mutable = attributes[:'mutable']
-      end
-
-      if attributes.has_key?(:'required')
-        self.required = attributes[:'required']
-      end
-
-      if attributes.has_key?(:'position')
-        self.position = attributes[:'position']
       end
 
     end
@@ -131,14 +131,14 @@ module JCAPIv1
       return true if self.equal?(o)
       self.class == o.class &&
           label == o.label &&
+          mutable == o.mutable &&
+          position == o.position &&
           read_only == o.read_only &&
+          required == o.required &&
           tooltip == o.tooltip &&
           type == o.type &&
           value == o.value &&
-          visible == o.visible &&
-          mutable == o.mutable &&
-          required == o.required &&
-          position == o.position
+          visible == o.visible
     end
 
     # @see the `==` method
@@ -150,7 +150,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [label, read_only, tooltip, type, value, visible, mutable, required, position].hash
+      [label, mutable, position, read_only, required, tooltip, type, value, visible].hash
     end
 
     # Builds the object from hash

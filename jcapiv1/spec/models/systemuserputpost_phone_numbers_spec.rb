@@ -32,13 +32,13 @@ describe 'SystemuserputpostPhoneNumbers' do
       expect(@instance).to be_instance_of(JCAPIv1::SystemuserputpostPhoneNumbers)
     end
   end
-  describe 'test attribute "type"' do
+  describe 'test attribute "number"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "number"' do
+  describe 'test attribute "type"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

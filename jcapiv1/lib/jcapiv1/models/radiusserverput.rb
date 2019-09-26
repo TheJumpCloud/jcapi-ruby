@@ -17,17 +17,17 @@ module JCAPIv1
   class Radiusserverput
     attr_accessor :_id
 
-    attr_accessor :network_source_ip
+    attr_accessor :mfa
 
     attr_accessor :name
+
+    attr_accessor :network_source_ip
 
     attr_accessor :tag_names
 
     attr_accessor :user_lockout_action
 
     attr_accessor :user_password_expiration_action
-
-    attr_accessor :mfa
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -55,12 +55,12 @@ module JCAPIv1
     def self.attribute_map
       {
         :'_id' => :'_id',
-        :'network_source_ip' => :'networkSourceIp',
+        :'mfa' => :'mfa',
         :'name' => :'name',
+        :'network_source_ip' => :'networkSourceIp',
         :'tag_names' => :'tagNames',
         :'user_lockout_action' => :'userLockoutAction',
-        :'user_password_expiration_action' => :'userPasswordExpirationAction',
-        :'mfa' => :'mfa'
+        :'user_password_expiration_action' => :'userPasswordExpirationAction'
       }
     end
 
@@ -68,12 +68,12 @@ module JCAPIv1
     def self.swagger_types
       {
         :'_id' => :'String',
-        :'network_source_ip' => :'String',
+        :'mfa' => :'String',
         :'name' => :'String',
+        :'network_source_ip' => :'String',
         :'tag_names' => :'Array<String>',
         :'user_lockout_action' => :'String',
-        :'user_password_expiration_action' => :'String',
-        :'mfa' => :'String'
+        :'user_password_expiration_action' => :'String'
       }
     end
 
@@ -89,12 +89,16 @@ module JCAPIv1
         self._id = attributes[:'_id']
       end
 
-      if attributes.has_key?(:'networkSourceIp')
-        self.network_source_ip = attributes[:'networkSourceIp']
+      if attributes.has_key?(:'mfa')
+        self.mfa = attributes[:'mfa']
       end
 
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.has_key?(:'networkSourceIp')
+        self.network_source_ip = attributes[:'networkSourceIp']
       end
 
       if attributes.has_key?(:'tagNames')
@@ -109,10 +113,6 @@ module JCAPIv1
 
       if attributes.has_key?(:'userPasswordExpirationAction')
         self.user_password_expiration_action = attributes[:'userPasswordExpirationAction']
-      end
-
-      if attributes.has_key?(:'mfa')
-        self.mfa = attributes[:'mfa']
       end
 
     end
@@ -148,12 +148,12 @@ module JCAPIv1
       return true if self.equal?(o)
       self.class == o.class &&
           _id == o._id &&
-          network_source_ip == o.network_source_ip &&
+          mfa == o.mfa &&
           name == o.name &&
+          network_source_ip == o.network_source_ip &&
           tag_names == o.tag_names &&
           user_lockout_action == o.user_lockout_action &&
-          user_password_expiration_action == o.user_password_expiration_action &&
-          mfa == o.mfa
+          user_password_expiration_action == o.user_password_expiration_action
     end
 
     # @see the `==` method
@@ -165,7 +165,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [_id, network_source_ip, name, tag_names, user_lockout_action, user_password_expiration_action, mfa].hash
+      [_id, mfa, name, network_source_ip, tag_names, user_lockout_action, user_password_expiration_action].hash
     end
 
     # Builds the object from hash

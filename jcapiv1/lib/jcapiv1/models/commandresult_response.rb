@@ -15,30 +15,30 @@ require 'date'
 module JCAPIv1
 
   class CommandresultResponse
-    # ID of the response.
-    attr_accessor :id
+    attr_accessor :data
 
     # The stderr output from the command that ran.
     attr_accessor :error
 
-    attr_accessor :data
+    # ID of the response.
+    attr_accessor :id
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
+        :'data' => :'data',
         :'error' => :'error',
-        :'data' => :'data'
+        :'id' => :'id'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'String',
+        :'data' => :'CommandresultResponseData',
         :'error' => :'String',
-        :'data' => :'CommandresultResponseData'
+        :'id' => :'String'
       }
     end
 
@@ -50,16 +50,16 @@ module JCAPIv1
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.has_key?(:'data')
+        self.data = attributes[:'data']
       end
 
       if attributes.has_key?(:'error')
         self.error = attributes[:'error']
       end
 
-      if attributes.has_key?(:'data')
-        self.data = attributes[:'data']
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
       end
 
     end
@@ -82,9 +82,9 @@ module JCAPIv1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
+          data == o.data &&
           error == o.error &&
-          data == o.data
+          id == o.id
     end
 
     # @see the `==` method
@@ -96,7 +96,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, error, data].hash
+      [data, error, id].hash
     end
 
     # Builds the object from hash

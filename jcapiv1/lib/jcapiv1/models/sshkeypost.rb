@@ -15,26 +15,26 @@ require 'date'
 module JCAPIv1
 
   class Sshkeypost
-    # The Public SSH key.
-    attr_accessor :public_key
-
     # The name of the SSH key.
     attr_accessor :name
+
+    # The Public SSH key.
+    attr_accessor :public_key
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'public_key' => :'public_key',
-        :'name' => :'name'
+        :'name' => :'name',
+        :'public_key' => :'public_key'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'public_key' => :'String',
-        :'name' => :'String'
+        :'name' => :'String',
+        :'public_key' => :'String'
       }
     end
 
@@ -46,12 +46,12 @@ module JCAPIv1
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'public_key')
-        self.public_key = attributes[:'public_key']
-      end
-
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.has_key?(:'public_key')
+        self.public_key = attributes[:'public_key']
       end
 
     end
@@ -60,12 +60,12 @@ module JCAPIv1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @public_key.nil?
-        invalid_properties.push("invalid value for 'public_key', public_key cannot be nil.")
-      end
-
       if @name.nil?
         invalid_properties.push("invalid value for 'name', name cannot be nil.")
+      end
+
+      if @public_key.nil?
+        invalid_properties.push("invalid value for 'public_key', public_key cannot be nil.")
       end
 
       return invalid_properties
@@ -74,8 +74,8 @@ module JCAPIv1
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @public_key.nil?
       return false if @name.nil?
+      return false if @public_key.nil?
       return true
     end
 
@@ -84,8 +84,8 @@ module JCAPIv1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          public_key == o.public_key &&
-          name == o.name
+          name == o.name &&
+          public_key == o.public_key
     end
 
     # @see the `==` method
@@ -97,7 +97,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [public_key, name].hash
+      [name, public_key].hash
     end
 
     # Builds the object from hash

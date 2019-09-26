@@ -714,10 +714,9 @@ opts = {
   fields: ["fields_example"], # Array<String> | The comma separated fields included in the returned records. If omitted, the default list of fields will be returned. 
   filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  x_org_id: "" # String | 
   skip: 0, # Integer | The offset into the records to return.
   sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  aggregate: ["aggregate_example"], # Array<String> | 
-  x_org_id: "" # String | 
 }
 
 begin
@@ -739,10 +738,9 @@ Name | Type | Description  | Notes
  **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted, the default list of fields will be returned.  | [optional] 
  **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
+ **x_org_id** | **String**|  | [optional] [default to ]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
- **aggregate** | [**Array&lt;String&gt;**](String.md)|  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -785,13 +783,12 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  aggregate: ["aggregate_example"], # Array<String> | 
   fields: ["fields_example"], # Array<String> | The comma separated fields included in the returned records. If omitted, the default list of fields will be returned. 
   filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  x_org_id: "" # String | 
   skip: 0, # Integer | The offset into the records to return.
   sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: "" # String | 
 }
 
 begin
@@ -809,13 +806,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **aggregate** | [**Array&lt;String&gt;**](String.md)|  | [optional] 
  **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted, the default list of fields will be returned.  | [optional] 
  **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
+ **x_org_id** | **String**|  | [optional] [default to ]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 

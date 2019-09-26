@@ -15,17 +15,17 @@ require 'date'
 module JCAPIv1
 
   class Systemput
-    attr_accessor :display_name
-
-    attr_accessor :allow_ssh_password_authentication
-
-    attr_accessor :allow_ssh_root_login
+    attr_accessor :agent_bound_messages
 
     attr_accessor :allow_multi_factor_authentication
 
     attr_accessor :allow_public_key_authentication
 
-    attr_accessor :agent_bound_messages
+    attr_accessor :allow_ssh_password_authentication
+
+    attr_accessor :allow_ssh_root_login
+
+    attr_accessor :display_name
 
     attr_accessor :tags
 
@@ -33,12 +33,12 @@ module JCAPIv1
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'display_name' => :'displayName',
-        :'allow_ssh_password_authentication' => :'allowSshPasswordAuthentication',
-        :'allow_ssh_root_login' => :'allowSshRootLogin',
+        :'agent_bound_messages' => :'agentBoundMessages',
         :'allow_multi_factor_authentication' => :'allowMultiFactorAuthentication',
         :'allow_public_key_authentication' => :'allowPublicKeyAuthentication',
-        :'agent_bound_messages' => :'agentBoundMessages',
+        :'allow_ssh_password_authentication' => :'allowSshPasswordAuthentication',
+        :'allow_ssh_root_login' => :'allowSshRootLogin',
+        :'display_name' => :'displayName',
         :'tags' => :'tags'
       }
     end
@@ -46,12 +46,12 @@ module JCAPIv1
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'display_name' => :'String',
-        :'allow_ssh_password_authentication' => :'BOOLEAN',
-        :'allow_ssh_root_login' => :'BOOLEAN',
+        :'agent_bound_messages' => :'Array<SystemputAgentBoundMessages>',
         :'allow_multi_factor_authentication' => :'BOOLEAN',
         :'allow_public_key_authentication' => :'BOOLEAN',
-        :'agent_bound_messages' => :'Array<SystemputAgentBoundMessages>',
+        :'allow_ssh_password_authentication' => :'BOOLEAN',
+        :'allow_ssh_root_login' => :'BOOLEAN',
+        :'display_name' => :'String',
         :'tags' => :'Array<String>'
       }
     end
@@ -64,16 +64,10 @@ module JCAPIv1
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'displayName')
-        self.display_name = attributes[:'displayName']
-      end
-
-      if attributes.has_key?(:'allowSshPasswordAuthentication')
-        self.allow_ssh_password_authentication = attributes[:'allowSshPasswordAuthentication']
-      end
-
-      if attributes.has_key?(:'allowSshRootLogin')
-        self.allow_ssh_root_login = attributes[:'allowSshRootLogin']
+      if attributes.has_key?(:'agentBoundMessages')
+        if (value = attributes[:'agentBoundMessages']).is_a?(Array)
+          self.agent_bound_messages = value
+        end
       end
 
       if attributes.has_key?(:'allowMultiFactorAuthentication')
@@ -84,10 +78,16 @@ module JCAPIv1
         self.allow_public_key_authentication = attributes[:'allowPublicKeyAuthentication']
       end
 
-      if attributes.has_key?(:'agentBoundMessages')
-        if (value = attributes[:'agentBoundMessages']).is_a?(Array)
-          self.agent_bound_messages = value
-        end
+      if attributes.has_key?(:'allowSshPasswordAuthentication')
+        self.allow_ssh_password_authentication = attributes[:'allowSshPasswordAuthentication']
+      end
+
+      if attributes.has_key?(:'allowSshRootLogin')
+        self.allow_ssh_root_login = attributes[:'allowSshRootLogin']
+      end
+
+      if attributes.has_key?(:'displayName')
+        self.display_name = attributes[:'displayName']
       end
 
       if attributes.has_key?(:'tags')
@@ -116,12 +116,12 @@ module JCAPIv1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          display_name == o.display_name &&
-          allow_ssh_password_authentication == o.allow_ssh_password_authentication &&
-          allow_ssh_root_login == o.allow_ssh_root_login &&
+          agent_bound_messages == o.agent_bound_messages &&
           allow_multi_factor_authentication == o.allow_multi_factor_authentication &&
           allow_public_key_authentication == o.allow_public_key_authentication &&
-          agent_bound_messages == o.agent_bound_messages &&
+          allow_ssh_password_authentication == o.allow_ssh_password_authentication &&
+          allow_ssh_root_login == o.allow_ssh_root_login &&
+          display_name == o.display_name &&
           tags == o.tags
     end
 
@@ -134,7 +134,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [display_name, allow_ssh_password_authentication, allow_ssh_root_login, allow_multi_factor_authentication, allow_public_key_authentication, agent_bound_messages, tags].hash
+      [agent_bound_messages, allow_multi_factor_authentication, allow_public_key_authentication, allow_ssh_password_authentication, allow_ssh_root_login, display_name, tags].hash
     end
 
     # Builds the object from hash

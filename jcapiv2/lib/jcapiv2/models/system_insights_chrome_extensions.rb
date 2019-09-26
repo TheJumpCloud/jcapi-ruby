@@ -15,68 +15,68 @@ require 'date'
 module JCAPIv2
 
   class SystemInsightsChromeExtensions
-    attr_accessor :uid
+    attr_accessor :author
 
-    attr_accessor :name
-
-    attr_accessor :identifier
-
-    attr_accessor :version
+    attr_accessor :collection_time
 
     attr_accessor :description
 
+    attr_accessor :identifier
+
     attr_accessor :locale
 
-    attr_accessor :update_url
-
-    attr_accessor :author
-
-    attr_accessor :persistent
+    attr_accessor :name
 
     attr_accessor :path
 
     attr_accessor :permissions
 
-    attr_accessor :jc_collection_time
+    attr_accessor :persistent
 
-    attr_accessor :jc_system_id
+    attr_accessor :system_id
+
+    attr_accessor :uid
+
+    attr_accessor :update_url
+
+    attr_accessor :version
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'uid' => :'uid',
-        :'name' => :'name',
-        :'identifier' => :'identifier',
-        :'version' => :'version',
-        :'description' => :'description',
-        :'locale' => :'locale',
-        :'update_url' => :'update_url',
         :'author' => :'author',
-        :'persistent' => :'persistent',
+        :'collection_time' => :'collection_time',
+        :'description' => :'description',
+        :'identifier' => :'identifier',
+        :'locale' => :'locale',
+        :'name' => :'name',
         :'path' => :'path',
         :'permissions' => :'permissions',
-        :'jc_collection_time' => :'jc_collection_time',
-        :'jc_system_id' => :'jc_system_id'
+        :'persistent' => :'persistent',
+        :'system_id' => :'system_id',
+        :'uid' => :'uid',
+        :'update_url' => :'update_url',
+        :'version' => :'version'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'uid' => :'String',
-        :'name' => :'String',
-        :'identifier' => :'String',
-        :'version' => :'String',
-        :'description' => :'String',
-        :'locale' => :'String',
-        :'update_url' => :'String',
         :'author' => :'String',
-        :'persistent' => :'Integer',
+        :'collection_time' => :'String',
+        :'description' => :'String',
+        :'identifier' => :'String',
+        :'locale' => :'String',
+        :'name' => :'String',
         :'path' => :'String',
         :'permissions' => :'String',
-        :'jc_collection_time' => :'String',
-        :'jc_system_id' => :'String'
+        :'persistent' => :'Integer',
+        :'system_id' => :'String',
+        :'uid' => :'String',
+        :'update_url' => :'String',
+        :'version' => :'String'
       }
     end
 
@@ -88,40 +88,28 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'uid')
-        self.uid = attributes[:'uid']
+      if attributes.has_key?(:'author')
+        self.author = attributes[:'author']
       end
 
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'identifier')
-        self.identifier = attributes[:'identifier']
-      end
-
-      if attributes.has_key?(:'version')
-        self.version = attributes[:'version']
+      if attributes.has_key?(:'collection_time')
+        self.collection_time = attributes[:'collection_time']
       end
 
       if attributes.has_key?(:'description')
         self.description = attributes[:'description']
       end
 
+      if attributes.has_key?(:'identifier')
+        self.identifier = attributes[:'identifier']
+      end
+
       if attributes.has_key?(:'locale')
         self.locale = attributes[:'locale']
       end
 
-      if attributes.has_key?(:'update_url')
-        self.update_url = attributes[:'update_url']
-      end
-
-      if attributes.has_key?(:'author')
-        self.author = attributes[:'author']
-      end
-
-      if attributes.has_key?(:'persistent')
-        self.persistent = attributes[:'persistent']
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
       end
 
       if attributes.has_key?(:'path')
@@ -132,12 +120,24 @@ module JCAPIv2
         self.permissions = attributes[:'permissions']
       end
 
-      if attributes.has_key?(:'jc_collection_time')
-        self.jc_collection_time = attributes[:'jc_collection_time']
+      if attributes.has_key?(:'persistent')
+        self.persistent = attributes[:'persistent']
       end
 
-      if attributes.has_key?(:'jc_system_id')
-        self.jc_system_id = attributes[:'jc_system_id']
+      if attributes.has_key?(:'system_id')
+        self.system_id = attributes[:'system_id']
+      end
+
+      if attributes.has_key?(:'uid')
+        self.uid = attributes[:'uid']
+      end
+
+      if attributes.has_key?(:'update_url')
+        self.update_url = attributes[:'update_url']
+      end
+
+      if attributes.has_key?(:'version')
+        self.version = attributes[:'version']
       end
 
     end
@@ -160,19 +160,19 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          uid == o.uid &&
-          name == o.name &&
-          identifier == o.identifier &&
-          version == o.version &&
-          description == o.description &&
-          locale == o.locale &&
-          update_url == o.update_url &&
           author == o.author &&
-          persistent == o.persistent &&
+          collection_time == o.collection_time &&
+          description == o.description &&
+          identifier == o.identifier &&
+          locale == o.locale &&
+          name == o.name &&
           path == o.path &&
           permissions == o.permissions &&
-          jc_collection_time == o.jc_collection_time &&
-          jc_system_id == o.jc_system_id
+          persistent == o.persistent &&
+          system_id == o.system_id &&
+          uid == o.uid &&
+          update_url == o.update_url &&
+          version == o.version
     end
 
     # @see the `==` method
@@ -184,7 +184,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [uid, name, identifier, version, description, locale, update_url, author, persistent, path, permissions, jc_collection_time, jc_system_id].hash
+      [author, collection_time, description, identifier, locale, name, path, permissions, persistent, system_id, uid, update_url, version].hash
     end
 
     # Builds the object from hash

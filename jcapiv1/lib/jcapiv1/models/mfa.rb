@@ -15,28 +15,28 @@ require 'date'
 module JCAPIv1
 
   class Mfa
+    attr_accessor :configured
+
     attr_accessor :exclusion
 
     attr_accessor :exclusion_until
-
-    attr_accessor :configured
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'configured' => :'configured',
         :'exclusion' => :'exclusion',
-        :'exclusion_until' => :'exclusionUntil',
-        :'configured' => :'configured'
+        :'exclusion_until' => :'exclusionUntil'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'configured' => :'BOOLEAN',
         :'exclusion' => :'BOOLEAN',
-        :'exclusion_until' => :'DateTime',
-        :'configured' => :'BOOLEAN'
+        :'exclusion_until' => :'DateTime'
       }
     end
 
@@ -48,16 +48,16 @@ module JCAPIv1
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
+      if attributes.has_key?(:'configured')
+        self.configured = attributes[:'configured']
+      end
+
       if attributes.has_key?(:'exclusion')
         self.exclusion = attributes[:'exclusion']
       end
 
       if attributes.has_key?(:'exclusionUntil')
         self.exclusion_until = attributes[:'exclusionUntil']
-      end
-
-      if attributes.has_key?(:'configured')
-        self.configured = attributes[:'configured']
       end
 
     end
@@ -80,9 +80,9 @@ module JCAPIv1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          configured == o.configured &&
           exclusion == o.exclusion &&
-          exclusion_until == o.exclusion_until &&
-          configured == o.configured
+          exclusion_until == o.exclusion_until
     end
 
     # @see the `==` method
@@ -94,7 +94,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [exclusion, exclusion_until, configured].hash
+      [configured, exclusion, exclusion_until].hash
     end
 
     # Builds the object from hash

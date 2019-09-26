@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**username** | **String** |  | [optional] 
+**attributes** | **Array&lt;Object&gt;** | Map of additional attributes. | [optional] 
+**email** | **String** |  | [optional] 
 **firstname** | **String** |  | [optional] 
 **lastname** | **String** |  | [optional] 
-**email** | **String** |  | [optional] 
-**attributes** | **Array&lt;Object&gt;** | Map of additional attributes. | [optional] 
+**username** | **String** |  | [optional] 
 
 

@@ -17,8 +17,24 @@ module JCAPIv1
   class Tag
     attr_accessor :_id
 
+    attr_accessor :expired
+
+    attr_accessor :external_dn
+
+    attr_accessor :external_source_type
+
+    attr_accessor :externally_managed
+
+    attr_accessor :group_gid
+
+    attr_accessor :group_name
+
     # A unique name for the Tag.
     attr_accessor :name
+
+    attr_accessor :regular_expressions
+
+    attr_accessor :send_to_ldap
 
     # An array of system ids that are associated to the Tag.
     attr_accessor :systems
@@ -26,38 +42,22 @@ module JCAPIv1
     # An array of system user ids that are associated to the Tag.
     attr_accessor :systemusers
 
-    attr_accessor :regular_expressions
-
-    attr_accessor :externally_managed
-
-    attr_accessor :external_dn
-
-    attr_accessor :external_source_type
-
-    attr_accessor :send_to_ldap
-
-    attr_accessor :expired
-
-    attr_accessor :group_gid
-
-    attr_accessor :group_name
-
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'_id' => :'_id',
-        :'name' => :'name',
-        :'systems' => :'systems',
-        :'systemusers' => :'systemusers',
-        :'regular_expressions' => :'regularExpressions',
-        :'externally_managed' => :'externallyManaged',
+        :'expired' => :'expired',
         :'external_dn' => :'externalDN',
         :'external_source_type' => :'externalSourceType',
-        :'send_to_ldap' => :'sendToLDAP',
-        :'expired' => :'expired',
+        :'externally_managed' => :'externallyManaged',
         :'group_gid' => :'groupGid',
-        :'group_name' => :'groupName'
+        :'group_name' => :'groupName',
+        :'name' => :'name',
+        :'regular_expressions' => :'regularExpressions',
+        :'send_to_ldap' => :'sendToLDAP',
+        :'systems' => :'systems',
+        :'systemusers' => :'systemusers'
       }
     end
 
@@ -65,17 +65,17 @@ module JCAPIv1
     def self.swagger_types
       {
         :'_id' => :'String',
-        :'name' => :'String',
-        :'systems' => :'Array<String>',
-        :'systemusers' => :'Array<String>',
-        :'regular_expressions' => :'Array<String>',
-        :'externally_managed' => :'BOOLEAN',
+        :'expired' => :'BOOLEAN',
         :'external_dn' => :'String',
         :'external_source_type' => :'String',
-        :'send_to_ldap' => :'BOOLEAN',
-        :'expired' => :'BOOLEAN',
+        :'externally_managed' => :'BOOLEAN',
         :'group_gid' => :'String',
-        :'group_name' => :'String'
+        :'group_name' => :'String',
+        :'name' => :'String',
+        :'regular_expressions' => :'Array<String>',
+        :'send_to_ldap' => :'BOOLEAN',
+        :'systems' => :'Array<String>',
+        :'systemusers' => :'Array<String>'
       }
     end
 
@@ -91,8 +91,42 @@ module JCAPIv1
         self._id = attributes[:'_id']
       end
 
+      if attributes.has_key?(:'expired')
+        self.expired = attributes[:'expired']
+      end
+
+      if attributes.has_key?(:'externalDN')
+        self.external_dn = attributes[:'externalDN']
+      end
+
+      if attributes.has_key?(:'externalSourceType')
+        self.external_source_type = attributes[:'externalSourceType']
+      end
+
+      if attributes.has_key?(:'externallyManaged')
+        self.externally_managed = attributes[:'externallyManaged']
+      end
+
+      if attributes.has_key?(:'groupGid')
+        self.group_gid = attributes[:'groupGid']
+      end
+
+      if attributes.has_key?(:'groupName')
+        self.group_name = attributes[:'groupName']
+      end
+
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.has_key?(:'regularExpressions')
+        if (value = attributes[:'regularExpressions']).is_a?(Array)
+          self.regular_expressions = value
+        end
+      end
+
+      if attributes.has_key?(:'sendToLDAP')
+        self.send_to_ldap = attributes[:'sendToLDAP']
       end
 
       if attributes.has_key?(:'systems')
@@ -105,40 +139,6 @@ module JCAPIv1
         if (value = attributes[:'systemusers']).is_a?(Array)
           self.systemusers = value
         end
-      end
-
-      if attributes.has_key?(:'regularExpressions')
-        if (value = attributes[:'regularExpressions']).is_a?(Array)
-          self.regular_expressions = value
-        end
-      end
-
-      if attributes.has_key?(:'externallyManaged')
-        self.externally_managed = attributes[:'externallyManaged']
-      end
-
-      if attributes.has_key?(:'externalDN')
-        self.external_dn = attributes[:'externalDN']
-      end
-
-      if attributes.has_key?(:'externalSourceType')
-        self.external_source_type = attributes[:'externalSourceType']
-      end
-
-      if attributes.has_key?(:'sendToLDAP')
-        self.send_to_ldap = attributes[:'sendToLDAP']
-      end
-
-      if attributes.has_key?(:'expired')
-        self.expired = attributes[:'expired']
-      end
-
-      if attributes.has_key?(:'groupGid')
-        self.group_gid = attributes[:'groupGid']
-      end
-
-      if attributes.has_key?(:'groupName')
-        self.group_name = attributes[:'groupName']
       end
 
     end
@@ -162,17 +162,17 @@ module JCAPIv1
       return true if self.equal?(o)
       self.class == o.class &&
           _id == o._id &&
-          name == o.name &&
-          systems == o.systems &&
-          systemusers == o.systemusers &&
-          regular_expressions == o.regular_expressions &&
-          externally_managed == o.externally_managed &&
+          expired == o.expired &&
           external_dn == o.external_dn &&
           external_source_type == o.external_source_type &&
-          send_to_ldap == o.send_to_ldap &&
-          expired == o.expired &&
+          externally_managed == o.externally_managed &&
           group_gid == o.group_gid &&
-          group_name == o.group_name
+          group_name == o.group_name &&
+          name == o.name &&
+          regular_expressions == o.regular_expressions &&
+          send_to_ldap == o.send_to_ldap &&
+          systems == o.systems &&
+          systemusers == o.systemusers
     end
 
     # @see the `==` method
@@ -184,7 +184,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [_id, name, systems, systemusers, regular_expressions, externally_managed, external_dn, external_source_type, send_to_ldap, expired, group_gid, group_name].hash
+      [_id, expired, external_dn, external_source_type, externally_managed, group_gid, group_name, name, regular_expressions, send_to_ldap, systems, systemusers].hash
     end
 
     # Builds the object from hash

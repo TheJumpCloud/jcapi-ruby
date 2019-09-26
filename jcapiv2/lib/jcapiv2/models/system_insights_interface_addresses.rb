@@ -15,52 +15,52 @@ require 'date'
 module JCAPIv2
 
   class SystemInsightsInterfaceAddresses
-    attr_accessor :interface
-
     attr_accessor :address
-
-    attr_accessor :mask
 
     attr_accessor :broadcast
 
-    attr_accessor :point_to_point
-
-    attr_accessor :type
+    attr_accessor :collection_time
 
     attr_accessor :friendly_name
 
-    attr_accessor :jc_collection_time
+    attr_accessor :interface
 
-    attr_accessor :jc_system_id
+    attr_accessor :mask
+
+    attr_accessor :point_to_point
+
+    attr_accessor :system_id
+
+    attr_accessor :type
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'interface' => :'interface',
         :'address' => :'address',
-        :'mask' => :'mask',
         :'broadcast' => :'broadcast',
-        :'point_to_point' => :'point_to_point',
-        :'type' => :'type',
+        :'collection_time' => :'collection_time',
         :'friendly_name' => :'friendly_name',
-        :'jc_collection_time' => :'jc_collection_time',
-        :'jc_system_id' => :'jc_system_id'
+        :'interface' => :'interface',
+        :'mask' => :'mask',
+        :'point_to_point' => :'point_to_point',
+        :'system_id' => :'system_id',
+        :'type' => :'type'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'interface' => :'String',
         :'address' => :'String',
-        :'mask' => :'String',
         :'broadcast' => :'String',
-        :'point_to_point' => :'String',
-        :'type' => :'String',
+        :'collection_time' => :'String',
         :'friendly_name' => :'String',
-        :'jc_collection_time' => :'String',
-        :'jc_system_id' => :'String'
+        :'interface' => :'String',
+        :'mask' => :'String',
+        :'point_to_point' => :'String',
+        :'system_id' => :'String',
+        :'type' => :'String'
       }
     end
 
@@ -72,40 +72,40 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'interface')
-        self.interface = attributes[:'interface']
-      end
-
       if attributes.has_key?(:'address')
         self.address = attributes[:'address']
-      end
-
-      if attributes.has_key?(:'mask')
-        self.mask = attributes[:'mask']
       end
 
       if attributes.has_key?(:'broadcast')
         self.broadcast = attributes[:'broadcast']
       end
 
-      if attributes.has_key?(:'point_to_point')
-        self.point_to_point = attributes[:'point_to_point']
-      end
-
-      if attributes.has_key?(:'type')
-        self.type = attributes[:'type']
+      if attributes.has_key?(:'collection_time')
+        self.collection_time = attributes[:'collection_time']
       end
 
       if attributes.has_key?(:'friendly_name')
         self.friendly_name = attributes[:'friendly_name']
       end
 
-      if attributes.has_key?(:'jc_collection_time')
-        self.jc_collection_time = attributes[:'jc_collection_time']
+      if attributes.has_key?(:'interface')
+        self.interface = attributes[:'interface']
       end
 
-      if attributes.has_key?(:'jc_system_id')
-        self.jc_system_id = attributes[:'jc_system_id']
+      if attributes.has_key?(:'mask')
+        self.mask = attributes[:'mask']
+      end
+
+      if attributes.has_key?(:'point_to_point')
+        self.point_to_point = attributes[:'point_to_point']
+      end
+
+      if attributes.has_key?(:'system_id')
+        self.system_id = attributes[:'system_id']
+      end
+
+      if attributes.has_key?(:'type')
+        self.type = attributes[:'type']
       end
 
     end
@@ -128,15 +128,15 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          interface == o.interface &&
           address == o.address &&
-          mask == o.mask &&
           broadcast == o.broadcast &&
-          point_to_point == o.point_to_point &&
-          type == o.type &&
+          collection_time == o.collection_time &&
           friendly_name == o.friendly_name &&
-          jc_collection_time == o.jc_collection_time &&
-          jc_system_id == o.jc_system_id
+          interface == o.interface &&
+          mask == o.mask &&
+          point_to_point == o.point_to_point &&
+          system_id == o.system_id &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -148,7 +148,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [interface, address, mask, broadcast, point_to_point, type, friendly_name, jc_collection_time, jc_system_id].hash
+      [address, broadcast, collection_time, friendly_name, interface, mask, point_to_point, system_id, type].hash
     end
 
     # Builds the object from hash

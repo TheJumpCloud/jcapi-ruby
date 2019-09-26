@@ -3,12 +3,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**collection_time** | **String** |  | [optional] 
+**comment** | **String** |  | [optional] 
 **gid** | **String** |  | [optional] 
 **gid_signed** | **String** |  | [optional] 
-**groupname** | **String** |  | [optional] 
 **group_sid** | **String** |  | [optional] 
-**comment** | **String** |  | [optional] 
-**jc_collection_time** | **String** |  | [optional] 
-**jc_system_id** | **String** |  | [optional] 
+**groupname** | **String** |  | [optional] 
+**system_id** | **String** |  | [optional] 
 
 

@@ -15,64 +15,64 @@ require 'date'
 module JCAPIv2
 
   class SystemInsightsOsVersion
-    attr_accessor :name
+    attr_accessor :build
 
-    attr_accessor :version
+    attr_accessor :codename
+
+    attr_accessor :collection_time
+
+    attr_accessor :install_date
 
     attr_accessor :major
 
     attr_accessor :minor
 
-    attr_accessor :patch
+    attr_accessor :name
 
-    attr_accessor :build
+    attr_accessor :patch
 
     attr_accessor :platform
 
     attr_accessor :platform_like
 
-    attr_accessor :codename
+    attr_accessor :system_id
 
-    attr_accessor :install_date
-
-    attr_accessor :jc_collection_time
-
-    attr_accessor :jc_system_id
+    attr_accessor :version
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'version' => :'version',
+        :'build' => :'build',
+        :'codename' => :'codename',
+        :'collection_time' => :'collection_time',
+        :'install_date' => :'install_date',
         :'major' => :'major',
         :'minor' => :'minor',
+        :'name' => :'name',
         :'patch' => :'patch',
-        :'build' => :'build',
         :'platform' => :'platform',
         :'platform_like' => :'platform_like',
-        :'codename' => :'codename',
-        :'install_date' => :'install_date',
-        :'jc_collection_time' => :'jc_collection_time',
-        :'jc_system_id' => :'jc_system_id'
+        :'system_id' => :'system_id',
+        :'version' => :'version'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'name' => :'String',
-        :'version' => :'String',
+        :'build' => :'String',
+        :'codename' => :'String',
+        :'collection_time' => :'String',
+        :'install_date' => :'String',
         :'major' => :'Integer',
         :'minor' => :'Integer',
+        :'name' => :'String',
         :'patch' => :'Integer',
-        :'build' => :'String',
         :'platform' => :'String',
         :'platform_like' => :'String',
-        :'codename' => :'String',
-        :'install_date' => :'String',
-        :'jc_collection_time' => :'String',
-        :'jc_system_id' => :'String'
+        :'system_id' => :'String',
+        :'version' => :'String'
       }
     end
 
@@ -84,12 +84,20 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.has_key?(:'build')
+        self.build = attributes[:'build']
       end
 
-      if attributes.has_key?(:'version')
-        self.version = attributes[:'version']
+      if attributes.has_key?(:'codename')
+        self.codename = attributes[:'codename']
+      end
+
+      if attributes.has_key?(:'collection_time')
+        self.collection_time = attributes[:'collection_time']
+      end
+
+      if attributes.has_key?(:'install_date')
+        self.install_date = attributes[:'install_date']
       end
 
       if attributes.has_key?(:'major')
@@ -100,12 +108,12 @@ module JCAPIv2
         self.minor = attributes[:'minor']
       end
 
-      if attributes.has_key?(:'patch')
-        self.patch = attributes[:'patch']
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'build')
-        self.build = attributes[:'build']
+      if attributes.has_key?(:'patch')
+        self.patch = attributes[:'patch']
       end
 
       if attributes.has_key?(:'platform')
@@ -116,20 +124,12 @@ module JCAPIv2
         self.platform_like = attributes[:'platform_like']
       end
 
-      if attributes.has_key?(:'codename')
-        self.codename = attributes[:'codename']
+      if attributes.has_key?(:'system_id')
+        self.system_id = attributes[:'system_id']
       end
 
-      if attributes.has_key?(:'install_date')
-        self.install_date = attributes[:'install_date']
-      end
-
-      if attributes.has_key?(:'jc_collection_time')
-        self.jc_collection_time = attributes[:'jc_collection_time']
-      end
-
-      if attributes.has_key?(:'jc_system_id')
-        self.jc_system_id = attributes[:'jc_system_id']
+      if attributes.has_key?(:'version')
+        self.version = attributes[:'version']
       end
 
     end
@@ -152,18 +152,18 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          version == o.version &&
+          build == o.build &&
+          codename == o.codename &&
+          collection_time == o.collection_time &&
+          install_date == o.install_date &&
           major == o.major &&
           minor == o.minor &&
+          name == o.name &&
           patch == o.patch &&
-          build == o.build &&
           platform == o.platform &&
           platform_like == o.platform_like &&
-          codename == o.codename &&
-          install_date == o.install_date &&
-          jc_collection_time == o.jc_collection_time &&
-          jc_system_id == o.jc_system_id
+          system_id == o.system_id &&
+          version == o.version
     end
 
     # @see the `==` method
@@ -175,7 +175,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, version, major, minor, patch, build, platform, platform_like, codename, install_date, jc_collection_time, jc_system_id].hash
+      [build, codename, collection_time, install_date, major, minor, name, patch, platform, platform_like, system_id, version].hash
     end
 
     # Builds the object from hash

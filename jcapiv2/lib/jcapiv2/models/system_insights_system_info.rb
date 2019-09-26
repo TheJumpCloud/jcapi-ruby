@@ -15,84 +15,84 @@ require 'date'
 module JCAPIv2
 
   class SystemInsightsSystemInfo
-    attr_accessor :hostname
+    attr_accessor :collection_time
 
-    attr_accessor :uuid
-
-    attr_accessor :cpu_type
-
-    attr_accessor :cpu_subtype
+    attr_accessor :computer_name
 
     attr_accessor :cpu_brand
-
-    attr_accessor :cpu_physical_cores
 
     attr_accessor :cpu_logical_cores
 
     attr_accessor :cpu_microcode
 
-    attr_accessor :physical_memory
+    attr_accessor :cpu_physical_cores
 
-    attr_accessor :hardware_vendor
+    attr_accessor :cpu_subtype
+
+    attr_accessor :cpu_type
 
     attr_accessor :hardware_model
 
-    attr_accessor :hardware_version
-
     attr_accessor :hardware_serial
 
-    attr_accessor :computer_name
+    attr_accessor :hardware_vendor
+
+    attr_accessor :hardware_version
+
+    attr_accessor :hostname
 
     attr_accessor :local_hostname
 
-    attr_accessor :jc_collection_time
+    attr_accessor :physical_memory
 
-    attr_accessor :jc_system_id
+    attr_accessor :system_id
+
+    attr_accessor :uuid
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'hostname' => :'hostname',
-        :'uuid' => :'uuid',
-        :'cpu_type' => :'cpu_type',
-        :'cpu_subtype' => :'cpu_subtype',
+        :'collection_time' => :'collection_time',
+        :'computer_name' => :'computer_name',
         :'cpu_brand' => :'cpu_brand',
-        :'cpu_physical_cores' => :'cpu_physical_cores',
         :'cpu_logical_cores' => :'cpu_logical_cores',
         :'cpu_microcode' => :'cpu_microcode',
-        :'physical_memory' => :'physical_memory',
-        :'hardware_vendor' => :'hardware_vendor',
+        :'cpu_physical_cores' => :'cpu_physical_cores',
+        :'cpu_subtype' => :'cpu_subtype',
+        :'cpu_type' => :'cpu_type',
         :'hardware_model' => :'hardware_model',
-        :'hardware_version' => :'hardware_version',
         :'hardware_serial' => :'hardware_serial',
-        :'computer_name' => :'computer_name',
+        :'hardware_vendor' => :'hardware_vendor',
+        :'hardware_version' => :'hardware_version',
+        :'hostname' => :'hostname',
         :'local_hostname' => :'local_hostname',
-        :'jc_collection_time' => :'jc_collection_time',
-        :'jc_system_id' => :'jc_system_id'
+        :'physical_memory' => :'physical_memory',
+        :'system_id' => :'system_id',
+        :'uuid' => :'uuid'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'hostname' => :'String',
-        :'uuid' => :'String',
-        :'cpu_type' => :'String',
-        :'cpu_subtype' => :'String',
+        :'collection_time' => :'String',
+        :'computer_name' => :'String',
         :'cpu_brand' => :'String',
-        :'cpu_physical_cores' => :'Integer',
         :'cpu_logical_cores' => :'Integer',
         :'cpu_microcode' => :'String',
-        :'physical_memory' => :'String',
-        :'hardware_vendor' => :'String',
+        :'cpu_physical_cores' => :'Integer',
+        :'cpu_subtype' => :'String',
+        :'cpu_type' => :'String',
         :'hardware_model' => :'String',
-        :'hardware_version' => :'String',
         :'hardware_serial' => :'String',
-        :'computer_name' => :'String',
+        :'hardware_vendor' => :'String',
+        :'hardware_version' => :'String',
+        :'hostname' => :'String',
         :'local_hostname' => :'String',
-        :'jc_collection_time' => :'String',
-        :'jc_system_id' => :'String'
+        :'physical_memory' => :'String',
+        :'system_id' => :'String',
+        :'uuid' => :'String'
       }
     end
 
@@ -104,28 +104,16 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'hostname')
-        self.hostname = attributes[:'hostname']
+      if attributes.has_key?(:'collection_time')
+        self.collection_time = attributes[:'collection_time']
       end
 
-      if attributes.has_key?(:'uuid')
-        self.uuid = attributes[:'uuid']
-      end
-
-      if attributes.has_key?(:'cpu_type')
-        self.cpu_type = attributes[:'cpu_type']
-      end
-
-      if attributes.has_key?(:'cpu_subtype')
-        self.cpu_subtype = attributes[:'cpu_subtype']
+      if attributes.has_key?(:'computer_name')
+        self.computer_name = attributes[:'computer_name']
       end
 
       if attributes.has_key?(:'cpu_brand')
         self.cpu_brand = attributes[:'cpu_brand']
-      end
-
-      if attributes.has_key?(:'cpu_physical_cores')
-        self.cpu_physical_cores = attributes[:'cpu_physical_cores']
       end
 
       if attributes.has_key?(:'cpu_logical_cores')
@@ -136,40 +124,52 @@ module JCAPIv2
         self.cpu_microcode = attributes[:'cpu_microcode']
       end
 
-      if attributes.has_key?(:'physical_memory')
-        self.physical_memory = attributes[:'physical_memory']
+      if attributes.has_key?(:'cpu_physical_cores')
+        self.cpu_physical_cores = attributes[:'cpu_physical_cores']
       end
 
-      if attributes.has_key?(:'hardware_vendor')
-        self.hardware_vendor = attributes[:'hardware_vendor']
+      if attributes.has_key?(:'cpu_subtype')
+        self.cpu_subtype = attributes[:'cpu_subtype']
+      end
+
+      if attributes.has_key?(:'cpu_type')
+        self.cpu_type = attributes[:'cpu_type']
       end
 
       if attributes.has_key?(:'hardware_model')
         self.hardware_model = attributes[:'hardware_model']
       end
 
-      if attributes.has_key?(:'hardware_version')
-        self.hardware_version = attributes[:'hardware_version']
-      end
-
       if attributes.has_key?(:'hardware_serial')
         self.hardware_serial = attributes[:'hardware_serial']
       end
 
-      if attributes.has_key?(:'computer_name')
-        self.computer_name = attributes[:'computer_name']
+      if attributes.has_key?(:'hardware_vendor')
+        self.hardware_vendor = attributes[:'hardware_vendor']
+      end
+
+      if attributes.has_key?(:'hardware_version')
+        self.hardware_version = attributes[:'hardware_version']
+      end
+
+      if attributes.has_key?(:'hostname')
+        self.hostname = attributes[:'hostname']
       end
 
       if attributes.has_key?(:'local_hostname')
         self.local_hostname = attributes[:'local_hostname']
       end
 
-      if attributes.has_key?(:'jc_collection_time')
-        self.jc_collection_time = attributes[:'jc_collection_time']
+      if attributes.has_key?(:'physical_memory')
+        self.physical_memory = attributes[:'physical_memory']
       end
 
-      if attributes.has_key?(:'jc_system_id')
-        self.jc_system_id = attributes[:'jc_system_id']
+      if attributes.has_key?(:'system_id')
+        self.system_id = attributes[:'system_id']
+      end
+
+      if attributes.has_key?(:'uuid')
+        self.uuid = attributes[:'uuid']
       end
 
     end
@@ -192,23 +192,23 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          hostname == o.hostname &&
-          uuid == o.uuid &&
-          cpu_type == o.cpu_type &&
-          cpu_subtype == o.cpu_subtype &&
+          collection_time == o.collection_time &&
+          computer_name == o.computer_name &&
           cpu_brand == o.cpu_brand &&
-          cpu_physical_cores == o.cpu_physical_cores &&
           cpu_logical_cores == o.cpu_logical_cores &&
           cpu_microcode == o.cpu_microcode &&
-          physical_memory == o.physical_memory &&
-          hardware_vendor == o.hardware_vendor &&
+          cpu_physical_cores == o.cpu_physical_cores &&
+          cpu_subtype == o.cpu_subtype &&
+          cpu_type == o.cpu_type &&
           hardware_model == o.hardware_model &&
-          hardware_version == o.hardware_version &&
           hardware_serial == o.hardware_serial &&
-          computer_name == o.computer_name &&
+          hardware_vendor == o.hardware_vendor &&
+          hardware_version == o.hardware_version &&
+          hostname == o.hostname &&
           local_hostname == o.local_hostname &&
-          jc_collection_time == o.jc_collection_time &&
-          jc_system_id == o.jc_system_id
+          physical_memory == o.physical_memory &&
+          system_id == o.system_id &&
+          uuid == o.uuid
     end
 
     # @see the `==` method
@@ -220,7 +220,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [hostname, uuid, cpu_type, cpu_subtype, cpu_brand, cpu_physical_cores, cpu_logical_cores, cpu_microcode, physical_memory, hardware_vendor, hardware_model, hardware_version, hardware_serial, computer_name, local_hostname, jc_collection_time, jc_system_id].hash
+      [collection_time, computer_name, cpu_brand, cpu_logical_cores, cpu_microcode, cpu_physical_cores, cpu_subtype, cpu_type, hardware_model, hardware_serial, hardware_vendor, hardware_version, hostname, local_hostname, physical_memory, system_id, uuid].hash
     end
 
     # Builds the object from hash

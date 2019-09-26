@@ -15,120 +15,124 @@ require 'date'
 module JCAPIv1
 
   class System
-    attr_accessor :organization
-
-    attr_accessor :created
-
-    attr_accessor :last_contact
-
-    attr_accessor :os
-
-    attr_accessor :version
-
-    attr_accessor :arch
-
-    attr_accessor :network_interfaces
-
-    attr_accessor :hostname
-
-    attr_accessor :display_name
-
-    attr_accessor :system_timezone
-
-    attr_accessor :template_name
-
-    attr_accessor :remote_ip
+    attr_accessor :_id
 
     attr_accessor :active
 
-    attr_accessor :sshd_params
-
-    attr_accessor :allow_ssh_password_authentication
-
-    attr_accessor :allow_ssh_root_login
+    attr_accessor :agent_version
 
     attr_accessor :allow_multi_factor_authentication
 
     attr_accessor :allow_public_key_authentication
 
-    attr_accessor :modify_sshd_config
+    attr_accessor :allow_ssh_password_authentication
 
-    attr_accessor :agent_version
+    attr_accessor :allow_ssh_root_login
+
+    attr_accessor :amazon_instance_id
+
+    attr_accessor :arch
 
     attr_accessor :connection_history
 
-    attr_accessor :ssh_root_enabled
+    attr_accessor :created
 
-    attr_accessor :tags
-
-    attr_accessor :_id
+    attr_accessor :display_name
 
     attr_accessor :fde
 
-    attr_accessor :amazon_instance_id
+    attr_accessor :hostname
+
+    attr_accessor :last_contact
+
+    attr_accessor :modify_sshd_config
+
+    attr_accessor :network_interfaces
+
+    attr_accessor :organization
+
+    attr_accessor :os
+
+    attr_accessor :remote_ip
+
+    attr_accessor :ssh_root_enabled
+
+    attr_accessor :sshd_params
+
+    attr_accessor :system_insights
+
+    attr_accessor :system_timezone
+
+    attr_accessor :tags
+
+    attr_accessor :template_name
+
+    attr_accessor :version
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'organization' => :'organization',
-        :'created' => :'created',
-        :'last_contact' => :'lastContact',
-        :'os' => :'os',
-        :'version' => :'version',
-        :'arch' => :'arch',
-        :'network_interfaces' => :'networkInterfaces',
-        :'hostname' => :'hostname',
-        :'display_name' => :'displayName',
-        :'system_timezone' => :'systemTimezone',
-        :'template_name' => :'templateName',
-        :'remote_ip' => :'remoteIP',
+        :'_id' => :'_id',
         :'active' => :'active',
-        :'sshd_params' => :'sshdParams',
-        :'allow_ssh_password_authentication' => :'allowSshPasswordAuthentication',
-        :'allow_ssh_root_login' => :'allowSshRootLogin',
+        :'agent_version' => :'agentVersion',
         :'allow_multi_factor_authentication' => :'allowMultiFactorAuthentication',
         :'allow_public_key_authentication' => :'allowPublicKeyAuthentication',
-        :'modify_sshd_config' => :'modifySSHDConfig',
-        :'agent_version' => :'agentVersion',
+        :'allow_ssh_password_authentication' => :'allowSshPasswordAuthentication',
+        :'allow_ssh_root_login' => :'allowSshRootLogin',
+        :'amazon_instance_id' => :'amazonInstanceID',
+        :'arch' => :'arch',
         :'connection_history' => :'connectionHistory',
-        :'ssh_root_enabled' => :'sshRootEnabled',
-        :'tags' => :'tags',
-        :'_id' => :'_id',
+        :'created' => :'created',
+        :'display_name' => :'displayName',
         :'fde' => :'fde',
-        :'amazon_instance_id' => :'amazonInstanceID'
+        :'hostname' => :'hostname',
+        :'last_contact' => :'lastContact',
+        :'modify_sshd_config' => :'modifySSHDConfig',
+        :'network_interfaces' => :'networkInterfaces',
+        :'organization' => :'organization',
+        :'os' => :'os',
+        :'remote_ip' => :'remoteIP',
+        :'ssh_root_enabled' => :'sshRootEnabled',
+        :'sshd_params' => :'sshdParams',
+        :'system_insights' => :'systemInsights',
+        :'system_timezone' => :'systemTimezone',
+        :'tags' => :'tags',
+        :'template_name' => :'templateName',
+        :'version' => :'version'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'organization' => :'String',
-        :'created' => :'String',
-        :'last_contact' => :'String',
-        :'os' => :'String',
-        :'version' => :'String',
-        :'arch' => :'String',
-        :'network_interfaces' => :'Array<SystemNetworkInterfaces>',
-        :'hostname' => :'String',
-        :'display_name' => :'String',
-        :'system_timezone' => :'Integer',
-        :'template_name' => :'String',
-        :'remote_ip' => :'String',
+        :'_id' => :'String',
         :'active' => :'BOOLEAN',
-        :'sshd_params' => :'Array<SystemSshdParams>',
-        :'allow_ssh_password_authentication' => :'BOOLEAN',
-        :'allow_ssh_root_login' => :'BOOLEAN',
+        :'agent_version' => :'String',
         :'allow_multi_factor_authentication' => :'BOOLEAN',
         :'allow_public_key_authentication' => :'BOOLEAN',
-        :'modify_sshd_config' => :'BOOLEAN',
-        :'agent_version' => :'String',
+        :'allow_ssh_password_authentication' => :'BOOLEAN',
+        :'allow_ssh_root_login' => :'BOOLEAN',
+        :'amazon_instance_id' => :'String',
+        :'arch' => :'String',
         :'connection_history' => :'Array<Object>',
-        :'ssh_root_enabled' => :'BOOLEAN',
-        :'tags' => :'Array<String>',
-        :'_id' => :'String',
+        :'created' => :'String',
+        :'display_name' => :'String',
         :'fde' => :'Fde',
-        :'amazon_instance_id' => :'String'
+        :'hostname' => :'String',
+        :'last_contact' => :'String',
+        :'modify_sshd_config' => :'BOOLEAN',
+        :'network_interfaces' => :'Array<SystemNetworkInterfaces>',
+        :'organization' => :'String',
+        :'os' => :'String',
+        :'remote_ip' => :'String',
+        :'ssh_root_enabled' => :'BOOLEAN',
+        :'sshd_params' => :'Array<SystemSshdParams>',
+        :'system_insights' => :'SystemSystemInsights',
+        :'system_timezone' => :'Integer',
+        :'tags' => :'Array<String>',
+        :'template_name' => :'String',
+        :'version' => :'String'
       }
     end
 
@@ -140,72 +144,16 @@ module JCAPIv1
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'organization')
-        self.organization = attributes[:'organization']
-      end
-
-      if attributes.has_key?(:'created')
-        self.created = attributes[:'created']
-      end
-
-      if attributes.has_key?(:'lastContact')
-        self.last_contact = attributes[:'lastContact']
-      end
-
-      if attributes.has_key?(:'os')
-        self.os = attributes[:'os']
-      end
-
-      if attributes.has_key?(:'version')
-        self.version = attributes[:'version']
-      end
-
-      if attributes.has_key?(:'arch')
-        self.arch = attributes[:'arch']
-      end
-
-      if attributes.has_key?(:'networkInterfaces')
-        if (value = attributes[:'networkInterfaces']).is_a?(Array)
-          self.network_interfaces = value
-        end
-      end
-
-      if attributes.has_key?(:'hostname')
-        self.hostname = attributes[:'hostname']
-      end
-
-      if attributes.has_key?(:'displayName')
-        self.display_name = attributes[:'displayName']
-      end
-
-      if attributes.has_key?(:'systemTimezone')
-        self.system_timezone = attributes[:'systemTimezone']
-      end
-
-      if attributes.has_key?(:'templateName')
-        self.template_name = attributes[:'templateName']
-      end
-
-      if attributes.has_key?(:'remoteIP')
-        self.remote_ip = attributes[:'remoteIP']
+      if attributes.has_key?(:'_id')
+        self._id = attributes[:'_id']
       end
 
       if attributes.has_key?(:'active')
         self.active = attributes[:'active']
       end
 
-      if attributes.has_key?(:'sshdParams')
-        if (value = attributes[:'sshdParams']).is_a?(Array)
-          self.sshd_params = value
-        end
-      end
-
-      if attributes.has_key?(:'allowSshPasswordAuthentication')
-        self.allow_ssh_password_authentication = attributes[:'allowSshPasswordAuthentication']
-      end
-
-      if attributes.has_key?(:'allowSshRootLogin')
-        self.allow_ssh_root_login = attributes[:'allowSshRootLogin']
+      if attributes.has_key?(:'agentVersion')
+        self.agent_version = attributes[:'agentVersion']
       end
 
       if attributes.has_key?(:'allowMultiFactorAuthentication')
@@ -216,12 +164,20 @@ module JCAPIv1
         self.allow_public_key_authentication = attributes[:'allowPublicKeyAuthentication']
       end
 
-      if attributes.has_key?(:'modifySSHDConfig')
-        self.modify_sshd_config = attributes[:'modifySSHDConfig']
+      if attributes.has_key?(:'allowSshPasswordAuthentication')
+        self.allow_ssh_password_authentication = attributes[:'allowSshPasswordAuthentication']
       end
 
-      if attributes.has_key?(:'agentVersion')
-        self.agent_version = attributes[:'agentVersion']
+      if attributes.has_key?(:'allowSshRootLogin')
+        self.allow_ssh_root_login = attributes[:'allowSshRootLogin']
+      end
+
+      if attributes.has_key?(:'amazonInstanceID')
+        self.amazon_instance_id = attributes[:'amazonInstanceID']
+      end
+
+      if attributes.has_key?(:'arch')
+        self.arch = attributes[:'arch']
       end
 
       if attributes.has_key?(:'connectionHistory')
@@ -230,8 +186,64 @@ module JCAPIv1
         end
       end
 
+      if attributes.has_key?(:'created')
+        self.created = attributes[:'created']
+      end
+
+      if attributes.has_key?(:'displayName')
+        self.display_name = attributes[:'displayName']
+      end
+
+      if attributes.has_key?(:'fde')
+        self.fde = attributes[:'fde']
+      end
+
+      if attributes.has_key?(:'hostname')
+        self.hostname = attributes[:'hostname']
+      end
+
+      if attributes.has_key?(:'lastContact')
+        self.last_contact = attributes[:'lastContact']
+      end
+
+      if attributes.has_key?(:'modifySSHDConfig')
+        self.modify_sshd_config = attributes[:'modifySSHDConfig']
+      end
+
+      if attributes.has_key?(:'networkInterfaces')
+        if (value = attributes[:'networkInterfaces']).is_a?(Array)
+          self.network_interfaces = value
+        end
+      end
+
+      if attributes.has_key?(:'organization')
+        self.organization = attributes[:'organization']
+      end
+
+      if attributes.has_key?(:'os')
+        self.os = attributes[:'os']
+      end
+
+      if attributes.has_key?(:'remoteIP')
+        self.remote_ip = attributes[:'remoteIP']
+      end
+
       if attributes.has_key?(:'sshRootEnabled')
         self.ssh_root_enabled = attributes[:'sshRootEnabled']
+      end
+
+      if attributes.has_key?(:'sshdParams')
+        if (value = attributes[:'sshdParams']).is_a?(Array)
+          self.sshd_params = value
+        end
+      end
+
+      if attributes.has_key?(:'systemInsights')
+        self.system_insights = attributes[:'systemInsights']
+      end
+
+      if attributes.has_key?(:'systemTimezone')
+        self.system_timezone = attributes[:'systemTimezone']
       end
 
       if attributes.has_key?(:'tags')
@@ -240,16 +252,12 @@ module JCAPIv1
         end
       end
 
-      if attributes.has_key?(:'_id')
-        self._id = attributes[:'_id']
+      if attributes.has_key?(:'templateName')
+        self.template_name = attributes[:'templateName']
       end
 
-      if attributes.has_key?(:'fde')
-        self.fde = attributes[:'fde']
-      end
-
-      if attributes.has_key?(:'amazonInstanceID')
-        self.amazon_instance_id = attributes[:'amazonInstanceID']
+      if attributes.has_key?(:'version')
+        self.version = attributes[:'version']
       end
 
     end
@@ -272,32 +280,33 @@ module JCAPIv1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          organization == o.organization &&
-          created == o.created &&
-          last_contact == o.last_contact &&
-          os == o.os &&
-          version == o.version &&
-          arch == o.arch &&
-          network_interfaces == o.network_interfaces &&
-          hostname == o.hostname &&
-          display_name == o.display_name &&
-          system_timezone == o.system_timezone &&
-          template_name == o.template_name &&
-          remote_ip == o.remote_ip &&
+          _id == o._id &&
           active == o.active &&
-          sshd_params == o.sshd_params &&
-          allow_ssh_password_authentication == o.allow_ssh_password_authentication &&
-          allow_ssh_root_login == o.allow_ssh_root_login &&
+          agent_version == o.agent_version &&
           allow_multi_factor_authentication == o.allow_multi_factor_authentication &&
           allow_public_key_authentication == o.allow_public_key_authentication &&
-          modify_sshd_config == o.modify_sshd_config &&
-          agent_version == o.agent_version &&
+          allow_ssh_password_authentication == o.allow_ssh_password_authentication &&
+          allow_ssh_root_login == o.allow_ssh_root_login &&
+          amazon_instance_id == o.amazon_instance_id &&
+          arch == o.arch &&
           connection_history == o.connection_history &&
-          ssh_root_enabled == o.ssh_root_enabled &&
-          tags == o.tags &&
-          _id == o._id &&
+          created == o.created &&
+          display_name == o.display_name &&
           fde == o.fde &&
-          amazon_instance_id == o.amazon_instance_id
+          hostname == o.hostname &&
+          last_contact == o.last_contact &&
+          modify_sshd_config == o.modify_sshd_config &&
+          network_interfaces == o.network_interfaces &&
+          organization == o.organization &&
+          os == o.os &&
+          remote_ip == o.remote_ip &&
+          ssh_root_enabled == o.ssh_root_enabled &&
+          sshd_params == o.sshd_params &&
+          system_insights == o.system_insights &&
+          system_timezone == o.system_timezone &&
+          tags == o.tags &&
+          template_name == o.template_name &&
+          version == o.version
     end
 
     # @see the `==` method
@@ -309,7 +318,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [organization, created, last_contact, os, version, arch, network_interfaces, hostname, display_name, system_timezone, template_name, remote_ip, active, sshd_params, allow_ssh_password_authentication, allow_ssh_root_login, allow_multi_factor_authentication, allow_public_key_authentication, modify_sshd_config, agent_version, connection_history, ssh_root_enabled, tags, _id, fde, amazon_instance_id].hash
+      [_id, active, agent_version, allow_multi_factor_authentication, allow_public_key_authentication, allow_ssh_password_authentication, allow_ssh_root_login, amazon_instance_id, arch, connection_history, created, display_name, fde, hostname, last_contact, modify_sshd_config, network_interfaces, organization, os, remote_ip, ssh_root_enabled, sshd_params, system_insights, system_timezone, tags, template_name, version].hash
     end
 
     # Builds the object from hash

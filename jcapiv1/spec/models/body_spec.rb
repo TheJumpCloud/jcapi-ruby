@@ -32,6 +32,16 @@ describe 'Body' do
       expect(@instance).to be_instance_of(JCAPIv1::Body)
     end
   end
+  describe 'test attribute "mfa"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+       #validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["DISABLED", "ENABLED", "REQUIRED", "ALWAYS"])
+       #validator.allowable_values.each do |value|
+       #  expect { @instance.mfa = value }.not_to raise_error
+       #end
+    end
+  end
+
   describe 'test attribute "name"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -59,16 +69,6 @@ describe 'Body' do
   describe 'test attribute "user_password_expiration_action"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "mfa"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-       #validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["DISABLED", "ENABLED", "REQUIRED", "ALWAYS"])
-       #validator.allowable_values.each do |value|
-       #  expect { @instance.mfa = value }.not_to raise_error
-       #end
     end
   end
 

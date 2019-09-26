@@ -15,9 +15,9 @@ require 'date'
 module JCAPIv1
 
   class Search
-    attr_accessor :filter
-
     attr_accessor :fields
+
+    attr_accessor :filter
 
     attr_accessor :search_filter
 
@@ -25,8 +25,8 @@ module JCAPIv1
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'filter' => :'filter',
         :'fields' => :'fields',
+        :'filter' => :'filter',
         :'search_filter' => :'searchFilter'
       }
     end
@@ -34,8 +34,8 @@ module JCAPIv1
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'filter' => :'Object',
         :'fields' => :'String',
+        :'filter' => :'Object',
         :'search_filter' => :'Object'
       }
     end
@@ -48,12 +48,12 @@ module JCAPIv1
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'filter')
-        self.filter = attributes[:'filter']
-      end
-
       if attributes.has_key?(:'fields')
         self.fields = attributes[:'fields']
+      end
+
+      if attributes.has_key?(:'filter')
+        self.filter = attributes[:'filter']
       end
 
       if attributes.has_key?(:'searchFilter')
@@ -80,8 +80,8 @@ module JCAPIv1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          filter == o.filter &&
           fields == o.fields &&
+          filter == o.filter &&
           search_filter == o.search_filter
     end
 
@@ -94,7 +94,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [filter, fields, search_filter].hash
+      [fields, filter, search_filter].hash
     end
 
     # Builds the object from hash

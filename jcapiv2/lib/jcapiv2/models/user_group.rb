@@ -18,11 +18,11 @@ module JCAPIv2
     # ObjectId uniquely identifying a User Group.
     attr_accessor :id
 
-    # The type of the group.
-    attr_accessor :type
-
     # Display name of a User Group.
     attr_accessor :name
+
+    # The type of the group.
+    attr_accessor :type
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -50,8 +50,8 @@ module JCAPIv2
     def self.attribute_map
       {
         :'id' => :'id',
-        :'type' => :'type',
-        :'name' => :'name'
+        :'name' => :'name',
+        :'type' => :'type'
       }
     end
 
@@ -59,8 +59,8 @@ module JCAPIv2
     def self.swagger_types
       {
         :'id' => :'String',
-        :'type' => :'String',
-        :'name' => :'String'
+        :'name' => :'String',
+        :'type' => :'String'
       }
     end
 
@@ -76,12 +76,12 @@ module JCAPIv2
         self.id = attributes[:'id']
       end
 
-      if attributes.has_key?(:'type')
-        self.type = attributes[:'type']
-      end
-
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.has_key?(:'type')
+        self.type = attributes[:'type']
       end
 
     end
@@ -117,8 +117,8 @@ module JCAPIv2
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          type == o.type &&
-          name == o.name
+          name == o.name &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -130,7 +130,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, type, name].hash
+      [id, name, type].hash
     end
 
     # Builds the object from hash

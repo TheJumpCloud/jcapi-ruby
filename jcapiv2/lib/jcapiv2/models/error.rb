@@ -17,17 +17,17 @@ module JCAPIv2
   class Error
     attr_accessor :code
 
-    attr_accessor :message
-
     attr_accessor :fields
+
+    attr_accessor :message
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'code' => :'code',
-        :'message' => :'message',
-        :'fields' => :'fields'
+        :'fields' => :'fields',
+        :'message' => :'message'
       }
     end
 
@@ -35,8 +35,8 @@ module JCAPIv2
     def self.swagger_types
       {
         :'code' => :'Integer',
-        :'message' => :'String',
-        :'fields' => :'String'
+        :'fields' => :'String',
+        :'message' => :'String'
       }
     end
 
@@ -52,12 +52,12 @@ module JCAPIv2
         self.code = attributes[:'code']
       end
 
-      if attributes.has_key?(:'message')
-        self.message = attributes[:'message']
-      end
-
       if attributes.has_key?(:'fields')
         self.fields = attributes[:'fields']
+      end
+
+      if attributes.has_key?(:'message')
+        self.message = attributes[:'message']
       end
 
     end
@@ -81,8 +81,8 @@ module JCAPIv2
       return true if self.equal?(o)
       self.class == o.class &&
           code == o.code &&
-          message == o.message &&
-          fields == o.fields
+          fields == o.fields &&
+          message == o.message
     end
 
     # @see the `==` method
@@ -94,7 +94,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [code, message, fields].hash
+      [code, fields, message].hash
     end
 
     # Builds the object from hash

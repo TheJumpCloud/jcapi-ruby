@@ -15,24 +15,24 @@ require 'date'
 module JCAPIv1
 
   class SystemuserputpostPhoneNumbers
-    attr_accessor :type
-
     attr_accessor :number
+
+    attr_accessor :type
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'type' => :'type',
-        :'number' => :'number'
+        :'number' => :'number',
+        :'type' => :'type'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'type' => :'String',
-        :'number' => :'String'
+        :'number' => :'String',
+        :'type' => :'String'
       }
     end
 
@@ -44,12 +44,12 @@ module JCAPIv1
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'type')
-        self.type = attributes[:'type']
-      end
-
       if attributes.has_key?(:'number')
         self.number = attributes[:'number']
+      end
+
+      if attributes.has_key?(:'type')
+        self.type = attributes[:'type']
       end
 
     end
@@ -72,8 +72,8 @@ module JCAPIv1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          type == o.type &&
-          number == o.number
+          number == o.number &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -85,7 +85,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [type, number].hash
+      [number, type].hash
     end
 
     # Builds the object from hash

@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 List an individual system
 
-This endpoint returns an individual system.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/systems/{SystemID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
+This endpoint returns an individual system.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/systems/{SystemID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'    ```
 
 ### Example
 ```ruby
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 
 List All Systems
 
-This endpoint returns all Systems.  #### Sample Requests ``` curl -X GET https://console.jumpcloud.com/api/systems \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'  ```
+This endpoint returns all Systems.  #### Sample Requests ``` curl -X GET https://console.jumpcloud.com/api/systems \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
 
 ### Example
 ```ruby
@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 
 
 # **systems_put**
-> systems_put(id, content_type, accept, opts)
+> System systems_put(id, content_type, accept, opts)
 
 Update a system
 
@@ -261,7 +261,8 @@ opts = {
 
 begin
   #Update a system
-  api_instance.systems_put(id, content_type, accept, opts)
+  result = api_instance.systems_put(id, content_type, accept, opts)
+  p result
 rescue JCAPIv1::ApiError => e
   puts "Exception when calling SystemsApi->systems_put: #{e}"
 end
@@ -281,7 +282,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-nil (empty response body)
+[**System**](System.md)
 
 ### Authorization
 

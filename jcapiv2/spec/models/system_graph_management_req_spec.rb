@@ -38,6 +38,12 @@ describe 'SystemGraphManagementReq' do
     end
   end
 
+  describe 'test attribute "id"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "op"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -55,12 +61,6 @@ describe 'SystemGraphManagementReq' do
        #validator.allowable_values.each do |value|
        #  expect { @instance.type = value }.not_to raise_error
        #end
-    end
-  end
-
-  describe 'test attribute "id"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 

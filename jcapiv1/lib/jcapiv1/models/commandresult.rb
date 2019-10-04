@@ -15,11 +15,31 @@ require 'date'
 module JCAPIv1
 
   class Commandresult
+    # The ID of the command.
+    attr_accessor :_id
+
     # The command that was executed on the system.
     attr_accessor :command
 
+    # An array of file ids that were included in the command
+    attr_accessor :files
+
     # The name of the command.
     attr_accessor :name
+
+    # The ID of the organization.
+    attr_accessor :organization
+
+    # The time that the command was sent.
+    attr_accessor :request_time
+
+    attr_accessor :response
+
+    # The time that the command was completed.
+    attr_accessor :response_time
+
+    # If the user had sudo rights
+    attr_accessor :sudo
 
     # The name of the system the command was executed on.
     attr_accessor :system
@@ -27,71 +47,51 @@ module JCAPIv1
     # The id of the system the command was executed on.
     attr_accessor :system_id
 
-    # The ID of the organization.
-    attr_accessor :organization
+    # The user the command ran as.
+    attr_accessor :user
 
     attr_accessor :workflow_id
 
     attr_accessor :workflow_instance_id
 
-    # The user the command ran as.
-    attr_accessor :user
-
-    # If the user had sudo rights
-    attr_accessor :sudo
-
-    # An array of file ids that were included in the command
-    attr_accessor :files
-
-    # The time that the command was sent.
-    attr_accessor :request_time
-
-    # The time that the command was completed.
-    attr_accessor :response_time
-
-    attr_accessor :response
-
-    # The ID of the command.
-    attr_accessor :_id
-
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'_id' => :'_id',
         :'command' => :'command',
+        :'files' => :'files',
         :'name' => :'name',
+        :'organization' => :'organization',
+        :'request_time' => :'requestTime',
+        :'response' => :'response',
+        :'response_time' => :'responseTime',
+        :'sudo' => :'sudo',
         :'system' => :'system',
         :'system_id' => :'systemId',
-        :'organization' => :'organization',
-        :'workflow_id' => :'workflowId',
-        :'workflow_instance_id' => :'workflowInstanceId',
         :'user' => :'user',
-        :'sudo' => :'sudo',
-        :'files' => :'files',
-        :'request_time' => :'requestTime',
-        :'response_time' => :'responseTime',
-        :'response' => :'response',
-        :'_id' => :'_id'
+        :'workflow_id' => :'workflowId',
+        :'workflow_instance_id' => :'workflowInstanceId'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'_id' => :'String',
         :'command' => :'String',
+        :'files' => :'Array<String>',
         :'name' => :'String',
+        :'organization' => :'String',
+        :'request_time' => :'String',
+        :'response' => :'CommandresultResponse',
+        :'response_time' => :'String',
+        :'sudo' => :'BOOLEAN',
         :'system' => :'String',
         :'system_id' => :'String',
-        :'organization' => :'String',
-        :'workflow_id' => :'String',
-        :'workflow_instance_id' => :'String',
         :'user' => :'String',
-        :'sudo' => :'BOOLEAN',
-        :'files' => :'Array<String>',
-        :'request_time' => :'String',
-        :'response_time' => :'String',
-        :'response' => :'CommandresultResponse',
-        :'_id' => :'String'
+        :'workflow_id' => :'String',
+        :'workflow_instance_id' => :'String'
       }
     end
 
@@ -103,12 +103,42 @@ module JCAPIv1
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
+      if attributes.has_key?(:'_id')
+        self._id = attributes[:'_id']
+      end
+
       if attributes.has_key?(:'command')
         self.command = attributes[:'command']
       end
 
+      if attributes.has_key?(:'files')
+        if (value = attributes[:'files']).is_a?(Array)
+          self.files = value
+        end
+      end
+
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.has_key?(:'organization')
+        self.organization = attributes[:'organization']
+      end
+
+      if attributes.has_key?(:'requestTime')
+        self.request_time = attributes[:'requestTime']
+      end
+
+      if attributes.has_key?(:'response')
+        self.response = attributes[:'response']
+      end
+
+      if attributes.has_key?(:'responseTime')
+        self.response_time = attributes[:'responseTime']
+      end
+
+      if attributes.has_key?(:'sudo')
+        self.sudo = attributes[:'sudo']
       end
 
       if attributes.has_key?(:'system')
@@ -119,8 +149,8 @@ module JCAPIv1
         self.system_id = attributes[:'systemId']
       end
 
-      if attributes.has_key?(:'organization')
-        self.organization = attributes[:'organization']
+      if attributes.has_key?(:'user')
+        self.user = attributes[:'user']
       end
 
       if attributes.has_key?(:'workflowId')
@@ -129,36 +159,6 @@ module JCAPIv1
 
       if attributes.has_key?(:'workflowInstanceId')
         self.workflow_instance_id = attributes[:'workflowInstanceId']
-      end
-
-      if attributes.has_key?(:'user')
-        self.user = attributes[:'user']
-      end
-
-      if attributes.has_key?(:'sudo')
-        self.sudo = attributes[:'sudo']
-      end
-
-      if attributes.has_key?(:'files')
-        if (value = attributes[:'files']).is_a?(Array)
-          self.files = value
-        end
-      end
-
-      if attributes.has_key?(:'requestTime')
-        self.request_time = attributes[:'requestTime']
-      end
-
-      if attributes.has_key?(:'responseTime')
-        self.response_time = attributes[:'responseTime']
-      end
-
-      if attributes.has_key?(:'response')
-        self.response = attributes[:'response']
-      end
-
-      if attributes.has_key?(:'_id')
-        self._id = attributes[:'_id']
       end
 
     end
@@ -181,20 +181,20 @@ module JCAPIv1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          _id == o._id &&
           command == o.command &&
+          files == o.files &&
           name == o.name &&
+          organization == o.organization &&
+          request_time == o.request_time &&
+          response == o.response &&
+          response_time == o.response_time &&
+          sudo == o.sudo &&
           system == o.system &&
           system_id == o.system_id &&
-          organization == o.organization &&
-          workflow_id == o.workflow_id &&
-          workflow_instance_id == o.workflow_instance_id &&
           user == o.user &&
-          sudo == o.sudo &&
-          files == o.files &&
-          request_time == o.request_time &&
-          response_time == o.response_time &&
-          response == o.response &&
-          _id == o._id
+          workflow_id == o.workflow_id &&
+          workflow_instance_id == o.workflow_instance_id
     end
 
     # @see the `==` method
@@ -206,7 +206,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [command, name, system, system_id, organization, workflow_id, workflow_instance_id, user, sudo, files, request_time, response_time, response, _id].hash
+      [_id, command, files, name, organization, request_time, response, response_time, sudo, system, system_id, user, workflow_id, workflow_instance_id].hash
     end
 
     # Builds the object from hash

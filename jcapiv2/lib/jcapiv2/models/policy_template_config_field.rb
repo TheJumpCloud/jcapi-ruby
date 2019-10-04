@@ -15,11 +15,11 @@ require 'date'
 module JCAPIv2
 
   class PolicyTemplateConfigField
-    # ObjectId uniquely identifying a Policy Template Configuration Field
-    attr_accessor :id
-
     # The default rendering for this field.
     attr_accessor :display_type
+
+    # ObjectId uniquely identifying a Policy Template Configuration Field
+    attr_accessor :id
 
     # The default label for this field.
     attr_accessor :label
@@ -63,8 +63,8 @@ module JCAPIv2
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
         :'display_type' => :'displayType',
+        :'id' => :'id',
         :'label' => :'label',
         :'name' => :'name',
         :'position' => :'position',
@@ -77,8 +77,8 @@ module JCAPIv2
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'String',
         :'display_type' => :'String',
+        :'id' => :'String',
         :'label' => :'String',
         :'name' => :'String',
         :'position' => :'Float',
@@ -96,12 +96,12 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
-
       if attributes.has_key?(:'displayType')
         self.display_type = attributes[:'displayType']
+      end
+
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
       end
 
       if attributes.has_key?(:'label')
@@ -148,9 +148,9 @@ module JCAPIv2
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @id.nil?
       display_type_validator = EnumAttributeValidator.new('String', ["checkbox", "date", "email", "number", "select", "text", "textarea"])
       return false unless display_type_validator.valid?(@display_type)
+      return false if @id.nil?
       return false if @name.nil?
       return true
     end
@@ -170,8 +170,8 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
           display_type == o.display_type &&
+          id == o.id &&
           label == o.label &&
           name == o.name &&
           position == o.position &&
@@ -189,7 +189,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, display_type, label, name, position, read_only, required, tooltip].hash
+      [display_type, id, label, name, position, read_only, required, tooltip].hash
     end
 
     # Builds the object from hash

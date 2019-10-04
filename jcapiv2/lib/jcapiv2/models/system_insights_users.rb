@@ -15,64 +15,64 @@ require 'date'
 module JCAPIv2
 
   class SystemInsightsUsers
-    attr_accessor :uid
-
-    attr_accessor :gid
-
-    attr_accessor :uid_signed
-
-    attr_accessor :gid_signed
-
-    attr_accessor :username
+    attr_accessor :collection_time
 
     attr_accessor :description
 
     attr_accessor :directory
 
+    attr_accessor :gid
+
+    attr_accessor :gid_signed
+
     attr_accessor :shell
 
-    attr_accessor :uuid
+    attr_accessor :system_id
 
     attr_accessor :type
 
-    attr_accessor :jc_collection_time
+    attr_accessor :uid
 
-    attr_accessor :jc_system_id
+    attr_accessor :uid_signed
+
+    attr_accessor :username
+
+    attr_accessor :uuid
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'uid' => :'uid',
-        :'gid' => :'gid',
-        :'uid_signed' => :'uid_signed',
-        :'gid_signed' => :'gid_signed',
-        :'username' => :'username',
+        :'collection_time' => :'collection_time',
         :'description' => :'description',
         :'directory' => :'directory',
+        :'gid' => :'gid',
+        :'gid_signed' => :'gid_signed',
         :'shell' => :'shell',
-        :'uuid' => :'uuid',
+        :'system_id' => :'system_id',
         :'type' => :'type',
-        :'jc_collection_time' => :'jc_collection_time',
-        :'jc_system_id' => :'jc_system_id'
+        :'uid' => :'uid',
+        :'uid_signed' => :'uid_signed',
+        :'username' => :'username',
+        :'uuid' => :'uuid'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'uid' => :'String',
-        :'gid' => :'String',
-        :'uid_signed' => :'String',
-        :'gid_signed' => :'String',
-        :'username' => :'String',
+        :'collection_time' => :'String',
         :'description' => :'String',
         :'directory' => :'String',
+        :'gid' => :'String',
+        :'gid_signed' => :'String',
         :'shell' => :'String',
-        :'uuid' => :'String',
+        :'system_id' => :'String',
         :'type' => :'String',
-        :'jc_collection_time' => :'String',
-        :'jc_system_id' => :'String'
+        :'uid' => :'String',
+        :'uid_signed' => :'String',
+        :'username' => :'String',
+        :'uuid' => :'String'
       }
     end
 
@@ -84,24 +84,8 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'uid')
-        self.uid = attributes[:'uid']
-      end
-
-      if attributes.has_key?(:'gid')
-        self.gid = attributes[:'gid']
-      end
-
-      if attributes.has_key?(:'uid_signed')
-        self.uid_signed = attributes[:'uid_signed']
-      end
-
-      if attributes.has_key?(:'gid_signed')
-        self.gid_signed = attributes[:'gid_signed']
-      end
-
-      if attributes.has_key?(:'username')
-        self.username = attributes[:'username']
+      if attributes.has_key?(:'collection_time')
+        self.collection_time = attributes[:'collection_time']
       end
 
       if attributes.has_key?(:'description')
@@ -112,24 +96,40 @@ module JCAPIv2
         self.directory = attributes[:'directory']
       end
 
+      if attributes.has_key?(:'gid')
+        self.gid = attributes[:'gid']
+      end
+
+      if attributes.has_key?(:'gid_signed')
+        self.gid_signed = attributes[:'gid_signed']
+      end
+
       if attributes.has_key?(:'shell')
         self.shell = attributes[:'shell']
       end
 
-      if attributes.has_key?(:'uuid')
-        self.uuid = attributes[:'uuid']
+      if attributes.has_key?(:'system_id')
+        self.system_id = attributes[:'system_id']
       end
 
       if attributes.has_key?(:'type')
         self.type = attributes[:'type']
       end
 
-      if attributes.has_key?(:'jc_collection_time')
-        self.jc_collection_time = attributes[:'jc_collection_time']
+      if attributes.has_key?(:'uid')
+        self.uid = attributes[:'uid']
       end
 
-      if attributes.has_key?(:'jc_system_id')
-        self.jc_system_id = attributes[:'jc_system_id']
+      if attributes.has_key?(:'uid_signed')
+        self.uid_signed = attributes[:'uid_signed']
+      end
+
+      if attributes.has_key?(:'username')
+        self.username = attributes[:'username']
+      end
+
+      if attributes.has_key?(:'uuid')
+        self.uuid = attributes[:'uuid']
       end
 
     end
@@ -152,18 +152,18 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          uid == o.uid &&
-          gid == o.gid &&
-          uid_signed == o.uid_signed &&
-          gid_signed == o.gid_signed &&
-          username == o.username &&
+          collection_time == o.collection_time &&
           description == o.description &&
           directory == o.directory &&
+          gid == o.gid &&
+          gid_signed == o.gid_signed &&
           shell == o.shell &&
-          uuid == o.uuid &&
+          system_id == o.system_id &&
           type == o.type &&
-          jc_collection_time == o.jc_collection_time &&
-          jc_system_id == o.jc_system_id
+          uid == o.uid &&
+          uid_signed == o.uid_signed &&
+          username == o.username &&
+          uuid == o.uuid
     end
 
     # @see the `==` method
@@ -175,7 +175,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [uid, gid, uid_signed, gid_signed, username, description, directory, shell, uuid, type, jc_collection_time, jc_system_id].hash
+      [collection_time, description, directory, gid, gid_signed, shell, system_id, type, uid, uid_signed, username, uuid].hash
     end
 
     # Builds the object from hash

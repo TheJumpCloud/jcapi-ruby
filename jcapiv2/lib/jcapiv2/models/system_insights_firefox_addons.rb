@@ -15,80 +15,80 @@ require 'date'
 module JCAPIv2
 
   class SystemInsightsFirefoxAddons
-    attr_accessor :uid
-
-    attr_accessor :name
-
-    attr_accessor :identifier
-
-    attr_accessor :creator
-
-    attr_accessor :type
-
-    attr_accessor :version
-
-    attr_accessor :description
-
-    attr_accessor :source_url
-
-    attr_accessor :visible
-
     attr_accessor :active
-
-    attr_accessor :disabled
 
     attr_accessor :autoupdate
 
+    attr_accessor :collection_time
+
+    attr_accessor :creator
+
+    attr_accessor :description
+
+    attr_accessor :disabled
+
+    attr_accessor :identifier
+
     attr_accessor :location
+
+    attr_accessor :name
 
     attr_accessor :path
 
-    attr_accessor :jc_collection_time
+    attr_accessor :source_url
 
-    attr_accessor :jc_system_id
+    attr_accessor :system_id
+
+    attr_accessor :type
+
+    attr_accessor :uid
+
+    attr_accessor :version
+
+    attr_accessor :visible
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'uid' => :'uid',
-        :'name' => :'name',
-        :'identifier' => :'identifier',
-        :'creator' => :'creator',
-        :'type' => :'type',
-        :'version' => :'version',
-        :'description' => :'description',
-        :'source_url' => :'source_url',
-        :'visible' => :'visible',
         :'active' => :'active',
-        :'disabled' => :'disabled',
         :'autoupdate' => :'autoupdate',
+        :'collection_time' => :'collection_time',
+        :'creator' => :'creator',
+        :'description' => :'description',
+        :'disabled' => :'disabled',
+        :'identifier' => :'identifier',
         :'location' => :'location',
+        :'name' => :'name',
         :'path' => :'path',
-        :'jc_collection_time' => :'jc_collection_time',
-        :'jc_system_id' => :'jc_system_id'
+        :'source_url' => :'source_url',
+        :'system_id' => :'system_id',
+        :'type' => :'type',
+        :'uid' => :'uid',
+        :'version' => :'version',
+        :'visible' => :'visible'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'uid' => :'String',
-        :'name' => :'String',
-        :'identifier' => :'String',
-        :'creator' => :'String',
-        :'type' => :'String',
-        :'version' => :'String',
-        :'description' => :'String',
-        :'source_url' => :'String',
-        :'visible' => :'Integer',
         :'active' => :'Integer',
-        :'disabled' => :'Integer',
         :'autoupdate' => :'Integer',
+        :'collection_time' => :'String',
+        :'creator' => :'String',
+        :'description' => :'String',
+        :'disabled' => :'Integer',
+        :'identifier' => :'String',
         :'location' => :'String',
+        :'name' => :'String',
         :'path' => :'String',
-        :'jc_collection_time' => :'String',
-        :'jc_system_id' => :'String'
+        :'source_url' => :'String',
+        :'system_id' => :'String',
+        :'type' => :'String',
+        :'uid' => :'String',
+        :'version' => :'String',
+        :'visible' => :'Integer'
       }
     end
 
@@ -100,68 +100,68 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'uid')
-        self.uid = attributes[:'uid']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'identifier')
-        self.identifier = attributes[:'identifier']
-      end
-
-      if attributes.has_key?(:'creator')
-        self.creator = attributes[:'creator']
-      end
-
-      if attributes.has_key?(:'type')
-        self.type = attributes[:'type']
-      end
-
-      if attributes.has_key?(:'version')
-        self.version = attributes[:'version']
-      end
-
-      if attributes.has_key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.has_key?(:'source_url')
-        self.source_url = attributes[:'source_url']
-      end
-
-      if attributes.has_key?(:'visible')
-        self.visible = attributes[:'visible']
-      end
-
       if attributes.has_key?(:'active')
         self.active = attributes[:'active']
-      end
-
-      if attributes.has_key?(:'disabled')
-        self.disabled = attributes[:'disabled']
       end
 
       if attributes.has_key?(:'autoupdate')
         self.autoupdate = attributes[:'autoupdate']
       end
 
+      if attributes.has_key?(:'collection_time')
+        self.collection_time = attributes[:'collection_time']
+      end
+
+      if attributes.has_key?(:'creator')
+        self.creator = attributes[:'creator']
+      end
+
+      if attributes.has_key?(:'description')
+        self.description = attributes[:'description']
+      end
+
+      if attributes.has_key?(:'disabled')
+        self.disabled = attributes[:'disabled']
+      end
+
+      if attributes.has_key?(:'identifier')
+        self.identifier = attributes[:'identifier']
+      end
+
       if attributes.has_key?(:'location')
         self.location = attributes[:'location']
+      end
+
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
       end
 
       if attributes.has_key?(:'path')
         self.path = attributes[:'path']
       end
 
-      if attributes.has_key?(:'jc_collection_time')
-        self.jc_collection_time = attributes[:'jc_collection_time']
+      if attributes.has_key?(:'source_url')
+        self.source_url = attributes[:'source_url']
       end
 
-      if attributes.has_key?(:'jc_system_id')
-        self.jc_system_id = attributes[:'jc_system_id']
+      if attributes.has_key?(:'system_id')
+        self.system_id = attributes[:'system_id']
+      end
+
+      if attributes.has_key?(:'type')
+        self.type = attributes[:'type']
+      end
+
+      if attributes.has_key?(:'uid')
+        self.uid = attributes[:'uid']
+      end
+
+      if attributes.has_key?(:'version')
+        self.version = attributes[:'version']
+      end
+
+      if attributes.has_key?(:'visible')
+        self.visible = attributes[:'visible']
       end
 
     end
@@ -184,22 +184,22 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          uid == o.uid &&
-          name == o.name &&
-          identifier == o.identifier &&
-          creator == o.creator &&
-          type == o.type &&
-          version == o.version &&
-          description == o.description &&
-          source_url == o.source_url &&
-          visible == o.visible &&
           active == o.active &&
-          disabled == o.disabled &&
           autoupdate == o.autoupdate &&
+          collection_time == o.collection_time &&
+          creator == o.creator &&
+          description == o.description &&
+          disabled == o.disabled &&
+          identifier == o.identifier &&
           location == o.location &&
+          name == o.name &&
           path == o.path &&
-          jc_collection_time == o.jc_collection_time &&
-          jc_system_id == o.jc_system_id
+          source_url == o.source_url &&
+          system_id == o.system_id &&
+          type == o.type &&
+          uid == o.uid &&
+          version == o.version &&
+          visible == o.visible
     end
 
     # @see the `==` method
@@ -211,7 +211,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [uid, name, identifier, creator, type, version, description, source_url, visible, active, disabled, autoupdate, location, path, jc_collection_time, jc_system_id].hash
+      [active, autoupdate, collection_time, creator, description, disabled, identifier, location, name, path, source_url, system_id, type, uid, version, visible].hash
     end
 
     # Builds the object from hash

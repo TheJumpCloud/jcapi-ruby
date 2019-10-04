@@ -32,9 +32,39 @@ describe 'ApplicationsApi' do
     end
   end
 
+  # unit tests for applications_delete
+  # Delete an Application
+  # The endpoint deletes an SSO / SAML Application.
+  # @param id 
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :content_type 
+  # @option opts [String] :accept 
+  # @option opts [String] :x_org_id 
+  # @return [Application]
+  describe 'applications_delete test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for applications_get
+  # Get an Application
+  # The endpoint retrieves an SSO / SAML Application.
+  # @param id 
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :content_type 
+  # @option opts [String] :accept 
+  # @option opts [String] :x_org_id 
+  # @return [Application]
+  describe 'applications_get test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for applications_list
   # Applications
-  # The endpoint returns all your SSO / SAML Applications.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/applications \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;  &#x60;&#x60;&#x60;
+  # The endpoint returns all your SSO / SAML Applications.  #### Sample Request &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/applications \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
   # @param content_type 
   # @param accept 
   # @param [Hash] opts the optional parameters
@@ -46,6 +76,37 @@ describe 'ApplicationsApi' do
   # @option opts [String] :x_org_id 
   # @return [Applicationslist]
   describe 'applications_list test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for applications_post
+  # Create an Application
+  # The endpoint adds a new SSO / SAML Applications.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Application] :body 
+  # @option opts [String] :content_type 
+  # @option opts [String] :accept 
+  # @option opts [String] :x_org_id 
+  # @return [Application]
+  describe 'applications_post test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for applications_put
+  # Update an Application
+  # The endpoint updates a SSO / SAML Application.
+  # @param id 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Application] :body 
+  # @option opts [String] :content_type 
+  # @option opts [String] :accept 
+  # @option opts [String] :x_org_id 
+  # @return [Application]
+  describe 'applications_put test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

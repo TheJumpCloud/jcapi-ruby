@@ -32,7 +32,13 @@ describe 'WorkdayWorker' do
       expect(@instance).to be_instance_of(JCAPIv2::WorkdayWorker)
     end
   end
-  describe 'test attribute "username"' do
+  describe 'test attribute "attributes"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "email"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -50,13 +56,7 @@ describe 'WorkdayWorker' do
     end
   end
 
-  describe 'test attribute "email"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "attributes"' do
+  describe 'test attribute "username"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

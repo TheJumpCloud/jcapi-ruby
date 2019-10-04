@@ -18,17 +18,17 @@ module JCAPIv2
     # The description for this specific Policy.
     attr_accessor :name
 
-    attr_accessor :values
-
     attr_accessor :template
+
+    attr_accessor :values
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'name' => :'name',
-        :'values' => :'values',
-        :'template' => :'template'
+        :'template' => :'template',
+        :'values' => :'values'
       }
     end
 
@@ -36,8 +36,8 @@ module JCAPIv2
     def self.swagger_types
       {
         :'name' => :'String',
-        :'values' => :'Array<PolicyValue>',
-        :'template' => :'PolicyRequestTemplate'
+        :'template' => :'PolicyRequestTemplate',
+        :'values' => :'Array<PolicyValue>'
       }
     end
 
@@ -53,14 +53,14 @@ module JCAPIv2
         self.name = attributes[:'name']
       end
 
+      if attributes.has_key?(:'template')
+        self.template = attributes[:'template']
+      end
+
       if attributes.has_key?(:'values')
         if (value = attributes[:'values']).is_a?(Array)
           self.values = value
         end
-      end
-
-      if attributes.has_key?(:'template')
-        self.template = attributes[:'template']
       end
 
     end
@@ -89,8 +89,8 @@ module JCAPIv2
       return true if self.equal?(o)
       self.class == o.class &&
           name == o.name &&
-          values == o.values &&
-          template == o.template
+          template == o.template &&
+          values == o.values
     end
 
     # @see the `==` method
@@ -102,7 +102,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, values, template].hash
+      [name, template, values].hash
     end
 
     # Builds the object from hash

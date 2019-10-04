@@ -15,20 +15,20 @@ require 'date'
 module JCAPIv1
 
   class Radiusserverpost
-    attr_accessor :network_source_ip
+    attr_accessor :mfa
 
     attr_accessor :name
 
-    attr_accessor :tag_names
+    attr_accessor :network_source_ip
 
     # RADIUS shared secret between the server and client.
     attr_accessor :shared_secret
 
+    attr_accessor :tag_names
+
     attr_accessor :user_lockout_action
 
     attr_accessor :user_password_expiration_action
-
-    attr_accessor :mfa
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -55,26 +55,26 @@ module JCAPIv1
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'network_source_ip' => :'networkSourceIp',
+        :'mfa' => :'mfa',
         :'name' => :'name',
-        :'tag_names' => :'tagNames',
+        :'network_source_ip' => :'networkSourceIp',
         :'shared_secret' => :'sharedSecret',
+        :'tag_names' => :'tagNames',
         :'user_lockout_action' => :'userLockoutAction',
-        :'user_password_expiration_action' => :'userPasswordExpirationAction',
-        :'mfa' => :'mfa'
+        :'user_password_expiration_action' => :'userPasswordExpirationAction'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'network_source_ip' => :'String',
+        :'mfa' => :'String',
         :'name' => :'String',
-        :'tag_names' => :'Array<String>',
+        :'network_source_ip' => :'String',
         :'shared_secret' => :'String',
+        :'tag_names' => :'Array<String>',
         :'user_lockout_action' => :'String',
-        :'user_password_expiration_action' => :'String',
-        :'mfa' => :'String'
+        :'user_password_expiration_action' => :'String'
       }
     end
 
@@ -86,22 +86,26 @@ module JCAPIv1
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'networkSourceIp')
-        self.network_source_ip = attributes[:'networkSourceIp']
+      if attributes.has_key?(:'mfa')
+        self.mfa = attributes[:'mfa']
       end
 
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'tagNames')
-        if (value = attributes[:'tagNames']).is_a?(Array)
-          self.tag_names = value
-        end
+      if attributes.has_key?(:'networkSourceIp')
+        self.network_source_ip = attributes[:'networkSourceIp']
       end
 
       if attributes.has_key?(:'sharedSecret')
         self.shared_secret = attributes[:'sharedSecret']
+      end
+
+      if attributes.has_key?(:'tagNames')
+        if (value = attributes[:'tagNames']).is_a?(Array)
+          self.tag_names = value
+        end
       end
 
       if attributes.has_key?(:'userLockoutAction')
@@ -112,22 +116,18 @@ module JCAPIv1
         self.user_password_expiration_action = attributes[:'userPasswordExpirationAction']
       end
 
-      if attributes.has_key?(:'mfa')
-        self.mfa = attributes[:'mfa']
-      end
-
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @network_source_ip.nil?
-        invalid_properties.push("invalid value for 'network_source_ip', network_source_ip cannot be nil.")
-      end
-
       if @name.nil?
         invalid_properties.push("invalid value for 'name', name cannot be nil.")
+      end
+
+      if @network_source_ip.nil?
+        invalid_properties.push("invalid value for 'network_source_ip', network_source_ip cannot be nil.")
       end
 
       if @shared_secret.nil?
@@ -140,11 +140,11 @@ module JCAPIv1
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @network_source_ip.nil?
-      return false if @name.nil?
-      return false if @shared_secret.nil?
       mfa_validator = EnumAttributeValidator.new('String', ["DISABLED", "ENABLED", "REQUIRED", "ALWAYS"])
       return false unless mfa_validator.valid?(@mfa)
+      return false if @name.nil?
+      return false if @network_source_ip.nil?
+      return false if @shared_secret.nil?
       return true
     end
 
@@ -163,13 +163,13 @@ module JCAPIv1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          network_source_ip == o.network_source_ip &&
+          mfa == o.mfa &&
           name == o.name &&
-          tag_names == o.tag_names &&
+          network_source_ip == o.network_source_ip &&
           shared_secret == o.shared_secret &&
+          tag_names == o.tag_names &&
           user_lockout_action == o.user_lockout_action &&
-          user_password_expiration_action == o.user_password_expiration_action &&
-          mfa == o.mfa
+          user_password_expiration_action == o.user_password_expiration_action
     end
 
     # @see the `==` method
@@ -181,7 +181,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [network_source_ip, name, tag_names, shared_secret, user_lockout_action, user_password_expiration_action, mfa].hash
+      [mfa, name, network_source_ip, shared_secret, tag_names, user_lockout_action, user_password_expiration_action].hash
     end
 
     # Builds the object from hash

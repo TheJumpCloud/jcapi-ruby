@@ -15,42 +15,42 @@ require 'date'
 module JCAPIv2
   # See [V1 system user update](https://docs.jumpcloud.com/1.0/systemusers/update-a-system-user) for full list of attributes.
   class BulkUserUpdate
-    # Object ID of the systemuser being updated
-    attr_accessor :id
-
-    attr_accessor :username
-
-    attr_accessor :firstname
-
-    attr_accessor :lastname
+    # Map of additional attributes.
+    attr_accessor :attributes
 
     attr_accessor :email
 
-    # Map of additional attributes.
-    attr_accessor :attributes
+    attr_accessor :firstname
+
+    # Object ID of the systemuser being updated
+    attr_accessor :id
+
+    attr_accessor :lastname
+
+    attr_accessor :username
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'username' => :'username',
-        :'firstname' => :'firstname',
-        :'lastname' => :'lastname',
+        :'attributes' => :'attributes',
         :'email' => :'email',
-        :'attributes' => :'attributes'
+        :'firstname' => :'firstname',
+        :'id' => :'id',
+        :'lastname' => :'lastname',
+        :'username' => :'username'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'String',
-        :'username' => :'String',
-        :'firstname' => :'String',
-        :'lastname' => :'String',
+        :'attributes' => :'Array<Object>',
         :'email' => :'String',
-        :'attributes' => :'Array<Object>'
+        :'firstname' => :'String',
+        :'id' => :'String',
+        :'lastname' => :'String',
+        :'username' => :'String'
       }
     end
 
@@ -62,30 +62,30 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.has_key?(:'username')
-        self.username = attributes[:'username']
-      end
-
-      if attributes.has_key?(:'firstname')
-        self.firstname = attributes[:'firstname']
-      end
-
-      if attributes.has_key?(:'lastname')
-        self.lastname = attributes[:'lastname']
+      if attributes.has_key?(:'attributes')
+        if (value = attributes[:'attributes']).is_a?(Array)
+          self.attributes = value
+        end
       end
 
       if attributes.has_key?(:'email')
         self.email = attributes[:'email']
       end
 
-      if attributes.has_key?(:'attributes')
-        if (value = attributes[:'attributes']).is_a?(Array)
-          self.attributes = value
-        end
+      if attributes.has_key?(:'firstname')
+        self.firstname = attributes[:'firstname']
+      end
+
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+      if attributes.has_key?(:'lastname')
+        self.lastname = attributes[:'lastname']
+      end
+
+      if attributes.has_key?(:'username')
+        self.username = attributes[:'username']
       end
 
     end
@@ -108,12 +108,12 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          username == o.username &&
-          firstname == o.firstname &&
-          lastname == o.lastname &&
+          attributes == o.attributes &&
           email == o.email &&
-          attributes == o.attributes
+          firstname == o.firstname &&
+          id == o.id &&
+          lastname == o.lastname &&
+          username == o.username
     end
 
     # @see the `==` method
@@ -125,7 +125,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, username, firstname, lastname, email, attributes].hash
+      [attributes, email, firstname, id, lastname, username].hash
     end
 
     # Builds the object from hash

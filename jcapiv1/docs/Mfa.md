@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**configured** | **BOOLEAN** |  | [optional] 
 **exclusion** | **BOOLEAN** |  | [optional] 
 **exclusion_until** | **DateTime** |  | [optional] 
-**configured** | **BOOLEAN** |  | [optional] 
 
 

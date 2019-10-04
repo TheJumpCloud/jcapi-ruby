@@ -15,28 +15,28 @@ require 'date'
 module JCAPIv2
 
   class OrgcryptosettingsSshKeys
+    attr_accessor :key_size
+
     attr_accessor :validate
 
     attr_accessor :validate_key_size
-
-    attr_accessor :key_size
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'key_size' => :'keySize',
         :'validate' => :'validate',
-        :'validate_key_size' => :'validateKeySize',
-        :'key_size' => :'keySize'
+        :'validate_key_size' => :'validateKeySize'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'key_size' => :'Integer',
         :'validate' => :'BOOLEAN',
-        :'validate_key_size' => :'BOOLEAN',
-        :'key_size' => :'Integer'
+        :'validate_key_size' => :'BOOLEAN'
       }
     end
 
@@ -48,16 +48,16 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
+      if attributes.has_key?(:'keySize')
+        self.key_size = attributes[:'keySize']
+      end
+
       if attributes.has_key?(:'validate')
         self.validate = attributes[:'validate']
       end
 
       if attributes.has_key?(:'validateKeySize')
         self.validate_key_size = attributes[:'validateKeySize']
-      end
-
-      if attributes.has_key?(:'keySize')
-        self.key_size = attributes[:'keySize']
       end
 
     end
@@ -80,9 +80,9 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          key_size == o.key_size &&
           validate == o.validate &&
-          validate_key_size == o.validate_key_size &&
-          key_size == o.key_size
+          validate_key_size == o.validate_key_size
     end
 
     # @see the `==` method
@@ -94,7 +94,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [validate, validate_key_size, key_size].hash
+      [key_size, validate, validate_key_size].hash
     end
 
     # Builds the object from hash

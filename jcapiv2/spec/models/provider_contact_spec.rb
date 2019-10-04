@@ -32,13 +32,13 @@ describe 'ProviderContact' do
       expect(@instance).to be_instance_of(JCAPIv2::ProviderContact)
     end
   end
-  describe 'test attribute "name"' do
+  describe 'test attribute "email"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "email"' do
+  describe 'test attribute "name"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

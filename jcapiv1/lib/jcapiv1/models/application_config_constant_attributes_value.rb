@@ -17,23 +17,23 @@ module JCAPIv1
   class ApplicationConfigConstantAttributesValue
     attr_accessor :name
 
-    attr_accessor :value
+    attr_accessor :read_only
 
     attr_accessor :required
 
-    attr_accessor :visible
+    attr_accessor :value
 
-    attr_accessor :read_only
+    attr_accessor :visible
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'name' => :'name',
-        :'value' => :'value',
+        :'read_only' => :'readOnly',
         :'required' => :'required',
-        :'visible' => :'visible',
-        :'read_only' => :'readOnly'
+        :'value' => :'value',
+        :'visible' => :'visible'
       }
     end
 
@@ -41,10 +41,10 @@ module JCAPIv1
     def self.swagger_types
       {
         :'name' => :'String',
-        :'value' => :'String',
+        :'read_only' => :'BOOLEAN',
         :'required' => :'BOOLEAN',
-        :'visible' => :'BOOLEAN',
-        :'read_only' => :'BOOLEAN'
+        :'value' => :'String',
+        :'visible' => :'BOOLEAN'
       }
     end
 
@@ -60,20 +60,20 @@ module JCAPIv1
         self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'value')
-        self.value = attributes[:'value']
+      if attributes.has_key?(:'readOnly')
+        self.read_only = attributes[:'readOnly']
       end
 
       if attributes.has_key?(:'required')
         self.required = attributes[:'required']
       end
 
-      if attributes.has_key?(:'visible')
-        self.visible = attributes[:'visible']
+      if attributes.has_key?(:'value')
+        self.value = attributes[:'value']
       end
 
-      if attributes.has_key?(:'readOnly')
-        self.read_only = attributes[:'readOnly']
+      if attributes.has_key?(:'visible')
+        self.visible = attributes[:'visible']
       end
 
     end
@@ -97,10 +97,10 @@ module JCAPIv1
       return true if self.equal?(o)
       self.class == o.class &&
           name == o.name &&
-          value == o.value &&
+          read_only == o.read_only &&
           required == o.required &&
-          visible == o.visible &&
-          read_only == o.read_only
+          value == o.value &&
+          visible == o.visible
     end
 
     # @see the `==` method
@@ -112,7 +112,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, value, required, visible, read_only].hash
+      [name, read_only, required, value, visible].hash
     end
 
     # Builds the object from hash

@@ -15,9 +15,7 @@ require 'date'
 module JCAPIv2
 
   class SystemInsightsApps
-    attr_accessor :name
-
-    attr_accessor :path
+    attr_accessor :applescript_enabled
 
     attr_accessor :bundle_executable
 
@@ -25,90 +23,92 @@ module JCAPIv2
 
     attr_accessor :bundle_name
 
+    attr_accessor :bundle_package_type
+
     attr_accessor :bundle_short_version
 
     attr_accessor :bundle_version
 
-    attr_accessor :bundle_package_type
+    attr_accessor :category
 
-    attr_accessor :environment
-
-    attr_accessor :element
+    attr_accessor :collection_time
 
     attr_accessor :compiler
+
+    attr_accessor :copyright
 
     attr_accessor :development_region
 
     attr_accessor :display_name
 
+    attr_accessor :element
+
+    attr_accessor :environment
+
     attr_accessor :info_string
-
-    attr_accessor :minimum_system_version
-
-    attr_accessor :category
-
-    attr_accessor :applescript_enabled
-
-    attr_accessor :copyright
 
     attr_accessor :last_opened_time
 
-    attr_accessor :jc_collection_time
+    attr_accessor :minimum_system_version
 
-    attr_accessor :jc_system_id
+    attr_accessor :name
+
+    attr_accessor :path
+
+    attr_accessor :system_id
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name',
-        :'path' => :'path',
+        :'applescript_enabled' => :'applescript_enabled',
         :'bundle_executable' => :'bundle_executable',
         :'bundle_identifier' => :'bundle_identifier',
         :'bundle_name' => :'bundle_name',
+        :'bundle_package_type' => :'bundle_package_type',
         :'bundle_short_version' => :'bundle_short_version',
         :'bundle_version' => :'bundle_version',
-        :'bundle_package_type' => :'bundle_package_type',
-        :'environment' => :'environment',
-        :'element' => :'element',
+        :'category' => :'category',
+        :'collection_time' => :'collection_time',
         :'compiler' => :'compiler',
+        :'copyright' => :'copyright',
         :'development_region' => :'development_region',
         :'display_name' => :'display_name',
+        :'element' => :'element',
+        :'environment' => :'environment',
         :'info_string' => :'info_string',
-        :'minimum_system_version' => :'minimum_system_version',
-        :'category' => :'category',
-        :'applescript_enabled' => :'applescript_enabled',
-        :'copyright' => :'copyright',
         :'last_opened_time' => :'last_opened_time',
-        :'jc_collection_time' => :'jc_collection_time',
-        :'jc_system_id' => :'jc_system_id'
+        :'minimum_system_version' => :'minimum_system_version',
+        :'name' => :'name',
+        :'path' => :'path',
+        :'system_id' => :'system_id'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'name' => :'String',
-        :'path' => :'String',
+        :'applescript_enabled' => :'String',
         :'bundle_executable' => :'String',
         :'bundle_identifier' => :'String',
         :'bundle_name' => :'String',
+        :'bundle_package_type' => :'String',
         :'bundle_short_version' => :'String',
         :'bundle_version' => :'String',
-        :'bundle_package_type' => :'String',
-        :'environment' => :'String',
-        :'element' => :'String',
+        :'category' => :'String',
+        :'collection_time' => :'String',
         :'compiler' => :'String',
+        :'copyright' => :'String',
         :'development_region' => :'String',
         :'display_name' => :'String',
+        :'element' => :'String',
+        :'environment' => :'String',
         :'info_string' => :'String',
-        :'minimum_system_version' => :'String',
-        :'category' => :'String',
-        :'applescript_enabled' => :'String',
-        :'copyright' => :'String',
         :'last_opened_time' => :'Float',
-        :'jc_collection_time' => :'String',
-        :'jc_system_id' => :'String'
+        :'minimum_system_version' => :'String',
+        :'name' => :'String',
+        :'path' => :'String',
+        :'system_id' => :'String'
       }
     end
 
@@ -120,12 +120,8 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'path')
-        self.path = attributes[:'path']
+      if attributes.has_key?(:'applescript_enabled')
+        self.applescript_enabled = attributes[:'applescript_enabled']
       end
 
       if attributes.has_key?(:'bundle_executable')
@@ -140,6 +136,10 @@ module JCAPIv2
         self.bundle_name = attributes[:'bundle_name']
       end
 
+      if attributes.has_key?(:'bundle_package_type')
+        self.bundle_package_type = attributes[:'bundle_package_type']
+      end
+
       if attributes.has_key?(:'bundle_short_version')
         self.bundle_short_version = attributes[:'bundle_short_version']
       end
@@ -148,20 +148,20 @@ module JCAPIv2
         self.bundle_version = attributes[:'bundle_version']
       end
 
-      if attributes.has_key?(:'bundle_package_type')
-        self.bundle_package_type = attributes[:'bundle_package_type']
+      if attributes.has_key?(:'category')
+        self.category = attributes[:'category']
       end
 
-      if attributes.has_key?(:'environment')
-        self.environment = attributes[:'environment']
-      end
-
-      if attributes.has_key?(:'element')
-        self.element = attributes[:'element']
+      if attributes.has_key?(:'collection_time')
+        self.collection_time = attributes[:'collection_time']
       end
 
       if attributes.has_key?(:'compiler')
         self.compiler = attributes[:'compiler']
+      end
+
+      if attributes.has_key?(:'copyright')
+        self.copyright = attributes[:'copyright']
       end
 
       if attributes.has_key?(:'development_region')
@@ -172,36 +172,36 @@ module JCAPIv2
         self.display_name = attributes[:'display_name']
       end
 
+      if attributes.has_key?(:'element')
+        self.element = attributes[:'element']
+      end
+
+      if attributes.has_key?(:'environment')
+        self.environment = attributes[:'environment']
+      end
+
       if attributes.has_key?(:'info_string')
         self.info_string = attributes[:'info_string']
-      end
-
-      if attributes.has_key?(:'minimum_system_version')
-        self.minimum_system_version = attributes[:'minimum_system_version']
-      end
-
-      if attributes.has_key?(:'category')
-        self.category = attributes[:'category']
-      end
-
-      if attributes.has_key?(:'applescript_enabled')
-        self.applescript_enabled = attributes[:'applescript_enabled']
-      end
-
-      if attributes.has_key?(:'copyright')
-        self.copyright = attributes[:'copyright']
       end
 
       if attributes.has_key?(:'last_opened_time')
         self.last_opened_time = attributes[:'last_opened_time']
       end
 
-      if attributes.has_key?(:'jc_collection_time')
-        self.jc_collection_time = attributes[:'jc_collection_time']
+      if attributes.has_key?(:'minimum_system_version')
+        self.minimum_system_version = attributes[:'minimum_system_version']
       end
 
-      if attributes.has_key?(:'jc_system_id')
-        self.jc_system_id = attributes[:'jc_system_id']
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.has_key?(:'path')
+        self.path = attributes[:'path']
+      end
+
+      if attributes.has_key?(:'system_id')
+        self.system_id = attributes[:'system_id']
       end
 
     end
@@ -224,27 +224,27 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
-          path == o.path &&
+          applescript_enabled == o.applescript_enabled &&
           bundle_executable == o.bundle_executable &&
           bundle_identifier == o.bundle_identifier &&
           bundle_name == o.bundle_name &&
+          bundle_package_type == o.bundle_package_type &&
           bundle_short_version == o.bundle_short_version &&
           bundle_version == o.bundle_version &&
-          bundle_package_type == o.bundle_package_type &&
-          environment == o.environment &&
-          element == o.element &&
+          category == o.category &&
+          collection_time == o.collection_time &&
           compiler == o.compiler &&
+          copyright == o.copyright &&
           development_region == o.development_region &&
           display_name == o.display_name &&
+          element == o.element &&
+          environment == o.environment &&
           info_string == o.info_string &&
-          minimum_system_version == o.minimum_system_version &&
-          category == o.category &&
-          applescript_enabled == o.applescript_enabled &&
-          copyright == o.copyright &&
           last_opened_time == o.last_opened_time &&
-          jc_collection_time == o.jc_collection_time &&
-          jc_system_id == o.jc_system_id
+          minimum_system_version == o.minimum_system_version &&
+          name == o.name &&
+          path == o.path &&
+          system_id == o.system_id
     end
 
     # @see the `==` method
@@ -256,7 +256,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, path, bundle_executable, bundle_identifier, bundle_name, bundle_short_version, bundle_version, bundle_package_type, environment, element, compiler, development_region, display_name, info_string, minimum_system_version, category, applescript_enabled, copyright, last_opened_time, jc_collection_time, jc_system_id].hash
+      [applescript_enabled, bundle_executable, bundle_identifier, bundle_name, bundle_package_type, bundle_short_version, bundle_version, category, collection_time, compiler, copyright, development_region, display_name, element, environment, info_string, last_opened_time, minimum_system_version, name, path, system_id].hash
     end
 
     # Builds the object from hash

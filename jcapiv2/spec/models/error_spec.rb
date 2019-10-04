@@ -38,13 +38,13 @@ describe 'Error' do
     end
   end
 
-  describe 'test attribute "message"' do
+  describe 'test attribute "fields"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "fields"' do
+  describe 'test attribute "message"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

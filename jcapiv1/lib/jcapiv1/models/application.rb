@@ -19,19 +19,19 @@ module JCAPIv1
 
     attr_accessor :active
 
-    attr_accessor :name
+    attr_accessor :config
+
+    attr_accessor :display_label
 
     attr_accessor :display_name
 
-    attr_accessor :display_label
+    attr_accessor :learn_more
+
+    attr_accessor :name
 
     attr_accessor :organization
 
     attr_accessor :sso_url
-
-    attr_accessor :learn_more
-
-    attr_accessor :config
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -39,13 +39,13 @@ module JCAPIv1
       {
         :'_id' => :'_id',
         :'active' => :'active',
-        :'name' => :'name',
-        :'display_name' => :'displayName',
+        :'config' => :'config',
         :'display_label' => :'displayLabel',
-        :'organization' => :'organization',
-        :'sso_url' => :'ssoUrl',
+        :'display_name' => :'displayName',
         :'learn_more' => :'learnMore',
-        :'config' => :'config'
+        :'name' => :'name',
+        :'organization' => :'organization',
+        :'sso_url' => :'ssoUrl'
       }
     end
 
@@ -54,13 +54,13 @@ module JCAPIv1
       {
         :'_id' => :'String',
         :'active' => :'BOOLEAN',
-        :'name' => :'String',
-        :'display_name' => :'String',
+        :'config' => :'ApplicationConfig',
         :'display_label' => :'String',
-        :'organization' => :'String',
-        :'sso_url' => :'String',
+        :'display_name' => :'String',
         :'learn_more' => :'String',
-        :'config' => :'ApplicationConfig'
+        :'name' => :'String',
+        :'organization' => :'String',
+        :'sso_url' => :'String'
       }
     end
 
@@ -80,16 +80,24 @@ module JCAPIv1
         self.active = attributes[:'active']
       end
 
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.has_key?(:'config')
+        self.config = attributes[:'config']
+      end
+
+      if attributes.has_key?(:'displayLabel')
+        self.display_label = attributes[:'displayLabel']
       end
 
       if attributes.has_key?(:'displayName')
         self.display_name = attributes[:'displayName']
       end
 
-      if attributes.has_key?(:'displayLabel')
-        self.display_label = attributes[:'displayLabel']
+      if attributes.has_key?(:'learnMore')
+        self.learn_more = attributes[:'learnMore']
+      end
+
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
       end
 
       if attributes.has_key?(:'organization')
@@ -98,14 +106,6 @@ module JCAPIv1
 
       if attributes.has_key?(:'ssoUrl')
         self.sso_url = attributes[:'ssoUrl']
-      end
-
-      if attributes.has_key?(:'learnMore')
-        self.learn_more = attributes[:'learnMore']
-      end
-
-      if attributes.has_key?(:'config')
-        self.config = attributes[:'config']
       end
 
     end
@@ -130,13 +130,13 @@ module JCAPIv1
       self.class == o.class &&
           _id == o._id &&
           active == o.active &&
-          name == o.name &&
-          display_name == o.display_name &&
+          config == o.config &&
           display_label == o.display_label &&
-          organization == o.organization &&
-          sso_url == o.sso_url &&
+          display_name == o.display_name &&
           learn_more == o.learn_more &&
-          config == o.config
+          name == o.name &&
+          organization == o.organization &&
+          sso_url == o.sso_url
     end
 
     # @see the `==` method
@@ -148,7 +148,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [_id, active, name, display_name, display_label, organization, sso_url, learn_more, config].hash
+      [_id, active, config, display_label, display_name, learn_more, name, organization, sso_url].hash
     end
 
     # Builds the object from hash

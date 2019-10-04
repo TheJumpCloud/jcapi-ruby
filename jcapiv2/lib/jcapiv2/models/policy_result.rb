@@ -15,26 +15,26 @@ require 'date'
 module JCAPIv2
 
   class PolicyResult
-    # ObjectId uniquely identifying the parent Policy.
-    attr_accessor :policy_id
-
-    # ObjectId uniquely identifying the parent System.
-    attr_accessor :system_id
-
-    # ObjectId uniquely identifying a Policy Result.
-    attr_accessor :id
-
-    # The start of the policy application.
-    attr_accessor :started_at
+    # Details pertaining to the policy result.
+    attr_accessor :detail
 
     # The end of the policy application.
     attr_accessor :ended_at
 
-    # True if the policy was successfully applied; false otherwise.
-    attr_accessor :success
-
     # The 32-bit unsigned exit status from the applying the policy.
     attr_accessor :exit_status
+
+    # ObjectId uniquely identifying a Policy Result.
+    attr_accessor :id
+
+    # ObjectId uniquely identifying the parent Policy.
+    attr_accessor :policy_id
+
+    # The start of the policy application.
+    attr_accessor :started_at
+
+    # Enumeration describing the state of the policy. Success, failed, or pending.
+    attr_accessor :state
 
     # The STDERR output from applying the policy.
     attr_accessor :std_err
@@ -42,44 +42,44 @@ module JCAPIv2
     # The STDOUT output from applying the policy.
     attr_accessor :std_out
 
-    # Enumeration describing the state of the policy. Success, failed, or pending.
-    attr_accessor :state
+    # True if the policy was successfully applied; false otherwise.
+    attr_accessor :success
 
-    # Details pertaining to the policy result.
-    attr_accessor :detail
+    # ObjectId uniquely identifying the parent System.
+    attr_accessor :system_id
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'policy_id' => :'policyID',
-        :'system_id' => :'systemID',
-        :'id' => :'id',
-        :'started_at' => :'startedAt',
+        :'detail' => :'detail',
         :'ended_at' => :'endedAt',
-        :'success' => :'success',
         :'exit_status' => :'exitStatus',
+        :'id' => :'id',
+        :'policy_id' => :'policyID',
+        :'started_at' => :'startedAt',
+        :'state' => :'state',
         :'std_err' => :'stdErr',
         :'std_out' => :'stdOut',
-        :'state' => :'state',
-        :'detail' => :'detail'
+        :'success' => :'success',
+        :'system_id' => :'systemID'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'policy_id' => :'String',
-        :'system_id' => :'String',
-        :'id' => :'String',
-        :'started_at' => :'DateTime',
+        :'detail' => :'String',
         :'ended_at' => :'DateTime',
-        :'success' => :'BOOLEAN',
         :'exit_status' => :'Integer',
+        :'id' => :'String',
+        :'policy_id' => :'String',
+        :'started_at' => :'DateTime',
+        :'state' => :'String',
         :'std_err' => :'String',
         :'std_out' => :'String',
-        :'state' => :'String',
-        :'detail' => :'String'
+        :'success' => :'BOOLEAN',
+        :'system_id' => :'String'
       }
     end
 
@@ -91,32 +91,32 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'policyID')
-        self.policy_id = attributes[:'policyID']
-      end
-
-      if attributes.has_key?(:'systemID')
-        self.system_id = attributes[:'systemID']
-      end
-
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.has_key?(:'startedAt')
-        self.started_at = attributes[:'startedAt']
+      if attributes.has_key?(:'detail')
+        self.detail = attributes[:'detail']
       end
 
       if attributes.has_key?(:'endedAt')
         self.ended_at = attributes[:'endedAt']
       end
 
-      if attributes.has_key?(:'success')
-        self.success = attributes[:'success']
-      end
-
       if attributes.has_key?(:'exitStatus')
         self.exit_status = attributes[:'exitStatus']
+      end
+
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+      if attributes.has_key?(:'policyID')
+        self.policy_id = attributes[:'policyID']
+      end
+
+      if attributes.has_key?(:'startedAt')
+        self.started_at = attributes[:'startedAt']
+      end
+
+      if attributes.has_key?(:'state')
+        self.state = attributes[:'state']
       end
 
       if attributes.has_key?(:'stdErr')
@@ -127,12 +127,12 @@ module JCAPIv2
         self.std_out = attributes[:'stdOut']
       end
 
-      if attributes.has_key?(:'state')
-        self.state = attributes[:'state']
+      if attributes.has_key?(:'success')
+        self.success = attributes[:'success']
       end
 
-      if attributes.has_key?(:'detail')
-        self.detail = attributes[:'detail']
+      if attributes.has_key?(:'systemID')
+        self.system_id = attributes[:'systemID']
       end
 
     end
@@ -155,17 +155,17 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          policy_id == o.policy_id &&
-          system_id == o.system_id &&
-          id == o.id &&
-          started_at == o.started_at &&
+          detail == o.detail &&
           ended_at == o.ended_at &&
-          success == o.success &&
           exit_status == o.exit_status &&
+          id == o.id &&
+          policy_id == o.policy_id &&
+          started_at == o.started_at &&
+          state == o.state &&
           std_err == o.std_err &&
           std_out == o.std_out &&
-          state == o.state &&
-          detail == o.detail
+          success == o.success &&
+          system_id == o.system_id
     end
 
     # @see the `==` method
@@ -177,7 +177,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [policy_id, system_id, id, started_at, ended_at, success, exit_status, std_err, std_out, state, detail].hash
+      [detail, ended_at, exit_status, id, policy_id, started_at, state, std_err, std_out, success, system_id].hash
     end
 
     # Builds the object from hash

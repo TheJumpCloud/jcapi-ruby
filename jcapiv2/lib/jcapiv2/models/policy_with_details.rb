@@ -15,15 +15,15 @@ require 'date'
 module JCAPIv2
   # An instance of a policy template.
   class PolicyWithDetails
+    attr_accessor :config_fields
+
     # ObjectId uniquely identifying a Policy.
     attr_accessor :id
 
-    attr_accessor :template
-
-    attr_accessor :config_fields
-
     # The description for this specific Policy.
     attr_accessor :name
+
+    attr_accessor :template
 
     attr_accessor :values
 
@@ -31,10 +31,10 @@ module JCAPIv2
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'template' => :'template',
         :'config_fields' => :'configFields',
+        :'id' => :'id',
         :'name' => :'name',
+        :'template' => :'template',
         :'values' => :'values'
       }
     end
@@ -42,10 +42,10 @@ module JCAPIv2
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'String',
-        :'template' => :'PolicyTemplate',
         :'config_fields' => :'Array<PolicyTemplateConfigField>',
+        :'id' => :'String',
         :'name' => :'String',
+        :'template' => :'PolicyTemplate',
         :'values' => :'Array<PolicyValue>'
       }
     end
@@ -58,22 +58,22 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.has_key?(:'template')
-        self.template = attributes[:'template']
-      end
-
       if attributes.has_key?(:'configFields')
         if (value = attributes[:'configFields']).is_a?(Array)
           self.config_fields = value
         end
       end
 
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
+      end
+
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.has_key?(:'template')
+        self.template = attributes[:'template']
       end
 
       if attributes.has_key?(:'values')
@@ -102,10 +102,10 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          template == o.template &&
           config_fields == o.config_fields &&
+          id == o.id &&
           name == o.name &&
+          template == o.template &&
           values == o.values
     end
 
@@ -118,7 +118,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, template, config_fields, name, values].hash
+      [config_fields, id, name, template, values].hash
     end
 
     # Builds the object from hash

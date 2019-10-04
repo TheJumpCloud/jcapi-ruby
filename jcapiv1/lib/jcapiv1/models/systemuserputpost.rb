@@ -15,165 +15,165 @@ require 'date'
 module JCAPIv1
 
   class Systemuserputpost
-    attr_accessor :email
-
-    attr_accessor :username
-
-    attr_accessor :allow_public_key
-
-    attr_accessor :public_key
-
-    attr_accessor :sudo
-
-    attr_accessor :enable_managed_uid
-
-    attr_accessor :unix_uid
-
-    attr_accessor :unix_guid
+    attr_accessor :account_locked
 
     attr_accessor :activated
 
-    attr_accessor :tags
+    attr_accessor :addresses
 
-    attr_accessor :account_locked
+    attr_accessor :allow_public_key
 
-    attr_accessor :passwordless_sudo
+    attr_accessor :attributes
 
-    attr_accessor :externally_managed
+    attr_accessor :company
+
+    attr_accessor :cost_center
+
+    attr_accessor :department
+
+    attr_accessor :description
+
+    attr_accessor :displayname
+
+    attr_accessor :email
+
+    # Must be unique per user. 
+    attr_accessor :employee_identifier
+
+    attr_accessor :employee_type
+
+    attr_accessor :enable_managed_uid
+
+    attr_accessor :enable_user_portal_multifactor
 
     attr_accessor :external_dn
 
     attr_accessor :external_source_type
 
+    attr_accessor :externally_managed
+
     attr_accessor :firstname
+
+    attr_accessor :job_title
 
     attr_accessor :lastname
 
     attr_accessor :ldap_binding_user
 
-    attr_accessor :enable_user_portal_multifactor
+    attr_accessor :location
 
-    attr_accessor :attributes
+    attr_accessor :mfa
 
-    attr_accessor :samba_service_user
-
-    attr_accessor :addresses
-
-    attr_accessor :job_title
-
-    attr_accessor :department
-
-    attr_accessor :phone_numbers
-
-    attr_accessor :relationships
+    attr_accessor :middlename
 
     attr_accessor :password
 
     attr_accessor :password_never_expires
 
-    attr_accessor :middlename
+    attr_accessor :passwordless_sudo
 
-    attr_accessor :displayname
+    attr_accessor :phone_numbers
 
-    attr_accessor :description
+    attr_accessor :public_key
 
-    attr_accessor :location
+    attr_accessor :relationships
 
-    attr_accessor :cost_center
+    attr_accessor :samba_service_user
 
-    attr_accessor :employee_type
+    attr_accessor :sudo
 
-    attr_accessor :company
+    attr_accessor :tags
 
-    # Must be unique per user. 
-    attr_accessor :employee_identifier
+    attr_accessor :unix_guid
 
-    attr_accessor :mfa
+    attr_accessor :unix_uid
+
+    attr_accessor :username
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'email' => :'email',
-        :'username' => :'username',
-        :'allow_public_key' => :'allow_public_key',
-        :'public_key' => :'public_key',
-        :'sudo' => :'sudo',
-        :'enable_managed_uid' => :'enable_managed_uid',
-        :'unix_uid' => :'unix_uid',
-        :'unix_guid' => :'unix_guid',
-        :'activated' => :'activated',
-        :'tags' => :'tags',
         :'account_locked' => :'account_locked',
-        :'passwordless_sudo' => :'passwordless_sudo',
-        :'externally_managed' => :'externally_managed',
+        :'activated' => :'activated',
+        :'addresses' => :'addresses',
+        :'allow_public_key' => :'allow_public_key',
+        :'attributes' => :'attributes',
+        :'company' => :'company',
+        :'cost_center' => :'costCenter',
+        :'department' => :'department',
+        :'description' => :'description',
+        :'displayname' => :'displayname',
+        :'email' => :'email',
+        :'employee_identifier' => :'employeeIdentifier',
+        :'employee_type' => :'employeeType',
+        :'enable_managed_uid' => :'enable_managed_uid',
+        :'enable_user_portal_multifactor' => :'enable_user_portal_multifactor',
         :'external_dn' => :'external_dn',
         :'external_source_type' => :'external_source_type',
+        :'externally_managed' => :'externally_managed',
         :'firstname' => :'firstname',
+        :'job_title' => :'jobTitle',
         :'lastname' => :'lastname',
         :'ldap_binding_user' => :'ldap_binding_user',
-        :'enable_user_portal_multifactor' => :'enable_user_portal_multifactor',
-        :'attributes' => :'attributes',
-        :'samba_service_user' => :'samba_service_user',
-        :'addresses' => :'addresses',
-        :'job_title' => :'jobTitle',
-        :'department' => :'department',
-        :'phone_numbers' => :'phoneNumbers',
-        :'relationships' => :'relationships',
+        :'location' => :'location',
+        :'mfa' => :'mfa',
+        :'middlename' => :'middlename',
         :'password' => :'password',
         :'password_never_expires' => :'password_never_expires',
-        :'middlename' => :'middlename',
-        :'displayname' => :'displayname',
-        :'description' => :'description',
-        :'location' => :'location',
-        :'cost_center' => :'costCenter',
-        :'employee_type' => :'employeeType',
-        :'company' => :'company',
-        :'employee_identifier' => :'employeeIdentifier',
-        :'mfa' => :'mfa'
+        :'passwordless_sudo' => :'passwordless_sudo',
+        :'phone_numbers' => :'phoneNumbers',
+        :'public_key' => :'public_key',
+        :'relationships' => :'relationships',
+        :'samba_service_user' => :'samba_service_user',
+        :'sudo' => :'sudo',
+        :'tags' => :'tags',
+        :'unix_guid' => :'unix_guid',
+        :'unix_uid' => :'unix_uid',
+        :'username' => :'username'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'email' => :'String',
-        :'username' => :'String',
-        :'allow_public_key' => :'BOOLEAN',
-        :'public_key' => :'String',
-        :'sudo' => :'BOOLEAN',
-        :'enable_managed_uid' => :'BOOLEAN',
-        :'unix_uid' => :'Integer',
-        :'unix_guid' => :'Integer',
-        :'activated' => :'BOOLEAN',
-        :'tags' => :'Array<String>',
         :'account_locked' => :'BOOLEAN',
-        :'passwordless_sudo' => :'BOOLEAN',
-        :'externally_managed' => :'BOOLEAN',
+        :'activated' => :'BOOLEAN',
+        :'addresses' => :'Array<SystemuserputpostAddresses>',
+        :'allow_public_key' => :'BOOLEAN',
+        :'attributes' => :'Array<Object>',
+        :'company' => :'String',
+        :'cost_center' => :'String',
+        :'department' => :'String',
+        :'description' => :'String',
+        :'displayname' => :'String',
+        :'email' => :'String',
+        :'employee_identifier' => :'String',
+        :'employee_type' => :'String',
+        :'enable_managed_uid' => :'BOOLEAN',
+        :'enable_user_portal_multifactor' => :'BOOLEAN',
         :'external_dn' => :'String',
         :'external_source_type' => :'String',
+        :'externally_managed' => :'BOOLEAN',
         :'firstname' => :'String',
+        :'job_title' => :'String',
         :'lastname' => :'String',
         :'ldap_binding_user' => :'BOOLEAN',
-        :'enable_user_portal_multifactor' => :'BOOLEAN',
-        :'attributes' => :'Array<Object>',
-        :'samba_service_user' => :'BOOLEAN',
-        :'addresses' => :'Array<SystemuserputpostAddresses>',
-        :'job_title' => :'String',
-        :'department' => :'String',
-        :'phone_numbers' => :'Array<SystemuserputpostPhoneNumbers>',
-        :'relationships' => :'Array<Object>',
+        :'location' => :'String',
+        :'mfa' => :'Mfa',
+        :'middlename' => :'String',
         :'password' => :'String',
         :'password_never_expires' => :'BOOLEAN',
-        :'middlename' => :'String',
-        :'displayname' => :'String',
-        :'description' => :'String',
-        :'location' => :'String',
-        :'cost_center' => :'String',
-        :'employee_type' => :'String',
-        :'company' => :'String',
-        :'employee_identifier' => :'String',
-        :'mfa' => :'Mfa'
+        :'passwordless_sudo' => :'BOOLEAN',
+        :'phone_numbers' => :'Array<SystemuserputpostPhoneNumbers>',
+        :'public_key' => :'String',
+        :'relationships' => :'Array<Object>',
+        :'samba_service_user' => :'BOOLEAN',
+        :'sudo' => :'BOOLEAN',
+        :'tags' => :'Array<String>',
+        :'unix_guid' => :'Integer',
+        :'unix_uid' => :'Integer',
+        :'username' => :'String'
       }
     end
 
@@ -185,58 +185,68 @@ module JCAPIv1
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'email')
-        self.email = attributes[:'email']
-      end
-
-      if attributes.has_key?(:'username')
-        self.username = attributes[:'username']
-      end
-
-      if attributes.has_key?(:'allow_public_key')
-        self.allow_public_key = attributes[:'allow_public_key']
-      end
-
-      if attributes.has_key?(:'public_key')
-        self.public_key = attributes[:'public_key']
-      end
-
-      if attributes.has_key?(:'sudo')
-        self.sudo = attributes[:'sudo']
-      end
-
-      if attributes.has_key?(:'enable_managed_uid')
-        self.enable_managed_uid = attributes[:'enable_managed_uid']
-      end
-
-      if attributes.has_key?(:'unix_uid')
-        self.unix_uid = attributes[:'unix_uid']
-      end
-
-      if attributes.has_key?(:'unix_guid')
-        self.unix_guid = attributes[:'unix_guid']
+      if attributes.has_key?(:'account_locked')
+        self.account_locked = attributes[:'account_locked']
       end
 
       if attributes.has_key?(:'activated')
         self.activated = attributes[:'activated']
       end
 
-      if attributes.has_key?(:'tags')
-        if (value = attributes[:'tags']).is_a?(Array)
-          self.tags = value
+      if attributes.has_key?(:'addresses')
+        if (value = attributes[:'addresses']).is_a?(Array)
+          self.addresses = value
         end
       end
 
-      if attributes.has_key?(:'account_locked')
-        self.account_locked = attributes[:'account_locked']
+      if attributes.has_key?(:'allow_public_key')
+        self.allow_public_key = attributes[:'allow_public_key']
       end
 
-      if attributes.has_key?(:'passwordless_sudo')
-        self.passwordless_sudo = attributes[:'passwordless_sudo']
+      if attributes.has_key?(:'attributes')
+        if (value = attributes[:'attributes']).is_a?(Array)
+          self.attributes = value
+        end
       end
 
-      if attributes.has_key?(:'externally_managed')
-        self.externally_managed = attributes[:'externally_managed']
+      if attributes.has_key?(:'company')
+        self.company = attributes[:'company']
+      end
+
+      if attributes.has_key?(:'costCenter')
+        self.cost_center = attributes[:'costCenter']
+      end
+
+      if attributes.has_key?(:'department')
+        self.department = attributes[:'department']
+      end
+
+      if attributes.has_key?(:'description')
+        self.description = attributes[:'description']
+      end
+
+      if attributes.has_key?(:'displayname')
+        self.displayname = attributes[:'displayname']
+      end
+
+      if attributes.has_key?(:'email')
+        self.email = attributes[:'email']
+      end
+
+      if attributes.has_key?(:'employeeIdentifier')
+        self.employee_identifier = attributes[:'employeeIdentifier']
+      end
+
+      if attributes.has_key?(:'employeeType')
+        self.employee_type = attributes[:'employeeType']
+      end
+
+      if attributes.has_key?(:'enable_managed_uid')
+        self.enable_managed_uid = attributes[:'enable_managed_uid']
+      end
+
+      if attributes.has_key?(:'enable_user_portal_multifactor')
+        self.enable_user_portal_multifactor = attributes[:'enable_user_portal_multifactor']
       end
 
       if attributes.has_key?(:'external_dn')
@@ -247,8 +257,16 @@ module JCAPIv1
         self.external_source_type = attributes[:'external_source_type']
       end
 
+      if attributes.has_key?(:'externally_managed')
+        self.externally_managed = attributes[:'externally_managed']
+      end
+
       if attributes.has_key?(:'firstname')
         self.firstname = attributes[:'firstname']
+      end
+
+      if attributes.has_key?(:'jobTitle')
+        self.job_title = attributes[:'jobTitle']
       end
 
       if attributes.has_key?(:'lastname')
@@ -259,44 +277,16 @@ module JCAPIv1
         self.ldap_binding_user = attributes[:'ldap_binding_user']
       end
 
-      if attributes.has_key?(:'enable_user_portal_multifactor')
-        self.enable_user_portal_multifactor = attributes[:'enable_user_portal_multifactor']
+      if attributes.has_key?(:'location')
+        self.location = attributes[:'location']
       end
 
-      if attributes.has_key?(:'attributes')
-        if (value = attributes[:'attributes']).is_a?(Array)
-          self.attributes = value
-        end
+      if attributes.has_key?(:'mfa')
+        self.mfa = attributes[:'mfa']
       end
 
-      if attributes.has_key?(:'samba_service_user')
-        self.samba_service_user = attributes[:'samba_service_user']
-      end
-
-      if attributes.has_key?(:'addresses')
-        if (value = attributes[:'addresses']).is_a?(Array)
-          self.addresses = value
-        end
-      end
-
-      if attributes.has_key?(:'jobTitle')
-        self.job_title = attributes[:'jobTitle']
-      end
-
-      if attributes.has_key?(:'department')
-        self.department = attributes[:'department']
-      end
-
-      if attributes.has_key?(:'phoneNumbers')
-        if (value = attributes[:'phoneNumbers']).is_a?(Array)
-          self.phone_numbers = value
-        end
-      end
-
-      if attributes.has_key?(:'relationships')
-        if (value = attributes[:'relationships']).is_a?(Array)
-          self.relationships = value
-        end
+      if attributes.has_key?(:'middlename')
+        self.middlename = attributes[:'middlename']
       end
 
       if attributes.has_key?(:'password')
@@ -307,40 +297,50 @@ module JCAPIv1
         self.password_never_expires = attributes[:'password_never_expires']
       end
 
-      if attributes.has_key?(:'middlename')
-        self.middlename = attributes[:'middlename']
+      if attributes.has_key?(:'passwordless_sudo')
+        self.passwordless_sudo = attributes[:'passwordless_sudo']
       end
 
-      if attributes.has_key?(:'displayname')
-        self.displayname = attributes[:'displayname']
+      if attributes.has_key?(:'phoneNumbers')
+        if (value = attributes[:'phoneNumbers']).is_a?(Array)
+          self.phone_numbers = value
+        end
       end
 
-      if attributes.has_key?(:'description')
-        self.description = attributes[:'description']
+      if attributes.has_key?(:'public_key')
+        self.public_key = attributes[:'public_key']
       end
 
-      if attributes.has_key?(:'location')
-        self.location = attributes[:'location']
+      if attributes.has_key?(:'relationships')
+        if (value = attributes[:'relationships']).is_a?(Array)
+          self.relationships = value
+        end
       end
 
-      if attributes.has_key?(:'costCenter')
-        self.cost_center = attributes[:'costCenter']
+      if attributes.has_key?(:'samba_service_user')
+        self.samba_service_user = attributes[:'samba_service_user']
       end
 
-      if attributes.has_key?(:'employeeType')
-        self.employee_type = attributes[:'employeeType']
+      if attributes.has_key?(:'sudo')
+        self.sudo = attributes[:'sudo']
       end
 
-      if attributes.has_key?(:'company')
-        self.company = attributes[:'company']
+      if attributes.has_key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
       end
 
-      if attributes.has_key?(:'employeeIdentifier')
-        self.employee_identifier = attributes[:'employeeIdentifier']
+      if attributes.has_key?(:'unix_guid')
+        self.unix_guid = attributes[:'unix_guid']
       end
 
-      if attributes.has_key?(:'mfa')
-        self.mfa = attributes[:'mfa']
+      if attributes.has_key?(:'unix_uid')
+        self.unix_uid = attributes[:'unix_uid']
+      end
+
+      if attributes.has_key?(:'username')
+        self.username = attributes[:'username']
       end
 
     end
@@ -349,6 +349,10 @@ module JCAPIv1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@description.nil? && @description.to_s.length > 1024
+        invalid_properties.push("invalid value for 'description', the character length must be smaller than or equal to 1024.")
+      end
+
       if @email.nil?
         invalid_properties.push("invalid value for 'email', email cannot be nil.")
       end
@@ -357,24 +361,20 @@ module JCAPIv1
         invalid_properties.push("invalid value for 'email', the character length must be smaller than or equal to 1024.")
       end
 
-      if @username.nil?
-        invalid_properties.push("invalid value for 'username', username cannot be nil.")
-      end
-
-      if !@unix_uid.nil? && @unix_uid < 1
-        invalid_properties.push("invalid value for 'unix_uid', must be greater than or equal to 1.")
+      if !@employee_identifier.nil? && @employee_identifier.to_s.length > 256
+        invalid_properties.push("invalid value for 'employee_identifier', the character length must be smaller than or equal to 256.")
       end
 
       if !@unix_guid.nil? && @unix_guid < 1
         invalid_properties.push("invalid value for 'unix_guid', must be greater than or equal to 1.")
       end
 
-      if !@description.nil? && @description.to_s.length > 1024
-        invalid_properties.push("invalid value for 'description', the character length must be smaller than or equal to 1024.")
+      if !@unix_uid.nil? && @unix_uid < 1
+        invalid_properties.push("invalid value for 'unix_uid', must be greater than or equal to 1.")
       end
 
-      if !@employee_identifier.nil? && @employee_identifier.to_s.length > 256
-        invalid_properties.push("invalid value for 'employee_identifier', the character length must be smaller than or equal to 256.")
+      if @username.nil?
+        invalid_properties.push("invalid value for 'username', username cannot be nil.")
       end
 
       return invalid_properties
@@ -383,14 +383,25 @@ module JCAPIv1
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@description.nil? && @description.to_s.length > 1024
       return false if @email.nil?
       return false if @email.to_s.length > 1024
-      return false if @username.nil?
-      return false if !@unix_uid.nil? && @unix_uid < 1
-      return false if !@unix_guid.nil? && @unix_guid < 1
-      return false if !@description.nil? && @description.to_s.length > 1024
       return false if !@employee_identifier.nil? && @employee_identifier.to_s.length > 256
+      return false if !@unix_guid.nil? && @unix_guid < 1
+      return false if !@unix_uid.nil? && @unix_uid < 1
+      return false if @username.nil?
       return true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] description Value to be assigned
+    def description=(description)
+
+      if !description.nil? && description.to_s.length > 1024
+        fail ArgumentError, "invalid value for 'description', the character length must be smaller than or equal to 1024."
+      end
+
+      @description = description
     end
 
     # Custom attribute writer method with validation
@@ -408,14 +419,14 @@ module JCAPIv1
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] unix_uid Value to be assigned
-    def unix_uid=(unix_uid)
+    # @param [Object] employee_identifier Value to be assigned
+    def employee_identifier=(employee_identifier)
 
-      if !unix_uid.nil? && unix_uid < 1
-        fail ArgumentError, "invalid value for 'unix_uid', must be greater than or equal to 1."
+      if !employee_identifier.nil? && employee_identifier.to_s.length > 256
+        fail ArgumentError, "invalid value for 'employee_identifier', the character length must be smaller than or equal to 256."
       end
 
-      @unix_uid = unix_uid
+      @employee_identifier = employee_identifier
     end
 
     # Custom attribute writer method with validation
@@ -430,25 +441,14 @@ module JCAPIv1
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] description Value to be assigned
-    def description=(description)
+    # @param [Object] unix_uid Value to be assigned
+    def unix_uid=(unix_uid)
 
-      if !description.nil? && description.to_s.length > 1024
-        fail ArgumentError, "invalid value for 'description', the character length must be smaller than or equal to 1024."
+      if !unix_uid.nil? && unix_uid < 1
+        fail ArgumentError, "invalid value for 'unix_uid', must be greater than or equal to 1."
       end
 
-      @description = description
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] employee_identifier Value to be assigned
-    def employee_identifier=(employee_identifier)
-
-      if !employee_identifier.nil? && employee_identifier.to_s.length > 256
-        fail ArgumentError, "invalid value for 'employee_identifier', the character length must be smaller than or equal to 256."
-      end
-
-      @employee_identifier = employee_identifier
+      @unix_uid = unix_uid
     end
 
     # Checks equality by comparing each attribute.
@@ -456,43 +456,43 @@ module JCAPIv1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          email == o.email &&
-          username == o.username &&
-          allow_public_key == o.allow_public_key &&
-          public_key == o.public_key &&
-          sudo == o.sudo &&
-          enable_managed_uid == o.enable_managed_uid &&
-          unix_uid == o.unix_uid &&
-          unix_guid == o.unix_guid &&
-          activated == o.activated &&
-          tags == o.tags &&
           account_locked == o.account_locked &&
-          passwordless_sudo == o.passwordless_sudo &&
-          externally_managed == o.externally_managed &&
+          activated == o.activated &&
+          addresses == o.addresses &&
+          allow_public_key == o.allow_public_key &&
+          attributes == o.attributes &&
+          company == o.company &&
+          cost_center == o.cost_center &&
+          department == o.department &&
+          description == o.description &&
+          displayname == o.displayname &&
+          email == o.email &&
+          employee_identifier == o.employee_identifier &&
+          employee_type == o.employee_type &&
+          enable_managed_uid == o.enable_managed_uid &&
+          enable_user_portal_multifactor == o.enable_user_portal_multifactor &&
           external_dn == o.external_dn &&
           external_source_type == o.external_source_type &&
+          externally_managed == o.externally_managed &&
           firstname == o.firstname &&
+          job_title == o.job_title &&
           lastname == o.lastname &&
           ldap_binding_user == o.ldap_binding_user &&
-          enable_user_portal_multifactor == o.enable_user_portal_multifactor &&
-          attributes == o.attributes &&
-          samba_service_user == o.samba_service_user &&
-          addresses == o.addresses &&
-          job_title == o.job_title &&
-          department == o.department &&
-          phone_numbers == o.phone_numbers &&
-          relationships == o.relationships &&
+          location == o.location &&
+          mfa == o.mfa &&
+          middlename == o.middlename &&
           password == o.password &&
           password_never_expires == o.password_never_expires &&
-          middlename == o.middlename &&
-          displayname == o.displayname &&
-          description == o.description &&
-          location == o.location &&
-          cost_center == o.cost_center &&
-          employee_type == o.employee_type &&
-          company == o.company &&
-          employee_identifier == o.employee_identifier &&
-          mfa == o.mfa
+          passwordless_sudo == o.passwordless_sudo &&
+          phone_numbers == o.phone_numbers &&
+          public_key == o.public_key &&
+          relationships == o.relationships &&
+          samba_service_user == o.samba_service_user &&
+          sudo == o.sudo &&
+          tags == o.tags &&
+          unix_guid == o.unix_guid &&
+          unix_uid == o.unix_uid &&
+          username == o.username
     end
 
     # @see the `==` method
@@ -504,7 +504,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [email, username, allow_public_key, public_key, sudo, enable_managed_uid, unix_uid, unix_guid, activated, tags, account_locked, passwordless_sudo, externally_managed, external_dn, external_source_type, firstname, lastname, ldap_binding_user, enable_user_portal_multifactor, attributes, samba_service_user, addresses, job_title, department, phone_numbers, relationships, password, password_never_expires, middlename, displayname, description, location, cost_center, employee_type, company, employee_identifier, mfa].hash
+      [account_locked, activated, addresses, allow_public_key, attributes, company, cost_center, department, description, displayname, email, employee_identifier, employee_type, enable_managed_uid, enable_user_portal_multifactor, external_dn, external_source_type, externally_managed, firstname, job_title, lastname, ldap_binding_user, location, mfa, middlename, password, password_never_expires, passwordless_sudo, phone_numbers, public_key, relationships, samba_service_user, sudo, tags, unix_guid, unix_uid, username].hash
     end
 
     # Builds the object from hash

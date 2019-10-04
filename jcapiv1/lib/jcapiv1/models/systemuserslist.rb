@@ -15,26 +15,26 @@ require 'date'
 module JCAPIv1
 
   class Systemuserslist
-    # The total number of system users.
-    attr_accessor :total_count
-
     # The list of system users.
     attr_accessor :results
+
+    # The total number of system users.
+    attr_accessor :total_count
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'total_count' => :'totalCount',
-        :'results' => :'results'
+        :'results' => :'results',
+        :'total_count' => :'totalCount'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'total_count' => :'Integer',
-        :'results' => :'Array<Systemuserreturn>'
+        :'results' => :'Array<Systemuserreturn>',
+        :'total_count' => :'Integer'
       }
     end
 
@@ -46,14 +46,14 @@ module JCAPIv1
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'totalCount')
-        self.total_count = attributes[:'totalCount']
-      end
-
       if attributes.has_key?(:'results')
         if (value = attributes[:'results']).is_a?(Array)
           self.results = value
         end
+      end
+
+      if attributes.has_key?(:'totalCount')
+        self.total_count = attributes[:'totalCount']
       end
 
     end
@@ -76,8 +76,8 @@ module JCAPIv1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          total_count == o.total_count &&
-          results == o.results
+          results == o.results &&
+          total_count == o.total_count
     end
 
     # @see the `==` method
@@ -89,7 +89,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [total_count, results].hash
+      [results, total_count].hash
     end
 
     # Builds the object from hash

@@ -32,13 +32,13 @@ describe 'Search' do
       expect(@instance).to be_instance_of(JCAPIv1::Search)
     end
   end
-  describe 'test attribute "filter"' do
+  describe 'test attribute "fields"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "fields"' do
+  describe 'test attribute "filter"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

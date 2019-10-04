@@ -15,44 +15,44 @@ require 'date'
 module JCAPIv2
 
   class SystemInsightsGroups
+    attr_accessor :collection_time
+
+    attr_accessor :comment
+
     attr_accessor :gid
 
     attr_accessor :gid_signed
 
-    attr_accessor :groupname
-
     attr_accessor :group_sid
 
-    attr_accessor :comment
+    attr_accessor :groupname
 
-    attr_accessor :jc_collection_time
-
-    attr_accessor :jc_system_id
+    attr_accessor :system_id
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'collection_time' => :'collection_time',
+        :'comment' => :'comment',
         :'gid' => :'gid',
         :'gid_signed' => :'gid_signed',
-        :'groupname' => :'groupname',
         :'group_sid' => :'group_sid',
-        :'comment' => :'comment',
-        :'jc_collection_time' => :'jc_collection_time',
-        :'jc_system_id' => :'jc_system_id'
+        :'groupname' => :'groupname',
+        :'system_id' => :'system_id'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'collection_time' => :'String',
+        :'comment' => :'String',
         :'gid' => :'String',
         :'gid_signed' => :'String',
-        :'groupname' => :'String',
         :'group_sid' => :'String',
-        :'comment' => :'String',
-        :'jc_collection_time' => :'String',
-        :'jc_system_id' => :'String'
+        :'groupname' => :'String',
+        :'system_id' => :'String'
       }
     end
 
@@ -64,6 +64,14 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
+      if attributes.has_key?(:'collection_time')
+        self.collection_time = attributes[:'collection_time']
+      end
+
+      if attributes.has_key?(:'comment')
+        self.comment = attributes[:'comment']
+      end
+
       if attributes.has_key?(:'gid')
         self.gid = attributes[:'gid']
       end
@@ -72,24 +80,16 @@ module JCAPIv2
         self.gid_signed = attributes[:'gid_signed']
       end
 
-      if attributes.has_key?(:'groupname')
-        self.groupname = attributes[:'groupname']
-      end
-
       if attributes.has_key?(:'group_sid')
         self.group_sid = attributes[:'group_sid']
       end
 
-      if attributes.has_key?(:'comment')
-        self.comment = attributes[:'comment']
+      if attributes.has_key?(:'groupname')
+        self.groupname = attributes[:'groupname']
       end
 
-      if attributes.has_key?(:'jc_collection_time')
-        self.jc_collection_time = attributes[:'jc_collection_time']
-      end
-
-      if attributes.has_key?(:'jc_system_id')
-        self.jc_system_id = attributes[:'jc_system_id']
+      if attributes.has_key?(:'system_id')
+        self.system_id = attributes[:'system_id']
       end
 
     end
@@ -112,13 +112,13 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          collection_time == o.collection_time &&
+          comment == o.comment &&
           gid == o.gid &&
           gid_signed == o.gid_signed &&
-          groupname == o.groupname &&
           group_sid == o.group_sid &&
-          comment == o.comment &&
-          jc_collection_time == o.jc_collection_time &&
-          jc_system_id == o.jc_system_id
+          groupname == o.groupname &&
+          system_id == o.system_id
     end
 
     # @see the `==` method
@@ -130,7 +130,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [gid, gid_signed, groupname, group_sid, comment, jc_collection_time, jc_system_id].hash
+      [collection_time, comment, gid, gid_signed, group_sid, groupname, system_id].hash
     end
 
     # Builds the object from hash

@@ -15,14 +15,14 @@ require 'date'
 module JCAPIv2
 
   class Directory
-    # The type of directory.
-    attr_accessor :type
-
     # The ObjectID of the directory.
     attr_accessor :id
 
     # The name of the directory.
     attr_accessor :name
+
+    # The type of directory.
+    attr_accessor :type
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -49,18 +49,18 @@ module JCAPIv2
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'type' => :'type',
         :'id' => :'id',
-        :'name' => :'name'
+        :'name' => :'name',
+        :'type' => :'type'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'type' => :'String',
         :'id' => :'String',
-        :'name' => :'String'
+        :'name' => :'String',
+        :'type' => :'String'
       }
     end
 
@@ -72,10 +72,6 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'type')
-        self.type = attributes[:'type']
-      end
-
       if attributes.has_key?(:'id')
         self.id = attributes[:'id']
       end
@@ -84,16 +80,16 @@ module JCAPIv2
         self.name = attributes[:'name']
       end
 
+      if attributes.has_key?(:'type')
+        self.type = attributes[:'type']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @type.nil?
-        invalid_properties.push("invalid value for 'type', type cannot be nil.")
-      end
-
       if @id.nil?
         invalid_properties.push("invalid value for 'id', id cannot be nil.")
       end
@@ -102,17 +98,21 @@ module JCAPIv2
         invalid_properties.push("invalid value for 'name', name cannot be nil.")
       end
 
+      if @type.nil?
+        invalid_properties.push("invalid value for 'type', type cannot be nil.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @id.nil?
+      return false if @name.nil?
       return false if @type.nil?
       type_validator = EnumAttributeValidator.new('String', ["g_suite", "ldap_server", "office_365", "workday"])
       return false unless type_validator.valid?(@type)
-      return false if @id.nil?
-      return false if @name.nil?
       return true
     end
 
@@ -131,9 +131,9 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          type == o.type &&
           id == o.id &&
-          name == o.name
+          name == o.name &&
+          type == o.type
     end
 
     # @see the `==` method
@@ -145,7 +145,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [type, id, name].hash
+      [id, name, type].hash
     end
 
     # Builds the object from hash

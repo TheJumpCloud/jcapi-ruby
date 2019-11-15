@@ -21,15 +21,12 @@ module JCAPIv2
     # Duo application name.
     attr_accessor :name
 
-    attr_accessor :registration_application
-
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
-        :'name' => :'name',
-        :'registration_application' => :'registrationApplication'
+        :'name' => :'name'
       }
     end
 
@@ -37,8 +34,7 @@ module JCAPIv2
     def self.swagger_types
       {
         :'id' => :'String',
-        :'name' => :'String',
-        :'registration_application' => :'DuoRegistrationApplication'
+        :'name' => :'String'
       }
     end
 
@@ -58,10 +54,6 @@ module JCAPIv2
         self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'registrationApplication')
-        self.registration_application = attributes[:'registrationApplication']
-      end
-
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -72,10 +64,6 @@ module JCAPIv2
         invalid_properties.push("invalid value for 'id', id cannot be nil.")
       end
 
-      if @registration_application.nil?
-        invalid_properties.push("invalid value for 'registration_application', registration_application cannot be nil.")
-      end
-
       return invalid_properties
     end
 
@@ -83,7 +71,6 @@ module JCAPIv2
     # @return true if the model is valid
     def valid?
       return false if @id.nil?
-      return false if @registration_application.nil?
       return true
     end
 
@@ -93,8 +80,7 @@ module JCAPIv2
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          name == o.name &&
-          registration_application == o.registration_application
+          name == o.name
     end
 
     # @see the `==` method
@@ -106,7 +92,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, registration_application].hash
+      [id, name].hash
     end
 
     # Builds the object from hash

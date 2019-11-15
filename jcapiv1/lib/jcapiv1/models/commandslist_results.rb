@@ -27,7 +27,6 @@ module JCAPIv1
     # How the Command is executed.
     attr_accessor :launch_type
 
-    # 
     attr_accessor :listens_to
 
     # The name of the Command.
@@ -36,7 +35,7 @@ module JCAPIv1
     # The ID of the Organization.
     attr_accessor :organization
 
-    # A crontab that consists of: [ (seconds) (minutes) (hours) (days of month) (months) (weekdays) ] or [ immediate ]. If you send this as an empty string, it will run immediately. 
+    # A crontab that consists of: [ (seconds) (minutes) (hours) (days of month) (months) (weekdays) ] or [ immediate ]. If you send this as an empty string, it will run immediately.
     attr_accessor :schedule
 
     # When the command will repeat.

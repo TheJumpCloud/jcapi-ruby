@@ -134,6 +134,10 @@ module JCAPIv1
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling TagsApi.tags_get"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling TagsApi.tags_get, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/Tags/{name}".sub('{' + 'name' + '}', name.to_s)
 
@@ -212,6 +216,10 @@ module JCAPIv1
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling TagsApi.tags_list"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling TagsApi.tags_list, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/tags"
 

@@ -35,6 +35,7 @@ Name | Type | Description | Notes
 **samba_service_user** | **BOOLEAN** |  | [optional] 
 **ssh_keys** | [**Array&lt;Sshkeypost&gt;**](Sshkeypost.md) |  | [optional] 
 **sudo** | **BOOLEAN** |  | [optional] 
+**suspended** | **BOOLEAN** |  | [optional] 
 **tags** | **Array&lt;String&gt;** |  | [optional] 
 **unix_guid** | **Integer** |  | [optional] 
 **unix_uid** | **Integer** |  | [optional] 

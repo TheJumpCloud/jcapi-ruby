@@ -13,22 +13,26 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module JCAPIv2
-  # The group object's attributes.
-  class UserGroupPutAttributes
-    attr_accessor :samba_enabled
+
+  class EnrollmentProfile
+    attr_accessor :apple_mdm_id
+
+    attr_accessor :id
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'samba_enabled' => :'sambaEnabled'
+        :'apple_mdm_id' => :'appleMdmId',
+        :'id' => :'id'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'samba_enabled' => :'BOOLEAN'
+        :'apple_mdm_id' => :'String',
+        :'id' => :'String'
       }
     end
 
@@ -40,8 +44,12 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'sambaEnabled')
-        self.samba_enabled = attributes[:'sambaEnabled']
+      if attributes.has_key?(:'appleMdmId')
+        self.apple_mdm_id = attributes[:'appleMdmId']
+      end
+
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
       end
 
     end
@@ -64,7 +72,8 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          samba_enabled == o.samba_enabled
+          apple_mdm_id == o.apple_mdm_id &&
+          id == o.id
     end
 
     # @see the `==` method
@@ -76,7 +85,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [samba_enabled].hash
+      [apple_mdm_id, id].hash
     end
 
     # Builds the object from hash

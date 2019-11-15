@@ -61,6 +61,10 @@ module JCAPIv1
       if @api_client.config.client_side_validation && accept.nil?
         fail ArgumentError, "Missing the required parameter 'accept' when calling RadiusServersApi.radius_servers_list"
       end
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling RadiusServersApi.radius_servers_list, must be greater than or equal to 0.'
+      end
+
       # resource path
       local_var_path = "/radiusservers"
 
@@ -108,7 +112,7 @@ module JCAPIv1
     # @param [Hash] opts the optional parameters
     # @option opts [Radiusserverpost] :body 
     # @option opts [String] :x_org_id  (default to )
-    # @return [Radiusserverslist]
+    # @return [Radiusserver]
     def radius_servers_post(content_type, accept, opts = {})
       data, _status_code, _headers = radius_servers_post_with_http_info(content_type, accept, opts)
       return data
@@ -121,7 +125,7 @@ module JCAPIv1
     # @param [Hash] opts the optional parameters
     # @option opts [Radiusserverpost] :body 
     # @option opts [String] :x_org_id 
-    # @return [Array<(Radiusserverslist, Fixnum, Hash)>] Radiusserverslist data, response status code and response headers
+    # @return [Array<(Radiusserver, Fixnum, Hash)>] Radiusserver data, response status code and response headers
     def radius_servers_post_with_http_info(content_type, accept, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: RadiusServersApi.radius_servers_post ..."
@@ -162,7 +166,7 @@ module JCAPIv1
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Radiusserverslist')
+        :return_type => 'Radiusserver')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: RadiusServersApi#radius_servers_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -170,29 +174,35 @@ module JCAPIv1
     end
 
     # Update Radius Servers
-    # This endpoint allows you to update RADIUS servers in your organization.  ####  ``` curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"name\": \"{name_update}\",     \"networkSourceIp\": \"{0.0.0.0}\",     \"userLockoutAction\": \"REMOVE\",     \"userPasswordExpirationAction\": \"MAINTAIN\" }' ```
+    # This endpoint allows you to update RADIUS servers in your organization.  #### ``` curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"name\": \"{name_update}\",     \"networkSourceIp\": \"{0.0.0.0}\",     \"userLockoutAction\": \"REMOVE\",     \"userPasswordExpirationAction\": \"MAINTAIN\" }' ```
+    # @param id 
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Body] :body 
     # @option opts [String] :x_org_id  (default to )
     # @return [Radiusserverput]
-    def radius_servers_put(content_type, accept, opts = {})
-      data, _status_code, _headers = radius_servers_put_with_http_info(content_type, accept, opts)
+    def radius_servers_put(id, content_type, accept, opts = {})
+      data, _status_code, _headers = radius_servers_put_with_http_info(id, content_type, accept, opts)
       return data
     end
 
     # Update Radius Servers
-    # This endpoint allows you to update RADIUS servers in your organization.  ####  &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;{name_update}\&quot;,     \&quot;networkSourceIp\&quot;: \&quot;{0.0.0.0}\&quot;,     \&quot;userLockoutAction\&quot;: \&quot;REMOVE\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;MAINTAIN\&quot; }&#39; &#x60;&#x60;&#x60;
+    # This endpoint allows you to update RADIUS servers in your organization.  #### &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{     \&quot;name\&quot;: \&quot;{name_update}\&quot;,     \&quot;networkSourceIp\&quot;: \&quot;{0.0.0.0}\&quot;,     \&quot;userLockoutAction\&quot;: \&quot;REMOVE\&quot;,     \&quot;userPasswordExpirationAction\&quot;: \&quot;MAINTAIN\&quot; }&#39; &#x60;&#x60;&#x60;
+    # @param id 
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
     # @option opts [Body] :body 
     # @option opts [String] :x_org_id 
     # @return [Array<(Radiusserverput, Fixnum, Hash)>] Radiusserverput data, response status code and response headers
-    def radius_servers_put_with_http_info(content_type, accept, opts = {})
+    def radius_servers_put_with_http_info(id, content_type, accept, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: RadiusServersApi.radius_servers_put ..."
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling RadiusServersApi.radius_servers_put"
       end
       # verify the required parameter 'content_type' is set
       if @api_client.config.client_side_validation && content_type.nil?
@@ -203,7 +213,7 @@ module JCAPIv1
         fail ArgumentError, "Missing the required parameter 'accept' when calling RadiusServersApi.radius_servers_put"
       end
       # resource path
-      local_var_path = "/radiusservers:id"
+      local_var_path = "/radiusservers/{id}".sub('{' + 'id' + '}', id.to_s)
 
       # query parameters
       query_params = {}

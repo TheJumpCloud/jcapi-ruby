@@ -82,6 +82,8 @@ module JCAPIv2
 
     attr_accessor :sudo
 
+    attr_accessor :suspended
+
     attr_accessor :tags
 
     attr_accessor :unix_guid
@@ -127,6 +129,7 @@ module JCAPIv2
         :'relationships' => :'relationships',
         :'samba_service_user' => :'samba_service_user',
         :'sudo' => :'sudo',
+        :'suspended' => :'suspended',
         :'tags' => :'tags',
         :'unix_guid' => :'unix_guid',
         :'unix_uid' => :'unix_uid',
@@ -170,6 +173,7 @@ module JCAPIv2
         :'relationships' => :'Array<Object>',
         :'samba_service_user' => :'BOOLEAN',
         :'sudo' => :'BOOLEAN',
+        :'suspended' => :'BOOLEAN',
         :'tags' => :'Array<String>',
         :'unix_guid' => :'Integer',
         :'unix_uid' => :'Integer',
@@ -323,6 +327,10 @@ module JCAPIv2
 
       if attributes.has_key?(:'sudo')
         self.sudo = attributes[:'sudo']
+      end
+
+      if attributes.has_key?(:'suspended')
+        self.suspended = attributes[:'suspended']
       end
 
       if attributes.has_key?(:'tags')
@@ -489,6 +497,7 @@ module JCAPIv2
           relationships == o.relationships &&
           samba_service_user == o.samba_service_user &&
           sudo == o.sudo &&
+          suspended == o.suspended &&
           tags == o.tags &&
           unix_guid == o.unix_guid &&
           unix_uid == o.unix_uid &&
@@ -504,7 +513,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [account_locked, activated, addresses, allow_public_key, attributes, company, cost_center, department, description, displayname, email, employee_identifier, employee_type, enable_managed_uid, enable_user_portal_multifactor, external_dn, external_source_type, externally_managed, firstname, job_title, lastname, ldap_binding_user, location, mfa, middlename, password, password_never_expires, passwordless_sudo, phone_numbers, public_key, relationships, samba_service_user, sudo, tags, unix_guid, unix_uid, username].hash
+      [account_locked, activated, addresses, allow_public_key, attributes, company, cost_center, department, description, displayname, email, employee_identifier, employee_type, enable_managed_uid, enable_user_portal_multifactor, external_dn, external_source_type, externally_managed, firstname, job_title, lastname, ldap_binding_user, location, mfa, middlename, password, password_never_expires, passwordless_sudo, phone_numbers, public_key, relationships, samba_service_user, sudo, suspended, tags, unix_guid, unix_uid, username].hash
     end
 
     # Builds the object from hash

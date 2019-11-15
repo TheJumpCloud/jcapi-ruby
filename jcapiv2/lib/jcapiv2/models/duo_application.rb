@@ -23,8 +23,6 @@ module JCAPIv2
 
     attr_accessor :name
 
-    attr_accessor :secret_key
-
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -32,8 +30,7 @@ module JCAPIv2
         :'api_host' => :'apiHost',
         :'id' => :'id',
         :'integration_key' => :'integrationKey',
-        :'name' => :'name',
-        :'secret_key' => :'secretKey'
+        :'name' => :'name'
       }
     end
 
@@ -43,8 +40,7 @@ module JCAPIv2
         :'api_host' => :'String',
         :'id' => :'String',
         :'integration_key' => :'String',
-        :'name' => :'String',
-        :'secret_key' => :'String'
+        :'name' => :'String'
       }
     end
 
@@ -72,10 +68,6 @@ module JCAPIv2
         self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'secretKey')
-        self.secret_key = attributes[:'secretKey']
-      end
-
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -98,10 +90,6 @@ module JCAPIv2
         invalid_properties.push("invalid value for 'name', name cannot be nil.")
       end
 
-      if @secret_key.nil?
-        invalid_properties.push("invalid value for 'secret_key', secret_key cannot be nil.")
-      end
-
       return invalid_properties
     end
 
@@ -112,7 +100,6 @@ module JCAPIv2
       return false if @id.nil?
       return false if @integration_key.nil?
       return false if @name.nil?
-      return false if @secret_key.nil?
       return true
     end
 
@@ -124,8 +111,7 @@ module JCAPIv2
           api_host == o.api_host &&
           id == o.id &&
           integration_key == o.integration_key &&
-          name == o.name &&
-          secret_key == o.secret_key
+          name == o.name
     end
 
     # @see the `==` method
@@ -137,7 +123,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [api_host, id, integration_key, name, secret_key].hash
+      [api_host, id, integration_key, name].hash
     end
 
     # Builds the object from hash

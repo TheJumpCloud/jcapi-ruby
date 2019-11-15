@@ -25,6 +25,8 @@ module JCAPIv1
 
     attr_accessor :idp_entity_id
 
+    attr_accessor :idp_private_key
+
     attr_accessor :sp_entity_id
 
 
@@ -36,6 +38,7 @@ module JCAPIv1
         :'database_attributes' => :'databaseAttributes',
         :'idp_certificate' => :'idpCertificate',
         :'idp_entity_id' => :'idpEntityId',
+        :'idp_private_key' => :'idpPrivateKey',
         :'sp_entity_id' => :'spEntityId'
       }
     end
@@ -48,6 +51,7 @@ module JCAPIv1
         :'database_attributes' => :'ApplicationConfigDatabaseAttributes',
         :'idp_certificate' => :'ApplicationConfigAcsUrl',
         :'idp_entity_id' => :'ApplicationConfigAcsUrl',
+        :'idp_private_key' => :'ApplicationConfigAcsUrl',
         :'sp_entity_id' => :'ApplicationConfigAcsUrl'
       }
     end
@@ -80,6 +84,10 @@ module JCAPIv1
         self.idp_entity_id = attributes[:'idpEntityId']
       end
 
+      if attributes.has_key?(:'idpPrivateKey')
+        self.idp_private_key = attributes[:'idpPrivateKey']
+      end
+
       if attributes.has_key?(:'spEntityId')
         self.sp_entity_id = attributes[:'spEntityId']
       end
@@ -109,6 +117,7 @@ module JCAPIv1
           database_attributes == o.database_attributes &&
           idp_certificate == o.idp_certificate &&
           idp_entity_id == o.idp_entity_id &&
+          idp_private_key == o.idp_private_key &&
           sp_entity_id == o.sp_entity_id
     end
 
@@ -121,7 +130,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [acs_url, constant_attributes, database_attributes, idp_certificate, idp_entity_id, sp_entity_id].hash
+      [acs_url, constant_attributes, database_attributes, idp_certificate, idp_entity_id, idp_private_key, sp_entity_id].hash
     end
 
     # Builds the object from hash

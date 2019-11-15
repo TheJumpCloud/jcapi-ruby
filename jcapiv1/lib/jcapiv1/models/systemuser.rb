@@ -86,6 +86,8 @@ module JCAPIv1
 
     attr_accessor :sudo
 
+    attr_accessor :suspended
+
     attr_accessor :tags
 
     attr_accessor :totp_enabled
@@ -135,6 +137,7 @@ module JCAPIv1
         :'samba_service_user' => :'samba_service_user',
         :'ssh_keys' => :'ssh_keys',
         :'sudo' => :'sudo',
+        :'suspended' => :'suspended',
         :'tags' => :'tags',
         :'totp_enabled' => :'totp_enabled',
         :'unix_guid' => :'unix_guid',
@@ -181,6 +184,7 @@ module JCAPIv1
         :'samba_service_user' => :'BOOLEAN',
         :'ssh_keys' => :'Array<Sshkeylist>',
         :'sudo' => :'BOOLEAN',
+        :'suspended' => :'BOOLEAN',
         :'tags' => :'Array<String>',
         :'totp_enabled' => :'BOOLEAN',
         :'unix_guid' => :'Integer',
@@ -339,6 +343,10 @@ module JCAPIv1
 
       if attributes.has_key?(:'sudo')
         self.sudo = attributes[:'sudo']
+      end
+
+      if attributes.has_key?(:'suspended')
+        self.suspended = attributes[:'suspended']
       end
 
       if attributes.has_key?(:'tags')
@@ -690,6 +698,7 @@ module JCAPIv1
           samba_service_user == o.samba_service_user &&
           ssh_keys == o.ssh_keys &&
           sudo == o.sudo &&
+          suspended == o.suspended &&
           tags == o.tags &&
           totp_enabled == o.totp_enabled &&
           unix_guid == o.unix_guid &&
@@ -706,7 +715,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [_id, account_locked, activated, allow_public_key, associated_tag_count, attributes, company, cost_center, created, department, description, displayname, email, employee_identifier, employee_type, enable_managed_uid, enable_user_portal_multifactor, external_dn, external_source_type, externally_managed, firstname, job_title, lastname, ldap_binding_user, location, mfa, middlename, password_expiration_date, password_expired, password_never_expires, passwordless_sudo, public_key, samba_service_user, ssh_keys, sudo, tags, totp_enabled, unix_guid, unix_uid, username].hash
+      [_id, account_locked, activated, allow_public_key, associated_tag_count, attributes, company, cost_center, created, department, description, displayname, email, employee_identifier, employee_type, enable_managed_uid, enable_user_portal_multifactor, external_dn, external_source_type, externally_managed, firstname, job_title, lastname, ldap_binding_user, location, mfa, middlename, password_expiration_date, password_expired, password_never_expires, passwordless_sudo, public_key, samba_service_user, ssh_keys, sudo, suspended, tags, totp_enabled, unix_guid, unix_uid, username].hash
     end
 
     # Builds the object from hash

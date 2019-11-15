@@ -53,7 +53,10 @@ module JCAPIv1
     # The time in seconds to allow the command to run for.
     attr_accessor :timeout
 
-    # The ID of the system user to run the command as.
+    # The name of the command trigger.
+    attr_accessor :trigger
+
+    # The ID of the system user to run the command as. This field is required when creating a command with a commandType of \"mac\" or \"linux\".
     attr_accessor :user
 
 
@@ -73,6 +76,7 @@ module JCAPIv1
         :'sudo' => :'sudo',
         :'systems' => :'systems',
         :'timeout' => :'timeout',
+        :'trigger' => :'trigger',
         :'user' => :'user'
       }
     end
@@ -93,6 +97,7 @@ module JCAPIv1
         :'sudo' => :'BOOLEAN',
         :'systems' => :'Array<String>',
         :'timeout' => :'String',
+        :'trigger' => :'String',
         :'user' => :'String'
       }
     end
@@ -163,6 +168,10 @@ module JCAPIv1
         self.timeout = attributes[:'timeout']
       end
 
+      if attributes.has_key?(:'trigger')
+        self.trigger = attributes[:'trigger']
+      end
+
       if attributes.has_key?(:'user')
         self.user = attributes[:'user']
       end
@@ -177,10 +186,6 @@ module JCAPIv1
         invalid_properties.push("invalid value for 'command', command cannot be nil.")
       end
 
-      if @user.nil?
-        invalid_properties.push("invalid value for 'user', user cannot be nil.")
-      end
-
       return invalid_properties
     end
 
@@ -188,7 +193,6 @@ module JCAPIv1
     # @return true if the model is valid
     def valid?
       return false if @command.nil?
-      return false if @user.nil?
       return true
     end
 
@@ -210,6 +214,7 @@ module JCAPIv1
           sudo == o.sudo &&
           systems == o.systems &&
           timeout == o.timeout &&
+          trigger == o.trigger &&
           user == o.user
     end
 
@@ -222,7 +227,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [command, command_runners, command_type, files, launch_type, listens_to, name, organization, schedule, schedule_repeat_type, sudo, systems, timeout, user].hash
+      [command, command_runners, command_type, files, launch_type, listens_to, name, organization, schedule, schedule_repeat_type, sudo, systems, timeout, trigger, user].hash
     end
 
     # Builds the object from hash

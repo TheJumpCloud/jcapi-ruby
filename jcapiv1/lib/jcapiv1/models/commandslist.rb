@@ -32,7 +32,7 @@ module JCAPIv1
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'results' => :'CommandslistResults',
+        :'results' => :'Array<CommandslistResults>',
         :'total_count' => :'Integer'
       }
     end
@@ -46,7 +46,9 @@ module JCAPIv1
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
       if attributes.has_key?(:'results')
-        self.results = attributes[:'results']
+        if (value = attributes[:'results']).is_a?(Array)
+          self.results = value
+        end
       end
 
       if attributes.has_key?(:'totalCount')

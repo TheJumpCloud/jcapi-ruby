@@ -13,26 +13,34 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module JCAPIv2
-  # The group object's attributes.
-  class UserGroupPostAttributes
-    attr_accessor :posix_groups
 
-    attr_accessor :samba_enabled
+  class DuoApplicationUpdateReq
+    attr_accessor :api_host
+
+    attr_accessor :integration_key
+
+    attr_accessor :name
+
+    attr_accessor :secret_key
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'posix_groups' => :'posixGroups',
-        :'samba_enabled' => :'sambaEnabled'
+        :'api_host' => :'apiHost',
+        :'integration_key' => :'integrationKey',
+        :'name' => :'name',
+        :'secret_key' => :'secretKey'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'posix_groups' => :'Array<UserGroupPostAttributesPosixGroups>',
-        :'samba_enabled' => :'BOOLEAN'
+        :'api_host' => :'String',
+        :'integration_key' => :'String',
+        :'name' => :'String',
+        :'secret_key' => :'String'
       }
     end
 
@@ -44,14 +52,20 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'posixGroups')
-        if (value = attributes[:'posixGroups']).is_a?(Array)
-          self.posix_groups = value
-        end
+      if attributes.has_key?(:'apiHost')
+        self.api_host = attributes[:'apiHost']
       end
 
-      if attributes.has_key?(:'sambaEnabled')
-        self.samba_enabled = attributes[:'sambaEnabled']
+      if attributes.has_key?(:'integrationKey')
+        self.integration_key = attributes[:'integrationKey']
+      end
+
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.has_key?(:'secretKey')
+        self.secret_key = attributes[:'secretKey']
       end
 
     end
@@ -74,8 +88,10 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          posix_groups == o.posix_groups &&
-          samba_enabled == o.samba_enabled
+          api_host == o.api_host &&
+          integration_key == o.integration_key &&
+          name == o.name &&
+          secret_key == o.secret_key
     end
 
     # @see the `==` method
@@ -87,7 +103,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [posix_groups, samba_enabled].hash
+      [api_host, integration_key, name, secret_key].hash
     end
 
     # Builds the object from hash

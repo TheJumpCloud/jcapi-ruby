@@ -1,9 +1,10 @@
-# JCAPIv2::UserGroupPostAttributesPosixGroups
+# JCAPIv2::Body2
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Integer** |  | [optional] 
+**groups** | **Array&lt;String&gt;** |  | [optional] 
 **name** | **String** |  | [optional] 
+**users** | **Array&lt;String&gt;** |  | [optional] 
 
 

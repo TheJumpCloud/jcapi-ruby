@@ -883,8 +883,8 @@ module JCAPIv2
     # @option opts [Integer] :skip The offset into the records to return. (default to 0)
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
     # @return [Array<PolicyResult>]
-    def policyresults_list_0(content_type, accept, opts = {})
-      data, _status_code, _headers = policyresults_list_0_with_http_info(content_type, accept, opts)
+    def policyresults_org_list(content_type, accept, opts = {})
+      data, _status_code, _headers = policyresults_org_list_with_http_info(content_type, accept, opts)
       return data
     end
 
@@ -900,20 +900,20 @@ module JCAPIv2
     # @option opts [Integer] :skip The offset into the records to return.
     # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
     # @return [Array<(Array<PolicyResult>, Fixnum, Hash)>] Array<PolicyResult> data, response status code and response headers
-    def policyresults_list_0_with_http_info(content_type, accept, opts = {})
+    def policyresults_org_list_with_http_info(content_type, accept, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: PoliciesApi.policyresults_list_0 ..."
+        @api_client.config.logger.debug "Calling API: PoliciesApi.policyresults_org_list ..."
       end
       # verify the required parameter 'content_type' is set
       if @api_client.config.client_side_validation && content_type.nil?
-        fail ArgumentError, "Missing the required parameter 'content_type' when calling PoliciesApi.policyresults_list_0"
+        fail ArgumentError, "Missing the required parameter 'content_type' when calling PoliciesApi.policyresults_org_list"
       end
       # verify the required parameter 'accept' is set
       if @api_client.config.client_side_validation && accept.nil?
-        fail ArgumentError, "Missing the required parameter 'accept' when calling PoliciesApi.policyresults_list_0"
+        fail ArgumentError, "Missing the required parameter 'accept' when calling PoliciesApi.policyresults_org_list"
       end
       if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling PoliciesApi.policyresults_list_0, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling PoliciesApi.policyresults_org_list, must be greater than or equal to 0.'
       end
 
       # resource path
@@ -951,7 +951,7 @@ module JCAPIv2
         :auth_names => auth_names,
         :return_type => 'Array<PolicyResult>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: PoliciesApi#policyresults_list_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: PoliciesApi#policyresults_org_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

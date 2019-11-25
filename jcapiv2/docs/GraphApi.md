@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**graph_active_directory_associations_list**](GraphApi.md#graph_active_directory_associations_list) | **GET** /activedirectories/{activedirectory_id}/associations | List the associations of an Active Directory instance
 [**graph_active_directory_associations_post**](GraphApi.md#graph_active_directory_associations_post) | **POST** /activedirectories/{activedirectory_id}/associations | Manage the associations of an Active Directory instance
+[**graph_active_directory_traverse_user**](GraphApi.md#graph_active_directory_traverse_user) | **GET** /activedirectories/{activedirectory_id}/users | List the Users bound to an Active Directory instance
 [**graph_active_directory_traverse_user_group**](GraphApi.md#graph_active_directory_traverse_user_group) | **GET** /activedirectories/{activedirectory_id}/usergroups | List the User Groups bound to an Active Directory instance
 [**graph_application_associations_list**](GraphApi.md#graph_application_associations_list) | **GET** /applications/{application_id}/associations | List the associations of an Application
 [**graph_application_associations_post**](GraphApi.md#graph_application_associations_post) | **POST** /applications/{application_id}/associations | Manage the associations of an Application
@@ -70,6 +71,7 @@ Method | HTTP request | Description
 [**graph_user_group_traverse_system**](GraphApi.md#graph_user_group_traverse_system) | **GET** /usergroups/{group_id}/systems | List the Systems bound to a User Group
 [**graph_user_group_traverse_system_group**](GraphApi.md#graph_user_group_traverse_system_group) | **GET** /usergroups/{group_id}/systemgroups | List the System Groups bound to User Groups
 [**graph_user_member_of**](GraphApi.md#graph_user_member_of) | **GET** /users/{user_id}/memberof | List the parent Groups of a User
+[**graph_user_traverse_active_directory**](GraphApi.md#graph_user_traverse_active_directory) | **GET** /users/{user_id}/activedirectories | List the Active Directory instances bound to a User
 [**graph_user_traverse_application**](GraphApi.md#graph_user_traverse_application) | **GET** /users/{user_id}/applications | List the Applications bound to a User
 [**graph_user_traverse_directory**](GraphApi.md#graph_user_traverse_directory) | **GET** /users/{user_id}/directories | List the Directories bound to a User
 [**graph_user_traverse_g_suite**](GraphApi.md#graph_user_traverse_g_suite) | **GET** /users/{user_id}/gsuites | List the G Suite instances bound to a User
@@ -205,6 +207,76 @@ Name | Type | Description  | Notes
 ### Return type
 
 nil (empty response body)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **graph_active_directory_traverse_user**
+> Array&lt;GraphObjectWithPaths&gt; graph_active_directory_traverse_user(activedirectory_id, content_type, accept, opts)
+
+List the Users bound to an Active Directory instance
+
+This endpoint will return all Users bound to an Active Directory instance, either directly or indirectly, essentially traversing the JumpCloud Graph for your Organization.  Each element will contain the type, id, attributes and paths.  The `attributes` object is a key/value hash of compiled graph attributes for all paths followed.  The `paths` array enumerates each path from this Active Directory instance to the corresponding User; this array represents all grouping and/or associations that would have to be removed to deprovision the User from this Active Directory instance.  See `/members` and `/associations` endpoints to manage those collections.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/users \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv2'
+# setup authorization
+JCAPIv2.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = JCAPIv2::GraphApi.new
+
+activedirectory_id = "activedirectory_id_example" # String | ObjectID of the Active Directory instance.
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  x_org_id: "" # String | 
+  skip: 0, # Integer | The offset into the records to return.
+}
+
+begin
+  #List the Users bound to an Active Directory instance
+  result = api_instance.graph_active_directory_traverse_user(activedirectory_id, content_type, accept, opts)
+  p result
+rescue JCAPIv2::ApiError => e
+  puts "Exception when calling GraphApi->graph_active_directory_traverse_user: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **activedirectory_id** | **String**| ObjectID of the Active Directory instance. | 
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
+ **x_org_id** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+
+### Return type
+
+[**Array&lt;GraphObjectWithPaths&gt;**](GraphObjectWithPaths.md)
 
 ### Authorization
 
@@ -4653,6 +4725,76 @@ Name | Type | Description  | Notes
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
+
+### Return type
+
+[**Array&lt;GraphObjectWithPaths&gt;**](GraphObjectWithPaths.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **graph_user_traverse_active_directory**
+> Array&lt;GraphObjectWithPaths&gt; graph_user_traverse_active_directory(user_id, content_type, accept, opts)
+
+List the Active Directory instances bound to a User
+
+This endpoint will return all Active Directory Instances bound to a User, either directly or indirectly, essentially traversing the JumpCloud Graph for your Organization.  Each element will contain the type, id, attributes and paths.  The `attributes` object is a key/value hash of compiled graph attributes for all paths followed.  The `paths` array enumerates each path from this User to the corresponding Active Directory instance; this array represents all grouping and/or associations that would have to be removed to deprovision the Active Directory instance from this User.  See `/members` and `/associations` endpoints to manage those collections.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/users/{UserID}/activedirectories \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv2'
+# setup authorization
+JCAPIv2.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = JCAPIv2::GraphApi.new
+
+user_id = "user_id_example" # String | ObjectID of the User.
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  x_org_id: "" # String | 
+  skip: 0, # Integer | The offset into the records to return.
+}
+
+begin
+  #List the Active Directory instances bound to a User
+  result = api_instance.graph_user_traverse_active_directory(user_id, content_type, accept, opts)
+  p result
+rescue JCAPIv2::ApiError => e
+  puts "Exception when calling GraphApi->graph_user_traverse_active_directory: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user_id** | **String**| ObjectID of the User. | 
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
+ **x_org_id** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
 
 ### Return type
 

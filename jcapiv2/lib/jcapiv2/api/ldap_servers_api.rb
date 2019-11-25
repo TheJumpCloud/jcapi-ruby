@@ -515,7 +515,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Body] :body 
+    # @option opts [Body3] :body 
     # @option opts [String] :x_api_key 
     # @option opts [String] :x_org_id 
     # @return [InlineResponse200]
@@ -530,7 +530,7 @@ module JCAPIv2
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
-    # @option opts [Body] :body 
+    # @option opts [Body3] :body 
     # @option opts [String] :x_api_key 
     # @option opts [String] :x_org_id 
     # @return [Array<(InlineResponse200, Fixnum, Hash)>] InlineResponse200 data, response status code and response headers

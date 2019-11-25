@@ -215,7 +215,7 @@ describe 'PoliciesApi' do
     end
   end
 
-  # unit tests for policyresults_list_0
+  # unit tests for policyresults_org_list
   # Lists all the policy results for an organization.
   # This endpoint returns all policies results for an organization.  ##### Sample Request  &#x60;&#x60;&#x60;  curl -X GET https://console.jumpcloud.com/api/v2/policyresults \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
   # @param content_type 
@@ -228,7 +228,7 @@ describe 'PoliciesApi' do
   # @option opts [Integer] :skip The offset into the records to return.
   # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
   # @return [Array<PolicyResult>]
-  describe 'policyresults_list_0 test' do
+  describe 'policyresults_org_list test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

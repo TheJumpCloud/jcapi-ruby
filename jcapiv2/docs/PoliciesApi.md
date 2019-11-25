@@ -15,7 +15,7 @@ Method | HTTP request | Description
 [**policies_put**](PoliciesApi.md#policies_put) | **PUT** /policies/{id} | Update an existing Policy
 [**policyresults_get**](PoliciesApi.md#policyresults_get) | **GET** /policyresults/{id} | Get a specific Policy Result.
 [**policyresults_list**](PoliciesApi.md#policyresults_list) | **GET** /policies/{policy_id}/policyresults | Lists all the policy results of a policy.
-[**policyresults_list_0**](PoliciesApi.md#policyresults_list_0) | **GET** /policyresults | Lists all the policy results for an organization.
+[**policyresults_org_list**](PoliciesApi.md#policyresults_org_list) | **GET** /policyresults | Lists all the policy results for an organization.
 [**policystatuses_list**](PoliciesApi.md#policystatuses_list) | **GET** /policies/{policy_id}/policystatuses | Lists the latest policy results of a policy.
 [**policystatuses_list_0**](PoliciesApi.md#policystatuses_list_0) | **GET** /systems/{system_id}/policystatuses | List the policy statuses for a system
 [**policytemplates_get**](PoliciesApi.md#policytemplates_get) | **GET** /policytemplates/{id} | Get a specific Policy Template
@@ -757,8 +757,8 @@ Name | Type | Description  | Notes
 
 
 
-# **policyresults_list_0**
-> Array&lt;PolicyResult&gt; policyresults_list_0(content_type, accept, opts)
+# **policyresults_org_list**
+> Array&lt;PolicyResult&gt; policyresults_org_list(content_type, accept, opts)
 
 Lists all the policy results for an organization.
 
@@ -793,10 +793,10 @@ opts = {
 
 begin
   #Lists all the policy results for an organization.
-  result = api_instance.policyresults_list_0(content_type, accept, opts)
+  result = api_instance.policyresults_org_list(content_type, accept, opts)
   p result
 rescue JCAPIv2::ApiError => e
-  puts "Exception when calling PoliciesApi->policyresults_list_0: #{e}"
+  puts "Exception when calling PoliciesApi->policyresults_org_list: #{e}"
 end
 ```
 

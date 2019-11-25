@@ -1,8 +1,7 @@
-# JCAPIv2::UserGroupPutAttributes
+# JCAPIv2::Mobileconfig
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**samba_enabled** | **BOOLEAN** |  | [optional] 
 
 

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **listens_to** | **String** |  | [optional] 
 **name** | **String** | The name of the Command. | [optional] 
 **organization** | **String** | The ID of the Organization. | [optional] 
-**schedule** | **String** | A crontab that consists of: [ (seconds) (minutes) (hours) (days of month) (months) (weekdays) ] or [ immediate ]. If you send this as an empty string, it will run immediately.  | [optional] 
+**schedule** | **String** | A crontab that consists of: [ (seconds) (minutes) (hours) (days of month) (months) (weekdays) ] or [ immediate ]. If you send this as an empty string, it will run immediately. | [optional] 
 **schedule_repeat_type** | **String** | When the command will repeat. | [optional] 
 **trigger** | **String** | Trigger to execute command. | [optional] 
 

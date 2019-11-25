@@ -15,28 +15,21 @@ require 'date'
 module JCAPIv2
 
   class Body
-    attr_accessor :id
-
-    attr_accessor :user_lockout_action
-
-    attr_accessor :user_password_expiration_action
+    # The name used to identify this AppleMDM.
+    attr_accessor :name
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'user_lockout_action' => :'userLockoutAction',
-        :'user_password_expiration_action' => :'userPasswordExpirationAction'
+        :'name' => :'name'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'String',
-        :'user_lockout_action' => :'LdapServerAction',
-        :'user_password_expiration_action' => :'LdapServerAction'
+        :'name' => :'String'
       }
     end
 
@@ -48,16 +41,8 @@ module JCAPIv2
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.has_key?(:'userLockoutAction')
-        self.user_lockout_action = attributes[:'userLockoutAction']
-      end
-
-      if attributes.has_key?(:'userPasswordExpirationAction')
-        self.user_password_expiration_action = attributes[:'userPasswordExpirationAction']
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
       end
 
     end
@@ -66,13 +51,29 @@ module JCAPIv2
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@name.nil? && @name.to_s.length > 255
+        invalid_properties.push("invalid value for 'name', the character length must be smaller than or equal to 255.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@name.nil? && @name.to_s.length > 255
       return true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] name Value to be assigned
+    def name=(name)
+
+      if !name.nil? && name.to_s.length > 255
+        fail ArgumentError, "invalid value for 'name', the character length must be smaller than or equal to 255."
+      end
+
+      @name = name
     end
 
     # Checks equality by comparing each attribute.
@@ -80,9 +81,7 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          user_lockout_action == o.user_lockout_action &&
-          user_password_expiration_action == o.user_password_expiration_action
+          name == o.name
     end
 
     # @see the `==` method
@@ -94,7 +93,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, user_lockout_action, user_password_expiration_action].hash
+      [name].hash
     end
 
     # Builds the object from hash

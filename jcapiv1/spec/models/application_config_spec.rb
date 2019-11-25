@@ -62,6 +62,12 @@ describe 'ApplicationConfig' do
     end
   end
 
+  describe 'test attribute "idp_private_key"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "sp_entity_id"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**radius_servers_list**](RadiusServersApi.md#radius_servers_list) | **GET** /radiusservers | List Radius Servers
 [**radius_servers_post**](RadiusServersApi.md#radius_servers_post) | **POST** /radiusservers | Create a Radius Server
-[**radius_servers_put**](RadiusServersApi.md#radius_servers_put) | **PUT** /radiusservers:id | Update Radius Servers
+[**radius_servers_put**](RadiusServersApi.md#radius_servers_put) | **PUT** /radiusservers/{id} | Update Radius Servers
 
 
 # **radius_servers_list**
@@ -81,7 +81,7 @@ Name | Type | Description  | Notes
 
 
 # **radius_servers_post**
-> Radiusserverslist radius_servers_post(content_type, accept, opts)
+> Radiusserver radius_servers_post(content_type, accept, opts)
 
 Create a Radius Server
 
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Radiusserverslist**](Radiusserverslist.md)
+[**Radiusserver**](Radiusserver.md)
 
 ### Authorization
 
@@ -144,11 +144,11 @@ Name | Type | Description  | Notes
 
 
 # **radius_servers_put**
-> Radiusserverput radius_servers_put(content_type, accept, opts)
+> Radiusserverput radius_servers_put(id, content_type, accept, opts)
 
 Update Radius Servers
 
-This endpoint allows you to update RADIUS servers in your organization.  ####  ``` curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"name\": \"{name_update}\",     \"networkSourceIp\": \"{0.0.0.0}\",     \"userLockoutAction\": \"REMOVE\",     \"userPasswordExpirationAction\": \"MAINTAIN\" }' ```
+This endpoint allows you to update RADIUS servers in your organization.  #### ``` curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"name\": \"{name_update}\",     \"networkSourceIp\": \"{0.0.0.0}\",     \"userLockoutAction\": \"REMOVE\",     \"userPasswordExpirationAction\": \"MAINTAIN\" }' ```
 
 ### Example
 ```ruby
@@ -164,6 +164,8 @@ end
 
 api_instance = JCAPIv1::RadiusServersApi.new
 
+id = "id_example" # String | 
+
 content_type = "application/json" # String | 
 
 accept = "application/json" # String | 
@@ -175,7 +177,7 @@ opts = {
 
 begin
   #Update Radius Servers
-  result = api_instance.radius_servers_put(content_type, accept, opts)
+  result = api_instance.radius_servers_put(id, content_type, accept, opts)
   p result
 rescue JCAPIv1::ApiError => e
   puts "Exception when calling RadiusServersApi->radius_servers_put: #{e}"
@@ -186,6 +188,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **id** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
  **body** | [**Body**](Body.md)|  | [optional] 

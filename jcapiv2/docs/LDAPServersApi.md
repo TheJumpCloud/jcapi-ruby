@@ -452,7 +452,7 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: JCAPIv2::Body.new, # Body | 
+  body: JCAPIv2::Body3.new, # Body3 | 
   x_api_key: "x_api_key_example", # String | 
   x_org_id: "x_org_id_example" # String | 
 }
@@ -473,7 +473,7 @@ Name | Type | Description  | Notes
  **id** | **String**| Unique identifier of the LDAP server. | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **body** | [**Body**](Body.md)|  | [optional] 
+ **body** | [**Body3**](Body3.md)|  | [optional] 
  **x_api_key** | **String**|  | [optional] 
  **x_org_id** | **String**|  | [optional] 
 

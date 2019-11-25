@@ -15,6 +15,8 @@ require 'date'
 module JCAPIv2
 
   class UserGroup
+    attr_accessor :attributes
+
     # ObjectId uniquely identifying a User Group.
     attr_accessor :id
 
@@ -49,6 +51,7 @@ module JCAPIv2
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'attributes' => :'attributes',
         :'id' => :'id',
         :'name' => :'name',
         :'type' => :'type'
@@ -58,6 +61,7 @@ module JCAPIv2
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'attributes' => :'UserGroupAttributes',
         :'id' => :'String',
         :'name' => :'String',
         :'type' => :'String'
@@ -71,6 +75,10 @@ module JCAPIv2
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
+
+      if attributes.has_key?(:'attributes')
+        self.attributes = attributes[:'attributes']
+      end
 
       if attributes.has_key?(:'id')
         self.id = attributes[:'id']
@@ -116,6 +124,7 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          attributes == o.attributes &&
           id == o.id &&
           name == o.name &&
           type == o.type
@@ -130,7 +139,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, type].hash
+      [attributes, id, name, type].hash
     end
 
     # Builds the object from hash

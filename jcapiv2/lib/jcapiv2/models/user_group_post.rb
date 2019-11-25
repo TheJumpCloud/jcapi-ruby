@@ -32,7 +32,7 @@ module JCAPIv2
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'attributes' => :'UserGroupPostAttributes',
+        :'attributes' => :'UserGroupAttributes',
         :'name' => :'String'
       }
     end

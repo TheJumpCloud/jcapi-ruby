@@ -38,6 +38,7 @@ Name | Type | Description | Notes
 **samba_service_user** | **BOOLEAN** |  | [optional] 
 **ssh_keys** | [**Array&lt;Sshkeylist&gt;**](Sshkeylist.md) |  | [optional] 
 **sudo** | **BOOLEAN** |  | [optional] 
+**suspended** | **BOOLEAN** |  | [optional] 
 **tags** | **Array&lt;String&gt;** |  | [optional] 
 **totp_enabled** | **BOOLEAN** |  | [optional] 
 **unix_guid** | **Integer** |  | [optional] 

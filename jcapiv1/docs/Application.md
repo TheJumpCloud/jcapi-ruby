@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **_id** | **String** |  | [optional] 
-**active** | **BOOLEAN** |  | [optional] 
+**beta** | **BOOLEAN** |  | [optional] 
 **config** | [**ApplicationConfig**](ApplicationConfig.md) |  | [optional] 
 **display_label** | **String** |  | [optional] 
 **display_name** | **String** |  | [optional] 

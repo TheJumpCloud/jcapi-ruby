@@ -14,25 +14,17 @@ require 'date'
 
 module JCAPIv2
 
-  class UserGroupPostAttributesPosixGroups
-    attr_accessor :id
-
-    attr_accessor :name
-
+  class SalesforceKnowledgeListOutput
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'name' => :'name'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'Integer',
-        :'name' => :'String'
       }
     end
 
@@ -43,14 +35,6 @@ module JCAPIv2
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
-
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
 
     end
 
@@ -71,9 +55,7 @@ module JCAPIv2
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
-      self.class == o.class &&
-          id == o.id &&
-          name == o.name
+      self.class == o.class
     end
 
     # @see the `==` method
@@ -85,7 +67,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name].hash
+      [].hash
     end
 
     # Builds the object from hash

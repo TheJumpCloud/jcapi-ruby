@@ -38,7 +38,7 @@ describe 'Application' do
     end
   end
 
-  describe 'test attribute "active"' do
+  describe 'test attribute "beta"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

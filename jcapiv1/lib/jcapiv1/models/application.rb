@@ -17,7 +17,7 @@ module JCAPIv1
   class Application
     attr_accessor :_id
 
-    attr_accessor :active
+    attr_accessor :beta
 
     attr_accessor :config
 
@@ -38,7 +38,7 @@ module JCAPIv1
     def self.attribute_map
       {
         :'_id' => :'_id',
-        :'active' => :'active',
+        :'beta' => :'beta',
         :'config' => :'config',
         :'display_label' => :'displayLabel',
         :'display_name' => :'displayName',
@@ -53,7 +53,7 @@ module JCAPIv1
     def self.swagger_types
       {
         :'_id' => :'String',
-        :'active' => :'BOOLEAN',
+        :'beta' => :'BOOLEAN',
         :'config' => :'ApplicationConfig',
         :'display_label' => :'String',
         :'display_name' => :'String',
@@ -76,8 +76,8 @@ module JCAPIv1
         self._id = attributes[:'_id']
       end
 
-      if attributes.has_key?(:'active')
-        self.active = attributes[:'active']
+      if attributes.has_key?(:'beta')
+        self.beta = attributes[:'beta']
       end
 
       if attributes.has_key?(:'config')
@@ -129,7 +129,7 @@ module JCAPIv1
       return true if self.equal?(o)
       self.class == o.class &&
           _id == o._id &&
-          active == o.active &&
+          beta == o.beta &&
           config == o.config &&
           display_label == o.display_label &&
           display_name == o.display_name &&
@@ -148,7 +148,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [_id, active, config, display_label, display_name, learn_more, name, organization, sso_url].hash
+      [_id, beta, config, display_label, display_name, learn_more, name, organization, sso_url].hash
     end
 
     # Builds the object from hash

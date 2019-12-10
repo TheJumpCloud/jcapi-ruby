@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
 
 Update Radius Servers
 
-This endpoint allows you to update RADIUS servers in your organization.  #### ``` curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"name\": \"{name_update}\",     \"networkSourceIp\": \"{0.0.0.0}\",     \"userLockoutAction\": \"REMOVE\",     \"userPasswordExpirationAction\": \"MAINTAIN\" }' ```
+This endpoint allows you to update RADIUS servers in your organization.  ####  ``` curl -X PUT https://console.jumpcloud.com/api/radiusservers/{ServerID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"name\": \"{name_update}\",     \"networkSourceIp\": \"{0.0.0.0}\",     \"userLockoutAction\": \"REMOVE\",     \"userPasswordExpirationAction\": \"MAINTAIN\" }' ```
 
 ### Example
 ```ruby
@@ -171,7 +171,7 @@ content_type = "application/json" # String |
 accept = "application/json" # String | 
 
 opts = { 
-  body: JCAPIv1::Body.new, # Body | 
+  body: JCAPIv1::Body1.new, # Body1 | 
   x_org_id: "" # String | 
 }
 
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
  **id** | **String**|  | 
  **content_type** | **String**|  | [default to application/json]
  **accept** | **String**|  | [default to application/json]
- **body** | [**Body**](Body.md)|  | [optional] 
+ **body** | [**Body1**](Body1.md)|  | [optional] 
  **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type

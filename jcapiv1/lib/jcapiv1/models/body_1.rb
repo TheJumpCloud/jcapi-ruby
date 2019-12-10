@@ -15,24 +15,61 @@ require 'date'
 module JCAPIv1
 
   class Body1
-    attr_accessor :exclusion
+    attr_accessor :mfa
 
-    attr_accessor :exclusion_until
+    attr_accessor :name
 
+    attr_accessor :network_source_ip
+
+    attr_accessor :tags
+
+    attr_accessor :user_lockout_action
+
+    attr_accessor :user_password_expiration_action
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'exclusion' => :'exclusion',
-        :'exclusion_until' => :'exclusionUntil'
+        :'mfa' => :'mfa',
+        :'name' => :'name',
+        :'network_source_ip' => :'networkSourceIp',
+        :'tags' => :'tags',
+        :'user_lockout_action' => :'userLockoutAction',
+        :'user_password_expiration_action' => :'userPasswordExpirationAction'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'exclusion' => :'BOOLEAN',
-        :'exclusion_until' => :'DateTime'
+        :'mfa' => :'String',
+        :'name' => :'String',
+        :'network_source_ip' => :'String',
+        :'tags' => :'Array<String>',
+        :'user_lockout_action' => :'String',
+        :'user_password_expiration_action' => :'String'
       }
     end
 
@@ -44,12 +81,30 @@ module JCAPIv1
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'exclusion')
-        self.exclusion = attributes[:'exclusion']
+      if attributes.has_key?(:'mfa')
+        self.mfa = attributes[:'mfa']
       end
 
-      if attributes.has_key?(:'exclusionUntil')
-        self.exclusion_until = attributes[:'exclusionUntil']
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.has_key?(:'networkSourceIp')
+        self.network_source_ip = attributes[:'networkSourceIp']
+      end
+
+      if attributes.has_key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
+      end
+
+      if attributes.has_key?(:'userLockoutAction')
+        self.user_lockout_action = attributes[:'userLockoutAction']
+      end
+
+      if attributes.has_key?(:'userPasswordExpirationAction')
+        self.user_password_expiration_action = attributes[:'userPasswordExpirationAction']
       end
 
     end
@@ -58,13 +113,35 @@ module JCAPIv1
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @name.nil?
+        invalid_properties.push("invalid value for 'name', name cannot be nil.")
+      end
+
+      if @network_source_ip.nil?
+        invalid_properties.push("invalid value for 'network_source_ip', network_source_ip cannot be nil.")
+      end
+
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      mfa_validator = EnumAttributeValidator.new('String', ["DISABLED", "ENABLED", "REQUIRED", "ALWAYS"])
+      return false unless mfa_validator.valid?(@mfa)
+      return false if @name.nil?
+      return false if @network_source_ip.nil?
       return true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] mfa Object to be assigned
+    def mfa=(mfa)
+      validator = EnumAttributeValidator.new('String', ["DISABLED", "ENABLED", "REQUIRED", "ALWAYS"])
+      unless validator.valid?(mfa)
+        fail ArgumentError, "invalid value for 'mfa', must be one of #{validator.allowable_values}."
+      end
+      @mfa = mfa
     end
 
     # Checks equality by comparing each attribute.
@@ -72,8 +149,12 @@ module JCAPIv1
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          exclusion == o.exclusion &&
-          exclusion_until == o.exclusion_until
+          mfa == o.mfa &&
+          name == o.name &&
+          network_source_ip == o.network_source_ip &&
+          tags == o.tags &&
+          user_lockout_action == o.user_lockout_action &&
+          user_password_expiration_action == o.user_password_expiration_action
     end
 
     # @see the `==` method
@@ -85,7 +166,7 @@ module JCAPIv1
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [exclusion, exclusion_until].hash
+      [mfa, name, network_source_ip, tags, user_lockout_action, user_password_expiration_action].hash
     end
 
     # Builds the object from hash

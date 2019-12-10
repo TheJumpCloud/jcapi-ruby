@@ -15,6 +15,8 @@ require 'date'
 module JCAPIv2
 
   class SystemInsightsCrashes
+    attr_accessor :collection_time
+
     attr_accessor :crash_path
 
     attr_accessor :crashed_thread
@@ -41,6 +43,8 @@ module JCAPIv2
 
     attr_accessor :stack_trace
 
+    attr_accessor :system_id
+
     attr_accessor :type
 
     attr_accessor :uid
@@ -51,6 +55,7 @@ module JCAPIv2
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'collection_time' => :'collection_time',
         :'crash_path' => :'crash_path',
         :'crashed_thread' => :'crashed_thread',
         :'datetime' => :'datetime',
@@ -64,6 +69,7 @@ module JCAPIv2
         :'registers' => :'registers',
         :'responsible' => :'responsible',
         :'stack_trace' => :'stack_trace',
+        :'system_id' => :'system_id',
         :'type' => :'type',
         :'uid' => :'uid',
         :'version' => :'version'
@@ -73,6 +79,7 @@ module JCAPIv2
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'collection_time' => :'String',
         :'crash_path' => :'String',
         :'crashed_thread' => :'String',
         :'datetime' => :'String',
@@ -86,6 +93,7 @@ module JCAPIv2
         :'registers' => :'String',
         :'responsible' => :'String',
         :'stack_trace' => :'String',
+        :'system_id' => :'String',
         :'type' => :'String',
         :'uid' => :'Integer',
         :'version' => :'String'
@@ -99,6 +107,10 @@ module JCAPIv2
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
+
+      if attributes.has_key?(:'collection_time')
+        self.collection_time = attributes[:'collection_time']
+      end
 
       if attributes.has_key?(:'crash_path')
         self.crash_path = attributes[:'crash_path']
@@ -152,6 +164,10 @@ module JCAPIv2
         self.stack_trace = attributes[:'stack_trace']
       end
 
+      if attributes.has_key?(:'system_id')
+        self.system_id = attributes[:'system_id']
+      end
+
       if attributes.has_key?(:'type')
         self.type = attributes[:'type']
       end
@@ -184,6 +200,7 @@ module JCAPIv2
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          collection_time == o.collection_time &&
           crash_path == o.crash_path &&
           crashed_thread == o.crashed_thread &&
           datetime == o.datetime &&
@@ -197,6 +214,7 @@ module JCAPIv2
           registers == o.registers &&
           responsible == o.responsible &&
           stack_trace == o.stack_trace &&
+          system_id == o.system_id &&
           type == o.type &&
           uid == o.uid &&
           version == o.version
@@ -211,7 +229,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [crash_path, crashed_thread, datetime, exception_codes, exception_notes, exception_type, identifier, parent, path, pid, registers, responsible, stack_trace, type, uid, version].hash
+      [collection_time, crash_path, crashed_thread, datetime, exception_codes, exception_notes, exception_type, identifier, parent, path, pid, registers, responsible, stack_trace, system_id, type, uid, version].hash
     end
 
     # Builds the object from hash

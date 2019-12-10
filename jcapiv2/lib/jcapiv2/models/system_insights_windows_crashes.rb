@@ -17,6 +17,8 @@ module JCAPIv2
   class SystemInsightsWindowsCrashes
     attr_accessor :build_number
 
+    attr_accessor :collection_time
+
     attr_accessor :command_line
 
     attr_accessor :crash_path
@@ -49,6 +51,8 @@ module JCAPIv2
 
     attr_accessor :stack_trace
 
+    attr_accessor :system_id
+
     attr_accessor :tid
 
     attr_accessor :type
@@ -62,6 +66,7 @@ module JCAPIv2
     def self.attribute_map
       {
         :'build_number' => :'build_number',
+        :'collection_time' => :'collection_time',
         :'command_line' => :'command_line',
         :'crash_path' => :'crash_path',
         :'current_directory' => :'current_directory',
@@ -78,6 +83,7 @@ module JCAPIv2
         :'process_uptime' => :'process_uptime',
         :'registers' => :'registers',
         :'stack_trace' => :'stack_trace',
+        :'system_id' => :'system_id',
         :'tid' => :'tid',
         :'type' => :'type',
         :'username' => :'username',
@@ -89,6 +95,7 @@ module JCAPIv2
     def self.swagger_types
       {
         :'build_number' => :'Integer',
+        :'collection_time' => :'String',
         :'command_line' => :'String',
         :'crash_path' => :'String',
         :'current_directory' => :'String',
@@ -105,6 +112,7 @@ module JCAPIv2
         :'process_uptime' => :'String',
         :'registers' => :'String',
         :'stack_trace' => :'String',
+        :'system_id' => :'String',
         :'tid' => :'String',
         :'type' => :'String',
         :'username' => :'String',
@@ -122,6 +130,10 @@ module JCAPIv2
 
       if attributes.has_key?(:'build_number')
         self.build_number = attributes[:'build_number']
+      end
+
+      if attributes.has_key?(:'collection_time')
+        self.collection_time = attributes[:'collection_time']
       end
 
       if attributes.has_key?(:'command_line')
@@ -188,6 +200,10 @@ module JCAPIv2
         self.stack_trace = attributes[:'stack_trace']
       end
 
+      if attributes.has_key?(:'system_id')
+        self.system_id = attributes[:'system_id']
+      end
+
       if attributes.has_key?(:'tid')
         self.tid = attributes[:'tid']
       end
@@ -225,6 +241,7 @@ module JCAPIv2
       return true if self.equal?(o)
       self.class == o.class &&
           build_number == o.build_number &&
+          collection_time == o.collection_time &&
           command_line == o.command_line &&
           crash_path == o.crash_path &&
           current_directory == o.current_directory &&
@@ -241,6 +258,7 @@ module JCAPIv2
           process_uptime == o.process_uptime &&
           registers == o.registers &&
           stack_trace == o.stack_trace &&
+          system_id == o.system_id &&
           tid == o.tid &&
           type == o.type &&
           username == o.username &&
@@ -256,7 +274,7 @@ module JCAPIv2
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [build_number, command_line, crash_path, current_directory, datetime, exception_address, exception_code, exception_message, machine_name, major_version, minor_version, _module, path, pid, process_uptime, registers, stack_trace, tid, type, username, version].hash
+      [build_number, collection_time, command_line, crash_path, current_directory, datetime, exception_address, exception_code, exception_message, machine_name, major_version, minor_version, _module, path, pid, process_uptime, registers, stack_trace, system_id, tid, type, username, version].hash
     end
 
     # Builds the object from hash

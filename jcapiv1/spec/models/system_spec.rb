@@ -110,6 +110,18 @@ describe 'System' do
     end
   end
 
+  describe 'test attribute "file_system"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "has_service_account"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "hostname"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

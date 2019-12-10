@@ -21,7 +21,7 @@ module JCAPIv1
     end
 
     # Get Organization Details
-    # This endpoint returns Organization Details.  #### Sample Request  ``` curl -X GET \\   https://console.jumpcloud.com/api/organizations \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
+    # This endpoint returns Organization Details.  #### Sample Request   ``` curl -X GET \\   https://console.jumpcloud.com/api/organizations \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
@@ -38,7 +38,7 @@ module JCAPIv1
     end
 
     # Get Organization Details
-    # This endpoint returns Organization Details.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET \\   https://console.jumpcloud.com/api/organizations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
+    # This endpoint returns Organization Details.  #### Sample Request   &#x60;&#x60;&#x60; curl -X GET \\   https://console.jumpcloud.com/api/organizations \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39;   &#x60;&#x60;&#x60;
     # @param content_type 
     # @param accept 
     # @param [Hash] opts the optional parameters
@@ -101,6 +101,151 @@ module JCAPIv1
         :return_type => 'Organizationslist')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: OrganizationsApi#organization_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update an Organization
+    # This endpoint allows you to update an Organization.  Note: `passwordPolicy` settings are only used when `passwordCompliance` is set to \"custom\". We discourage the use of non-custom passwordCompliance values.  `hasStripeCustomerId` is deprecated and will be removed.  #### Sample Request  ``` curl -X PUT https://console.jumpcloud.com/api/organizations/{OrganizationID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{   \"settings\": {     \"contactName\": \"Admin Name\",     \"contactEmail\": \"admin@company.com\",     \"systemUsersCanEdit\":true,     \"passwordPolicy\": {       \"enableMaxHistory\": true,       \"maxHistory\": 3     }   } }' ```
+    # @param id 
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Body] :body 
+    # @return [Organization]
+    def organization_put(id, content_type, accept, opts = {})
+      data, _status_code, _headers = organization_put_with_http_info(id, content_type, accept, opts)
+      return data
+    end
+
+    # Update an Organization
+    # This endpoint allows you to update an Organization.  Note: &#x60;passwordPolicy&#x60; settings are only used when &#x60;passwordCompliance&#x60; is set to \&quot;custom\&quot;. We discourage the use of non-custom passwordCompliance values.  &#x60;hasStripeCustomerId&#x60; is deprecated and will be removed.  #### Sample Request  &#x60;&#x60;&#x60; curl -X PUT https://console.jumpcloud.com/api/organizations/{OrganizationID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; \\   -d &#39;{   \&quot;settings\&quot;: {     \&quot;contactName\&quot;: \&quot;Admin Name\&quot;,     \&quot;contactEmail\&quot;: \&quot;admin@company.com\&quot;,     \&quot;systemUsersCanEdit\&quot;:true,     \&quot;passwordPolicy\&quot;: {       \&quot;enableMaxHistory\&quot;: true,       \&quot;maxHistory\&quot;: 3     }   } }&#39; &#x60;&#x60;&#x60;
+    # @param id 
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Body] :body 
+    # @return [Array<(Organization, Fixnum, Hash)>] Organization data, response status code and response headers
+    def organization_put_with_http_info(id, content_type, accept, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: OrganizationsApi.organization_put ..."
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling OrganizationsApi.organization_put"
+      end
+      # verify the required parameter 'content_type' is set
+      if @api_client.config.client_side_validation && content_type.nil?
+        fail ArgumentError, "Missing the required parameter 'content_type' when calling OrganizationsApi.organization_put"
+      end
+      # verify the required parameter 'accept' is set
+      if @api_client.config.client_side_validation && accept.nil?
+        fail ArgumentError, "Missing the required parameter 'accept' when calling OrganizationsApi.organization_put"
+      end
+      # resource path
+      local_var_path = "/organizations/{id}".sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'Content-Type'] = content_type
+      header_params[:'Accept'] = accept
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(opts[:'body'])
+      auth_names = ['x-api-key']
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Organization')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrganizationsApi#organization_put\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Get an Organization
+    # This endpoint returns a particular Organization.  #### Sample Request  ``` curl -X GET https://console.jumpcloud.com/api/organizations/{OrganizationID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
+    # @param id 
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  (default to )
+    # @option opts [String] :filter A filter to apply to the query.
+    # @return [nil]
+    def organizations_get(id, content_type, accept, opts = {})
+      organizations_get_with_http_info(id, content_type, accept, opts)
+      return nil
+    end
+
+    # Get an Organization
+    # This endpoint returns a particular Organization.  #### Sample Request  &#x60;&#x60;&#x60; curl -X GET https://console.jumpcloud.com/api/organizations/{OrganizationID} \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+    # @param id 
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :fields Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned. 
+    # @option opts [String] :filter A filter to apply to the query.
+    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    def organizations_get_with_http_info(id, content_type, accept, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: OrganizationsApi.organizations_get ..."
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling OrganizationsApi.organizations_get"
+      end
+      # verify the required parameter 'content_type' is set
+      if @api_client.config.client_side_validation && content_type.nil?
+        fail ArgumentError, "Missing the required parameter 'content_type' when calling OrganizationsApi.organizations_get"
+      end
+      # verify the required parameter 'accept' is set
+      if @api_client.config.client_side_validation && accept.nil?
+        fail ArgumentError, "Missing the required parameter 'accept' when calling OrganizationsApi.organizations_get"
+      end
+      # resource path
+      local_var_path = "/organizations/{id}".sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'fields'] = opts[:'fields'] if !opts[:'fields'].nil?
+      query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'Content-Type'] = content_type
+      header_params[:'Accept'] = accept
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['x-api-key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrganizationsApi#organizations_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

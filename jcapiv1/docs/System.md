@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **created** | **String** |  | [optional] 
 **display_name** | **String** |  | [optional] 
 **fde** | [**Fde**](Fde.md) |  | [optional] 
+**file_system** | **String** |  | [optional] 
+**has_service_account** | **BOOLEAN** |  | [optional] 
 **hostname** | **String** |  | [optional] 
 **last_contact** | **String** |  | [optional] 
 **modify_sshd_config** | **BOOLEAN** |  | [optional] 

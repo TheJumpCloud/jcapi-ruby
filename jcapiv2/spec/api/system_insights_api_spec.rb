@@ -32,6 +32,23 @@ describe 'SystemInsightsApi' do
     end
   end
 
+  # unit tests for systeminsights_list_alf
+  # List System Insights ALF
+  # Valid filter fields are &#x60;system_id&#x60; and &#x60;global_state&#x60;.
+  # @param content_type 
+  # @param accept 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit 
+  # @option opts [String] :x_org_id 
+  # @option opts [Array<String>] :filter Supported operators are: eq
+  # @option opts [Integer] :skip The offset into the records to return.
+  # @return [Array<SystemInsightsAlf>]
+  describe 'systeminsights_list_alf test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for systeminsights_list_apps
   # List System Insights Apps
   # Valid filter fields are &#x60;system_id&#x60; and &#x60;bundle_name&#x60;.
@@ -321,6 +338,23 @@ describe 'SystemInsightsApi' do
     end
   end
 
+  # unit tests for systeminsights_list_managed_policies
+  # List System Insights Managed Policies
+  # Valid filter fields are &#x60;system_id&#x60; and &#x60;domain&#x60;.
+  # @param content_type 
+  # @param accept 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit 
+  # @option opts [String] :x_org_id 
+  # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [Array<String>] :filter Supported operators are: eq
+  # @return [Array<SystemInsightsManagedPolicies>]
+  describe 'systeminsights_list_managed_policies test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for systeminsights_list_mounts
   # List System Insights Mounts
   # Valid filter fields are &#x60;system_id&#x60; and &#x60;path&#x60;.
@@ -401,6 +435,91 @@ describe 'SystemInsightsApi' do
   # @option opts [String] :x_org_id 
   # @return [Array<SystemInsightsSafariExtensions>]
   describe 'systeminsights_list_safari_extensions test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for systeminsights_list_shadow
+  # LIst System Insights Shadow
+  # Valid filter fields are &#x60;system_id&#x60; and &#x60;username&#x60;.
+  # @param content_type 
+  # @param accept 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit 
+  # @option opts [String] :x_org_id 
+  # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [Array<String>] :filter Supported operators are: eq
+  # @return [Array<SystemInsightsShadow>]
+  describe 'systeminsights_list_shadow test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for systeminsights_list_shared_folders
+  # List System Insights Shared Folders
+  # Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
+  # @param content_type 
+  # @param accept 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit 
+  # @option opts [String] :x_org_id 
+  # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [Array<String>] :filter Supported operators are: eq
+  # @return [Array<SystemInsightsSharedFolders>]
+  describe 'systeminsights_list_shared_folders test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for systeminsights_list_shared_resources
+  # List System Insights Shared Resources
+  # Valid filter fields are &#x60;system_id&#x60; and &#x60;type&#x60;.
+  # @param content_type 
+  # @param accept 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit 
+  # @option opts [String] :x_org_id 
+  # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [Array<String>] :filter Supported operators are: eq
+  # @return [Array<SystemInsightsSharedResources>]
+  describe 'systeminsights_list_shared_resources test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for systeminsights_list_sharing_preferences
+  # List System Insights Sharing Preferences
+  # Only valid filed field is &#x60;system_id&#x60;.
+  # @param content_type 
+  # @param accept 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit 
+  # @option opts [String] :x_org_id 
+  # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [Array<String>] :filter Supported operators are: eq
+  # @return [Array<SystemInsightsSharingPreferences>]
+  describe 'systeminsights_list_sharing_preferences test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for systeminsights_list_sip_config
+  # List System Insights SIP Config
+  # Valid filter fields are &#x60;system_id&#x60; and &#x60;enabled&#x60;.
+  # @param content_type 
+  # @param accept 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit 
+  # @option opts [String] :x_org_id 
+  # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [Array<String>] :filter Supported operators are: eq
+  # @return [Array<SystemInsightsSipConfig>]
+  describe 'systeminsights_list_sip_config test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -864,6 +983,23 @@ describe 'SystemInsightsApi' do
   # @option opts [Array<String>] :filter Supported operators are: eq
   # @return [Array<SystemInsightsUserGroups>]
   describe 'systeminsights_list_user_groups test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for systeminsights_list_user_ssh_keys
+  # List System Insights User SSH Keys
+  # Valid filter fields are &#x60;system_id&#x60; and &#x60;uid&#x60;.
+  # @param content_type 
+  # @param accept 
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit 
+  # @option opts [String] :x_org_id 
+  # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [Array<String>] :filter Supported operators are: eq
+  # @return [Array<SystemInsightsUserSshKeys>]
+  describe 'systeminsights_list_user_ssh_keys test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -4,6 +4,7 @@ All URIs are relative to *https://console.jumpcloud.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**systeminsights_list_alf**](SystemInsightsApi.md#systeminsights_list_alf) | **GET** /systeminsights/alf | List System Insights ALF
 [**systeminsights_list_apps**](SystemInsightsApi.md#systeminsights_list_apps) | **GET** /systeminsights/apps | List System Insights Apps
 [**systeminsights_list_battery**](SystemInsightsApi.md#systeminsights_list_battery) | **GET** /systeminsights/battery | List System Insights Battery
 [**systeminsights_list_bitlocker_info**](SystemInsightsApi.md#systeminsights_list_bitlocker_info) | **GET** /systeminsights/bitlocker_info | List System Insights Bitlocker Info
@@ -21,11 +22,17 @@ Method | HTTP request | Description
 [**systeminsights_list_launchd**](SystemInsightsApi.md#systeminsights_list_launchd) | **GET** /systeminsights/launchd | List System Insights Launchd
 [**systeminsights_list_logged_in_users**](SystemInsightsApi.md#systeminsights_list_logged_in_users) | **GET** /systeminsights/logged_in_users | List System Insights Logged-In Users
 [**systeminsights_list_logical_drives**](SystemInsightsApi.md#systeminsights_list_logical_drives) | **GET** /systeminsights/logical_drives | List System Insights Logical Drives
+[**systeminsights_list_managed_policies**](SystemInsightsApi.md#systeminsights_list_managed_policies) | **GET** /systeminsights/managed_policies | List System Insights Managed Policies
 [**systeminsights_list_mounts**](SystemInsightsApi.md#systeminsights_list_mounts) | **GET** /systeminsights/mounts | List System Insights Mounts
 [**systeminsights_list_os_version**](SystemInsightsApi.md#systeminsights_list_os_version) | **GET** /systeminsights/os_version | List System Insights OS Version
 [**systeminsights_list_patches**](SystemInsightsApi.md#systeminsights_list_patches) | **GET** /systeminsights/patches | List System Insights Patches
 [**systeminsights_list_programs**](SystemInsightsApi.md#systeminsights_list_programs) | **GET** /systeminsights/programs | List System Insights Programs
 [**systeminsights_list_safari_extensions**](SystemInsightsApi.md#systeminsights_list_safari_extensions) | **GET** /systeminsights/safari_extensions | List System Insights Safari Extensions
+[**systeminsights_list_shadow**](SystemInsightsApi.md#systeminsights_list_shadow) | **GET** /systeminsights/shadow | LIst System Insights Shadow
+[**systeminsights_list_shared_folders**](SystemInsightsApi.md#systeminsights_list_shared_folders) | **GET** /systeminsights/shared_folders | List System Insights Shared Folders
+[**systeminsights_list_shared_resources**](SystemInsightsApi.md#systeminsights_list_shared_resources) | **GET** /systeminsights/shared_resources | List System Insights Shared Resources
+[**systeminsights_list_sharing_preferences**](SystemInsightsApi.md#systeminsights_list_sharing_preferences) | **GET** /systeminsights/sharing_preferences | List System Insights Sharing Preferences
+[**systeminsights_list_sip_config**](SystemInsightsApi.md#systeminsights_list_sip_config) | **GET** /systeminsights/sip_config | List System Insights SIP Config
 [**systeminsights_list_system_apps**](SystemInsightsApi.md#systeminsights_list_system_apps) | **GET** /systeminsights/{system_id}/apps | List System Insights System Apps
 [**systeminsights_list_system_bitlocker_info**](SystemInsightsApi.md#systeminsights_list_system_bitlocker_info) | **GET** /systeminsights/{system_id}/bitlocker_info | List System Insights System Bitlocker Info
 [**systeminsights_list_system_browser_plugins**](SystemInsightsApi.md#systeminsights_list_system_browser_plugins) | **GET** /systeminsights/{system_id}/browser_plugins | List System Insights System Browser Plugins
@@ -52,8 +59,76 @@ Method | HTTP request | Description
 [**systeminsights_list_uptime**](SystemInsightsApi.md#systeminsights_list_uptime) | **GET** /systeminsights/uptime | List System Insights Uptime
 [**systeminsights_list_usb_devices**](SystemInsightsApi.md#systeminsights_list_usb_devices) | **GET** /systeminsights/usb_devices | List System Insights USB Devices
 [**systeminsights_list_user_groups**](SystemInsightsApi.md#systeminsights_list_user_groups) | **GET** /systeminsights/user_groups | List System Insights User Groups
+[**systeminsights_list_user_ssh_keys**](SystemInsightsApi.md#systeminsights_list_user_ssh_keys) | **GET** /systeminsights/user_ssh_keys | List System Insights User SSH Keys
 [**systeminsights_list_users**](SystemInsightsApi.md#systeminsights_list_users) | **GET** /systeminsights/users | List System Insights Users
 [**systeminsights_list_windows_crashes**](SystemInsightsApi.md#systeminsights_list_windows_crashes) | **GET** /systeminsights/windows_crashes | List System Insights Windows Crashes
+
+
+# **systeminsights_list_alf**
+> Array&lt;SystemInsightsAlf&gt; systeminsights_list_alf(content_type, accept, opts)
+
+List System Insights ALF
+
+Valid filter fields are `system_id` and `global_state`.
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv2'
+# setup authorization
+JCAPIv2.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = JCAPIv2::SystemInsightsApi.new
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  limit: 10, # Integer | 
+  x_org_id: "" # String | 
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq
+  skip: 0, # Integer | The offset into the records to return.
+}
+
+begin
+  #List System Insights ALF
+  result = api_instance.systeminsights_list_alf(content_type, accept, opts)
+  p result
+rescue JCAPIv2::ApiError => e
+  puts "Exception when calling SystemInsightsApi->systeminsights_list_alf: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **limit** | **Integer**|  | [optional] [default to 10]
+ **x_org_id** | **String**|  | [optional] [default to ]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq | [optional] 
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+
+### Return type
+
+[**Array&lt;SystemInsightsAlf&gt;**](SystemInsightsAlf.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 
 # **systeminsights_list_apps**
@@ -1195,6 +1270,73 @@ Name | Type | Description  | Notes
 
 
 
+# **systeminsights_list_managed_policies**
+> Array&lt;SystemInsightsManagedPolicies&gt; systeminsights_list_managed_policies(content_type, accept, opts)
+
+List System Insights Managed Policies
+
+Valid filter fields are `system_id` and `domain`.
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv2'
+# setup authorization
+JCAPIv2.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = JCAPIv2::SystemInsightsApi.new
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  limit: 10, # Integer | 
+  x_org_id: "" # String | 
+  skip: 0, # Integer | The offset into the records to return.
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq
+}
+
+begin
+  #List System Insights Managed Policies
+  result = api_instance.systeminsights_list_managed_policies(content_type, accept, opts)
+  p result
+rescue JCAPIv2::ApiError => e
+  puts "Exception when calling SystemInsightsApi->systeminsights_list_managed_policies: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **limit** | **Integer**|  | [optional] [default to 10]
+ **x_org_id** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq | [optional] 
+
+### Return type
+
+[**Array&lt;SystemInsightsManagedPolicies&gt;**](SystemInsightsManagedPolicies.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
 # **systeminsights_list_mounts**
 > Array&lt;SystemInsightsMounts&gt; systeminsights_list_mounts(content_type, accept, opts)
 
@@ -1518,6 +1660,334 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Array&lt;SystemInsightsSafariExtensions&gt;**](SystemInsightsSafariExtensions.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **systeminsights_list_shadow**
+> Array&lt;SystemInsightsShadow&gt; systeminsights_list_shadow(content_type, accept, opts)
+
+LIst System Insights Shadow
+
+Valid filter fields are `system_id` and `username`.
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv2'
+# setup authorization
+JCAPIv2.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = JCAPIv2::SystemInsightsApi.new
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  limit: 10, # Integer | 
+  x_org_id: "" # String | 
+  skip: 0, # Integer | The offset into the records to return.
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq
+}
+
+begin
+  #LIst System Insights Shadow
+  result = api_instance.systeminsights_list_shadow(content_type, accept, opts)
+  p result
+rescue JCAPIv2::ApiError => e
+  puts "Exception when calling SystemInsightsApi->systeminsights_list_shadow: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **limit** | **Integer**|  | [optional] [default to 10]
+ **x_org_id** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq | [optional] 
+
+### Return type
+
+[**Array&lt;SystemInsightsShadow&gt;**](SystemInsightsShadow.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **systeminsights_list_shared_folders**
+> Array&lt;SystemInsightsSharedFolders&gt; systeminsights_list_shared_folders(content_type, accept, opts)
+
+List System Insights Shared Folders
+
+Valid filter fields are `system_id` and `name`.
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv2'
+# setup authorization
+JCAPIv2.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = JCAPIv2::SystemInsightsApi.new
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  limit: 10, # Integer | 
+  x_org_id: "" # String | 
+  skip: 0, # Integer | The offset into the records to return.
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq
+}
+
+begin
+  #List System Insights Shared Folders
+  result = api_instance.systeminsights_list_shared_folders(content_type, accept, opts)
+  p result
+rescue JCAPIv2::ApiError => e
+  puts "Exception when calling SystemInsightsApi->systeminsights_list_shared_folders: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **limit** | **Integer**|  | [optional] [default to 10]
+ **x_org_id** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq | [optional] 
+
+### Return type
+
+[**Array&lt;SystemInsightsSharedFolders&gt;**](SystemInsightsSharedFolders.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **systeminsights_list_shared_resources**
+> Array&lt;SystemInsightsSharedResources&gt; systeminsights_list_shared_resources(content_type, accept, opts)
+
+List System Insights Shared Resources
+
+Valid filter fields are `system_id` and `type`.
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv2'
+
+api_instance = JCAPIv2::SystemInsightsApi.new
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  limit: 10, # Integer | 
+  x_org_id: "" # String | 
+  skip: 0, # Integer | The offset into the records to return.
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq
+}
+
+begin
+  #List System Insights Shared Resources
+  result = api_instance.systeminsights_list_shared_resources(content_type, accept, opts)
+  p result
+rescue JCAPIv2::ApiError => e
+  puts "Exception when calling SystemInsightsApi->systeminsights_list_shared_resources: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **limit** | **Integer**|  | [optional] [default to 10]
+ **x_org_id** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq | [optional] 
+
+### Return type
+
+[**Array&lt;SystemInsightsSharedResources&gt;**](SystemInsightsSharedResources.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **systeminsights_list_sharing_preferences**
+> Array&lt;SystemInsightsSharingPreferences&gt; systeminsights_list_sharing_preferences(content_type, accept, opts)
+
+List System Insights Sharing Preferences
+
+Only valid filed field is `system_id`.
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv2'
+# setup authorization
+JCAPIv2.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = JCAPIv2::SystemInsightsApi.new
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  limit: 10, # Integer | 
+  x_org_id: "" # String | 
+  skip: 0, # Integer | The offset into the records to return.
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq
+}
+
+begin
+  #List System Insights Sharing Preferences
+  result = api_instance.systeminsights_list_sharing_preferences(content_type, accept, opts)
+  p result
+rescue JCAPIv2::ApiError => e
+  puts "Exception when calling SystemInsightsApi->systeminsights_list_sharing_preferences: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **limit** | **Integer**|  | [optional] [default to 10]
+ **x_org_id** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq | [optional] 
+
+### Return type
+
+[**Array&lt;SystemInsightsSharingPreferences&gt;**](SystemInsightsSharingPreferences.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **systeminsights_list_sip_config**
+> Array&lt;SystemInsightsSipConfig&gt; systeminsights_list_sip_config(content_type, accept, opts)
+
+List System Insights SIP Config
+
+Valid filter fields are `system_id` and `enabled`.
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv2'
+# setup authorization
+JCAPIv2.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = JCAPIv2::SystemInsightsApi.new
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  limit: 10, # Integer | 
+  x_org_id: "" # String | 
+  skip: 0, # Integer | The offset into the records to return.
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq
+}
+
+begin
+  #List System Insights SIP Config
+  result = api_instance.systeminsights_list_sip_config(content_type, accept, opts)
+  p result
+rescue JCAPIv2::ApiError => e
+  puts "Exception when calling SystemInsightsApi->systeminsights_list_sip_config: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **limit** | **Integer**|  | [optional] [default to 10]
+ **x_org_id** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq | [optional] 
+
+### Return type
+
+[**Array&lt;SystemInsightsSipConfig&gt;**](SystemInsightsSipConfig.md)
 
 ### Authorization
 
@@ -3323,6 +3793,73 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Array&lt;SystemInsightsUserGroups&gt;**](SystemInsightsUserGroups.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **systeminsights_list_user_ssh_keys**
+> Array&lt;SystemInsightsUserSshKeys&gt; systeminsights_list_user_ssh_keys(content_type, accept, opts)
+
+List System Insights User SSH Keys
+
+Valid filter fields are `system_id` and `uid`.
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv2'
+# setup authorization
+JCAPIv2.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = JCAPIv2::SystemInsightsApi.new
+
+content_type = "application/json" # String | 
+
+accept = "application/json" # String | 
+
+opts = { 
+  limit: 10, # Integer | 
+  x_org_id: "" # String | 
+  skip: 0, # Integer | The offset into the records to return.
+  filter: ["filter_example"], # Array<String> | Supported operators are: eq
+}
+
+begin
+  #List System Insights User SSH Keys
+  result = api_instance.systeminsights_list_user_ssh_keys(content_type, accept, opts)
+  p result
+rescue JCAPIv2::ApiError => e
+  puts "Exception when calling SystemInsightsApi->systeminsights_list_user_ssh_keys: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **content_type** | **String**|  | [default to application/json]
+ **accept** | **String**|  | [default to application/json]
+ **limit** | **Integer**|  | [optional] [default to 10]
+ **x_org_id** | **String**|  | [optional] [default to ]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq | [optional] 
+
+### Return type
+
+[**Array&lt;SystemInsightsUserSshKeys&gt;**](SystemInsightsUserSshKeys.md)
 
 ### Authorization
 

@@ -20,6 +20,93 @@ module JCAPIv2
       @api_client = api_client
     end
 
+    # List System Insights ALF
+    # Valid filter fields are `system_id` and `global_state`.
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [String] :x_org_id  (default to )
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @return [Array<SystemInsightsAlf>]
+    def systeminsights_list_alf(content_type, accept, opts = {})
+      data, _status_code, _headers = systeminsights_list_alf_with_http_info(content_type, accept, opts)
+      return data
+    end
+
+    # List System Insights ALF
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;global_state&#x60;.
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [String] :x_org_id 
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @return [Array<(Array<SystemInsightsAlf>, Fixnum, Hash)>] Array<SystemInsightsAlf> data, response status code and response headers
+    def systeminsights_list_alf_with_http_info(content_type, accept, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_alf ..."
+      end
+      # verify the required parameter 'content_type' is set
+      if @api_client.config.client_side_validation && content_type.nil?
+        fail ArgumentError, "Missing the required parameter 'content_type' when calling SystemInsightsApi.systeminsights_list_alf"
+      end
+      # verify the required parameter 'accept' is set
+      if @api_client.config.client_side_validation && accept.nil?
+        fail ArgumentError, "Missing the required parameter 'accept' when calling SystemInsightsApi.systeminsights_list_alf"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_alf, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_alf, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_alf, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/alf"
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'Content-Type'] = content_type
+      header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['x-api-key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsAlf>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_alf\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List System Insights Apps
     # Valid filter fields are `system_id` and `bundle_name`.
     # @param content_type 
@@ -1499,6 +1586,93 @@ module JCAPIv2
       return data, status_code, headers
     end
 
+    # List System Insights Managed Policies
+    # Valid filter fields are `system_id` and `domain`.
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [String] :x_org_id  (default to )
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsManagedPolicies>]
+    def systeminsights_list_managed_policies(content_type, accept, opts = {})
+      data, _status_code, _headers = systeminsights_list_managed_policies_with_http_info(content_type, accept, opts)
+      return data
+    end
+
+    # List System Insights Managed Policies
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;domain&#x60;.
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [String] :x_org_id 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsManagedPolicies>, Fixnum, Hash)>] Array<SystemInsightsManagedPolicies> data, response status code and response headers
+    def systeminsights_list_managed_policies_with_http_info(content_type, accept, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_managed_policies ..."
+      end
+      # verify the required parameter 'content_type' is set
+      if @api_client.config.client_side_validation && content_type.nil?
+        fail ArgumentError, "Missing the required parameter 'content_type' when calling SystemInsightsApi.systeminsights_list_managed_policies"
+      end
+      # verify the required parameter 'accept' is set
+      if @api_client.config.client_side_validation && accept.nil?
+        fail ArgumentError, "Missing the required parameter 'accept' when calling SystemInsightsApi.systeminsights_list_managed_policies"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_managed_policies, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_managed_policies, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_managed_policies, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/managed_policies"
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'Content-Type'] = content_type
+      header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['x-api-key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsManagedPolicies>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_managed_policies\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List System Insights Mounts
     # Valid filter fields are `system_id` and `path`.
     # @param content_type 
@@ -1930,6 +2104,441 @@ module JCAPIv2
         :return_type => 'Array<SystemInsightsSafariExtensions>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_safari_extensions\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # LIst System Insights Shadow
+    # Valid filter fields are `system_id` and `username`.
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [String] :x_org_id  (default to )
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsShadow>]
+    def systeminsights_list_shadow(content_type, accept, opts = {})
+      data, _status_code, _headers = systeminsights_list_shadow_with_http_info(content_type, accept, opts)
+      return data
+    end
+
+    # LIst System Insights Shadow
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;username&#x60;.
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [String] :x_org_id 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsShadow>, Fixnum, Hash)>] Array<SystemInsightsShadow> data, response status code and response headers
+    def systeminsights_list_shadow_with_http_info(content_type, accept, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_shadow ..."
+      end
+      # verify the required parameter 'content_type' is set
+      if @api_client.config.client_side_validation && content_type.nil?
+        fail ArgumentError, "Missing the required parameter 'content_type' when calling SystemInsightsApi.systeminsights_list_shadow"
+      end
+      # verify the required parameter 'accept' is set
+      if @api_client.config.client_side_validation && accept.nil?
+        fail ArgumentError, "Missing the required parameter 'accept' when calling SystemInsightsApi.systeminsights_list_shadow"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_shadow, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_shadow, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_shadow, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/shadow"
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'Content-Type'] = content_type
+      header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['x-api-key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsShadow>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_shadow\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List System Insights Shared Folders
+    # Valid filter fields are `system_id` and `name`.
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [String] :x_org_id  (default to )
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsSharedFolders>]
+    def systeminsights_list_shared_folders(content_type, accept, opts = {})
+      data, _status_code, _headers = systeminsights_list_shared_folders_with_http_info(content_type, accept, opts)
+      return data
+    end
+
+    # List System Insights Shared Folders
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;name&#x60;.
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [String] :x_org_id 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsSharedFolders>, Fixnum, Hash)>] Array<SystemInsightsSharedFolders> data, response status code and response headers
+    def systeminsights_list_shared_folders_with_http_info(content_type, accept, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_shared_folders ..."
+      end
+      # verify the required parameter 'content_type' is set
+      if @api_client.config.client_side_validation && content_type.nil?
+        fail ArgumentError, "Missing the required parameter 'content_type' when calling SystemInsightsApi.systeminsights_list_shared_folders"
+      end
+      # verify the required parameter 'accept' is set
+      if @api_client.config.client_side_validation && accept.nil?
+        fail ArgumentError, "Missing the required parameter 'accept' when calling SystemInsightsApi.systeminsights_list_shared_folders"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_shared_folders, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_shared_folders, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_shared_folders, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/shared_folders"
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'Content-Type'] = content_type
+      header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['x-api-key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsSharedFolders>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_shared_folders\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List System Insights Shared Resources
+    # Valid filter fields are `system_id` and `type`.
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [String] :x_org_id  (default to )
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsSharedResources>]
+    def systeminsights_list_shared_resources(content_type, accept, opts = {})
+      data, _status_code, _headers = systeminsights_list_shared_resources_with_http_info(content_type, accept, opts)
+      return data
+    end
+
+    # List System Insights Shared Resources
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;type&#x60;.
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [String] :x_org_id 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsSharedResources>, Fixnum, Hash)>] Array<SystemInsightsSharedResources> data, response status code and response headers
+    def systeminsights_list_shared_resources_with_http_info(content_type, accept, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_shared_resources ..."
+      end
+      # verify the required parameter 'content_type' is set
+      if @api_client.config.client_side_validation && content_type.nil?
+        fail ArgumentError, "Missing the required parameter 'content_type' when calling SystemInsightsApi.systeminsights_list_shared_resources"
+      end
+      # verify the required parameter 'accept' is set
+      if @api_client.config.client_side_validation && accept.nil?
+        fail ArgumentError, "Missing the required parameter 'accept' when calling SystemInsightsApi.systeminsights_list_shared_resources"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_shared_resources, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_shared_resources, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_shared_resources, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/shared_resources"
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'Content-Type'] = content_type
+      header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = []
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsSharedResources>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_shared_resources\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List System Insights Sharing Preferences
+    # Only valid filed field is `system_id`.
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [String] :x_org_id  (default to )
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsSharingPreferences>]
+    def systeminsights_list_sharing_preferences(content_type, accept, opts = {})
+      data, _status_code, _headers = systeminsights_list_sharing_preferences_with_http_info(content_type, accept, opts)
+      return data
+    end
+
+    # List System Insights Sharing Preferences
+    # Only valid filed field is &#x60;system_id&#x60;.
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [String] :x_org_id 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsSharingPreferences>, Fixnum, Hash)>] Array<SystemInsightsSharingPreferences> data, response status code and response headers
+    def systeminsights_list_sharing_preferences_with_http_info(content_type, accept, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_sharing_preferences ..."
+      end
+      # verify the required parameter 'content_type' is set
+      if @api_client.config.client_side_validation && content_type.nil?
+        fail ArgumentError, "Missing the required parameter 'content_type' when calling SystemInsightsApi.systeminsights_list_sharing_preferences"
+      end
+      # verify the required parameter 'accept' is set
+      if @api_client.config.client_side_validation && accept.nil?
+        fail ArgumentError, "Missing the required parameter 'accept' when calling SystemInsightsApi.systeminsights_list_sharing_preferences"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_sharing_preferences, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_sharing_preferences, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_sharing_preferences, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/sharing_preferences"
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'Content-Type'] = content_type
+      header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['x-api-key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsSharingPreferences>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_sharing_preferences\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List System Insights SIP Config
+    # Valid filter fields are `system_id` and `enabled`.
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [String] :x_org_id  (default to )
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsSipConfig>]
+    def systeminsights_list_sip_config(content_type, accept, opts = {})
+      data, _status_code, _headers = systeminsights_list_sip_config_with_http_info(content_type, accept, opts)
+      return data
+    end
+
+    # List System Insights SIP Config
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;enabled&#x60;.
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [String] :x_org_id 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsSipConfig>, Fixnum, Hash)>] Array<SystemInsightsSipConfig> data, response status code and response headers
+    def systeminsights_list_sip_config_with_http_info(content_type, accept, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_sip_config ..."
+      end
+      # verify the required parameter 'content_type' is set
+      if @api_client.config.client_side_validation && content_type.nil?
+        fail ArgumentError, "Missing the required parameter 'content_type' when calling SystemInsightsApi.systeminsights_list_sip_config"
+      end
+      # verify the required parameter 'accept' is set
+      if @api_client.config.client_side_validation && accept.nil?
+        fail ArgumentError, "Missing the required parameter 'accept' when calling SystemInsightsApi.systeminsights_list_sip_config"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_sip_config, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_sip_config, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_sip_config, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/sip_config"
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'Content-Type'] = content_type
+      header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['x-api-key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsSipConfig>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_sip_config\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -4318,6 +4927,93 @@ module JCAPIv2
         :return_type => 'Array<SystemInsightsUserGroups>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_user_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List System Insights User SSH Keys
+    # Valid filter fields are `system_id` and `uid`.
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit  (default to 10)
+    # @option opts [String] :x_org_id  (default to )
+    # @option opts [Integer] :skip The offset into the records to return. (default to 0)
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<SystemInsightsUserSshKeys>]
+    def systeminsights_list_user_ssh_keys(content_type, accept, opts = {})
+      data, _status_code, _headers = systeminsights_list_user_ssh_keys_with_http_info(content_type, accept, opts)
+      return data
+    end
+
+    # List System Insights User SSH Keys
+    # Valid filter fields are &#x60;system_id&#x60; and &#x60;uid&#x60;.
+    # @param content_type 
+    # @param accept 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit 
+    # @option opts [String] :x_org_id 
+    # @option opts [Integer] :skip The offset into the records to return.
+    # @option opts [Array<String>] :filter Supported operators are: eq
+    # @return [Array<(Array<SystemInsightsUserSshKeys>, Fixnum, Hash)>] Array<SystemInsightsUserSshKeys> data, response status code and response headers
+    def systeminsights_list_user_ssh_keys_with_http_info(content_type, accept, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: SystemInsightsApi.systeminsights_list_user_ssh_keys ..."
+      end
+      # verify the required parameter 'content_type' is set
+      if @api_client.config.client_side_validation && content_type.nil?
+        fail ArgumentError, "Missing the required parameter 'content_type' when calling SystemInsightsApi.systeminsights_list_user_ssh_keys"
+      end
+      # verify the required parameter 'accept' is set
+      if @api_client.config.client_side_validation && accept.nil?
+        fail ArgumentError, "Missing the required parameter 'accept' when calling SystemInsightsApi.systeminsights_list_user_ssh_keys"
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 100
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_user_ssh_keys, must be smaller than or equal to 100.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SystemInsightsApi.systeminsights_list_user_ssh_keys, must be greater than or equal to 0.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling SystemInsightsApi.systeminsights_list_user_ssh_keys, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = "/systeminsights/user_ssh_keys"
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+      query_params[:'filter'] = @api_client.build_collection_param(opts[:'filter'], :csv) if !opts[:'filter'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      header_params[:'Content-Type'] = content_type
+      header_params[:'Accept'] = accept
+      header_params[:'x-org-id'] = opts[:'x_org_id'] if !opts[:'x_org_id'].nil?
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['x-api-key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<SystemInsightsUserSshKeys>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: SystemInsightsApi#systeminsights_list_user_ssh_keys\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

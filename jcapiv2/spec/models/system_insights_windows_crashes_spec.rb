@@ -38,6 +38,12 @@ describe 'SystemInsightsWindowsCrashes' do
     end
   end
 
+  describe 'test attribute "collection_time"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   describe 'test attribute "command_line"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -129,6 +135,12 @@ describe 'SystemInsightsWindowsCrashes' do
   end
 
   describe 'test attribute "stack_trace"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "system_id"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

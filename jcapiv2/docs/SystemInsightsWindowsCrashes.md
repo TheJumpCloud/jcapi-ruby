@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **build_number** | **Integer** |  | [optional] 
+**collection_time** | **String** |  | [optional] 
 **command_line** | **String** |  | [optional] 
 **crash_path** | **String** |  | [optional] 
 **current_directory** | **String** |  | [optional] 
@@ -20,6 +21,7 @@ Name | Type | Description | Notes
 **process_uptime** | **String** |  | [optional] 
 **registers** | **String** |  | [optional] 
 **stack_trace** | **String** |  | [optional] 
+**system_id** | **String** |  | [optional] 
 **tid** | **String** |  | [optional] 
 **type** | **String** |  | [optional] 
 **username** | **String** |  | [optional] 

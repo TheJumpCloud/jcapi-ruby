@@ -32,9 +32,24 @@ describe 'KnowledgeApi' do
     end
   end
 
+  # unit tests for knowledge_articles_list
+  # List Knowledge Articles
+  # This endpoint returns a list of knowledge articles hosted in salesforce.  &#x60;&#x60;&#x60; Sample Request curl -X GET https://console.jumpcloud.com/api/v2/knowledge/articles \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+  # @param [Hash] opts the optional parameters
+  # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  # @option opts [Integer] :skip The offset into the records to return.
+  # @option opts [Array<String>] :sort The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending. 
+  # @option opts [Integer] :limit 
+  # @return [SalesforceKnowledgeListOutput]
+  describe 'knowledge_articles_list test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for knowledge_salesforce_list
   # List Knowledge Articles
-  # This endpoint returns a list of knowledge articles hosted in salesforce.  &#x60;&#x60;&#x60; Sample Request curl -X GET https://console.jumpcloud.com/api/v2/knowledge/salesforce \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
+  # This endpoint returns a list of knowledge articles hosted in salesforce.  &#x60;&#x60;&#x60; Sample Request curl -X GET https://console.jumpcloud.com/api/v2/knowledge/articles \\   -H &#39;Accept: application/json&#39; \\   -H &#39;Content-Type: application/json&#39; \\   -H &#39;x-api-key: {API_KEY}&#39; &#x60;&#x60;&#x60;
   # @param [Hash] opts the optional parameters
   # @option opts [Array<String>] :fields 
   # @option opts [Array<String>] :filter Supported operators are: eq, ne, gt, ge, lt, le, between, search, in

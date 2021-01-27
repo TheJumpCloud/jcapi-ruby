@@ -10,7 +10,6 @@ jobs:
       - image: cimg/ruby:latest
     steps:
       - checkout
-      - sonarcloud/scan
 
 workflows:
   main:

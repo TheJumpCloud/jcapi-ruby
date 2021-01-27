@@ -10,9 +10,6 @@ jobs:
       - image: cimg/ruby:latest
     steps:
       - checkout
-      - run:
-          name: Install dependencies and build project
-          command: ********** CHANGE ME 2 **********
       - sonarcloud/scan
 
 workflows:

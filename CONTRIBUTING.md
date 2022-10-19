@@ -1,4 +1,4 @@
-### Swagger Code Generation
+# Swagger Code Generation
 
 This repository relies on the following Dockerfile in order to run
 Swagger Codegen inside a Docker container:
@@ -6,7 +6,7 @@ https://hub.docker.com/r/parsertongue/swagger-codegen-cli.
 
 We're currently using version 3.0.32 of Swagger Codegen.
 
-### Generating the API Client
+## Generating the API Client
 
 Copy the Swagger specification YAML files to the local `./input` directory.
 

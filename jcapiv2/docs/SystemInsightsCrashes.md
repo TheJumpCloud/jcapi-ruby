@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**collection_time** | **String** |  | [optional] 
 **crash_path** | **String** |  | [optional] 
 **crashed_thread** | **String** |  | [optional] 
 **datetime** | **String** |  | [optional] 
@@ -16,8 +17,8 @@ Name | Type | Description | Notes
 **registers** | **String** |  | [optional] 
 **responsible** | **String** |  | [optional] 
 **stack_trace** | **String** |  | [optional] 
+**system_id** | **String** |  | [optional] 
 **type** | **String** |  | [optional] 
 **uid** | **Integer** |  | [optional] 
 **version** | **String** |  | [optional] 
-
 

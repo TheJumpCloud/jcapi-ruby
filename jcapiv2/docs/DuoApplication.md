@@ -8,4 +8,3 @@ Name | Type | Description | Notes
 **integration_key** | **String** |  | 
 **name** | **String** |  | 
 
-

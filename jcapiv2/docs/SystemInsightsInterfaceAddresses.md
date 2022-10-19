@@ -13,4 +13,3 @@ Name | Type | Description | Notes
 **system_id** | **String** |  | [optional] 
 **type** | **String** |  | [optional] 
 
-

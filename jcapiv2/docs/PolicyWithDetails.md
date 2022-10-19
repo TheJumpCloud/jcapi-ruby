@@ -9,4 +9,3 @@ Name | Type | Description | Notes
 **template** | [**PolicyTemplate**](PolicyTemplate.md) |  | [optional] 
 **values** | [**Array&lt;PolicyValue&gt;**](PolicyValue.md) |  | [optional] 
 
-

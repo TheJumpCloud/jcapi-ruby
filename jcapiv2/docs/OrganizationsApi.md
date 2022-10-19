@@ -4,14 +4,18 @@ All URIs are relative to *https://console.jumpcloud.com/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**org_crypto_get**](OrganizationsApi.md#org_crypto_get) | **GET** /organizations/{id}/crypto | Get Crypto Settings
-[**org_crypto_put**](OrganizationsApi.md#org_crypto_put) | **PUT** /organizations/{id}/crypto | Edit Crypto Settings
+[**administrator_organizations_create_by_administrator**](OrganizationsApi.md#administrator_organizations_create_by_administrator) | **POST** /administrators/{id}/organizationlinks | Allow Adminstrator access to an Organization.
+[**administrator_organizations_list_by_administrator**](OrganizationsApi.md#administrator_organizations_list_by_administrator) | **GET** /administrators/{id}/organizationlinks | List the association links between an Administrator and Organizations.
+[**administrator_organizations_list_by_organization**](OrganizationsApi.md#administrator_organizations_list_by_organization) | **GET** /organizations/{id}/administratorlinks | List the association links between an Organization and Administrators.
+[**administrator_organizations_remove_by_administrator**](OrganizationsApi.md#administrator_organizations_remove_by_administrator) | **DELETE** /administrators/{administrator_id}/organizationlinks/{id} | Remove association between an Administrator and an Organization.
+[**organizations_list_cases**](OrganizationsApi.md#organizations_list_cases) | **GET** /organizations/cases | Get all cases (Support/Feature requests) for organization
 
+# **administrator_organizations_create_by_administrator**
+> AdministratorOrganizationLink administrator_organizations_create_by_administrator(id, opts)
 
-# **org_crypto_get**
-> OrgCryptoSettings org_crypto_get(id, content_type, accept, opts)
+Allow Adminstrator access to an Organization.
 
-Get Crypto Settings
+This endpoint allows you to grant Administrator access to an Organization.
 
 ### Example
 ```ruby
@@ -26,28 +30,17 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::OrganizationsApi.new
-
-id = "id_example" # String | 
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+id = 'id_example' # String | 
 opts = { 
-  fields: ["fields_example"], # Array<String> | The comma separated fields included in the returned records. If omitted, the default list of fields will be returned. 
-  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-  x_org_id: "" # String | 
-  skip: 0, # Integer | The offset into the records to return.
-  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  body: JCAPIv2::AdministratorOrganizationLinkReq.new # AdministratorOrganizationLinkReq | 
 }
 
 begin
-  #Get Crypto Settings
-  result = api_instance.org_crypto_get(id, content_type, accept, opts)
+  #Allow Adminstrator access to an Organization.
+  result = api_instance.administrator_organizations_create_by_administrator(id, opts)
   p result
 rescue JCAPIv2::ApiError => e
-  puts "Exception when calling OrganizationsApi->org_crypto_get: #{e}"
+  puts "Exception when calling OrganizationsApi->administrator_organizations_create_by_administrator: #{e}"
 end
 ```
 
@@ -56,18 +49,11 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted, the default list of fields will be returned.  | [optional] 
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
- **x_org_id** | **String**|  | [optional] [default to ]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
- **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
+ **body** | [**AdministratorOrganizationLinkReq**](AdministratorOrganizationLinkReq.md)|  | [optional] 
 
 ### Return type
 
-[**OrgCryptoSettings**](OrgCryptoSettings.md)
+[**AdministratorOrganizationLink**](AdministratorOrganizationLink.md)
 
 ### Authorization
 
@@ -80,10 +66,12 @@ Name | Type | Description  | Notes
 
 
 
-# **org_crypto_put**
-> Object org_crypto_put(id, content_type, accept, opts)
+# **administrator_organizations_list_by_administrator**
+> Array&lt;AdministratorOrganizationLink&gt; administrator_organizations_list_by_administrator(id, opts)
 
-Edit Crypto Settings
+List the association links between an Administrator and Organizations.
+
+This endpoint returns the association links between an Administrator and Organizations.
 
 ### Example
 ```ruby
@@ -98,29 +86,18 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::OrganizationsApi.new
-
-id = "id_example" # String | 
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+id = 'id_example' # String | 
 opts = { 
-  body: JCAPIv2::OrgCryptoSettings.new, # OrgCryptoSettings | 
-  fields: ["fields_example"], # Array<String> | The comma separated fields included in the returned records. If omitted, the default list of fields will be returned. 
-  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
-  x_org_id: "" # String | 
-  skip: 0, # Integer | The offset into the records to return.
-  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  skip: 0 # Integer | The offset into the records to return.
 }
 
 begin
-  #Edit Crypto Settings
-  result = api_instance.org_crypto_put(id, content_type, accept, opts)
+  #List the association links between an Administrator and Organizations.
+  result = api_instance.administrator_organizations_list_by_administrator(id, opts)
   p result
 rescue JCAPIv2::ApiError => e
-  puts "Exception when calling OrganizationsApi->org_crypto_put: #{e}"
+  puts "Exception when calling OrganizationsApi->administrator_organizations_list_by_administrator: #{e}"
 end
 ```
 
@@ -129,19 +106,12 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **body** | [**OrgCryptoSettings**](OrgCryptoSettings.md)|  | [optional] 
- **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted, the default list of fields will be returned.  | [optional] 
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
- **x_org_id** | **String**|  | [optional] [default to ]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
 
 ### Return type
 
-**Object**
+[**Array&lt;AdministratorOrganizationLink&gt;**](AdministratorOrganizationLink.md)
 
 ### Authorization
 
@@ -149,7 +119,177 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **administrator_organizations_list_by_organization**
+> Array&lt;AdministratorOrganizationLink&gt; administrator_organizations_list_by_organization(id, opts)
+
+List the association links between an Organization and Administrators.
+
+This endpoint returns the association links between an Organization and Administrators.
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv2'
+# setup authorization
+JCAPIv2.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = JCAPIv2::OrganizationsApi.new
+id = 'id_example' # String | 
+opts = { 
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  skip: 0 # Integer | The offset into the records to return.
+}
+
+begin
+  #List the association links between an Organization and Administrators.
+  result = api_instance.administrator_organizations_list_by_organization(id, opts)
+  p result
+rescue JCAPIv2::ApiError => e
+  puts "Exception when calling OrganizationsApi->administrator_organizations_list_by_organization: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  | 
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+
+### Return type
+
+[**Array&lt;AdministratorOrganizationLink&gt;**](AdministratorOrganizationLink.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **administrator_organizations_remove_by_administrator**
+> administrator_organizations_remove_by_administrator(administrator_id, id)
+
+Remove association between an Administrator and an Organization.
+
+This endpoint removes the association link between an Administrator and an Organization.
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv2'
+# setup authorization
+JCAPIv2.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = JCAPIv2::OrganizationsApi.new
+administrator_id = 'administrator_id_example' # String | 
+id = 'id_example' # String | 
+
+
+begin
+  #Remove association between an Administrator and an Organization.
+  api_instance.administrator_organizations_remove_by_administrator(administrator_id, id)
+rescue JCAPIv2::ApiError => e
+  puts "Exception when calling OrganizationsApi->administrator_organizations_remove_by_administrator: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **administrator_id** | **String**|  | 
+ **id** | **String**|  | 
+
+### Return type
+
+nil (empty response body)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **organizations_list_cases**
+> OrganizationCasesResponse organizations_list_cases(opts)
+
+Get all cases (Support/Feature requests) for organization
+
+This endpoint returns the cases (Support/Feature requests) for the organization
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv2'
+# setup authorization
+JCAPIv2.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = JCAPIv2::OrganizationsApi.new
+opts = { 
+  skip: 0, # Integer | The offset into the records to return.
+  sort: ['sort_example'], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  limit: 10 # Integer | The number of records to return at once. Limited to 100.
+}
+
+begin
+  #Get all cases (Support/Feature requests) for organization
+  result = api_instance.organizations_list_cases(opts)
+  p result
+rescue JCAPIv2::ApiError => e
+  puts "Exception when calling OrganizationsApi->organizations_list_cases: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
+
+### Return type
+
+[**OrganizationCasesResponse**](OrganizationCasesResponse.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 

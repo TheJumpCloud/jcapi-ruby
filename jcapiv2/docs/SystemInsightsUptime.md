@@ -11,4 +11,3 @@ Name | Type | Description | Notes
 **system_id** | **String** |  | [optional] 
 **total_seconds** | **String** |  | [optional] 
 
-

@@ -20,4 +20,3 @@ Name | Type | Description | Notes
 **version** | **String** |  | [optional] 
 **visible** | **Integer** |  | [optional] 
 
-

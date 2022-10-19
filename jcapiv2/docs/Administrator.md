@@ -8,6 +8,9 @@ Name | Type | Description | Notes
 **firstname** | **String** |  | [optional] 
 **id** | **String** |  | [optional] 
 **lastname** | **String** |  | [optional] 
+**organization_access_total** | [**BigDecimal**](BigDecimal.md) |  | [optional] 
 **registered** | **BOOLEAN** |  | [optional] 
-
+**role** | **String** |  | [optional] 
+**role_name** | **String** |  | [optional] 
+**suspended** | **BOOLEAN** |  | [optional] 
 

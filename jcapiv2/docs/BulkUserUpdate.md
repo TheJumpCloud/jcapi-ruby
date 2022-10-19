@@ -10,4 +10,3 @@ Name | Type | Description | Notes
 **lastname** | **String** |  | [optional] 
 **username** | **String** |  | [optional] 
 
-

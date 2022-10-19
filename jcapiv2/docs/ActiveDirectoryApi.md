@@ -14,36 +14,38 @@ Method | HTTP request | Description
 [**activedirectories_post**](ActiveDirectoryApi.md#activedirectories_post) | **POST** /activedirectories | Create a new Active Directory
 [**graph_active_directory_associations_list**](ActiveDirectoryApi.md#graph_active_directory_associations_list) | **GET** /activedirectories/{activedirectory_id}/associations | List the associations of an Active Directory instance
 [**graph_active_directory_associations_post**](ActiveDirectoryApi.md#graph_active_directory_associations_post) | **POST** /activedirectories/{activedirectory_id}/associations | Manage the associations of an Active Directory instance
+[**graph_active_directory_traverse_user**](ActiveDirectoryApi.md#graph_active_directory_traverse_user) | **GET** /activedirectories/{activedirectory_id}/users | List the Users bound to an Active Directory instance
 [**graph_active_directory_traverse_user_group**](ActiveDirectoryApi.md#graph_active_directory_traverse_user_group) | **GET** /activedirectories/{activedirectory_id}/usergroups | List the User Groups bound to an Active Directory instance
 
-
 # **activedirectories_agents_delete**
-> activedirectories_agents_delete(activedirectory_id, agent_id, content_type, accept, opts)
+> activedirectories_agents_delete(activedirectory_id, agent_id, opts)
 
 Delete Active Directory Agent
+
+This endpoint deletes an Active Directory agent.  #### Sample Request ``` curl -X DELETE https://console.jumpcloud.com/api/v2/activedirectories/{activedirectory_id}/agents/{agent_id} \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
 
 ### Example
 ```ruby
 # load the gem
 require 'jcapiv2'
+# setup authorization
+JCAPIv2.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
 
 api_instance = JCAPIv2::ActiveDirectoryApi.new
-
-activedirectory_id = "activedirectory_id_example" # String | 
-
-agent_id = "agent_id_example" # String | 
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+activedirectory_id = 'activedirectory_id_example' # String | 
+agent_id = 'agent_id_example' # String | 
 opts = { 
-  x_org_id: "" # String | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
   #Delete Active Directory Agent
-  api_instance.activedirectories_agents_delete(activedirectory_id, agent_id, content_type, accept, opts)
+  api_instance.activedirectories_agents_delete(activedirectory_id, agent_id, opts)
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling ActiveDirectoryApi->activedirectories_agents_delete: #{e}"
 end
@@ -55,9 +57,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **activedirectory_id** | **String**|  | 
  **agent_id** | **String**|  | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
@@ -65,44 +65,44 @@ nil (empty response body)
 
 ### Authorization
 
-No authorization required
+[x-api-key](../README.md#x-api-key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
 
 
 
 # **activedirectories_agents_get**
-> ActiveDirectoryAgentListOutput activedirectories_agents_get(activedirectory_id, agent_id, content_type, accept, opts)
+> ActiveDirectoryAgentListOutput activedirectories_agents_get(activedirectory_id, agent_id, opts)
 
 Get Active Directory Agent
 
-This endpoint returns a specific active directory agent.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/activedirectories/{activedirectory_id}/agents/{agent_id} \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
+This endpoint returns an Active Directory agent.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/activedirectories/{activedirectory_id}/agents/{agent_id} \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
 
 ### Example
 ```ruby
 # load the gem
 require 'jcapiv2'
+# setup authorization
+JCAPIv2.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
 
 api_instance = JCAPIv2::ActiveDirectoryApi.new
-
-activedirectory_id = "activedirectory_id_example" # String | 
-
-agent_id = "agent_id_example" # String | 
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+activedirectory_id = 'activedirectory_id_example' # String | 
+agent_id = 'agent_id_example' # String | 
 opts = { 
-  x_org_id: "" # String | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
   #Get Active Directory Agent
-  result = api_instance.activedirectories_agents_get(activedirectory_id, agent_id, content_type, accept, opts)
+  result = api_instance.activedirectories_agents_get(activedirectory_id, agent_id, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling ActiveDirectoryApi->activedirectories_agents_get: #{e}"
@@ -115,9 +115,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **activedirectory_id** | **String**|  | 
  **agent_id** | **String**|  | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
@@ -125,17 +123,17 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[x-api-key](../README.md#x-api-key)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **activedirectories_agents_list**
-> Array&lt;ActiveDirectoryAgentListOutput&gt; activedirectories_agents_list(activedirectory_id, content_type, accept, opts)
+> Array&lt;ActiveDirectoryAgentListOutput&gt; activedirectories_agents_list(activedirectory_id, opts)
 
 List Active Directory Agents
 
@@ -154,23 +152,17 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::ActiveDirectoryApi.new
-
-activedirectory_id = "activedirectory_id_example" # String | 
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+activedirectory_id = 'activedirectory_id_example' # String | 
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: "" # String | 
+  sort: ['sort_example'], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
   #List Active Directory Agents
-  result = api_instance.activedirectories_agents_list(activedirectory_id, content_type, accept, opts)
+  result = api_instance.activedirectories_agents_list(activedirectory_id, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling ActiveDirectoryApi->activedirectories_agents_list: #{e}"
@@ -182,12 +174,10 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **activedirectory_id** | **String**|  | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
@@ -199,13 +189,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **activedirectories_agents_post**
-> ActiveDirectoryAgentGetOutput activedirectories_agents_post(activedirectory_id, content_type, accept, opts)
+> ActiveDirectoryAgentGetOutput activedirectories_agents_post(activedirectory_id, opts)
 
 Create a new Active Directory Agent
 
@@ -224,21 +214,15 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::ActiveDirectoryApi.new
-
-activedirectory_id = "activedirectory_id_example" # String | 
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+activedirectory_id = 'activedirectory_id_example' # String | 
 opts = { 
-  body: JCAPIv2::ActiveDirectoryAgentInput.new, # ActiveDirectoryAgentInput | 
-  x_org_id: "" # String | 
+  body: JCAPIv2::ActiveDirectoryAgentInput.new # ActiveDirectoryAgentInput | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
   #Create a new Active Directory Agent
-  result = api_instance.activedirectories_agents_post(activedirectory_id, content_type, accept, opts)
+  result = api_instance.activedirectories_agents_post(activedirectory_id, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling ActiveDirectoryApi->activedirectories_agents_post: #{e}"
@@ -250,10 +234,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **activedirectory_id** | **String**|  | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
  **body** | [**ActiveDirectoryAgentInput**](ActiveDirectoryAgentInput.md)|  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
@@ -271,11 +253,11 @@ Name | Type | Description  | Notes
 
 
 # **activedirectories_delete**
-> activedirectories_delete(id, content_type, accept, opts)
+> ActiveDirectoryOutput activedirectories_delete(id, opts)
 
 Delete an Active Directory
 
-This endpoint allows you to delete an Active Directory Instance.  #### Sample Request ``` curl -X DELETE https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID} \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY'   ```
+This endpoint allows you to delete an Active Directory Instance.  #### Sample Request ``` curl -X DELETE https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID} \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}'   ```
 
 ### Example
 ```ruby
@@ -290,20 +272,15 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::ActiveDirectoryApi.new
-
-id = "id_example" # String | ObjectID of this Active Directory instance.
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+id = 'id_example' # String | ObjectID of this Active Directory instance.
 opts = { 
-  x_org_id: "" # String | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
   #Delete an Active Directory
-  api_instance.activedirectories_delete(id, content_type, accept, opts)
+  result = api_instance.activedirectories_delete(id, opts)
+  p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling ActiveDirectoryApi->activedirectories_delete: #{e}"
 end
@@ -314,13 +291,11 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ObjectID of this Active Directory instance. | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
-nil (empty response body)
+[**ActiveDirectoryOutput**](ActiveDirectoryOutput.md)
 
 ### Authorization
 
@@ -328,13 +303,13 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **activedirectories_get**
-> ActiveDirectoryOutput activedirectories_get(id, content_type, accept, opts)
+> ActiveDirectoryOutput activedirectories_get(id, opts)
 
 Get an Active Directory
 
@@ -353,20 +328,14 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::ActiveDirectoryApi.new
-
-id = "id_example" # String | ObjectID of this Active Directory instance.
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+id = 'id_example' # String | ObjectID of this Active Directory instance.
 opts = { 
-  x_org_id: "" # String | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
   #Get an Active Directory
-  result = api_instance.activedirectories_get(id, content_type, accept, opts)
+  result = api_instance.activedirectories_get(id, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling ActiveDirectoryApi->activedirectories_get: #{e}"
@@ -378,9 +347,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ObjectID of this Active Directory instance. | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
@@ -392,13 +359,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **activedirectories_list**
-> Array&lt;ActiveDirectoryOutput&gt; activedirectories_list(content_type, accept, opts)
+> Array&lt;ActiveDirectoryOutput&gt; activedirectories_list(opts)
 
 List Active Directories
 
@@ -417,23 +384,18 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::ActiveDirectoryApi.new
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
 opts = { 
-  fields: ["fields_example"], # Array<String> | The comma separated fields included in the returned records. If omitted, the default list of fields will be returned. 
-  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  fields: ['fields_example'], # Array<String> | The comma separated fields included in the returned records. If omitted, the default list of fields will be returned. 
+  filter: ['filter_example'], # Array<String> | A filter to apply to the query.  **Filter structure**: `<field>:<operator>:<value>`.  **field** = Populate with a valid field from an endpoint response.  **operator** =  Supported operators are: eq, ne, gt, ge, lt, le, between, search, in. _Note: v1 operators differ from v2 operators._  **value** = Populate with the value you want to search for. Is case sensitive. Supports wild cards.  **EX:** `GET /api/v2/groups?filter=name:eq:Test+Group`
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: "" # String | 
+  sort: ['sort_example'], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
   #List Active Directories
-  result = api_instance.activedirectories_list(content_type, accept, opts)
+  result = api_instance.activedirectories_list(opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling ActiveDirectoryApi->activedirectories_list: #{e}"
@@ -444,14 +406,12 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
  **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted, the default list of fields will be returned.  | [optional] 
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
+ **filter** | [**Array&lt;String&gt;**](String.md)| A filter to apply to the query.  **Filter structure**: &#x60;&lt;field&gt;:&lt;operator&gt;:&lt;value&gt;&#x60;.  **field** &#x3D; Populate with a valid field from an endpoint response.  **operator** &#x3D;  Supported operators are: eq, ne, gt, ge, lt, le, between, search, in. _Note: v1 operators differ from v2 operators._  **value** &#x3D; Populate with the value you want to search for. Is case sensitive. Supports wild cards.  **EX:** &#x60;GET /api/v2/groups?filter&#x3D;name:eq:Test+Group&#x60; | [optional] 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
@@ -463,17 +423,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **activedirectories_post**
-> ActiveDirectoryOutput activedirectories_post(content_type, accept, opts)
+> ActiveDirectoryOutput activedirectories_post(opts)
 
 Create a new Active Directory
 
-This endpoint allows you to create a new Active Directory.   #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/ \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{         \"domain\": \"{DC=AD_domain_name;DC=com}\" } ' ```
+This endpoint allows you to create a new Active Directory.   #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/ \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"domain\": \"{DC=AD_domain_name;DC=com}\"   }' ```
 
 ### Example
 ```ruby
@@ -488,19 +448,14 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::ActiveDirectoryApi.new
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
 opts = { 
-  body: JCAPIv2::ActiveDirectoryInput.new, # ActiveDirectoryInput | 
-  x_org_id: "" # String | 
+  body: JCAPIv2::ActiveDirectoryInput.new # ActiveDirectoryInput | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
   #Create a new Active Directory
-  result = api_instance.activedirectories_post(content_type, accept, opts)
+  result = api_instance.activedirectories_post(opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling ActiveDirectoryApi->activedirectories_post: #{e}"
@@ -511,10 +466,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
  **body** | [**ActiveDirectoryInput**](ActiveDirectoryInput.md)|  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
@@ -532,7 +485,7 @@ Name | Type | Description  | Notes
 
 
 # **graph_active_directory_associations_list**
-> Array&lt;GraphConnection&gt; graph_active_directory_associations_list(activedirectory_id, targets, content_type, accept, opts)
+> Array&lt;GraphConnection&gt; graph_active_directory_associations_list(activedirectory_id, targets, opts)
 
 List the associations of an Active Directory instance
 
@@ -551,24 +504,17 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::ActiveDirectoryApi.new
-
-activedirectory_id = "activedirectory_id_example" # String | 
-
-targets = ["targets_example"] # Array<String> | 
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+activedirectory_id = 'activedirectory_id_example' # String | 
+targets = ['targets_example'] # Array<String> | Targets which a \"active_directory\" can be associated to.
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: "" # String | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
   #List the associations of an Active Directory instance
-  result = api_instance.graph_active_directory_associations_list(activedirectory_id, targets, content_type, accept, opts)
+  result = api_instance.graph_active_directory_associations_list(activedirectory_id, targets, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling ActiveDirectoryApi->graph_active_directory_associations_list: #{e}"
@@ -580,12 +526,10 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **activedirectory_id** | **String**|  | 
- **targets** | [**Array&lt;String&gt;**](String.md)|  | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
+ **targets** | [**Array&lt;String&gt;**](String.md)| Targets which a \&quot;active_directory\&quot; can be associated to. | 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
@@ -597,17 +541,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **graph_active_directory_associations_post**
-> graph_active_directory_associations_post(activedirectory_id, content_type, accept, opts)
+> graph_active_directory_associations_post(activedirectory_id, opts)
 
 Manage the associations of an Active Directory instance
 
-This endpoint allows you to manage the _direct_ associations of an Active Directory instance.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Active Directory and Users.  #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{AD_Instance_ID}/associations \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{         \"op\": \"add\",         \"type\": \"user\",         \"id\": \"{User_ID}\" } ' ```
+This endpoint allows you to manage the _direct_ associations of an Active Directory instance.  A direct association can be a non-homogeneous relationship between 2 different objects, for example Active Directory and Users.  #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/activedirectories/{AD_Instance_ID}/associations \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"op\": \"add\",     \"type\": \"user\",     \"id\": \"{User_ID}\"   }' ```
 
 ### Example
 ```ruby
@@ -622,21 +566,15 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::ActiveDirectoryApi.new
-
-activedirectory_id = "activedirectory_id_example" # String | 
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+activedirectory_id = 'activedirectory_id_example' # String | 
 opts = { 
-  body: JCAPIv2::GraphManagementReq.new, # GraphManagementReq | 
-  x_org_id: "" # String | 
+  body: JCAPIv2::GraphOperationActiveDirectory.new # GraphOperationActiveDirectory | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
   #Manage the associations of an Active Directory instance
-  api_instance.graph_active_directory_associations_post(activedirectory_id, content_type, accept, opts)
+  api_instance.graph_active_directory_associations_post(activedirectory_id, opts)
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling ActiveDirectoryApi->graph_active_directory_associations_post: #{e}"
 end
@@ -647,10 +585,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **activedirectory_id** | **String**|  | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **body** | [**GraphManagementReq**](GraphManagementReq.md)|  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to ]
+ **body** | [**GraphOperationActiveDirectory**](GraphOperationActiveDirectory.md)|  | [optional] 
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
@@ -663,12 +599,74 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+
+# **graph_active_directory_traverse_user**
+> Array&lt;GraphObjectWithPaths&gt; graph_active_directory_traverse_user(activedirectory_id, opts)
+
+List the Users bound to an Active Directory instance
+
+This endpoint will return all Users bound to an Active Directory instance, either directly or indirectly, essentially traversing the JumpCloud Graph for your Organization.  Each element will contain the type, id, attributes and paths.  The `attributes` object is a key/value hash of compiled graph attributes for all paths followed.  The `paths` array enumerates each path from this Active Directory instance to the corresponding User; this array represents all grouping and/or associations that would have to be removed to deprovision the User from this Active Directory instance.  See `/members` and `/associations` endpoints to manage those collections.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/v2/activedirectories/{ActiveDirectory_ID}/users \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv2'
+# setup authorization
+JCAPIv2.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = JCAPIv2::ActiveDirectoryApi.new
+activedirectory_id = 'activedirectory_id_example' # String | ObjectID of the Active Directory instance.
+opts = { 
+  filter: ['filter_example'], # Array<String> | A filter to apply to the query.  **Filter structure**: `<field>:<operator>:<value>`.  **field** = Populate with a valid field from an endpoint response.  **operator** =  Supported operators are: eq, ne, gt, ge, lt, le, between, search, in. _Note: v1 operators differ from v2 operators._  **value** = Populate with the value you want to search for. Is case sensitive. Supports wild cards.  **EX:** `GET /api/v2/groups?filter=name:eq:Test+Group`
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  x_org_id: 'x_org_id_example', # String | Organization identifier that can be obtained from console settings.
+  skip: 0 # Integer | The offset into the records to return.
+}
+
+begin
+  #List the Users bound to an Active Directory instance
+  result = api_instance.graph_active_directory_traverse_user(activedirectory_id, opts)
+  p result
+rescue JCAPIv2::ApiError => e
+  puts "Exception when calling ActiveDirectoryApi->graph_active_directory_traverse_user: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **activedirectory_id** | **String**| ObjectID of the Active Directory instance. | 
+ **filter** | [**Array&lt;String&gt;**](String.md)| A filter to apply to the query.  **Filter structure**: &#x60;&lt;field&gt;:&lt;operator&gt;:&lt;value&gt;&#x60;.  **field** &#x3D; Populate with a valid field from an endpoint response.  **operator** &#x3D;  Supported operators are: eq, ne, gt, ge, lt, le, between, search, in. _Note: v1 operators differ from v2 operators._  **value** &#x3D; Populate with the value you want to search for. Is case sensitive. Supports wild cards.  **EX:** &#x60;GET /api/v2/groups?filter&#x3D;name:eq:Test+Group&#x60; | [optional] 
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+
+### Return type
+
+[**Array&lt;GraphObjectWithPaths&gt;**](GraphObjectWithPaths.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **graph_active_directory_traverse_user_group**
-> Array&lt;GraphObjectWithPaths&gt; graph_active_directory_traverse_user_group(activedirectory_id, content_type, accept, opts)
+> Array&lt;GraphObjectWithPaths&gt; graph_active_directory_traverse_user_group(activedirectory_id, opts)
 
 List the User Groups bound to an Active Directory instance
 
@@ -687,23 +685,17 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::ActiveDirectoryApi.new
-
-activedirectory_id = "activedirectory_id_example" # String | ObjectID of the Active Directory instance.
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+activedirectory_id = 'activedirectory_id_example' # String | ObjectID of the Active Directory instance.
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  x_org_id: "" # String | 
+  x_org_id: 'x_org_id_example', # String | Organization identifier that can be obtained from console settings.
   skip: 0, # Integer | The offset into the records to return.
-  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  filter: ['filter_example'] # Array<String> | A filter to apply to the query.  **Filter structure**: `<field>:<operator>:<value>`.  **field** = Populate with a valid field from an endpoint response.  **operator** =  Supported operators are: eq, ne, gt, ge, lt, le, between, search, in. _Note: v1 operators differ from v2 operators._  **value** = Populate with the value you want to search for. Is case sensitive. Supports wild cards.  **EX:** `GET /api/v2/groups?filter=name:eq:Test+Group`
 }
 
 begin
   #List the User Groups bound to an Active Directory instance
-  result = api_instance.graph_active_directory_traverse_user_group(activedirectory_id, content_type, accept, opts)
+  result = api_instance.graph_active_directory_traverse_user_group(activedirectory_id, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling ActiveDirectoryApi->graph_active_directory_traverse_user_group: #{e}"
@@ -715,12 +707,10 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **activedirectory_id** | **String**| ObjectID of the Active Directory instance. | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
+ **filter** | [**Array&lt;String&gt;**](String.md)| A filter to apply to the query.  **Filter structure**: &#x60;&lt;field&gt;:&lt;operator&gt;:&lt;value&gt;&#x60;.  **field** &#x3D; Populate with a valid field from an endpoint response.  **operator** &#x3D;  Supported operators are: eq, ne, gt, ge, lt, le, between, search, in. _Note: v1 operators differ from v2 operators._  **value** &#x3D; Populate with the value you want to search for. Is case sensitive. Supports wild cards.  **EX:** &#x60;GET /api/v2/groups?filter&#x3D;name:eq:Test+Group&#x60; | [optional] 
 
 ### Return type
 
@@ -732,7 +722,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 

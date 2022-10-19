@@ -15,4 +15,3 @@ Name | Type | Description | Notes
 **success** | **BOOLEAN** | True if the policy was successfully applied; false otherwise. | [optional] 
 **system_id** | **String** | ObjectId uniquely identifying the parent System. | [optional] 
 
-

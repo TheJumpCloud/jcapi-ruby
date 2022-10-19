@@ -1,0 +1,36 @@
+# JCAPIv1::Organizationsettings
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**agent_version** | **String** |  | [optional] 
+**beta_features** | **Object** |  | [optional] 
+**contact_email** | **String** |  | [optional] 
+**contact_name** | **String** |  | [optional] 
+**device_identification_enabled** | **BOOLEAN** |  | [optional] 
+**disable_command_runner** | **BOOLEAN** |  | [optional] 
+**disable_google_login** | **BOOLEAN** |  | [optional] 
+**disable_ldap** | **BOOLEAN** |  | [optional] 
+**disable_um** | **BOOLEAN** |  | [optional] 
+**display_preferences** | [**OrganizationsettingsDisplayPreferences**](OrganizationsettingsDisplayPreferences.md) |  | [optional] 
+**duplicate_ldap_groups** | **BOOLEAN** |  | [optional] 
+**email_disclaimer** | **String** |  | [optional] 
+**enable_google_apps** | **BOOLEAN** |  | [optional] 
+**enable_managed_uid** | **BOOLEAN** |  | [optional] 
+**enable_o365** | **BOOLEAN** |  | [optional] 
+**enable_user_portal_agent_install** | **BOOLEAN** |  | [optional] 
+**features** | [**OrganizationsettingsFeatures**](OrganizationsettingsFeatures.md) |  | [optional] 
+**growth_data** | **Object** | Object containing Optimizely experimentIds and states corresponding to them | [optional] 
+**logo** | **String** |  | [optional] 
+**name** | **String** |  | [optional] 
+**new_system_user_state_defaults** | [**OrganizationsettingsNewSystemUserStateDefaults**](OrganizationsettingsNewSystemUserStateDefaults.md) |  | [optional] 
+**password_compliance** | **String** |  | [optional] 
+**password_policy** | [**OrganizationsettingsPasswordPolicy**](OrganizationsettingsPasswordPolicy.md) |  | [optional] 
+**pending_delete** | **BOOLEAN** |  | [optional] 
+**show_intro** | **BOOLEAN** |  | [optional] 
+**system_user_password_expiration_in_days** | **Integer** |  | [optional] 
+**system_users_can_edit** | **BOOLEAN** |  | [optional] 
+**system_users_cap** | **Integer** |  | [optional] 
+**trusted_app_config** | [**TrustedappConfigGet**](TrustedappConfigGet.md) |  | [optional] 
+**user_portal** | [**OrganizationsettingsUserPortal**](OrganizationsettingsUserPortal.md) |  | [optional] 
+

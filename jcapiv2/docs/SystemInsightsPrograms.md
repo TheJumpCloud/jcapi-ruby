@@ -15,4 +15,3 @@ Name | Type | Description | Notes
 **uninstall_string** | **String** |  | [optional] 
 **version** | **String** |  | [optional] 
 
-

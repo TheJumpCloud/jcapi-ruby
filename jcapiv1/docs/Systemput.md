@@ -11,4 +11,3 @@ Name | Type | Description | Notes
 **display_name** | **String** |  | [optional] 
 **tags** | **Array&lt;String&gt;** |  | [optional] 
 
-

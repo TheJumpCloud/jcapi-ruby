@@ -2,9 +2,9 @@
 
 This repository relies on the following Dockerfile in order to run
 Swagger Codegen inside a Docker container:
-https://hub.docker.com/r/jimschubert/swagger-codegen-cli/.
+https://hub.docker.com/r/parsertongue/swagger-codegen-cli.
 
-We're currently using version 2.3.1 of Swagger Codegen.
+We're currently using version 3.0.32 of Swagger Codegen.
 
 ### Generating the API Client
 
@@ -18,6 +18,7 @@ Update the version number for each package in `config_v1.json` or
 `config_v2.json`.
 
 To generate the API v1 or v2 client, run the commands below:
+
 ```bash
 # Update API v1 and v2 specification files in `./input/index1.yaml` and `./input/index2.yaml`):
 mkdir input

@@ -7,13 +7,14 @@ Method | HTTP request | Description
 [**command_file_get**](CommandsApi.md#command_file_get) | **GET** /files/command/{id} | Get a Command File
 [**commands_delete**](CommandsApi.md#commands_delete) | **DELETE** /commands/{id} | Delete a Command
 [**commands_get**](CommandsApi.md#commands_get) | **GET** /commands/{id} | List an individual Command
+[**commands_get_results**](CommandsApi.md#commands_get_results) | **GET** /commands/{id}/results | Get results for a specific command
 [**commands_list**](CommandsApi.md#commands_list) | **GET** /commands | List All Commands
 [**commands_post**](CommandsApi.md#commands_post) | **POST** /commands | Create A Command
 [**commands_put**](CommandsApi.md#commands_put) | **PUT** /commands/{id} | Update a Command
-
+[**commands_run**](CommandsApi.md#commands_run) | **POST** /runCommand | Run a command
 
 # **command_file_get**
-> Commandfilereturn command_file_get(id, content_type, accept, opts)
+> Commandfilereturn command_file_get(id, opts)
 
 Get a Command File
 
@@ -32,23 +33,17 @@ JCAPIv1.configure do |config|
 end
 
 api_instance = JCAPIv1::CommandsApi.new
-
-id = "id_example" # String | 
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+id = 'id_example' # String | 
 opts = { 
-  fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned. 
+  fields: 'fields_example', # String | Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned. 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  skip: 0, # Integer | The offset into the records to return.
-  x_org_id: "" # String | 
+  x_org_id: 'x_org_id_example', # String | 
+  skip: 0 # Integer | The offset into the records to return.
 }
 
 begin
   #Get a Command File
-  result = api_instance.command_file_get(id, content_type, accept, opts)
+  result = api_instance.command_file_get(id, opts)
   p result
 rescue JCAPIv1::ApiError => e
   puts "Exception when calling CommandsApi->command_file_get: #{e}"
@@ -60,12 +55,10 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  | [optional] [default to ]
+ **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  | [optional] 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
+ **x_org_id** | **String**|  | [optional] 
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **x_org_id** | **String**|  | [optional] [default to ]
 
 ### Return type
 
@@ -77,13 +70,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **commands_delete**
-> commands_delete(id, content_type, accept, opts)
+> Command commands_delete(id, opts)
 
 Delete a Command
 
@@ -102,20 +95,15 @@ JCAPIv1.configure do |config|
 end
 
 api_instance = JCAPIv1::CommandsApi.new
-
-id = "id_example" # String | 
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+id = 'id_example' # String | 
 opts = { 
-  x_org_id: "" # String | 
+  x_org_id: 'x_org_id_example' # String | 
 }
 
 begin
   #Delete a Command
-  api_instance.commands_delete(id, content_type, accept, opts)
+  result = api_instance.commands_delete(id, opts)
+  p result
 rescue JCAPIv1::ApiError => e
   puts "Exception when calling CommandsApi->commands_delete: #{e}"
 end
@@ -126,13 +114,11 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**|  | [optional] 
 
 ### Return type
 
-nil (empty response body)
+[**Command**](Command.md)
 
 ### Authorization
 
@@ -140,13 +126,13 @@ nil (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **commands_get**
-> Command commands_get(id, content_type, accept, opts)
+> Command commands_get(id, opts)
 
 List an individual Command
 
@@ -165,22 +151,15 @@ JCAPIv1.configure do |config|
 end
 
 api_instance = JCAPIv1::CommandsApi.new
-
-id = "id_example" # String | 
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+id = 'id_example' # String | 
 opts = { 
-  fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned. 
-  filter: "filter_example" # String | A filter to apply to the query.
-  x_org_id: "" # String | 
+  fields: 'fields_example', # String | Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned. 
+  x_org_id: 'x_org_id_example' # String | 
 }
 
 begin
   #List an individual Command
-  result = api_instance.commands_get(id, content_type, accept, opts)
+  result = api_instance.commands_get(id, opts)
   p result
 rescue JCAPIv1::ApiError => e
   puts "Exception when calling CommandsApi->commands_get: #{e}"
@@ -192,11 +171,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  | [optional] [default to ]
- **filter** | **String**| A filter to apply to the query. | [optional] 
- **x_org_id** | **String**|  | [optional] [default to ]
+ **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  | [optional] 
+ **x_org_id** | **String**|  | [optional] 
 
 ### Return type
 
@@ -208,13 +184,71 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **commands_get_results**
+> Array&lt;Commandresult&gt; commands_get_results(id, opts)
+
+Get results for a specific command
+
+This endpoint returns results for a specific command.  #### Sample Request ``` curl -X GET https://console.jumpcloud.com/api/commands/{id}/results \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'   ````
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv1'
+# setup authorization
+JCAPIv1.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = JCAPIv1::CommandsApi.new
+id = 'id_example' # String | 
+opts = { 
+  limit: 10, # Integer | The number of records to return at once. Limited to 100.
+  skip: 0 # Integer | The offset into the records to return.
+}
+
+begin
+  #Get results for a specific command
+  result = api_instance.commands_get_results(id, opts)
+  p result
+rescue JCAPIv1::ApiError => e
+  puts "Exception when calling CommandsApi->commands_get_results: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**|  | 
+ **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+
+### Return type
+
+[**Array&lt;Commandresult&gt;**](Commandresult.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **commands_list**
-> Commandslist commands_list(content_type, accept, opts)
+> Commandslist commands_list(opts)
 
 List All Commands
 
@@ -233,23 +267,18 @@ JCAPIv1.configure do |config|
 end
 
 api_instance = JCAPIv1::CommandsApi.new
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
 opts = { 
-  skip: 0, # Integer | The offset into the records to return.
-  fields: "", # String | Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned. 
+  fields: 'fields_example', # String | Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned. 
+  filter: 'filter_example', # String | A filter to apply to the query. See the supported operators below. For more complex searches, see the related `/search/<domain>` endpoints, e.g. `/search/systems`.  **Filter structure**: `<field>:<operator>:<value>`.  **field** = Populate with a valid field from an endpoint response.  **operator** = Supported operators are: - `$eq` (equals) - `$ne` (does not equal) - `$gt` (is greater than) - `$gte` (is greater than or equal to) - `$lt` (is less than) - `$lte` (is less than or equal to)  _Note: v1 operators differ from v2 operators._  _Note: For v1 operators, excluding the `$` will result in undefined behavior._  **value** = Populate with the value you want to search for. Is case sensitive.  **Examples** - `GET /users?filter=username:$eq:testuser` - `GET /systemusers?filter=password_expiration_date:$lte:2021-10-24` - `GET /systemusers?filter=department:$ne:Accounting` - `GET /systems?filter[0]=firstname:$eq:foo&filter[1]=lastname:$eq:bar` - this will    AND the filters together. - `GET /systems?filter[or][0]=lastname:$eq:foo&filter[or][1]=lastname:$eq:bar` - this will    OR the filters together.
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  sort: "", # String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
-  filter: "filter_example" # String | A filter to apply to the query.
-  x_org_id: "" # String | 
+  x_org_id: 'x_org_id_example', # String | 
+  skip: 0, # Integer | The offset into the records to return.
+  sort: 'sort_example' # String | Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with `-` to sort descending. 
 }
 
 begin
   #List All Commands
-  result = api_instance.commands_list(content_type, accept, opts)
+  result = api_instance.commands_list(opts)
   p result
 rescue JCAPIv1::ApiError => e
   puts "Exception when calling CommandsApi->commands_list: #{e}"
@@ -260,14 +289,12 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  | [optional] [default to ]
+ **fields** | **String**| Use a space seperated string of field parameters to include the data in the response. If omitted, the default list of fields will be returned.  | [optional] 
+ **filter** | **String**| A filter to apply to the query. See the supported operators below. For more complex searches, see the related &#x60;/search/&lt;domain&gt;&#x60; endpoints, e.g. &#x60;/search/systems&#x60;.  **Filter structure**: &#x60;&lt;field&gt;:&lt;operator&gt;:&lt;value&gt;&#x60;.  **field** &#x3D; Populate with a valid field from an endpoint response.  **operator** &#x3D; Supported operators are: - &#x60;$eq&#x60; (equals) - &#x60;$ne&#x60; (does not equal) - &#x60;$gt&#x60; (is greater than) - &#x60;$gte&#x60; (is greater than or equal to) - &#x60;$lt&#x60; (is less than) - &#x60;$lte&#x60; (is less than or equal to)  _Note: v1 operators differ from v2 operators._  _Note: For v1 operators, excluding the &#x60;$&#x60; will result in undefined behavior._  **value** &#x3D; Populate with the value you want to search for. Is case sensitive.  **Examples** - &#x60;GET /users?filter&#x3D;username:$eq:testuser&#x60; - &#x60;GET /systemusers?filter&#x3D;password_expiration_date:$lte:2021-10-24&#x60; - &#x60;GET /systemusers?filter&#x3D;department:$ne:Accounting&#x60; - &#x60;GET /systems?filter[0]&#x3D;firstname:$eq:foo&amp;filter[1]&#x3D;lastname:$eq:bar&#x60; - this will    AND the filters together. - &#x60;GET /systems?filter[or][0]&#x3D;lastname:$eq:foo&amp;filter[or][1]&#x3D;lastname:$eq:bar&#x60; - this will    OR the filters together. | [optional] 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] [default to ]
- **filter** | **String**| A filter to apply to the query. | [optional] 
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**|  | [optional] 
+ **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
+ **sort** | **String**| Use space separated sort parameters to sort the collection. Default sort is ascending. Prefix with &#x60;-&#x60; to sort descending.  | [optional] 
 
 ### Return type
 
@@ -279,17 +306,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **commands_post**
-> Command commands_post(content_type, accept, opts)
+> Command commands_post(opts)
 
 Create A Command
 
-This endpoint allows you to create a new command.  #### Sample Request  ``` curl -X POST https://console.jumpcloud.com/api/commands/ \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{  \"name\":\"Test API Command\",  \"command\":\"String\",  \"user\":\"{UserID}\",  \"schedule\":\"\",  \"timeout\":\"100\" }'  ```
+This endpoint allows you to create a new command.  NOTE: the system property in the command is not used. Use a POST to /api/v2/commands/{id}/associations to bind a command to a system.  #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/commands/ \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json'   -H 'x-api-key: {API_KEY}'   -d '{\"name\":\"Test API Command\", \"command\":\"String\", \"user\":\"{UserID}\", \"schedule\":\"\", \"timeout\":\"100\"}' ```
 
 ### Example
 ```ruby
@@ -304,19 +331,14 @@ JCAPIv1.configure do |config|
 end
 
 api_instance = JCAPIv1::CommandsApi.new
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
 opts = { 
-  body: JCAPIv1::Command.new, # Command | 
-  x_org_id: "" # String | 
+  body: JCAPIv1::Command.new # Command | 
+  x_org_id: 'x_org_id_example' # String | 
 }
 
 begin
   #Create A Command
-  result = api_instance.commands_post(content_type, accept, opts)
+  result = api_instance.commands_post(opts)
   p result
 rescue JCAPIv1::ApiError => e
   puts "Exception when calling CommandsApi->commands_post: #{e}"
@@ -327,10 +349,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
  **body** | [**Command**](Command.md)|  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**|  | [optional] 
 
 ### Return type
 
@@ -348,7 +368,7 @@ Name | Type | Description  | Notes
 
 
 # **commands_put**
-> Command commands_put(id, content_type, accept, opts)
+> Command commands_put(id, opts)
 
 Update a Command
 
@@ -367,21 +387,15 @@ JCAPIv1.configure do |config|
 end
 
 api_instance = JCAPIv1::CommandsApi.new
-
-id = "id_example" # String | 
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+id = 'id_example' # String | 
 opts = { 
-  body: JCAPIv1::Command.new, # Command | 
-  x_org_id: "" # String | 
+  body: JCAPIv1::Command.new # Command | 
+  x_org_id: 'x_org_id_example' # String | 
 }
 
 begin
   #Update a Command
-  result = api_instance.commands_put(id, content_type, accept, opts)
+  result = api_instance.commands_put(id, opts)
   p result
 rescue JCAPIv1::ApiError => e
   puts "Exception when calling CommandsApi->commands_put: #{e}"
@@ -393,14 +407,66 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**|  | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
  **body** | [**Command**](Command.md)|  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**|  | [optional] 
 
 ### Return type
 
 [**Command**](Command.md)
+
+### Authorization
+
+[x-api-key](../README.md#x-api-key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **commands_run**
+> InlineResponse200 commands_run(opts)
+
+Run a command
+
+This endpoint allows you to run a command. #### Sample Request  ``` curl -X POST https://console.jumpcloud.com/api/runCommand \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}'   -d '{\"_id\":\"{commandID}\", \"systemIds\":[\"systemId\"]}' ```
+
+### Example
+```ruby
+# load the gem
+require 'jcapiv1'
+# setup authorization
+JCAPIv1.configure do |config|
+  # Configure API key authorization: x-api-key
+  config.api_key['x-api-key'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['x-api-key'] = 'Bearer'
+end
+
+api_instance = JCAPIv1::CommandsApi.new
+opts = { 
+  body: JCAPIv1::RunCommandBody.new # RunCommandBody | 
+}
+
+begin
+  #Run a command
+  result = api_instance.commands_run(opts)
+  p result
+rescue JCAPIv1::ApiError => e
+  puts "Exception when calling CommandsApi->commands_run: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**RunCommandBody**](RunCommandBody.md)|  | [optional] 
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 

@@ -27,4 +27,3 @@ Name | Type | Description | Notes
 **watch_paths** | **String** |  | [optional] 
 **working_directory** | **String** |  | [optional] 
 
-

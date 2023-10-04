@@ -12,9 +12,8 @@ Method | HTTP request | Description
 [**ldapservers_list**](LDAPServersApi.md#ldapservers_list) | **GET** /ldapservers | List LDAP Servers
 [**ldapservers_patch**](LDAPServersApi.md#ldapservers_patch) | **PATCH** /ldapservers/{id} | Update existing LDAP server
 
-
 # **graph_ldap_server_associations_list**
-> Array&lt;GraphConnection&gt; graph_ldap_server_associations_list(ldapserver_id, targets, content_type, accept, opts)
+> Array&lt;GraphConnection&gt; graph_ldap_server_associations_list(ldapserver_id, targets, opts)
 
 List the associations of a LDAP Server
 
@@ -33,24 +32,17 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::LDAPServersApi.new
-
-ldapserver_id = "ldapserver_id_example" # String | ObjectID of the LDAP Server.
-
-targets = ["targets_example"] # Array<String> | 
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+ldapserver_id = 'ldapserver_id_example' # String | ObjectID of the LDAP Server.
+targets = ['targets_example'] # Array<String> | Targets which a \"ldap_server\" can be associated to.
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  x_org_id: "" # String | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
   #List the associations of a LDAP Server
-  result = api_instance.graph_ldap_server_associations_list(ldapserver_id, targets, content_type, accept, opts)
+  result = api_instance.graph_ldap_server_associations_list(ldapserver_id, targets, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling LDAPServersApi->graph_ldap_server_associations_list: #{e}"
@@ -62,12 +54,10 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ldapserver_id** | **String**| ObjectID of the LDAP Server. | 
- **targets** | [**Array&lt;String&gt;**](String.md)|  | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
+ **targets** | [**Array&lt;String&gt;**](String.md)| Targets which a \&quot;ldap_server\&quot; can be associated to. | 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
@@ -79,17 +69,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **graph_ldap_server_associations_post**
-> graph_ldap_server_associations_post(ldapserver_id, content_type, accept, opts)
+> graph_ldap_server_associations_post(ldapserver_id, opts)
 
 Manage the associations of a LDAP Server
 
-This endpoint allows you to manage the _direct_ associations of a LDAP Server.  A direct association can be a non-homogeneous relationship between 2 different objects, for example LDAP and Users.  #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/associations \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"op\": \"add\",     \"type\": \"user\",     \"id\": \"{User_ID}\" }' ```
+This endpoint allows you to manage the _direct_ associations of a LDAP Server.  A direct association can be a non-homogeneous relationship between 2 different objects, for example LDAP and Users.  #### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/associations \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"op\": \"add\",     \"type\": \"user\",     \"id\": \"{User_ID}\"   }' ```
 
 ### Example
 ```ruby
@@ -104,21 +94,15 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::LDAPServersApi.new
-
-ldapserver_id = "ldapserver_id_example" # String | ObjectID of the LDAP Server.
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+ldapserver_id = 'ldapserver_id_example' # String | ObjectID of the LDAP Server.
 opts = { 
-  body: JCAPIv2::GraphManagementReq.new, # GraphManagementReq | 
-  x_org_id: "" # String | 
+  body: JCAPIv2::GraphOperationLdapServer.new # GraphOperationLdapServer | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
   #Manage the associations of a LDAP Server
-  api_instance.graph_ldap_server_associations_post(ldapserver_id, content_type, accept, opts)
+  api_instance.graph_ldap_server_associations_post(ldapserver_id, opts)
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling LDAPServersApi->graph_ldap_server_associations_post: #{e}"
 end
@@ -129,10 +113,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ldapserver_id** | **String**| ObjectID of the LDAP Server. | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **body** | [**GraphManagementReq**](GraphManagementReq.md)|  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to ]
+ **body** | [**GraphOperationLdapServer**](GraphOperationLdapServer.md)|  | [optional] 
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
@@ -145,12 +127,12 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 
 
 # **graph_ldap_server_traverse_user**
-> Array&lt;GraphObjectWithPaths&gt; graph_ldap_server_traverse_user(ldapserver_id, content_type, accept, opts)
+> Array&lt;GraphObjectWithPaths&gt; graph_ldap_server_traverse_user(ldapserver_id, opts)
 
 List the Users bound to a LDAP Server
 
@@ -169,23 +151,17 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::LDAPServersApi.new
-
-ldapserver_id = "ldapserver_id_example" # String | ObjectID of the LDAP Server.
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+ldapserver_id = 'ldapserver_id_example' # String | ObjectID of the LDAP Server.
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  x_org_id: "" # String | 
+  x_org_id: 'x_org_id_example', # String | Organization identifier that can be obtained from console settings.
   skip: 0, # Integer | The offset into the records to return.
-  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  filter: ['filter_example'] # Array<String> | A filter to apply to the query.  **Filter structure**: `<field>:<operator>:<value>`.  **field** = Populate with a valid field from an endpoint response.  **operator** =  Supported operators are: eq, ne, gt, ge, lt, le, between, search, in. _Note: v1 operators differ from v2 operators._  **value** = Populate with the value you want to search for. Is case sensitive. Supports wild cards.  **EX:** `GET /api/v2/groups?filter=name:eq:Test+Group`
 }
 
 begin
   #List the Users bound to a LDAP Server
-  result = api_instance.graph_ldap_server_traverse_user(ldapserver_id, content_type, accept, opts)
+  result = api_instance.graph_ldap_server_traverse_user(ldapserver_id, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling LDAPServersApi->graph_ldap_server_traverse_user: #{e}"
@@ -197,12 +173,10 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ldapserver_id** | **String**| ObjectID of the LDAP Server. | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
+ **filter** | [**Array&lt;String&gt;**](String.md)| A filter to apply to the query.  **Filter structure**: &#x60;&lt;field&gt;:&lt;operator&gt;:&lt;value&gt;&#x60;.  **field** &#x3D; Populate with a valid field from an endpoint response.  **operator** &#x3D;  Supported operators are: eq, ne, gt, ge, lt, le, between, search, in. _Note: v1 operators differ from v2 operators._  **value** &#x3D; Populate with the value you want to search for. Is case sensitive. Supports wild cards.  **EX:** &#x60;GET /api/v2/groups?filter&#x3D;name:eq:Test+Group&#x60; | [optional] 
 
 ### Return type
 
@@ -214,13 +188,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **graph_ldap_server_traverse_user_group**
-> Array&lt;GraphObjectWithPaths&gt; graph_ldap_server_traverse_user_group(ldapserver_id, content_type, accept, opts)
+> Array&lt;GraphObjectWithPaths&gt; graph_ldap_server_traverse_user_group(ldapserver_id, opts)
 
 List the User Groups bound to a LDAP Server
 
@@ -239,23 +213,17 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::LDAPServersApi.new
-
-ldapserver_id = "ldapserver_id_example" # String | ObjectID of the LDAP Server.
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+ldapserver_id = 'ldapserver_id_example' # String | ObjectID of the LDAP Server.
 opts = { 
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
-  x_org_id: "" # String | 
+  x_org_id: 'x_org_id_example', # String | Organization identifier that can be obtained from console settings.
   skip: 0, # Integer | The offset into the records to return.
-  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  filter: ['filter_example'] # Array<String> | A filter to apply to the query.  **Filter structure**: `<field>:<operator>:<value>`.  **field** = Populate with a valid field from an endpoint response.  **operator** =  Supported operators are: eq, ne, gt, ge, lt, le, between, search, in. _Note: v1 operators differ from v2 operators._  **value** = Populate with the value you want to search for. Is case sensitive. Supports wild cards.  **EX:** `GET /api/v2/groups?filter=name:eq:Test+Group`
 }
 
 begin
   #List the User Groups bound to a LDAP Server
-  result = api_instance.graph_ldap_server_traverse_user_group(ldapserver_id, content_type, accept, opts)
+  result = api_instance.graph_ldap_server_traverse_user_group(ldapserver_id, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling LDAPServersApi->graph_ldap_server_traverse_user_group: #{e}"
@@ -267,12 +235,10 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ldapserver_id** | **String**| ObjectID of the LDAP Server. | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
+ **filter** | [**Array&lt;String&gt;**](String.md)| A filter to apply to the query.  **Filter structure**: &#x60;&lt;field&gt;:&lt;operator&gt;:&lt;value&gt;&#x60;.  **field** &#x3D; Populate with a valid field from an endpoint response.  **operator** &#x3D;  Supported operators are: eq, ne, gt, ge, lt, le, between, search, in. _Note: v1 operators differ from v2 operators._  **value** &#x3D; Populate with the value you want to search for. Is case sensitive. Supports wild cards.  **EX:** &#x60;GET /api/v2/groups?filter&#x3D;name:eq:Test+Group&#x60; | [optional] 
 
 ### Return type
 
@@ -284,13 +250,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **ldapservers_get**
-> LdapServerOutput ldapservers_get(id, content_type, accept, opts)
+> LdapServer ldapservers_get(id, opts)
 
 Get LDAP Server
 
@@ -309,20 +275,14 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::LDAPServersApi.new
-
-id = "id_example" # String | Unique identifier of the LDAP server.
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+id = 'id_example' # String | Unique identifier of the LDAP server.
 opts = { 
-  x_org_id: "" # String | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
   #Get LDAP Server
-  result = api_instance.ldapservers_get(id, content_type, accept, opts)
+  result = api_instance.ldapservers_get(id, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling LDAPServersApi->ldapservers_get: #{e}"
@@ -334,13 +294,11 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Unique identifier of the LDAP server. | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
-[**LdapServerOutput**](LdapServerOutput.md)
+[**LdapServer**](LdapServer.md)
 
 ### Authorization
 
@@ -348,13 +306,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **ldapservers_list**
-> Array&lt;LdapServerOutput&gt; ldapservers_list(content_type, accept, opts)
+> Array&lt;LdapServer&gt; ldapservers_list(opts)
 
 List LDAP Servers
 
@@ -373,23 +331,18 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::LDAPServersApi.new
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
 opts = { 
-  fields: ["fields_example"], # Array<String> | The comma separated fields included in the returned records. If omitted, the default list of fields will be returned. 
-  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  fields: ['fields_example'], # Array<String> | The comma separated fields included in the returned records. If omitted, the default list of fields will be returned. 
+  filter: ['filter_example'], # Array<String> | A filter to apply to the query.  **Filter structure**: `<field>:<operator>:<value>`.  **field** = Populate with a valid field from an endpoint response.  **operator** =  Supported operators are: eq, ne, gt, ge, lt, le, between, search, in. _Note: v1 operators differ from v2 operators._  **value** = Populate with the value you want to search for. Is case sensitive. Supports wild cards.  **EX:** `GET /api/v2/groups?filter=name:eq:Test+Group`
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: "" # String | 
+  sort: ['sort_example'], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
   #List LDAP Servers
-  result = api_instance.ldapservers_list(content_type, accept, opts)
+  result = api_instance.ldapservers_list(opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling LDAPServersApi->ldapservers_list: #{e}"
@@ -400,18 +353,16 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
  **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted, the default list of fields will be returned.  | [optional] 
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
+ **filter** | [**Array&lt;String&gt;**](String.md)| A filter to apply to the query.  **Filter structure**: &#x60;&lt;field&gt;:&lt;operator&gt;:&lt;value&gt;&#x60;.  **field** &#x3D; Populate with a valid field from an endpoint response.  **operator** &#x3D;  Supported operators are: eq, ne, gt, ge, lt, le, between, search, in. _Note: v1 operators differ from v2 operators._  **value** &#x3D; Populate with the value you want to search for. Is case sensitive. Supports wild cards.  **EX:** &#x60;GET /api/v2/groups?filter&#x3D;name:eq:Test+Group&#x60; | [optional] 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
-[**Array&lt;LdapServerOutput&gt;**](LdapServerOutput.md)
+[**Array&lt;LdapServer&gt;**](LdapServer.md)
 
 ### Authorization
 
@@ -419,13 +370,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **ldapservers_patch**
-> InlineResponse200 ldapservers_patch(id, content_type, accept, opts)
+> InlineResponse20011 ldapservers_patch(id, opts)
 
 Update existing LDAP server
 
@@ -444,22 +395,15 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::LDAPServersApi.new
-
-id = "id_example" # String | Unique identifier of the LDAP server.
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+id = 'id_example' # String | Unique identifier of the LDAP server.
 opts = { 
-  body: JCAPIv2::Body3.new, # Body3 | 
-  x_api_key: "x_api_key_example", # String | 
-  x_org_id: "x_org_id_example" # String | 
+  body: JCAPIv2::LdapserversIdBody.new # LdapserversIdBody | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
   #Update existing LDAP server
-  result = api_instance.ldapservers_patch(id, content_type, accept, opts)
+  result = api_instance.ldapservers_patch(id, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling LDAPServersApi->ldapservers_patch: #{e}"
@@ -471,15 +415,12 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Unique identifier of the LDAP server. | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **body** | [**Body3**](Body3.md)|  | [optional] 
- **x_api_key** | **String**|  | [optional] 
- **x_org_id** | **String**|  | [optional] 
+ **body** | [**LdapserversIdBody**](LdapserversIdBody.md)|  | [optional] 
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 

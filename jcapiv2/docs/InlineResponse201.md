@@ -3,7 +3,5 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**apple_mdm** | [**AppleMDM**](AppleMDM.md) |  | [optional] 
-**signed_csr_plist** | **String** |  | [optional] 
-
+**integration_id** | **String** | The identifier of the created integration | 
 

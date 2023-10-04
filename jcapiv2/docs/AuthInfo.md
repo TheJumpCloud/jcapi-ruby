@@ -7,4 +7,3 @@ Name | Type | Description | Notes
 **is_valid** | **BOOLEAN** |  | [optional] 
 **message** | **String** |  | [optional] 
 
-

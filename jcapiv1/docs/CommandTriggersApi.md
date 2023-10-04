@@ -6,9 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**command_trigger_webhook_post**](CommandTriggersApi.md#command_trigger_webhook_post) | **POST** /command/trigger/{triggername} | Launch a command via a Trigger
 
-
 # **command_trigger_webhook_post**
-> command_trigger_webhook_post(triggername, content_type, accept, opts)
+> Triggerreturn command_trigger_webhook_post(triggername, opts)
 
 Launch a command via a Trigger
 
@@ -27,20 +26,16 @@ JCAPIv1.configure do |config|
 end
 
 api_instance = JCAPIv1::CommandTriggersApi.new
-
-triggername = "triggername_example" # String | 
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+triggername = 'triggername_example' # String | 
 opts = { 
-  x_org_id: "" # String | 
+  body: nil # Hash | 
+  x_org_id: 'x_org_id_example' # String | 
 }
 
 begin
   #Launch a command via a Trigger
-  api_instance.command_trigger_webhook_post(triggername, content_type, accept, opts)
+  result = api_instance.command_trigger_webhook_post(triggername, opts)
+  p result
 rescue JCAPIv1::ApiError => e
   puts "Exception when calling CommandTriggersApi->command_trigger_webhook_post: #{e}"
 end
@@ -51,13 +46,12 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **triggername** | **String**|  | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to ]
+ **body** | [**Hash**](Hash.md)|  | [optional] 
+ **x_org_id** | **String**|  | [optional] 
 
 ### Return type
 
-nil (empty response body)
+[**Triggerreturn**](Triggerreturn.md)
 
 ### Authorization
 

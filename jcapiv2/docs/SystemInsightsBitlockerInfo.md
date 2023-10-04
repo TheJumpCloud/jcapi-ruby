@@ -12,4 +12,3 @@ Name | Type | Description | Notes
 **protection_status** | **Integer** |  | [optional] 
 **system_id** | **String** |  | [optional] 
 
-

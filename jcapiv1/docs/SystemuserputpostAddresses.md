@@ -12,4 +12,3 @@ Name | Type | Description | Notes
 **street_address** | **String** |  | [optional] 
 **type** | **String** |  | [optional] 
 
-

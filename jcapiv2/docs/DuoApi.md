@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**duo_account_delete**](DuoApi.md#duo_account_delete) | **DELETE** /duo/accounts/{id} | Delete a Duo Account
 [**duo_account_get**](DuoApi.md#duo_account_get) | **GET** /duo/accounts/{id} | Get a Duo Acount
-[**duo_account_list**](DuoApi.md#duo_account_list) | **GET** /duo/accounts | List Duo Acounts
+[**duo_account_list**](DuoApi.md#duo_account_list) | **GET** /duo/accounts | List Duo Accounts
 [**duo_account_post**](DuoApi.md#duo_account_post) | **POST** /duo/accounts | Create Duo Account
 [**duo_application_delete**](DuoApi.md#duo_application_delete) | **DELETE** /duo/accounts/{account_id}/applications/{application_id} | Delete a Duo Application
 [**duo_application_get**](DuoApi.md#duo_application_get) | **GET** /duo/accounts/{account_id}/applications/{application_id} | Get a Duo application
@@ -14,9 +14,8 @@ Method | HTTP request | Description
 [**duo_application_post**](DuoApi.md#duo_application_post) | **POST** /duo/accounts/{account_id}/applications | Create Duo Application
 [**duo_application_update**](DuoApi.md#duo_application_update) | **PUT** /duo/accounts/{account_id}/applications/{application_id} | Update Duo Application
 
-
 # **duo_account_delete**
-> DuoAccount duo_account_delete(id, content_type, accept, opts)
+> DuoAccount duo_account_delete(id, opts)
 
 Delete a Duo Account
 
@@ -35,20 +34,14 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::DuoApi.new
-
-id = "id_example" # String | ObjectID of the Duo Account
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+id = 'id_example' # String | ObjectID of the Duo Account
 opts = { 
-  x_org_id: "" # String | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
   #Delete a Duo Account
-  result = api_instance.duo_account_delete(id, content_type, accept, opts)
+  result = api_instance.duo_account_delete(id, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling DuoApi->duo_account_delete: #{e}"
@@ -60,9 +53,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ObjectID of the Duo Account | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
@@ -74,13 +65,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **duo_account_get**
-> DuoAccount duo_account_get(id, content_type, accept, opts)
+> DuoAccount duo_account_get(id, opts)
 
 Get a Duo Acount
 
@@ -99,20 +90,14 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::DuoApi.new
-
-id = "id_example" # String | ObjectID of the Duo Account
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+id = 'id_example' # String | ObjectID of the Duo Account
 opts = { 
-  x_org_id: "" # String | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
   #Get a Duo Acount
-  result = api_instance.duo_account_get(id, content_type, accept, opts)
+  result = api_instance.duo_account_get(id, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling DuoApi->duo_account_get: #{e}"
@@ -124,9 +109,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| ObjectID of the Duo Account | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
@@ -138,15 +121,15 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **duo_account_list**
-> Array&lt;DuoAccount&gt; duo_account_list(content_type, accept, opts)
+> Array&lt;DuoAccount&gt; duo_account_list(opts)
 
-List Duo Acounts
+List Duo Accounts
 
 This endpoint returns all the Duo accounts for your organization. Note: There can currently only be one Duo account for your organization.  #### Sample Request ``` curl https://console.jumpcloud.com/api/v2/duo/accounts \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' ```
 
@@ -163,18 +146,13 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::DuoApi.new
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
 opts = { 
-  x_org_id: "" # String | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
-  #List Duo Acounts
-  result = api_instance.duo_account_list(content_type, accept, opts)
+  #List Duo Accounts
+  result = api_instance.duo_account_list(opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling DuoApi->duo_account_list: #{e}"
@@ -185,9 +163,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
@@ -199,13 +175,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **duo_account_post**
-> DuoAccount duo_account_post(content_type, accept, opts)
+> DuoAccount duo_account_post(opts)
 
 Create Duo Account
 
@@ -224,18 +200,13 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::DuoApi.new
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
 opts = { 
-  x_org_id: "" # String | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
   #Create Duo Account
-  result = api_instance.duo_account_post(content_type, accept, opts)
+  result = api_instance.duo_account_post(opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling DuoApi->duo_account_post: #{e}"
@@ -246,9 +217,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
@@ -260,13 +229,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **duo_application_delete**
-> DuoApplication duo_application_delete(account_id, application_id, content_type, accept, opts)
+> DuoApplication duo_application_delete(account_id, application_id, opts)
 
 Delete a Duo Application
 
@@ -285,22 +254,15 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::DuoApi.new
-
-account_id = "account_id_example" # String | 
-
-application_id = "application_id_example" # String | 
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+account_id = 'account_id_example' # String | 
+application_id = 'application_id_example' # String | 
 opts = { 
-  x_org_id: "" # String | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
   #Delete a Duo Application
-  result = api_instance.duo_application_delete(account_id, application_id, content_type, accept, opts)
+  result = api_instance.duo_application_delete(account_id, application_id, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling DuoApi->duo_application_delete: #{e}"
@@ -313,9 +275,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **String**|  | 
  **application_id** | **String**|  | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
@@ -327,13 +287,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **duo_application_get**
-> DuoApplication duo_application_get(account_id, application_id, content_type, accept, opts)
+> DuoApplication duo_application_get(account_id, application_id, opts)
 
 Get a Duo application
 
@@ -352,22 +312,15 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::DuoApi.new
-
-account_id = "account_id_example" # String | 
-
-application_id = "application_id_example" # String | 
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+account_id = 'account_id_example' # String | 
+application_id = 'application_id_example' # String | 
 opts = { 
-  x_org_id: "" # String | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
   #Get a Duo application
-  result = api_instance.duo_application_get(account_id, application_id, content_type, accept, opts)
+  result = api_instance.duo_application_get(account_id, application_id, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling DuoApi->duo_application_get: #{e}"
@@ -380,9 +333,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **String**|  | 
  **application_id** | **String**|  | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
@@ -394,13 +345,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **duo_application_list**
-> Array&lt;DuoApplication&gt; duo_application_list(account_id, content_type, accept, opts)
+> Array&lt;DuoApplication&gt; duo_application_list(account_id, opts)
 
 List Duo Applications
 
@@ -419,20 +370,14 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::DuoApi.new
-
-account_id = "account_id_example" # String | 
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+account_id = 'account_id_example' # String | 
 opts = { 
-  x_org_id: "" # String | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
   #List Duo Applications
-  result = api_instance.duo_application_list(account_id, content_type, accept, opts)
+  result = api_instance.duo_application_list(account_id, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling DuoApi->duo_application_list: #{e}"
@@ -444,9 +389,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **String**|  | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
@@ -458,13 +401,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **duo_application_post**
-> DuoApplication duo_application_post(account_id, content_type, accept, opts)
+> DuoApplication duo_application_post(account_id, opts)
 
 Create Duo Application
 
@@ -483,21 +426,15 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::DuoApi.new
-
-account_id = "account_id_example" # String | 
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+account_id = 'account_id_example' # String | 
 opts = { 
-  body: JCAPIv2::DuoApplicationReq.new, # DuoApplicationReq | 
-  x_org_id: "" # String | 
+  body: JCAPIv2::DuoApplicationReq.new # DuoApplicationReq | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
   #Create Duo Application
-  result = api_instance.duo_application_post(account_id, content_type, accept, opts)
+  result = api_instance.duo_application_post(account_id, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling DuoApi->duo_application_post: #{e}"
@@ -509,10 +446,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **String**|  | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
  **body** | [**DuoApplicationReq**](DuoApplicationReq.md)|  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
@@ -530,7 +465,7 @@ Name | Type | Description  | Notes
 
 
 # **duo_application_update**
-> DuoApplication duo_application_update(account_id, application_id, content_type, accept, opts)
+> DuoApplication duo_application_update(account_idapplication_id, opts)
 
 Update Duo Application
 
@@ -549,23 +484,16 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::DuoApi.new
-
-account_id = "account_id_example" # String | 
-
-application_id = "application_id_example" # String | 
-
-content_type = "application/json" # String | 
-
-accept = "application/json" # String | 
-
+account_id = 'account_id_example' # String | 
+application_id = 'application_id_example' # String | 
 opts = { 
-  body: JCAPIv2::DuoApplicationUpdateReq.new, # DuoApplicationUpdateReq | 
-  x_org_id: "" # String | 
+  body: JCAPIv2::DuoApplicationUpdateReq.new # DuoApplicationUpdateReq | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
   #Update Duo Application
-  result = api_instance.duo_application_update(account_id, application_id, content_type, accept, opts)
+  result = api_instance.duo_application_update(account_idapplication_id, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling DuoApi->duo_application_update: #{e}"
@@ -578,10 +506,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **account_id** | **String**|  | 
  **application_id** | **String**|  | 
- **content_type** | **String**|  | [default to application/json]
- **accept** | **String**|  | [default to application/json]
  **body** | [**DuoApplicationUpdateReq**](DuoApplicationUpdateReq.md)|  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 

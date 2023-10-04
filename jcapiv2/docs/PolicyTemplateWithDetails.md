@@ -11,5 +11,5 @@ Name | Type | Description | Notes
 **id** | **String** | ObjectId uniquely identifying a Policy Template. | [optional] 
 **name** | **String** | The unique name for the Policy Template. | [optional] 
 **os_meta_family** | **String** |  | [optional] 
-
+**os_restrictions** | [**Array&lt;OSRestriction&gt;**](OSRestriction.md) |  | [optional] 
 

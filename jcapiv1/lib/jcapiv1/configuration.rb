@@ -127,7 +127,7 @@ module JCAPIv1
     def initialize
       @scheme = 'https'
       @host = 'console.jumpcloud.com'
-      @base_path = 'https://console.jumpcloud.com/api'
+      @base_path = '/api'
       @api_key = {}
       @api_key_prefix = {}
       @timeout = 0

@@ -10,5 +10,5 @@ Swagger Codegen version: 3.0.47
 =end
 
 module JCAPIv1
-  VERSION = '3.0.0'
+  VERSION = '4.0.0'
 end

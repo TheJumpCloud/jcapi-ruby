@@ -7,4 +7,3 @@ Name | Type | Description | Notes
 **display_name** | **String** | The name of the organization. | [optional] 
 **logo_url** | **String** | The organization logo image URL.  | [optional] 
 
-

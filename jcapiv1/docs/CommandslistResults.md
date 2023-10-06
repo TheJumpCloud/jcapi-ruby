@@ -14,4 +14,3 @@ Name | Type | Description | Notes
 **schedule_repeat_type** | **String** | When the command will repeat. | [optional] 
 **trigger** | **String** | Trigger to execute command. | [optional] 
 
-

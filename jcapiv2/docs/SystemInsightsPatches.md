@@ -14,4 +14,3 @@ Name | Type | Description | Notes
 **installed_on** | **String** |  | [optional] 
 **system_id** | **String** |  | [optional] 
 
-

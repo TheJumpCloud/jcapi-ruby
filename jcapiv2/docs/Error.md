@@ -3,8 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **Integer** |  | [optional] 
-**fields** | **String** |  | [optional] 
-**message** | **String** |  | [optional] 
-
+**code** | **Integer** | HTTP status code | [optional] 
+**message** | **String** | Error message | [optional] 
+**status** | **String** | HTTP status description | [optional] 
 

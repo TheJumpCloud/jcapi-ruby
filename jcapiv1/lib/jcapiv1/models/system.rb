@@ -1,19 +1,17 @@
 =begin
-#JumpCloud APIs
+#JumpCloud API
 
-# JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, & system users.
+## Overview  JumpCloud's V1 API. This set of endpoints allows JumpCloud customers to manage commands, systems, and system users.  ## API Best Practices  Read the linked Help Article below for guidance on retrying failed requests to JumpCloud's REST API, as well as best practices for structuring subsequent retry requests. Customizing retry mechanisms based on these recommendations will increase the reliability and dependability of your API calls.  Covered topics include: 1. Important Considerations 2. Supported HTTP Request Methods 3. Response codes 4. API Key rotation 5. Paginating 6. Error handling 7. Retry rates  [JumpCloud Help Center - API Best Practices](https://support.jumpcloud.com/support/s/article/JumpCloud-API-Best-Practices)  # API Key  ## Access Your API Key  To locate your API Key:  1. Log into the [JumpCloud Admin Console](https://console.jumpcloud.com/). 2. Go to the username drop down located in the top-right of the Console. 3. Retrieve your API key from API Settings.  ## API Key Considerations  This API key is associated to the currently logged in administrator. Other admins will have different API keys.  **WARNING** Please keep this API key secret, as it grants full access to any data accessible via your JumpCloud console account.  You can also reset your API key in the same location in the JumpCloud Admin Console.  ## Recycling or Resetting Your API Key  In order to revoke access with the current API key, simply reset your API key. This will render all calls using the previous API key inaccessible.  Your API key will be passed in as a header with the header name \"x-api-key\".  ```bash curl -H \"x-api-key: [YOUR_API_KEY_HERE]\" \"https://console.jumpcloud.com/api/systemusers\" ```  # System Context  * [Introduction](#introduction) * [Supported endpoints](#supported-endpoints) * [Response codes](#response-codes) * [Authentication](#authentication) * [Additional examples](#additional-examples) * [Third party](#third-party)  ## Introduction  JumpCloud System Context Authorization is an alternative way to authenticate with a subset of JumpCloud's REST APIs. Using this method, a system can manage its information and resource associations, allowing modern auto provisioning environments to scale as needed.  **Notes:**   * The following documentation applies to Linux Operating Systems only.  * Systems that have been automatically enrolled using Apple's Device Enrollment Program (DEP) or systems enrolled using the User Portal install are not eligible to use the System Context API to prevent unauthorized access to system groups and resources. If a script that utilizes the System Context API is invoked on a system enrolled in this way, it will display an error.  ## Supported Endpoints  JumpCloud System Context Authorization can be used in conjunction with Systems endpoints found in the V1 API and certain System Group endpoints found in the v2 API.  * A system may fetch, alter, and delete metadata about itself, including manipulating a system's Group and Systemuser associations,   * `/api/systems/{system_id}` | [`GET`](https://docs.jumpcloud.com/api/1.0/index.html#operation/systems_get) [`PUT`](https://docs.jumpcloud.com/api/1.0/index.html#operation/systems_put) * A system may delete itself from your JumpCloud organization   * `/api/systems/{system_id}` | [`DELETE`](https://docs.jumpcloud.com/api/1.0/index.html#operation/systems_delete) * A system may fetch its direct resource associations under v2 (Groups)   * `/api/v2/systems/{system_id}/memberof` | [`GET`](https://docs.jumpcloud.com/api/2.0/index.html#operation/graph_systemGroupMembership)   * `/api/v2/systems/{system_id}/associations` | [`GET`](https://docs.jumpcloud.com/api/2.0/index.html#operation/graph_systemAssociationsList)   * `/api/v2/systems/{system_id}/users` | [`GET`](https://docs.jumpcloud.com/api/2.0/index.html#operation/graph_systemTraverseUser) * A system may alter its direct resource associations under v2 (Groups)   * `/api/v2/systems/{system_id}/associations` | [`POST`](https://docs.jumpcloud.com/api/2.0/index.html#operation/graph_systemAssociationsPost) * A system may alter its System Group associations   * `/api/v2/systemgroups/{group_id}/members` | [`POST`](https://docs.jumpcloud.com/api/2.0/index.html#operation/graph_systemGroupMembersPost)     * _NOTE_ If a system attempts to alter the system group membership of a different system the request will be rejected  ## Response Codes  If endpoints other than those described above are called using the System Context API, the server will return a `401` response.  ## Authentication  To allow for secure access to our APIs, you must authenticate each API request. JumpCloud System Context Authorization uses [HTTP Signatures](https://tools.ietf.org/html/draft-cavage-http-signatures-00) to authenticate API requests. The HTTP Signatures sent with each request are similar to the signatures used by the Amazon Web Services REST API. To help with the request-signing process, we have provided an [example bash script](https://github.com/TheJumpCloud/SystemContextAPI/blob/master/examples/shell/SigningExample.sh). This example API request simply requests the entire system record. You must be root, or have permissions to access the contents of the `/opt/jc` directory to generate a signature.  Here is a breakdown of the example script with explanations.  First, the script extracts the systemKey from the JSON formatted `/opt/jc/jcagent.conf` file.  ```bash #!/bin/bash conf=\"`cat /opt/jc/jcagent.conf`\" regex=\"systemKey\\\":\\\"(\\w+)\\\"\"  if [[ $conf =~ $regex ]] ; then   systemKey=\"${BASH_REMATCH[1]}\" fi ```  Then, the script retrieves the current date in the correct format.  ```bash now=`date -u \"+%a, %d %h %Y %H:%M:%S GMT\"`; ```  Next, we build a signing string to demonstrate the expected signature format. The signed string must consist of the [request-line](https://tools.ietf.org/html/rfc2616#page-35) and the date header, separated by a newline character.  ```bash signstr=\"GET /api/systems/${systemKey} HTTP/1.1\\ndate: ${now}\" ```  The next step is to calculate and apply the signature. This is a two-step process:  1. Create a signature from the signing string using the JumpCloud Agent private key: ``printf \"$signstr\" | openssl dgst -sha256 -sign /opt/jc/client.key`` 2. Then Base64-encode the signature string and trim off the newline characters: ``| openssl enc -e -a | tr -d '\\n'``  The combined steps above result in:  ```bash signature=`printf \"$signstr\" | openssl dgst -sha256 -sign /opt/jc/client.key | openssl enc -e -a | tr -d '\\n'` ; ```  Finally, we make sure the API call sending the signature has the same Authorization and Date header values, HTTP method, and URL that were used in the signing string.  ```bash curl -iq \\   -H \"Accept: application/json\" \\   -H \"Content-Type: application/json\" \\   -H \"Date: ${now}\" \\   -H \"Authorization: Signature keyId=\\\"system/${systemKey}\\\",headers=\\\"request-line date\\\",algorithm=\\\"rsa-sha256\\\",signature=\\\"${signature}\\\"\" \\   --url https://console.jumpcloud.com/api/systems/${systemKey} ```  ### Input Data  All PUT and POST methods should use the HTTP Content-Type header with a value of 'application/json'. PUT methods are used for updating a record. POST methods are used to create a record.  The following example demonstrates how to update the `displayName` of the system.  ```bash signstr=\"PUT /api/systems/${systemKey} HTTP/1.1\\ndate: ${now}\" signature=`printf \"$signstr\" | openssl dgst -sha256 -sign /opt/jc/client.key | openssl enc -e -a | tr -d '\\n'` ;  curl -iq \\   -d \"{\\\"displayName\\\" : \\\"updated-system-name-1\\\"}\" \\   -X \"PUT\" \\   -H \"Content-Type: application/json\" \\   -H \"Accept: application/json\" \\   -H \"Date: ${now}\" \\   -H \"Authorization: Signature keyId=\\\"system/${systemKey}\\\",headers=\\\"request-line date\\\",algorithm=\\\"rsa-sha256\\\",signature=\\\"${signature}\\\"\" \\   --url https://console.jumpcloud.com/api/systems/${systemKey} ```  ### Output Data  All results will be formatted as JSON.  Here is an abbreviated example of response output:  ```json {   \"_id\": \"525ee96f52e144993e000015\",   \"agentServer\": \"lappy386\",   \"agentVersion\": \"0.9.42\",   \"arch\": \"x86_64\",   \"connectionKey\": \"127.0.0.1_51812\",   \"displayName\": \"ubuntu-1204\",   \"firstContact\": \"2013-10-16T19:30:55.611Z\",   \"hostname\": \"ubuntu-1204\"   ... ```  ## Additional Examples  ### Signing Authentication Example  This example demonstrates how to make an authenticated request to fetch the JumpCloud record for this system.  [SigningExample.sh](https://github.com/TheJumpCloud/SystemContextAPI/blob/master/examples/shell/SigningExample.sh)  ### Shutdown Hook  This example demonstrates how to make an authenticated request on system shutdown. Using an init.d script registered at run level 0, you can call the System Context API as the system is shutting down.  [Instance-shutdown-initd](https://github.com/TheJumpCloud/SystemContextAPI/blob/master/examples/instance-shutdown-initd) is an example of an init.d script that only runs at system shutdown.  After customizing the [instance-shutdown-initd](https://github.com/TheJumpCloud/SystemContextAPI/blob/master/examples/instance-shutdown-initd) script, you should install it on the system(s) running the JumpCloud agent.  1. Copy the modified [instance-shutdown-initd](https://github.com/TheJumpCloud/SystemContextAPI/blob/master/examples/instance-shutdown-initd) to `/etc/init.d/instance-shutdown`. 2. On Ubuntu systems, run `update-rc.d instance-shutdown defaults`. On RedHat/CentOS systems, run `chkconfig --add instance-shutdown`.  ## Third Party  ### Chef Cookbooks  [https://github.com/nshenry03/jumpcloud](https://github.com/nshenry03/jumpcloud)  [https://github.com/cjs226/jumpcloud](https://github.com/cjs226/jumpcloud)  # Multi-Tenant Portal Headers  Multi-Tenant Organization API Headers are available for JumpCloud Admins to use when making API requests from Organizations that have multiple managed organizations.  The `x-org-id` is a required header for all multi-tenant admins when making API requests to JumpCloud. This header will define to which organization you would like to make the request.  **NOTE** Single Tenant Admins do not need to provide this header when making an API request.  ## Header Value  `x-org-id`  ## API Response Codes  * `400` Malformed ID. * `400` x-org-id and Organization path ID do not match. * `401` ID not included for multi-tenant admin * `403` ID included on unsupported route. * `404` Organization ID Not Found.  ```bash curl -X GET https://console.jumpcloud.com/api/v2/directories \\   -H 'accept: application/json' \\   -H 'content-type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -H 'x-org-id: {ORG_ID}'  ```  ## To Obtain an Individual Organization ID via the UI  As a prerequisite, your Primary Organization will need to be setup for Multi-Tenancy. This provides access to the Multi-Tenant Organization Admin Portal.  1. Log into JumpCloud [Admin Console](https://console.jumpcloud.com). If you are a multi-tenant Admin, you will automatically be routed to the Multi-Tenant Admin Portal. 2. From the Multi-Tenant Portal's primary navigation bar, select the Organization you'd like to access. 3. You will automatically be routed to that Organization's Admin Console. 4. Go to Settings in the sub-tenant's primary navigation. 5. You can obtain your Organization ID below your Organization's Contact Information on the Settings page.  ## To Obtain All Organization IDs via the API  * You can make an API request to this endpoint using the API key of your Primary Organization.  `https://console.jumpcloud.com/api/organizations/` This will return all your managed organizations.  ```bash curl -X GET \\   https://console.jumpcloud.com/api/organizations/ \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' ```  # SDKs  You can find language specific SDKs that can help you kickstart your Integration with JumpCloud in the following GitHub repositories:  * [Python](https://github.com/TheJumpCloud/jcapi-python) * [Go](https://github.com/TheJumpCloud/jcapi-go) * [Ruby](https://github.com/TheJumpCloud/jcapi-ruby) * [Java](https://github.com/TheJumpCloud/jcapi-java) 
 
 OpenAPI spec version: 1.0
-
+Contact: support@jumpcloud.com
 Generated by: https://github.com/swagger-api/swagger-codegen.git
-Swagger Codegen version: 2.3.1
-
+Swagger Codegen version: 3.0.47
 =end
 
 require 'date'
 
 module JCAPIv1
-
   class System
     attr_accessor :_id
 
@@ -33,17 +31,37 @@ module JCAPIv1
 
     attr_accessor :arch
 
+    attr_accessor :arch_family
+
+    attr_accessor :azure_ad_joined
+
+    attr_accessor :built_in_commands
+
     attr_accessor :connection_history
 
     attr_accessor :created
 
+    attr_accessor :description
+
+    attr_accessor :desktop_capable
+
+    attr_accessor :display_manager
+
     attr_accessor :display_name
 
+    attr_accessor :domain_info
+
     attr_accessor :fde
+
+    attr_accessor :file_system
+
+    attr_accessor :has_service_account
 
     attr_accessor :hostname
 
     attr_accessor :last_contact
+
+    attr_accessor :mdm
 
     attr_accessor :modify_sshd_config
 
@@ -53,7 +71,19 @@ module JCAPIv1
 
     attr_accessor :os
 
+    attr_accessor :os_family
+
+    attr_accessor :os_version_detail
+
+    attr_accessor :provision_metadata
+
     attr_accessor :remote_ip
+
+    attr_accessor :secure_login
+
+    attr_accessor :serial_number
+
+    attr_accessor :service_account_state
 
     attr_accessor :ssh_root_enabled
 
@@ -67,8 +97,9 @@ module JCAPIv1
 
     attr_accessor :template_name
 
-    attr_accessor :version
+    attr_accessor :user_metrics
 
+    attr_accessor :version
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -82,197 +113,317 @@ module JCAPIv1
         :'allow_ssh_root_login' => :'allowSshRootLogin',
         :'amazon_instance_id' => :'amazonInstanceID',
         :'arch' => :'arch',
+        :'arch_family' => :'archFamily',
+        :'azure_ad_joined' => :'azureAdJoined',
+        :'built_in_commands' => :'builtInCommands',
         :'connection_history' => :'connectionHistory',
         :'created' => :'created',
+        :'description' => :'description',
+        :'desktop_capable' => :'desktopCapable',
+        :'display_manager' => :'displayManager',
         :'display_name' => :'displayName',
+        :'domain_info' => :'domainInfo',
         :'fde' => :'fde',
+        :'file_system' => :'fileSystem',
+        :'has_service_account' => :'hasServiceAccount',
         :'hostname' => :'hostname',
         :'last_contact' => :'lastContact',
+        :'mdm' => :'mdm',
         :'modify_sshd_config' => :'modifySSHDConfig',
         :'network_interfaces' => :'networkInterfaces',
         :'organization' => :'organization',
         :'os' => :'os',
+        :'os_family' => :'osFamily',
+        :'os_version_detail' => :'osVersionDetail',
+        :'provision_metadata' => :'provisionMetadata',
         :'remote_ip' => :'remoteIP',
+        :'secure_login' => :'secureLogin',
+        :'serial_number' => :'serialNumber',
+        :'service_account_state' => :'serviceAccountState',
         :'ssh_root_enabled' => :'sshRootEnabled',
         :'sshd_params' => :'sshdParams',
         :'system_insights' => :'systemInsights',
         :'system_timezone' => :'systemTimezone',
         :'tags' => :'tags',
         :'template_name' => :'templateName',
+        :'user_metrics' => :'userMetrics',
         :'version' => :'version'
       }
     end
 
     # Attribute type mapping.
-    def self.swagger_types
+    def self.openapi_types
       {
-        :'_id' => :'String',
-        :'active' => :'BOOLEAN',
-        :'agent_version' => :'String',
-        :'allow_multi_factor_authentication' => :'BOOLEAN',
-        :'allow_public_key_authentication' => :'BOOLEAN',
-        :'allow_ssh_password_authentication' => :'BOOLEAN',
-        :'allow_ssh_root_login' => :'BOOLEAN',
-        :'amazon_instance_id' => :'String',
-        :'arch' => :'String',
-        :'connection_history' => :'Array<Object>',
-        :'created' => :'String',
-        :'display_name' => :'String',
-        :'fde' => :'Fde',
-        :'hostname' => :'String',
-        :'last_contact' => :'String',
-        :'modify_sshd_config' => :'BOOLEAN',
-        :'network_interfaces' => :'Array<SystemNetworkInterfaces>',
-        :'organization' => :'String',
-        :'os' => :'String',
-        :'remote_ip' => :'String',
-        :'ssh_root_enabled' => :'BOOLEAN',
-        :'sshd_params' => :'Array<SystemSshdParams>',
-        :'system_insights' => :'SystemSystemInsights',
-        :'system_timezone' => :'Integer',
-        :'tags' => :'Array<String>',
-        :'template_name' => :'String',
-        :'version' => :'String'
+        :'_id' => :'Object',
+        :'active' => :'Object',
+        :'agent_version' => :'Object',
+        :'allow_multi_factor_authentication' => :'Object',
+        :'allow_public_key_authentication' => :'Object',
+        :'allow_ssh_password_authentication' => :'Object',
+        :'allow_ssh_root_login' => :'Object',
+        :'amazon_instance_id' => :'Object',
+        :'arch' => :'Object',
+        :'arch_family' => :'Object',
+        :'azure_ad_joined' => :'Object',
+        :'built_in_commands' => :'Object',
+        :'connection_history' => :'Object',
+        :'created' => :'Object',
+        :'description' => :'Object',
+        :'desktop_capable' => :'Object',
+        :'display_manager' => :'Object',
+        :'display_name' => :'Object',
+        :'domain_info' => :'Object',
+        :'fde' => :'Object',
+        :'file_system' => :'Object',
+        :'has_service_account' => :'Object',
+        :'hostname' => :'Object',
+        :'last_contact' => :'Object',
+        :'mdm' => :'Object',
+        :'modify_sshd_config' => :'Object',
+        :'network_interfaces' => :'Object',
+        :'organization' => :'Object',
+        :'os' => :'Object',
+        :'os_family' => :'Object',
+        :'os_version_detail' => :'Object',
+        :'provision_metadata' => :'Object',
+        :'remote_ip' => :'Object',
+        :'secure_login' => :'Object',
+        :'serial_number' => :'Object',
+        :'service_account_state' => :'Object',
+        :'ssh_root_enabled' => :'Object',
+        :'sshd_params' => :'Object',
+        :'system_insights' => :'Object',
+        :'system_timezone' => :'Object',
+        :'tags' => :'Object',
+        :'template_name' => :'Object',
+        :'user_metrics' => :'Object',
+        :'version' => :'Object'
       }
     end
 
+    # List of attributes with nullable: true
+    def self.openapi_nullable
+      Set.new([
+        :'file_system',
+        :'last_contact',
+      ])
+    end
+  
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
-      return unless attributes.is_a?(Hash)
+      if (!attributes.is_a?(Hash))
+        fail ArgumentError, "The input argument (attributes) must be a hash in `JCAPIv1::System` initialize method"
+      end
 
-      # convert string to symbol for hash key
-      attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
+      # check to see if the attribute exists and convert string to symbol for hash key
+      attributes = attributes.each_with_object({}) { |(k, v), h|
+        if (!self.class.attribute_map.key?(k.to_sym))
+          fail ArgumentError, "`#{k}` is not a valid attribute in `JCAPIv1::System`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+        end
+        h[k.to_sym] = v
+      }
 
-      if attributes.has_key?(:'_id')
+      if attributes.key?(:'_id')
         self._id = attributes[:'_id']
       end
 
-      if attributes.has_key?(:'active')
+      if attributes.key?(:'active')
         self.active = attributes[:'active']
       end
 
-      if attributes.has_key?(:'agentVersion')
-        self.agent_version = attributes[:'agentVersion']
+      if attributes.key?(:'agent_version')
+        self.agent_version = attributes[:'agent_version']
       end
 
-      if attributes.has_key?(:'allowMultiFactorAuthentication')
-        self.allow_multi_factor_authentication = attributes[:'allowMultiFactorAuthentication']
+      if attributes.key?(:'allow_multi_factor_authentication')
+        self.allow_multi_factor_authentication = attributes[:'allow_multi_factor_authentication']
       end
 
-      if attributes.has_key?(:'allowPublicKeyAuthentication')
-        self.allow_public_key_authentication = attributes[:'allowPublicKeyAuthentication']
+      if attributes.key?(:'allow_public_key_authentication')
+        self.allow_public_key_authentication = attributes[:'allow_public_key_authentication']
       end
 
-      if attributes.has_key?(:'allowSshPasswordAuthentication')
-        self.allow_ssh_password_authentication = attributes[:'allowSshPasswordAuthentication']
+      if attributes.key?(:'allow_ssh_password_authentication')
+        self.allow_ssh_password_authentication = attributes[:'allow_ssh_password_authentication']
       end
 
-      if attributes.has_key?(:'allowSshRootLogin')
-        self.allow_ssh_root_login = attributes[:'allowSshRootLogin']
+      if attributes.key?(:'allow_ssh_root_login')
+        self.allow_ssh_root_login = attributes[:'allow_ssh_root_login']
       end
 
-      if attributes.has_key?(:'amazonInstanceID')
-        self.amazon_instance_id = attributes[:'amazonInstanceID']
+      if attributes.key?(:'amazon_instance_id')
+        self.amazon_instance_id = attributes[:'amazon_instance_id']
       end
 
-      if attributes.has_key?(:'arch')
+      if attributes.key?(:'arch')
         self.arch = attributes[:'arch']
       end
 
-      if attributes.has_key?(:'connectionHistory')
-        if (value = attributes[:'connectionHistory']).is_a?(Array)
+      if attributes.key?(:'arch_family')
+        self.arch_family = attributes[:'arch_family']
+      end
+
+      if attributes.key?(:'azure_ad_joined')
+        self.azure_ad_joined = attributes[:'azure_ad_joined']
+      end
+
+      if attributes.key?(:'built_in_commands')
+        if (value = attributes[:'built_in_commands']).is_a?(Array)
+          self.built_in_commands = value
+        end
+      end
+
+      if attributes.key?(:'connection_history')
+        if (value = attributes[:'connection_history']).is_a?(Array)
           self.connection_history = value
         end
       end
 
-      if attributes.has_key?(:'created')
+      if attributes.key?(:'created')
         self.created = attributes[:'created']
       end
 
-      if attributes.has_key?(:'displayName')
-        self.display_name = attributes[:'displayName']
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
-      if attributes.has_key?(:'fde')
+      if attributes.key?(:'desktop_capable')
+        self.desktop_capable = attributes[:'desktop_capable']
+      end
+
+      if attributes.key?(:'display_manager')
+        self.display_manager = attributes[:'display_manager']
+      end
+
+      if attributes.key?(:'display_name')
+        self.display_name = attributes[:'display_name']
+      end
+
+      if attributes.key?(:'domain_info')
+        self.domain_info = attributes[:'domain_info']
+      end
+
+      if attributes.key?(:'fde')
         self.fde = attributes[:'fde']
       end
 
-      if attributes.has_key?(:'hostname')
+      if attributes.key?(:'file_system')
+        self.file_system = attributes[:'file_system']
+      end
+
+      if attributes.key?(:'has_service_account')
+        self.has_service_account = attributes[:'has_service_account']
+      end
+
+      if attributes.key?(:'hostname')
         self.hostname = attributes[:'hostname']
       end
 
-      if attributes.has_key?(:'lastContact')
-        self.last_contact = attributes[:'lastContact']
+      if attributes.key?(:'last_contact')
+        self.last_contact = attributes[:'last_contact']
       end
 
-      if attributes.has_key?(:'modifySSHDConfig')
-        self.modify_sshd_config = attributes[:'modifySSHDConfig']
+      if attributes.key?(:'mdm')
+        self.mdm = attributes[:'mdm']
       end
 
-      if attributes.has_key?(:'networkInterfaces')
-        if (value = attributes[:'networkInterfaces']).is_a?(Array)
+      if attributes.key?(:'modify_sshd_config')
+        self.modify_sshd_config = attributes[:'modify_sshd_config']
+      end
+
+      if attributes.key?(:'network_interfaces')
+        if (value = attributes[:'network_interfaces']).is_a?(Array)
           self.network_interfaces = value
         end
       end
 
-      if attributes.has_key?(:'organization')
+      if attributes.key?(:'organization')
         self.organization = attributes[:'organization']
       end
 
-      if attributes.has_key?(:'os')
+      if attributes.key?(:'os')
         self.os = attributes[:'os']
       end
 
-      if attributes.has_key?(:'remoteIP')
-        self.remote_ip = attributes[:'remoteIP']
+      if attributes.key?(:'os_family')
+        self.os_family = attributes[:'os_family']
       end
 
-      if attributes.has_key?(:'sshRootEnabled')
-        self.ssh_root_enabled = attributes[:'sshRootEnabled']
+      if attributes.key?(:'os_version_detail')
+        self.os_version_detail = attributes[:'os_version_detail']
       end
 
-      if attributes.has_key?(:'sshdParams')
-        if (value = attributes[:'sshdParams']).is_a?(Array)
+      if attributes.key?(:'provision_metadata')
+        self.provision_metadata = attributes[:'provision_metadata']
+      end
+
+      if attributes.key?(:'remote_ip')
+        self.remote_ip = attributes[:'remote_ip']
+      end
+
+      if attributes.key?(:'secure_login')
+        self.secure_login = attributes[:'secure_login']
+      end
+
+      if attributes.key?(:'serial_number')
+        self.serial_number = attributes[:'serial_number']
+      end
+
+      if attributes.key?(:'service_account_state')
+        self.service_account_state = attributes[:'service_account_state']
+      end
+
+      if attributes.key?(:'ssh_root_enabled')
+        self.ssh_root_enabled = attributes[:'ssh_root_enabled']
+      end
+
+      if attributes.key?(:'sshd_params')
+        if (value = attributes[:'sshd_params']).is_a?(Array)
           self.sshd_params = value
         end
       end
 
-      if attributes.has_key?(:'systemInsights')
-        self.system_insights = attributes[:'systemInsights']
+      if attributes.key?(:'system_insights')
+        self.system_insights = attributes[:'system_insights']
       end
 
-      if attributes.has_key?(:'systemTimezone')
-        self.system_timezone = attributes[:'systemTimezone']
+      if attributes.key?(:'system_timezone')
+        self.system_timezone = attributes[:'system_timezone']
       end
 
-      if attributes.has_key?(:'tags')
+      if attributes.key?(:'tags')
         if (value = attributes[:'tags']).is_a?(Array)
           self.tags = value
         end
       end
 
-      if attributes.has_key?(:'templateName')
-        self.template_name = attributes[:'templateName']
+      if attributes.key?(:'template_name')
+        self.template_name = attributes[:'template_name']
       end
 
-      if attributes.has_key?(:'version')
+      if attributes.key?(:'user_metrics')
+        if (value = attributes[:'user_metrics']).is_a?(Array)
+          self.user_metrics = value
+        end
+      end
+
+      if attributes.key?(:'version')
         self.version = attributes[:'version']
       end
-
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      return invalid_properties
+      invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return true
+      true
     end
 
     # Checks equality by comparing each attribute.
@@ -289,23 +440,40 @@ module JCAPIv1
           allow_ssh_root_login == o.allow_ssh_root_login &&
           amazon_instance_id == o.amazon_instance_id &&
           arch == o.arch &&
+          arch_family == o.arch_family &&
+          azure_ad_joined == o.azure_ad_joined &&
+          built_in_commands == o.built_in_commands &&
           connection_history == o.connection_history &&
           created == o.created &&
+          description == o.description &&
+          desktop_capable == o.desktop_capable &&
+          display_manager == o.display_manager &&
           display_name == o.display_name &&
+          domain_info == o.domain_info &&
           fde == o.fde &&
+          file_system == o.file_system &&
+          has_service_account == o.has_service_account &&
           hostname == o.hostname &&
           last_contact == o.last_contact &&
+          mdm == o.mdm &&
           modify_sshd_config == o.modify_sshd_config &&
           network_interfaces == o.network_interfaces &&
           organization == o.organization &&
           os == o.os &&
+          os_family == o.os_family &&
+          os_version_detail == o.os_version_detail &&
+          provision_metadata == o.provision_metadata &&
           remote_ip == o.remote_ip &&
+          secure_login == o.secure_login &&
+          serial_number == o.serial_number &&
+          service_account_state == o.service_account_state &&
           ssh_root_enabled == o.ssh_root_enabled &&
           sshd_params == o.sshd_params &&
           system_insights == o.system_insights &&
           system_timezone == o.system_timezone &&
           tags == o.tags &&
           template_name == o.template_name &&
+          user_metrics == o.user_metrics &&
           version == o.version
     end
 
@@ -316,9 +484,16 @@ module JCAPIv1
     end
 
     # Calculates hash code according to all attributes.
-    # @return [Fixnum] Hash code
+    # @return [Integer] Hash code
     def hash
-      [_id, active, agent_version, allow_multi_factor_authentication, allow_public_key_authentication, allow_ssh_password_authentication, allow_ssh_root_login, amazon_instance_id, arch, connection_history, created, display_name, fde, hostname, last_contact, modify_sshd_config, network_interfaces, organization, os, remote_ip, ssh_root_enabled, sshd_params, system_insights, system_timezone, tags, template_name, version].hash
+      [_id, active, agent_version, allow_multi_factor_authentication, allow_public_key_authentication, allow_ssh_password_authentication, allow_ssh_root_login, amazon_instance_id, arch, arch_family, azure_ad_joined, built_in_commands, connection_history, created, description, desktop_capable, display_manager, display_name, domain_info, fde, file_system, has_service_account, hostname, last_contact, mdm, modify_sshd_config, network_interfaces, organization, os, os_family, os_version_detail, provision_metadata, remote_ip, secure_login, serial_number, service_account_state, ssh_root_enabled, sshd_params, system_insights, system_timezone, tags, template_name, user_metrics, version].hash
+    end
+
+    # Builds the object from hash
+    # @param [Hash] attributes Model attributes in the form of hash
+    # @return [Object] Returns the model itself
+    def self.build_from_hash(attributes)
+      new.build_from_hash(attributes)
     end
 
     # Builds the object from hash
@@ -326,16 +501,18 @@ module JCAPIv1
     # @return [Object] Returns the model itself
     def build_from_hash(attributes)
       return nil unless attributes.is_a?(Hash)
-      self.class.swagger_types.each_pair do |key, type|
+      self.class.openapi_types.each_pair do |key, type|
         if type =~ /\AArray<(.*)>/i
-          # check to ensure the input is an array given that the the attribute
+          # check to ensure the input is an array given that the attribute
           # is documented as an array but the input is not
           if attributes[self.class.attribute_map[key]].is_a?(Array)
-            self.send("#{key}=", attributes[self.class.attribute_map[key]].map{ |v| _deserialize($1, v) } )
+            self.send("#{key}=", attributes[self.class.attribute_map[key]].map { |v| _deserialize($1, v) })
           end
         elsif !attributes[self.class.attribute_map[key]].nil?
           self.send("#{key}=", _deserialize(type, attributes[self.class.attribute_map[key]]))
-        end # or else data not found in attributes(hash), not an issue as the data can be optional
+        elsif attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
+          self.send("#{key}=", nil)
+        end
       end
 
       self
@@ -357,7 +534,7 @@ module JCAPIv1
         value.to_i
       when :Float
         value.to_f
-      when :BOOLEAN
+      when :Boolean
         if value.to_s =~ /\A(true|t|yes|y|1)\z/i
           true
         else
@@ -378,8 +555,7 @@ module JCAPIv1
           end
         end
       else # model
-        temp_model = JCAPIv1.const_get(type).new
-        temp_model.build_from_hash(value)
+        JCAPIv1.const_get(type).build_from_hash(value)
       end
     end
 
@@ -401,7 +577,11 @@ module JCAPIv1
       hash = {}
       self.class.attribute_map.each_pair do |attr, param|
         value = self.send(attr)
-        next if value.nil?
+        if value.nil?
+          is_nullable = self.class.openapi_nullable.include?(attr)
+          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
+        end
+
         hash[param] = _to_hash(value)
       end
       hash
@@ -413,7 +593,7 @@ module JCAPIv1
     # @return [Hash] Returns the value in the form of hash
     def _to_hash(value)
       if value.is_a?(Array)
-        value.compact.map{ |v| _to_hash(v) }
+        value.compact.map { |v| _to_hash(v) }
       elsif value.is_a?(Hash)
         {}.tap do |hash|
           value.each { |k, v| hash[k] = _to_hash(v) }
@@ -423,8 +603,5 @@ module JCAPIv1
       else
         value
       end
-    end
-
-  end
-
+    end  end
 end

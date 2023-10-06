@@ -19,10 +19,9 @@ Name | Type | Description | Notes
 **element** | **String** |  | [optional] 
 **environment** | **String** |  | [optional] 
 **info_string** | **String** |  | [optional] 
-**last_opened_time** | **Float** |  | [optional] 
+**last_opened_time** | [**BigDecimal**](BigDecimal.md) |  | [optional] 
 **minimum_system_version** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
 **path** | **String** |  | [optional] 
 **system_id** | **String** |  | [optional] 
-
 

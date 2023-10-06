@@ -13,4 +13,3 @@ Name | Type | Description | Notes
 **user_uuid** | **String** |  | [optional] 
 **uuid** | **String** |  | [optional] 
 
-

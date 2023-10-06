@@ -10,7 +10,6 @@ Method | HTTP request | Description
 [**ldapservers_samba_domains_post**](SambaDomainsApi.md#ldapservers_samba_domains_post) | **POST** /ldapservers/{ldapserver_id}/sambadomains | Create Samba Domain
 [**ldapservers_samba_domains_put**](SambaDomainsApi.md#ldapservers_samba_domains_put) | **PUT** /ldapservers/{ldapserver_id}/sambadomains/{id} | Update Samba Domain
 
-
 # **ldapservers_samba_domains_delete**
 > String ldapservers_samba_domains_delete(ldapserver_id, id, opts)
 
@@ -31,15 +30,10 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::SambaDomainsApi.new
-
-ldapserver_id = "ldapserver_id_example" # String | Unique identifier of the LDAP server.
-
-id = "id_example" # String | Unique identifier of the samba domain.
-
+ldapserver_id = 'ldapserver_id_example' # String | Unique identifier of the LDAP server.
+id = 'id_example' # String | Unique identifier of the samba domain.
 opts = { 
-  content_type: "application/json", # String | 
-  accept: "application/json", # String | 
-  x_org_id: "" # String | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
@@ -57,9 +51,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ldapserver_id** | **String**| Unique identifier of the LDAP server. | 
  **id** | **String**| Unique identifier of the samba domain. | 
- **content_type** | **String**|  | [optional] [default to application/json]
- **accept** | **String**|  | [optional] [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
@@ -71,13 +63,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **ldapservers_samba_domains_get**
-> SambaDomainOutput ldapservers_samba_domains_get(ldapserver_id, id, opts)
+> SambaDomain ldapservers_samba_domains_get(ldapserver_id, id, opts)
 
 Get Samba Domain
 
@@ -96,15 +88,10 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::SambaDomainsApi.new
-
-ldapserver_id = "ldapserver_id_example" # String | Unique identifier of the LDAP server.
-
-id = "id_example" # String | Unique identifier of the samba domain.
-
+ldapserver_id = 'ldapserver_id_example' # String | Unique identifier of the LDAP server.
+id = 'id_example' # String | Unique identifier of the samba domain.
 opts = { 
-  content_type: "application/json", # String | 
-  accept: "application/json", # String | 
-  x_org_id: "" # String | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
@@ -122,13 +109,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ldapserver_id** | **String**| Unique identifier of the LDAP server. | 
  **id** | **String**| Unique identifier of the samba domain. | 
- **content_type** | **String**|  | [optional] [default to application/json]
- **accept** | **String**|  | [optional] [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
-[**SambaDomainOutput**](SambaDomainOutput.md)
+[**SambaDomain**](SambaDomain.md)
 
 ### Authorization
 
@@ -136,13 +121,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **ldapservers_samba_domains_list**
-> Array&lt;SambaDomainOutput&gt; ldapservers_samba_domains_list(ldapserver_id, opts)
+> Array&lt;SambaDomain&gt; ldapservers_samba_domains_list(ldapserver_id, opts)
 
 List Samba Domains
 
@@ -161,18 +146,14 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::SambaDomainsApi.new
-
-ldapserver_id = "ldapserver_id_example" # String | Unique identifier of the LDAP server.
-
+ldapserver_id = 'ldapserver_id_example' # String | Unique identifier of the LDAP server.
 opts = { 
-  content_type: "application/json", # String | 
-  accept: "application/json", # String | 
-  fields: ["fields_example"], # Array<String> | The comma separated fields included in the returned records. If omitted, the default list of fields will be returned. 
-  filter: ["filter_example"], # Array<String> | Supported operators are: eq, ne, gt, ge, lt, le, between, search, in
+  fields: ['fields_example'], # Array<String> | The comma separated fields included in the returned records. If omitted, the default list of fields will be returned. 
+  filter: ['filter_example'], # Array<String> | A filter to apply to the query.  **Filter structure**: `<field>:<operator>:<value>`.  **field** = Populate with a valid field from an endpoint response.  **operator** =  Supported operators are: eq, ne, gt, ge, lt, le, between, search, in. _Note: v1 operators differ from v2 operators._  **value** = Populate with the value you want to search for. Is case sensitive. Supports wild cards.  **EX:** `GET /api/v2/groups?filter=name:eq:Test+Group`
   limit: 10, # Integer | The number of records to return at once. Limited to 100.
   skip: 0, # Integer | The offset into the records to return.
-  sort: ["sort_example"], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
-  x_org_id: "" # String | 
+  sort: ['sort_example'], # Array<String> | The comma separated fields used to sort the collection. Default sort is ascending, prefix with `-` to sort descending. 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
@@ -189,18 +170,16 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ldapserver_id** | **String**| Unique identifier of the LDAP server. | 
- **content_type** | **String**|  | [optional] [default to application/json]
- **accept** | **String**|  | [optional] [default to application/json]
  **fields** | [**Array&lt;String&gt;**](String.md)| The comma separated fields included in the returned records. If omitted, the default list of fields will be returned.  | [optional] 
- **filter** | [**Array&lt;String&gt;**](String.md)| Supported operators are: eq, ne, gt, ge, lt, le, between, search, in | [optional] 
+ **filter** | [**Array&lt;String&gt;**](String.md)| A filter to apply to the query.  **Filter structure**: &#x60;&lt;field&gt;:&lt;operator&gt;:&lt;value&gt;&#x60;.  **field** &#x3D; Populate with a valid field from an endpoint response.  **operator** &#x3D;  Supported operators are: eq, ne, gt, ge, lt, le, between, search, in. _Note: v1 operators differ from v2 operators._  **value** &#x3D; Populate with the value you want to search for. Is case sensitive. Supports wild cards.  **EX:** &#x60;GET /api/v2/groups?filter&#x3D;name:eq:Test+Group&#x60; | [optional] 
  **limit** | **Integer**| The number of records to return at once. Limited to 100. | [optional] [default to 10]
  **skip** | **Integer**| The offset into the records to return. | [optional] [default to 0]
  **sort** | [**Array&lt;String&gt;**](String.md)| The comma separated fields used to sort the collection. Default sort is ascending, prefix with &#x60;-&#x60; to sort descending.  | [optional] 
- **x_org_id** | **String**|  | [optional] [default to ]
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
-[**Array&lt;SambaDomainOutput&gt;**](SambaDomainOutput.md)
+[**Array&lt;SambaDomain&gt;**](SambaDomain.md)
 
 ### Authorization
 
@@ -208,17 +187,17 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
 
 # **ldapservers_samba_domains_post**
-> SambaDomainOutput ldapservers_samba_domains_post(ldapserver_id, opts)
+> SambaDomain ldapservers_samba_domains_post(ldapserver_id, opts)
 
 Create Samba Domain
 
-This endpoint allows you to create a samba domain for an LDAP server.  ##### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/sambadomains \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{ \"sid\":\"{SID_ID}\", \"name\":\"{WORKGROUP_NAME}\" }' ```
+This endpoint allows you to create a samba domain for an LDAP server.  ##### Sample Request ``` curl -X POST https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/sambadomains \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"sid\":\"{SID_ID}\",     \"name\":\"{WORKGROUP_NAME}\"   }' ```
 
 ### Example
 ```ruby
@@ -233,14 +212,10 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::SambaDomainsApi.new
-
-ldapserver_id = "ldapserver_id_example" # String | Unique identifier of the LDAP server.
-
+ldapserver_id = 'ldapserver_id_example' # String | Unique identifier of the LDAP server.
 opts = { 
-  body: JCAPIv2::SambaDomainInput.new, # SambaDomainInput | 
-  content_type: "application/json", # String | 
-  accept: "application/json", # String | 
-  x_org_id: "" # String | 
+  body: JCAPIv2::SambaDomain.new # SambaDomain | 
+  x_org_id: 'x_org_id_example' # String | Organization identifier that can be obtained from console settings.
 }
 
 begin
@@ -257,14 +232,12 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ldapserver_id** | **String**| Unique identifier of the LDAP server. | 
- **body** | [**SambaDomainInput**](SambaDomainInput.md)|  | [optional] 
- **content_type** | **String**|  | [optional] [default to application/json]
- **accept** | **String**|  | [optional] [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to ]
+ **body** | [**SambaDomain**](SambaDomain.md)|  | [optional] 
+ **x_org_id** | **String**| Organization identifier that can be obtained from console settings. | [optional] 
 
 ### Return type
 
-[**SambaDomainOutput**](SambaDomainOutput.md)
+[**SambaDomain**](SambaDomain.md)
 
 ### Authorization
 
@@ -278,11 +251,11 @@ Name | Type | Description  | Notes
 
 
 # **ldapservers_samba_domains_put**
-> SambaDomainOutput ldapservers_samba_domains_put(ldapserver_id, id, opts)
+> SambaDomain ldapservers_samba_domains_put(ldapserver_idid, opts)
 
 Update Samba Domain
 
-This endpoint allows you to update the samba domain information for an LDAP server.  ##### Sample Request ``` curl -X PUT https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/sambadomains/{SAMBA_ID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{ \"sid\":\"{SID_ID}\", \"name\":\"{WORKGROUP_NAME}\" }'  ```
+This endpoint allows you to update the samba domain information for an LDAP server.  ##### Sample Request ``` curl -X PUT https://console.jumpcloud.com/api/v2/ldapservers/{LDAP_ID}/sambadomains/{SAMBA_ID} \\   -H 'Accept: application/json' \\   -H 'Content-Type: application/json' \\   -H 'x-api-key: {API_KEY}' \\   -d '{     \"sid\":\"{SID_ID}\",     \"name\":\"{WORKGROUP_NAME}\"   }' ```
 
 ### Example
 ```ruby
@@ -297,21 +270,15 @@ JCAPIv2.configure do |config|
 end
 
 api_instance = JCAPIv2::SambaDomainsApi.new
-
-ldapserver_id = "ldapserver_id_example" # String | Unique identifier of the LDAP server.
-
-id = "id_example" # String | Unique identifier of the samba domain.
-
+ldapserver_id = 'ldapserver_id_example' # String | Unique identifier of the LDAP server.
+id = 'id_example' # String | Unique identifier of the samba domain.
 opts = { 
-  body: JCAPIv2::SambaDomainInput.new, # SambaDomainInput | 
-  content_type: "application/json", # String | 
-  accept: "application/json", # String | 
-  x_org_id: "" # String | 
+  body: JCAPIv2::SambaDomain.new # SambaDomain | 
 }
 
 begin
   #Update Samba Domain
-  result = api_instance.ldapservers_samba_domains_put(ldapserver_id, id, opts)
+  result = api_instance.ldapservers_samba_domains_put(ldapserver_idid, opts)
   p result
 rescue JCAPIv2::ApiError => e
   puts "Exception when calling SambaDomainsApi->ldapservers_samba_domains_put: #{e}"
@@ -324,14 +291,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ldapserver_id** | **String**| Unique identifier of the LDAP server. | 
  **id** | **String**| Unique identifier of the samba domain. | 
- **body** | [**SambaDomainInput**](SambaDomainInput.md)|  | [optional] 
- **content_type** | **String**|  | [optional] [default to application/json]
- **accept** | **String**|  | [optional] [default to application/json]
- **x_org_id** | **String**|  | [optional] [default to ]
+ **body** | [**SambaDomain**](SambaDomain.md)|  | [optional] 
 
 ### Return type
 
-[**SambaDomainOutput**](SambaDomainOutput.md)
+[**SambaDomain**](SambaDomain.md)
 
 ### Authorization
 

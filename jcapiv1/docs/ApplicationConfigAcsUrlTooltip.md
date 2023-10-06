@@ -6,4 +6,3 @@ Name | Type | Description | Notes
 **template** | **String** |  | [optional] 
 **variables** | [**ApplicationConfigAcsUrlTooltipVariables**](ApplicationConfigAcsUrlTooltipVariables.md) |  | [optional] 
 
-

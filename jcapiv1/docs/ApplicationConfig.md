@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **idp_certificate** | [**ApplicationConfigAcsUrl**](ApplicationConfigAcsUrl.md) |  | [optional] 
 **idp_entity_id** | [**ApplicationConfigAcsUrl**](ApplicationConfigAcsUrl.md) |  | [optional] 
 **idp_private_key** | [**ApplicationConfigAcsUrl**](ApplicationConfigAcsUrl.md) |  | [optional] 
+**sign_assertion** | [**ApplicationConfigSignAssertion**](ApplicationConfigSignAssertion.md) |  | [optional] 
+**sign_response** | [**ApplicationConfigSignAssertion**](ApplicationConfigSignAssertion.md) |  | [optional] 
 **sp_entity_id** | [**ApplicationConfigAcsUrl**](ApplicationConfigAcsUrl.md) |  | [optional] 
-
 

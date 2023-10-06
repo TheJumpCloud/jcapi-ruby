@@ -13,4 +13,3 @@ Name | Type | Description | Notes
 **value** | [**Array&lt;ApplicationConfigConstantAttributesValue&gt;**](ApplicationConfigConstantAttributesValue.md) |  | [optional] 
 **visible** | **BOOLEAN** |  | [optional] 
 
-

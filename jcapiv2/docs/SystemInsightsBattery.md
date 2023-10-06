@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amgerage** | **Integer** |  | [optional] 
+**amperage** | **Integer** |  | [optional] 
 **charged** | **Integer** |  | [optional] 
 **charging** | **Integer** |  | [optional] 
 **collection_time** | **String** |  | [optional] 
@@ -23,5 +23,4 @@ Name | Type | Description | Notes
 **state** | **String** |  | [optional] 
 **system_id** | **String** |  | [optional] 
 **voltage** | **Integer** |  | [optional] 
-
 

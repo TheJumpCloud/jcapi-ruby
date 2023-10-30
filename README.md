@@ -1,5 +1,10 @@
 ## JCAPI-Ruby
 
+# Status: Archived
+This repository has been archived and is no longer maintained. JumpCloud API documentation can be found [here](https://docs.jumpcloud.com/api/index.html). 
+
+![status: inactive](https://img.shields.io/badge/status-inactive-red.svg)
+
 ### Description
 
 This repository contains the Ruby client code for the JumpCloud API v1 and

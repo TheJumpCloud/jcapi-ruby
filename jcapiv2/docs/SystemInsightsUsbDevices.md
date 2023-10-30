@@ -18,4 +18,3 @@ Name | Type | Description | Notes
 **vendor_id** | **String** |  | [optional] 
 **version** | **String** |  | [optional] 
 
-

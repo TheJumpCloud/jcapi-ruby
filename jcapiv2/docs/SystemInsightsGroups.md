@@ -11,4 +11,3 @@ Name | Type | Description | Notes
 **groupname** | **String** |  | [optional] 
 **system_id** | **String** |  | [optional] 
 
-

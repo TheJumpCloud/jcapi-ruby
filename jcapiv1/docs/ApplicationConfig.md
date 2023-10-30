@@ -11,4 +11,3 @@ Name | Type | Description | Notes
 **idp_private_key** | [**ApplicationConfigAcsUrl**](ApplicationConfigAcsUrl.md) |  | [optional] 
 **sp_entity_id** | [**ApplicationConfigAcsUrl**](ApplicationConfigAcsUrl.md) |  | [optional] 
 
-

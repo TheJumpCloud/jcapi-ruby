@@ -7,4 +7,3 @@ Name | Type | Description | Notes
 **destination** | **String** | The location where the file will be stored. | [optional] 
 **name** | **String** | The file name. | [optional] 
 
-

@@ -7,4 +7,3 @@ Name | Type | Description | Notes
 **filter** | **Object** |  | [optional] 
 **search_filter** | **Object** |  | [optional] 
 
-

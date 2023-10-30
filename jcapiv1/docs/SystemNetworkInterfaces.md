@@ -8,4 +8,3 @@ Name | Type | Description | Notes
 **internal** | **BOOLEAN** |  | [optional] 
 **name** | **String** |  | [optional] 
 
-

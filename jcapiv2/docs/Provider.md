@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**contact** | [**ProviderContact**](ProviderContact.md) |  | [optional] 
-**name** | **String** |  | [optional] 
-
+**disallow_org_creation** | **BOOLEAN** |  | [optional] 
+**id** | **String** |  | [optional] 
 

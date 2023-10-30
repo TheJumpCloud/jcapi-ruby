@@ -17,4 +17,3 @@ Name | Type | Description | Notes
 **update_url** | **String** |  | [optional] 
 **version** | **String** |  | [optional] 
 
-

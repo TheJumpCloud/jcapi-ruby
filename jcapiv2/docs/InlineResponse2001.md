@@ -3,7 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**results** | [**Array&lt;Administrator&gt;**](Administrator.md) |  | [optional] 
-**total_count** | **Integer** |  | [optional] 
-
+**next_page_token** | **String** |  | [optional] 
+**users** | [**Array&lt;User&gt;**](User.md) |  | [optional] 
 

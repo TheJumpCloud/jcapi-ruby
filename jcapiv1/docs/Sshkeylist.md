@@ -8,4 +8,3 @@ Name | Type | Description | Notes
 **name** | **String** | The name of the SSH key. | [optional] 
 **public_key** | **String** | The Public SSH key. | [optional] 
 
-

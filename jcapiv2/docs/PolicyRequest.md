@@ -7,4 +7,3 @@ Name | Type | Description | Notes
 **template** | [**PolicyRequestTemplate**](PolicyRequestTemplate.md) |  | [optional] 
 **values** | [**Array&lt;PolicyValue&gt;**](PolicyValue.md) |  | [optional] 
 
-
